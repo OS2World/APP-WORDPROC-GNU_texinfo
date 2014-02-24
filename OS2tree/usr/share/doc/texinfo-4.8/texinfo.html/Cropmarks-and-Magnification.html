@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+<title>Cropmarks and Magnification - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Hardcopy.html#Hardcopy" title="Hardcopy">
+<link rel="prev" href="pagesizes.html#pagesizes" title="pagesizes">
+<link rel="next" href="PDF-Output.html#PDF-Output" title="PDF Output">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Cropmarks-and-Magnification"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="PDF-Output.html#PDF-Output">PDF Output</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="pagesizes.html#pagesizes">pagesizes</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Hardcopy.html#Hardcopy">Hardcopy</a>
+<hr>
+</div>
+
+<h3 class="section">20.14 Cropmarks and Magnification</h3>
+
+<p><a name="index-cropmarks-1070"></a><a name="index-Cropmarks-for-printing-1071"></a><a name="index-Printing-cropmarks-1072"></a>You can (attempt to) direct TeX to print cropmarks at the corners of
+pages with the <code>@cropmarks</code> command.  Write the <code>@cropmarks</code>
+command on a line by itself between <code>@iftex</code> and <code>@end
+iftex</code> lines near the beginning of the Texinfo file, before the title
+page, like this:
+
+<pre class="example">     @iftex
+     @cropmarks
+     @end iftex
+</pre>
+  <p>This command is mainly for printers that typeset several pages on one
+sheet of film; but you can attempt to use it to mark the corners of a
+book set to 7 by 9.25 inches with the <code>@smallbook</code> command. 
+(Printers will not produce cropmarks for regular sized output that is
+printed on regular sized paper.)  Since different printing machines work
+in different ways, you should explore the use of this command with a
+spirit of adventure.  You may have to redefine the command in
+<samp><span class="file">texinfo.tex</span></samp>.
+
+  <p><a name="index-g_t_005cmag-_0040r_007b_0028raw-_0040TeX_007b_007d-magnification_0029_007d-1073"></a><a name="index-Magnified-printing-1074"></a><a name="index-Larger-or-smaller-pages-1075"></a>You can attempt to direct TeX to typeset pages larger or smaller than
+usual with the <code>\mag</code> TeX command.  Everything that is typeset
+is scaled proportionally larger or smaller.  (<code>\mag</code> stands for
+&ldquo;magnification&rdquo;.)  This is <em>not</em> a Texinfo @-command, but is a
+plain TeX command that is prefixed with a backslash.  You have to
+write this command between <code>@tex</code> and <code>@end tex</code>
+(see <a href="Raw-Formatter-Commands.html#Raw-Formatter-Commands">Raw Formatter Commands</a>).
+
+  <p>Follow the <code>\mag</code> command with an `<samp><span class="samp">=</span></samp>' and then a number that
+is 1000 times the magnification you desire.  For example, to print pages
+at 1.2 normal size, write the following near the beginning of the
+Texinfo file, before the title page:
+
+<pre class="example">     @tex
+     \mag=1200
+     @end tex
+</pre>
+  <p>With some printing technologies, you can print normal-sized copies that
+look better than usual by giving a larger-than-normal master to your
+print shop.  They do the reduction, thus effectively increasing the
+resolution.
+
+  <p>Depending on your system, DVI files prepared with a
+nonstandard-<code>\mag</code> may not print or may print only with certain
+magnifications.  Be prepared to experiment.
+
+  </body></html>
+

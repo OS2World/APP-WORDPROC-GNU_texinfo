@@ -1,0 +1,216 @@
+<html lang="en">
+<head>
+<title>documentlanguage - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Internationalization.html#Internationalization" title="Internationalization">
+<link rel="next" href="documentencoding.html#documentencoding" title="documentencoding">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="documentlanguage"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="documentencoding.html#documentencoding">documentencoding</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Internationalization.html#Internationalization">Internationalization</a>
+<hr>
+</div>
+
+<h3 class="section">18.1 <code>@documentlanguage </code><var>cc</var>: Set the Document Language</h3>
+
+<p><a name="index-documentlanguage-923"></a><a name="index-Language_002c-declaring-924"></a><a name="index-Document-language_002c-declaring-925"></a>
+The <code>@documentlanguage</code> command declares the current document
+language.  Write it on a line by itself, with a two-letter ISO-639
+language code following (list is included below).  If you have a
+multilingual document, the intent is to be able to use this command
+multiple times, to declare each language change.  If the command is not
+used at all, the default is <code>en</code> for English.
+
+  <p><a name="index-g_t_0040file_007btxi_002d_0040var_007bcc_007d_002etex_007d-926"></a>At present, this command is ignored in Info and HTML output.  For
+TeX, it causes the file <samp><span class="file">txi-</span><var>cc</var><span class="file">.tex</span></samp> to be read (if it
+exists).  Such a file appropriately redefines the various English words
+used in TeX output, such as `Chapter', `See', and so on.
+
+  <p><a name="index-Hyphenation-patterns_002c-language_002ddependent-927"></a>It would be good if this command also changed TeX's ideas of the
+current hyphenation patterns (via the TeX primitive
+<code>\language</code>), but this is unfortunately not currently implemented.
+
+  <p><a name="index-ISO-639-codes-928"></a><a name="index-Language-codes-929"></a>Hereare the valid language codes, from ISO-639.
+
+  <p><table summary=""><tr align="left"><td valign="top" width="7%"><code>aa</code> </td><td valign="top" width="26%">Afar </td><td valign="top" width="7%">
+<code>ab</code> </td><td valign="top" width="26%">Abkhazian </td><td valign="top" width="7%">
+<code>af</code> </td><td valign="top" width="26%">Afrikaans
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>am</code> </td><td valign="top" width="26%">Amharic </td><td valign="top" width="7%">
+<code>ar</code> </td><td valign="top" width="26%">Arabic </td><td valign="top" width="7%">
+<code>as</code> </td><td valign="top" width="26%">Assamese
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>ay</code> </td><td valign="top" width="26%">Aymara </td><td valign="top" width="7%">
+<code>az</code> </td><td valign="top" width="26%">Azerbaijani </td><td valign="top" width="7%">
+<code>ba</code> </td><td valign="top" width="26%">Bashkir
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>be</code> </td><td valign="top" width="26%">Byelorussian </td><td valign="top" width="7%">
+<code>bg</code> </td><td valign="top" width="26%">Bulgarian </td><td valign="top" width="7%">
+<code>bh</code> </td><td valign="top" width="26%">Bihari
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>bi</code> </td><td valign="top" width="26%">Bislama </td><td valign="top" width="7%">
+<code>bn</code> </td><td valign="top" width="26%">Bengali; Bangla </td><td valign="top" width="7%">
+<code>bo</code> </td><td valign="top" width="26%">Tibetan
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>br</code> </td><td valign="top" width="26%">Breton </td><td valign="top" width="7%">
+<code>ca</code> </td><td valign="top" width="26%">Catalan </td><td valign="top" width="7%">
+<code>co</code> </td><td valign="top" width="26%">Corsican
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>cs</code> </td><td valign="top" width="26%">Czech </td><td valign="top" width="7%">
+<code>cy</code> </td><td valign="top" width="26%">Welsh </td><td valign="top" width="7%">
+<code>da</code> </td><td valign="top" width="26%">Danish
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>de</code> </td><td valign="top" width="26%">German </td><td valign="top" width="7%">
+<code>dz</code> </td><td valign="top" width="26%">Bhutani </td><td valign="top" width="7%">
+<code>el</code> </td><td valign="top" width="26%">Greek
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>en</code> </td><td valign="top" width="26%">English </td><td valign="top" width="7%">
+<code>eo</code> </td><td valign="top" width="26%">Esperanto </td><td valign="top" width="7%">
+<code>es</code> </td><td valign="top" width="26%">Spanish
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>et</code> </td><td valign="top" width="26%">Estonian </td><td valign="top" width="7%">
+<code>eu</code> </td><td valign="top" width="26%">Basque </td><td valign="top" width="7%">
+<code>fa</code> </td><td valign="top" width="26%">Persian
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>fi</code> </td><td valign="top" width="26%">Finnish </td><td valign="top" width="7%">
+<code>fj</code> </td><td valign="top" width="26%">Fiji </td><td valign="top" width="7%">
+<code>fo</code> </td><td valign="top" width="26%">Faroese
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>fr</code> </td><td valign="top" width="26%">French </td><td valign="top" width="7%">
+<code>fy</code> </td><td valign="top" width="26%">Frisian </td><td valign="top" width="7%">
+<code>ga</code> </td><td valign="top" width="26%">Irish
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>gd</code> </td><td valign="top" width="26%">Scots Gaelic </td><td valign="top" width="7%">
+<code>gl</code> </td><td valign="top" width="26%">Galician </td><td valign="top" width="7%">
+<code>gn</code> </td><td valign="top" width="26%">Guarani
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>gu</code> </td><td valign="top" width="26%">Gujarati </td><td valign="top" width="7%">
+<code>ha</code> </td><td valign="top" width="26%">Hausa </td><td valign="top" width="7%">
+<code>he</code> </td><td valign="top" width="26%">Hebrew
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>hi</code> </td><td valign="top" width="26%">Hindi </td><td valign="top" width="7%">
+<code>hr</code> </td><td valign="top" width="26%">Croatian </td><td valign="top" width="7%">
+<code>hu</code> </td><td valign="top" width="26%">Hungarian
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>hy</code> </td><td valign="top" width="26%">Armenian </td><td valign="top" width="7%">
+<code>ia</code> </td><td valign="top" width="26%">Interlingua </td><td valign="top" width="7%">
+<code>id</code> </td><td valign="top" width="26%">Indonesian
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>ie</code> </td><td valign="top" width="26%">Interlingue </td><td valign="top" width="7%">
+<code>ik</code> </td><td valign="top" width="26%">Inupiak </td><td valign="top" width="7%">
+<code>is</code> </td><td valign="top" width="26%">Icelandic
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>it</code> </td><td valign="top" width="26%">Italian </td><td valign="top" width="7%">
+<code>iu</code> </td><td valign="top" width="26%">Inuktitut </td><td valign="top" width="7%">
+<code>ja</code> </td><td valign="top" width="26%">Japanese
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>jw</code> </td><td valign="top" width="26%">Javanese </td><td valign="top" width="7%">
+<code>ka</code> </td><td valign="top" width="26%">Georgian </td><td valign="top" width="7%">
+<code>kk</code> </td><td valign="top" width="26%">Kazakh
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>kl</code> </td><td valign="top" width="26%">Greenlandic </td><td valign="top" width="7%">
+<code>km</code> </td><td valign="top" width="26%">Cambodian </td><td valign="top" width="7%">
+<code>kn</code> </td><td valign="top" width="26%">Kannada
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>ks</code> </td><td valign="top" width="26%">Kashmiri </td><td valign="top" width="7%">
+<code>ko</code> </td><td valign="top" width="26%">Korean </td><td valign="top" width="7%">
+<code>ku</code> </td><td valign="top" width="26%">Kurdish
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>ky</code> </td><td valign="top" width="26%">Kirghiz </td><td valign="top" width="7%">
+<code>la</code> </td><td valign="top" width="26%">Latin </td><td valign="top" width="7%">
+<code>ln</code> </td><td valign="top" width="26%">Lingala
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>lt</code> </td><td valign="top" width="26%">Lithuanian </td><td valign="top" width="7%">
+<code>lo</code> </td><td valign="top" width="26%">Laothian </td><td valign="top" width="7%">
+<code>lv</code> </td><td valign="top" width="26%">Latvian, Lettish
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>mg</code> </td><td valign="top" width="26%">Malagasy </td><td valign="top" width="7%">
+<code>mi</code> </td><td valign="top" width="26%">Maori </td><td valign="top" width="7%">
+<code>mk</code> </td><td valign="top" width="26%">Macedonian
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>ml</code> </td><td valign="top" width="26%">Malayalam </td><td valign="top" width="7%">
+<code>mn</code> </td><td valign="top" width="26%">Mongolian </td><td valign="top" width="7%">
+<code>mo</code> </td><td valign="top" width="26%">Moldavian
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>mr</code> </td><td valign="top" width="26%">Marathi </td><td valign="top" width="7%">
+<code>ms</code> </td><td valign="top" width="26%">Malay </td><td valign="top" width="7%">
+<code>mt</code> </td><td valign="top" width="26%">Maltese
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>my</code> </td><td valign="top" width="26%">Burmese </td><td valign="top" width="7%">
+<code>na</code> </td><td valign="top" width="26%">Nauru </td><td valign="top" width="7%">
+<code>ne</code> </td><td valign="top" width="26%">Nepali
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>nl</code> </td><td valign="top" width="26%">Dutch </td><td valign="top" width="7%">
+<code>no</code> </td><td valign="top" width="26%">Norwegian </td><td valign="top" width="7%">
+<code>oc</code> </td><td valign="top" width="26%">Occitan
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>om</code> </td><td valign="top" width="26%">(Afan) Oromo </td><td valign="top" width="7%">
+<code>or</code> </td><td valign="top" width="26%">Oriya </td><td valign="top" width="7%">
+<code>pa</code> </td><td valign="top" width="26%">Punjabi
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>pl</code> </td><td valign="top" width="26%">Polish </td><td valign="top" width="7%">
+<code>ps</code> </td><td valign="top" width="26%">Pashto, Pushto </td><td valign="top" width="7%">
+<code>pt</code> </td><td valign="top" width="26%">Portuguese
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>qu</code> </td><td valign="top" width="26%">Quechua </td><td valign="top" width="7%">
+<code>rm</code> </td><td valign="top" width="26%">Rhaeto-Romance </td><td valign="top" width="7%">
+<code>rn</code> </td><td valign="top" width="26%">Kirundi
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>ro</code> </td><td valign="top" width="26%">Romanian </td><td valign="top" width="7%">
+<code>ru</code> </td><td valign="top" width="26%">Russian </td><td valign="top" width="7%">
+<code>rw</code> </td><td valign="top" width="26%">Kinyarwanda
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>sa</code> </td><td valign="top" width="26%">Sanskrit </td><td valign="top" width="7%">
+<code>sd</code> </td><td valign="top" width="26%">Sindhi </td><td valign="top" width="7%">
+<code>sg</code> </td><td valign="top" width="26%">Sangro
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>sh</code> </td><td valign="top" width="26%">Serbo-Croatian </td><td valign="top" width="7%">
+<code>si</code> </td><td valign="top" width="26%">Sinhalese </td><td valign="top" width="7%">
+<code>sk</code> </td><td valign="top" width="26%">Slovak
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>sl</code> </td><td valign="top" width="26%">Slovenian </td><td valign="top" width="7%">
+<code>sm</code> </td><td valign="top" width="26%">Samoan </td><td valign="top" width="7%">
+<code>sn</code> </td><td valign="top" width="26%">Shona
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>so</code> </td><td valign="top" width="26%">Somali </td><td valign="top" width="7%">
+<code>sq</code> </td><td valign="top" width="26%">Albanian </td><td valign="top" width="7%">
+<code>sr</code> </td><td valign="top" width="26%">Serbian
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>ss</code> </td><td valign="top" width="26%">Siswati </td><td valign="top" width="7%">
+<code>st</code> </td><td valign="top" width="26%">Sesotho </td><td valign="top" width="7%">
+<code>su</code> </td><td valign="top" width="26%">Sundanese
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>sv</code> </td><td valign="top" width="26%">Swedish </td><td valign="top" width="7%">
+<code>sw</code> </td><td valign="top" width="26%">Swahili </td><td valign="top" width="7%">
+<code>ta</code> </td><td valign="top" width="26%">Tamil
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>te</code> </td><td valign="top" width="26%">Telugu </td><td valign="top" width="7%">
+<code>tg</code> </td><td valign="top" width="26%">Tajik </td><td valign="top" width="7%">
+<code>th</code> </td><td valign="top" width="26%">Thai
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>ti</code> </td><td valign="top" width="26%">Tigrinya </td><td valign="top" width="7%">
+<code>tk</code> </td><td valign="top" width="26%">Turkmen </td><td valign="top" width="7%">
+<code>tl</code> </td><td valign="top" width="26%">Tagalog
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>tn</code> </td><td valign="top" width="26%">Setswana </td><td valign="top" width="7%">
+<code>to</code> </td><td valign="top" width="26%">Tonga </td><td valign="top" width="7%">
+<code>tr</code> </td><td valign="top" width="26%">Turkish
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>ts</code> </td><td valign="top" width="26%">Tsonga </td><td valign="top" width="7%">
+<code>tt</code> </td><td valign="top" width="26%">Tatar </td><td valign="top" width="7%">
+<code>tw</code> </td><td valign="top" width="26%">Twi
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>ug</code> </td><td valign="top" width="26%">Uighur </td><td valign="top" width="7%">
+<code>uk</code> </td><td valign="top" width="26%">Ukrainian </td><td valign="top" width="7%">
+<code>ur</code> </td><td valign="top" width="26%">Urdu
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>uz</code> </td><td valign="top" width="26%">Uzbek </td><td valign="top" width="7%">
+<code>vi</code> </td><td valign="top" width="26%">Vietnamese </td><td valign="top" width="7%">
+<code>vo</code> </td><td valign="top" width="26%">Volapuk
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>wo</code> </td><td valign="top" width="26%">Wolof </td><td valign="top" width="7%">
+<code>xh</code> </td><td valign="top" width="26%">Xhosa </td><td valign="top" width="7%">
+<code>yi</code> </td><td valign="top" width="26%">Yiddish
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>yo</code> </td><td valign="top" width="26%">Yoruba </td><td valign="top" width="7%">
+<code>za</code> </td><td valign="top" width="26%">Zhuang </td><td valign="top" width="7%">
+<code>zh</code> </td><td valign="top" width="26%">Chinese
+<br></td></tr><tr align="left"><td valign="top" width="7%"><code>zu</code> </td><td valign="top" width="26%">Zulu
+  <br></td></tr></table>
+
+  </body></html>
+

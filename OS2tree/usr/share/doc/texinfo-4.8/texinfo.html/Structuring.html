@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+<title>Structuring - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Ending-a-File.html#Ending-a-File" title="Ending a File">
+<link rel="next" href="Nodes.html#Nodes" title="Nodes">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Structuring"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Nodes.html#Nodes">Nodes</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Ending-a-File.html#Ending-a-File">Ending a File</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">5 Chapter Structuring</h2>
+
+<p><a name="index-Chapter-structuring-271"></a><a name="index-Structuring-of-chapters-272"></a>
+The <dfn>chapter structuring</dfn> commands divide a document into a hierarchy of
+chapters, sections, subsections, and subsubsections.  These commands
+generate large headings; they also provide information for the table
+of contents of a printed manual (see <a href="Contents.html#Contents">Generating a Table of Contents</a>).
+
+  <p>The chapter structuring commands do not create an Info node structure,
+so normally you should put an <code>@node</code> command immediately before
+each chapter structuring command (see <a href="Nodes.html#Nodes">Nodes</a>).  The only time you
+are likely to use the chapter structuring commands without using the
+node structuring commands is if you are writing a document that
+contains no cross references and will never be transformed into Info
+format.
+
+  <p>It is unlikely that you will ever write a Texinfo file that is
+intended only as an Info file and not as a printable document.  If you
+do, you might still use chapter structuring commands to create a
+heading at the top of each node&mdash;but you don't need to.
+
+<ul class="menu">
+<li><a accesskey="1" href="Tree-Structuring.html#Tree-Structuring">Tree Structuring</a>:             A manual is like an upside down tree ... 
+<li><a accesskey="2" href="Structuring-Command-Types.html#Structuring-Command-Types">Structuring Command Types</a>:    How to divide a manual into parts. 
+<li><a accesskey="3" href="makeinfo-top.html#makeinfo-top">makeinfo top</a>:                 The <code>@top</code> command, part of the `Top' node. 
+<li><a accesskey="4" href="chapter.html#chapter">chapter</a>
+<li><a accesskey="5" href="unnumbered-_0026-appendix.html#unnumbered-_0026-appendix">unnumbered &amp; appendix</a>
+<li><a accesskey="6" href="majorheading-_0026-chapheading.html#majorheading-_0026-chapheading">majorheading &amp; chapheading</a>
+<li><a accesskey="7" href="section.html#section">section</a>
+<li><a accesskey="8" href="unnumberedsec-appendixsec-heading.html#unnumberedsec-appendixsec-heading">unnumberedsec appendixsec heading</a>
+<li><a accesskey="9" href="subsection.html#subsection">subsection</a>
+<li><a href="unnumberedsubsec-appendixsubsec-subheading.html#unnumberedsubsec-appendixsubsec-subheading">unnumberedsubsec appendixsubsec subheading</a>
+<li><a href="subsubsection.html#subsubsection">subsubsection</a>:                Commands for the lowest level sections. 
+<li><a href="Raise_002flower-sections.html#Raise_002flower-sections">Raise/lower sections</a>:         How to change commands' hierarchical level. 
+</ul>
+
+  </body></html>
+

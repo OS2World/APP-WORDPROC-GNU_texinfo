@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+<title>texinfo-format commands - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Creating-an-Info-File.html#Creating-an-Info-File" title="Creating an Info File">
+<link rel="prev" href="makeinfo-in-Emacs.html#makeinfo-in-Emacs" title="makeinfo in Emacs">
+<link rel="next" href="Batch-Formatting.html#Batch-Formatting" title="Batch Formatting">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="texinfo-format-commands"></a>
+<a name="texinfo_002dformat-commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Batch-Formatting.html#Batch-Formatting">Batch Formatting</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="makeinfo-in-Emacs.html#makeinfo-in-Emacs">makeinfo in Emacs</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Creating-an-Info-File.html#Creating-an-Info-File">Creating an Info File</a>
+<hr>
+</div>
+
+<h4 class="subsection">21.1.6 The <code>texinfo-format...</code> Commands</h4>
+
+<p>In GNU Emacs in Texinfo mode, you can format part or all of a Texinfo
+file with the <code>texinfo-format-region</code> command.  This formats the
+current region and displays the formatted text in a temporary buffer
+called `<samp><span class="samp">*Info Region*</span></samp>'.
+
+  <p>Similarly, you can format a buffer with the
+<code>texinfo-format-buffer</code> command.  This command creates a new
+buffer and generates the Info file in it.  Typing <kbd>C-x C-s</kbd> will
+save the Info file under the name specified by the
+<code>@setfilename</code> line which must be near the beginning of the
+Texinfo file.
+
+     <dl>
+<dt><kbd>C-c C-e C-r</kbd><dt><code>texinfo-format-region</code><dd><a name="index-texinfo_002dformat_002dregion-1164"></a>Format the current region for Info.
+
+     <br><dt><kbd>C-c C-e C-b</kbd><dt><code>texinfo-format-buffer</code><dd><a name="index-texinfo_002dformat_002dbuffer-1165"></a>Format the current buffer for Info. 
+</dl>
+
+  <p>The <code>texinfo-format-region</code> and <code>texinfo-format-buffer</code>
+commands provide you with some error checking, and other functions can
+provide you with further help in finding formatting errors.  These
+procedures are described in an appendix; see <a href="Catching-Mistakes.html#Catching-Mistakes">Catching Mistakes</a>. 
+However, the <code>makeinfo</code> program is often faster and
+provides better error checking (see <a href="makeinfo-in-Emacs.html#makeinfo-in-Emacs">makeinfo in Emacs</a>).
+
+  </body></html>
+

@@ -1,0 +1,136 @@
+<html lang="en">
+<head>
+<title>Sample Function Definition - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Definition-Commands.html#Definition-Commands" title="Definition Commands">
+<link rel="prev" href="Def-Cmd-Conventions.html#Def-Cmd-Conventions" title="Def Cmd Conventions">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Sample-Function-Definition"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Def-Cmd-Conventions.html#Def-Cmd-Conventions">Def Cmd Conventions</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Definition-Commands.html#Definition-Commands">Definition Commands</a>
+<hr>
+</div>
+
+<h3 class="section">16.7 A Sample Function Definition</h3>
+
+<p><a name="index-Function-definitions-878"></a><a name="index-Command-definitions-879"></a><a name="index-Macro-definitions-880"></a><a name="index-Sample-function-definition-881"></a>
+A function definition uses the <code>@defun</code> and <code>@end defun</code>
+commands.  The name of the function follows immediately after the
+<code>@defun</code> command and it is followed, on the same line, by the
+parameter list.
+
+  <p>Here is a definition from <a href="../elisp/Calling-Functions.html#Calling-Functions">Calling Functions</a>.
+
+  <blockquote>
+
+     <div class="defun">
+&mdash; Function: <b>apply</b><var> function &amp;rest arguments<a name="index-apply-882"></a></var><br>
+<blockquote><p><code>apply</code> calls <var>function</var> with <var>arguments</var>, just
+like <code>funcall</code> but with one difference: the last of
+<var>arguments</var> is a list of arguments to give to
+<var>function</var>, rather than a single argument.  We also say
+that this list is <dfn>appended</dfn> to the other arguments.
+
+            <p><code>apply</code> returns the result of calling <var>function</var>. 
+As with <code>funcall</code>, <var>function</var> must either be a Lisp
+function or a primitive function; special forms and macros
+do not make sense in <code>apply</code>.
+
+          <pre class="example">               (setq f 'list)
+                   =&gt; list
+               (apply f 'x 'y 'z)
+               error--&gt; Wrong type argument: listp, z
+               (apply '+ 1 2 '(3 4))
+                   =&gt; 10
+               (apply '+ '(1 2 3 4))
+                   =&gt; 10
+               
+               (apply 'append '((a b c) nil (x y z) nil))
+                   =&gt; (a b c x y z)
+          </pre>
+            <p>An interesting example of using <code>apply</code> is found in the description
+of <code>mapcar</code>. 
+</p></blockquote></div>
+  </blockquote>
+
+  <p>In the Texinfo source file, this example looks like this:
+
+<pre class="example">     @defun apply function &amp;rest arguments
+     @code{apply} calls @var{function} with
+     @var{arguments}, just like @code{funcall} but with one
+     difference: the last of @var{arguments} is a list of
+     arguments to give to @var{function}, rather than a single
+     argument.  We also say that this list is @dfn{appended}
+     to the other arguments.
+     
+     @code{apply} returns the result of calling
+     @var{function}.  As with @code{funcall},
+     @var{function} must either be a Lisp function or a
+     primitive function; special forms and macros do not make
+     sense in @code{apply}.
+     
+     @example
+     (setq f 'list)
+         @result{} list
+     (apply f 'x 'y 'z)
+     @error{} Wrong type argument: listp, z
+     (apply '+ 1 2 '(3 4))
+         @result{} 10
+     (apply '+ '(1 2 3 4))
+         @result{} 10
+     
+     (apply 'append '((a b c) nil (x y z) nil))
+         @result{} (a b c x y z)
+     @end example
+     
+     An interesting example of using @code{apply} is found
+     in the description of @code{mapcar}.
+     @end defun
+</pre>
+  <p class="noindent">In this manual, this function is listed in the Command and Variable
+Index under <code>apply</code>.
+
+  <p>Ordinary variables and user options are described using a format like
+that for functions except that variables do not take arguments.
+
+  </body></html>
+

@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+<title>Printed Books - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Overview.html#Overview" title="Overview">
+<link rel="prev" href="Info-Files.html#Info-Files" title="Info Files">
+<link rel="next" href="Formatting-Commands.html#Formatting-Commands" title="Formatting Commands">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Printed-Books"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Formatting-Commands.html#Formatting-Commands">Formatting Commands</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Info-Files.html#Info-Files">Info Files</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Overview.html#Overview">Overview</a>
+<hr>
+</div>
+
+<h3 class="section">1.5 Printed Books</h3>
+
+<p><a name="index-Printed-book-and-manual-characteristics-40"></a><a name="index-Manual-characteristics_002c-printed-41"></a><a name="index-Book-characteristics_002c-printed-42"></a><a name="index-Texinfo-printed-book-characteristics-43"></a><a name="index-Characteristics_002c-printed-books-or-manuals-44"></a>
+<a name="index-Knuth_002c-Donald-45"></a>A Texinfo file can be formatted and typeset as a printed book or manual. 
+To do this, you need TeX, a powerful, sophisticated typesetting
+program written by Donald Knuth.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
+
+  <p>A Texinfo-based book is similar to any other typeset, printed work: it
+can have a title page, copyright page, table of contents, and preface,
+as well as chapters, numbered or unnumbered sections and subsections,
+page headers, cross references, footnotes, and indices.
+
+  <p>You can use Texinfo to write a book without ever having the intention
+of converting it into online information.  You can use Texinfo for
+writing a printed novel, and even to write a printed memo, although
+this latter application is not recommended since electronic mail is so
+much easier.
+
+  <p>TeX is a general purpose typesetting program.  Texinfo provides a
+file <samp><span class="file">texinfo.tex</span></samp> that contains information (definitions or
+<dfn>macros</dfn>) that TeX uses when it typesets a Texinfo file. 
+(<samp><span class="file">texinfo.tex</span></samp> tells TeX how to convert the Texinfo @-commands
+to TeX commands, which TeX can then process to create the typeset
+document.)  <samp><span class="file">texinfo.tex</span></samp> contains the specifications for printing
+a document.  You can get the latest version of <samp><span class="file">texinfo.tex</span></samp> from
+<a href="ftp://ftp.gnu.org/gnu/texinfo/texinfo.tex">ftp://ftp.gnu.org/gnu/texinfo/texinfo.tex</a>.
+
+  <p>In the United States, documents are most often printed on 8.5 inch by 11
+inch pages (216<span class="dmn">mm</span> by 280<span class="dmn">mm</span>); this is the default size.  But
+you can also print for 7 inch by 9.25 inch pages (178<span class="dmn">mm</span> by
+235<span class="dmn">mm</span>, the <code>@smallbook</code> size; or on A4 or A5 size paper
+(<code>@afourpaper</code>, <code>@afivepaper</code>).  (See <a href="smallbook.html#smallbook">Printing &ldquo;Small&rdquo; Books</a>.  Also, see <a href="A4-Paper.html#A4-Paper">Printing on A4 Paper</a>.)
+
+  <p>By changing the parameters in <samp><span class="file">texinfo.tex</span></samp>, you can change the
+size of the printed document.  In addition, you can change the style in
+which the printed document is formatted; for example, you can change the
+sizes and fonts used, the amount of indentation for each paragraph, the
+degree to which words are hyphenated, and the like.  By changing the
+specifications, you can make a book look dignified, old and serious, or
+light-hearted, young and cheery.
+
+  <p>TeX is freely distributable.  It is written in a superset of Pascal
+called WEB and can be compiled either in Pascal or (by using a
+conversion program that comes with the TeX distribution) in C. 
+(See <a href="../emacs/TeX-Mode.html#TeX-Mode">TeX Mode</a>, for information
+about TeX.)
+
+  <p>TeX is very powerful and has a great many features.  Because a
+Texinfo file must be able to present information both on a
+character-only terminal in Info form and in a typeset book, the
+formatting commands that Texinfo supports are necessarily limited.
+
+  <p>To get a copy of TeX, see
+<a href="Obtaining-TeX.html#Obtaining-TeX">How to Obtain TeX</a>.
+
+  <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> You can also use the
+<a name="index-texi2roff_0040r_007b_002c-unsupported-software_007d-46"></a><a href="ftp://tug.org/texi2roff.tar.gz"><code>texi2roff</code></a> program if you
+do not have TeX; since Texinfo is designed for use with TeX,
+<code>texi2roff</code> is not described here.  <code>texi2roff</code> is not part of
+the standard GNU distribution and is not maintained or up-to-date with
+all the Texinfo features described in this manual.</p>
+
+  <p><hr></div>
+
+  </body></html>
+

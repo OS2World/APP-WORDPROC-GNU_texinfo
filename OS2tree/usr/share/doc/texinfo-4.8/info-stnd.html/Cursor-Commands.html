@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+<title>Cursor Commands - GNU Info 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Info 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Invoking-Info.html#Invoking-Info" title="Invoking Info">
+<link rel="next" href="Scrolling-Commands.html#Scrolling-Commands" title="Scrolling Commands">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Info (version 4.8, 14 December 2004),
+a program for viewing documents in Info format (usually created from
+Texinfo source files).
+
+Copyright (C) 1992, 1993, 1996, 1997, 1998, 1999, 2001, 2002,
+2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Cursor-Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Scrolling-Commands.html#Scrolling-Commands">Scrolling Commands</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Invoking-Info.html#Invoking-Info">Invoking Info</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">3 Moving the Cursor</h2>
+
+<p><a name="index-cursor_002c-moving-37"></a><a name="index-moving-the-cursor-38"></a>
+Many people find that reading screens of text page by page is made
+easier when one is able to indicate particular pieces of text with
+some kind of pointing device.  Since this is the case, GNU Info (both
+the Emacs and standalone versions) have several commands which allow
+you to move the cursor about the screen.  The notation used in this
+manual to describe keystrokes is identical to the notation used within
+the Emacs manual, and the GNU Readline manual.  See <a href="../emacs/User-Input.html#User-Input">User Input</a>, if you are unfamiliar with the
+notation.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
+
+   <p>The following table lists the basic cursor movement commands in Info. 
+Each entry consists of the key sequence you should type to execute the
+cursor movement, the <code>M-x</code><a rel="footnote" href="#fn-2" name="fnd-2"><sup>2</sup></a> command name (displayed in parentheses), and a short
+description of what the command does.  All of the cursor motion commands
+can take a <dfn>numeric</dfn> argument (see <a href="Miscellaneous-Commands.html#Miscellaneous-Commands"><code>universal-argument</code></a>.  With a
+numeric argument, the motion commands are simply executed that
+many times; for example, a numeric argument of 4 given to
+<code>next-line</code> causes the cursor to move down 4 lines.  With a
+negative numeric argument, the motion is reversed; an argument of -4
+given to the <code>next-line</code> command would cause the cursor to move
+<em>up</em> 4 lines.
+
+     <dl>
+<dt>&lt;C-n&gt; (<code>next-line</code>)<dt>&lt;DOWN&gt; (an arrow key)<dd><a name="index-C_002dn-39"></a><a name="index-DOWN-_0028an-arrow-key_0029-40"></a><a name="index-next_002dline-41"></a>Move the cursor down to the next line.
+
+     <br><dt>&lt;C-p&gt; (<code>prev-line</code>)<dt>&lt;UP&gt; (an arrow key)<dd><a name="index-C_002dp-42"></a><a name="index-UP-_0028an-arrow-key_0029-43"></a><a name="index-prev_002dline-44"></a>Move the cursor up to the previous line.
+
+     <br><dt>&lt;C-a&gt; (<code>beginning-of-line</code>)<dt>&lt;Home&gt; (on DOS/Windows only)<dd><a name="index-C_002da_002c-in-Info-windows-45"></a><a name="index-Home-46"></a><a name="index-beginning_002dof_002dline-47"></a>Move the cursor to the start of the current line.
+
+     <br><dt>&lt;C-e&gt; (<code>end-of-line</code>)<dt>&lt;End&gt; (on DOS/Windows only)<dd><a name="index-C_002de_002c-in-Info-windows-48"></a><a name="index-End-49"></a><a name="index-end_002dof_002dline-50"></a>Move the cursor to the end of the current line.
+
+     <br><dt>&lt;C-f&gt; (<code>forward-char</code>)<dt>&lt;RIGHT&gt; (an arrow key)<dd><a name="index-C_002df_002c-in-Info-windows-51"></a><a name="index-RIGHT-_0028an-arrow-key_0029-52"></a><a name="index-forward_002dchar-53"></a>Move the cursor forward a character.
+
+     <br><dt>&lt;C-b&gt; (<code>backward-char</code>)<dt>&lt;LEFT&gt; (an arrow key)<dd><a name="index-C_002db_002c-in-Info-windows-54"></a><a name="index-LEFT-_0028an-arrow-key_0029-55"></a><a name="index-backward_002dchar-56"></a>Move the cursor backward a character.
+
+     <br><dt>&lt;M-f&gt; (<code>forward-word</code>)<dt><kbd>C-&lt;RIGHT&gt;</kbd> (on DOS/Windows only)<dd><a name="index-M_002df_002c-in-Info-windows-57"></a><a name="index-C_002dRIGHT-58"></a><a name="index-forward_002dword-59"></a>Move the cursor forward a word.
+
+     <br><dt>&lt;M-b&gt; (<code>backward-word</code>)<dt><kbd>C-&lt;LEFT&gt;</kbd> (on DOS/Windows only)<dd><a name="index-M_002db_002c-in-Info-windows-60"></a><a name="index-C_002dLEFT-61"></a><a name="index-backward_002dword-62"></a>Move the cursor backward a word.
+
+     <br><dt>&lt;M-&lt;&gt; (<code>beginning-of-node</code>)<dt>&lt;C-&lt;Home&gt;&gt; (on DOS/Windows only)<dt>&lt;b&gt;<dt>&lt;M-b&gt;, vi-like operation<dd><a name="index-b_002c-in-Info-windows-63"></a><a name="index-M_002d_003c-64"></a><a name="index-C_002dHome-65"></a><a name="index-M_002db_002c-vi_002dlike-operation-66"></a><a name="index-beginning_002dof_002dnode-67"></a>Move the cursor to the start of the current node.
+
+     <br><dt>&lt;M-&gt;&gt; (<code>end-of-node</code>)<dt>&lt;C-&lt;End&gt;&gt; (on DOS/Windows only)<dt>&lt;e&gt;<dd><a name="index-M_002d_003e-68"></a><a name="index-e_002c-in-Info-windows-69"></a><a name="index-C_002dEnd-70"></a><a name="index-end_002dof_002dnode-71"></a>Move the cursor to the end of the current node.
+
+     <br><dt>&lt;M-r&gt; (<code>move-to-window-line</code>)<dd><a name="index-M_002dr-72"></a><a name="index-move_002dto_002dwindow_002dline-73"></a>Move the cursor to a specific line of the window.  Without a numeric
+argument, <code>M-r</code> moves the cursor to the start of the line in the
+center of the window.  With a numeric argument of <var>n</var>, <code>M-r</code>
+moves the cursor to the start of the <var>n</var>th line in the window. 
+</dl>
+
+   <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> Here's a short summary.  <kbd>C-</kbd><var>x</var> means
+press the <kbd>CTRL</kbd> key and the key <var>x</var>.  <kbd>M-</kbd><var>x</var> means
+press the <kbd>META</kbd> key and the key <var>x</var>.  On many terminals th
+<kbd>META</kbd> key is known as the <kbd>ALT</kbd> key.  <kbd>SPC</kbd> is the space
+bar.  The other keys are usually called by the names imprinted on
+them.</p>
+
+   <p class="footnote"><small>[<a name="fn-2" href="#fnd-2">2</a>]</small> <code>M-x</code> is also a command; it
+invokes <code>execute-extended-command</code>.  See <a href="../emacs/M_002dx.html#M_002dx">Executing an extended command</a>, for more detailed
+information.</p>
+
+   <p><hr></div>
+
+   </body></html>
+

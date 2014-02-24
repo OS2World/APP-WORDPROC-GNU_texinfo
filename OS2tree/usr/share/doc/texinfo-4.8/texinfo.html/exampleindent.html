@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+<title>exampleindent - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Global-Document-Commands.html#Global-Document-Commands" title="Global Document Commands">
+<link rel="prev" href="firstparagraphindent.html#firstparagraphindent" title="firstparagraphindent">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="exampleindent"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="firstparagraphindent.html#firstparagraphindent">firstparagraphindent</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Global-Document-Commands.html#Global-Document-Commands">Global Document Commands</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.7.5 <code>@exampleindent</code>: Environment Indenting</h4>
+
+<p><a name="index-Indenting-environments-252"></a><a name="index-Environment-indentation-253"></a><a name="index-Example-indentation-254"></a><a name="index-exampleindent-255"></a>
+The Texinfo processors indent each line of <code>@example</code> and similar
+environments.  You can use the <code>@exampleindent</code> command to specify
+this indentation.  Write an <code>@exampleindent</code> command at the
+beginning of a line followed by either `<samp><span class="samp">asis</span></samp>' or a number:
+
+<pre class="example">     @exampleindent <var>indent</var>
+</pre>
+  <p><code>@exampleindent</code> is ignored for HTML output.  Otherwise, the
+indentation is according to the value of <var>indent</var>:
+
+     <dl>
+<dt><code>asis</code><dd>Do not change the existing indentation (not implemented in TeX).
+
+     <br><dt>0<dd>Omit all indentation.
+
+     <br><dt><var>n</var><dd>Indent environments by <var>n</var> space characters in Info output, by
+<var>n</var> ems in TeX.
+
+  </dl>
+
+  <p>The default value of <var>indent</var> is 5 spaces in Info, and 0.4<span class="dmn">in</span>
+in TeX, which is somewhat less.  (The reduction is to help TeX
+fit more characters onto physical lines.)
+
+  <p>It is best to write the <code>@exampleindent</code> command before the
+end-of-header line at the beginning of a Texinfo file, so the region
+formatting commands indent paragraphs as specified.  See <a href="Start-of-Header.html#Start-of-Header">Start of Header</a>.
+
+  </body></html>
+

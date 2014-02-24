@@ -1,0 +1,132 @@
+<html lang="en">
+<head>
+<title>Printing Indices &amp; Menus - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Ending-a-File.html#Ending-a-File" title="Ending a File">
+<link rel="next" href="File-End.html#File-End" title="File End">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Printing-Indices-%26-Menus"></a>
+<a name="Printing-Indices-_0026-Menus"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="File-End.html#File-End">File End</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Ending-a-File.html#Ending-a-File">Ending a File</a>
+<hr>
+</div>
+
+<h3 class="section">4.1 Printing Indices and Menus</h3>
+
+<p><a name="index-Printing-an-index-265"></a><a name="index-Indices_002c-printing-and-menus-266"></a><a name="index-Generating-menus-with-indices-267"></a><a name="index-Menus-generated-with-indices-268"></a>
+To print an index means to include it as part of a manual or Info file. 
+This does not happen automatically just because you use <code>@cindex</code>
+or other index-entry generating commands in the Texinfo file; those just
+cause the raw data for the index to be accumulated.  To generate an
+index, you must include the <code>@printindex</code> command at the place in
+the document where you want the index to appear.  Also, as part of the
+process of creating a printed manual, you must run a program called
+<code>texindex</code> (see <a href="Hardcopy.html#Hardcopy">Hardcopy</a>) to sort the raw data to produce a
+sorted index file.  The sorted index file is what is actually used to
+print the index.
+
+  <p>Texinfo offers six separate types of predefined index, which suffice
+in most cases.  See <a href="Indices.html#Indices">Indices</a>, for information on this, as well
+defining your own new indices, combining indices, and, most
+importantly advice on writing the actual index entries.  This section
+focuses on printing indices, which is done with the
+<code>@printindex</code> command.
+
+  <p><a name="index-printindex-269"></a><code>@printindex</code> takes one argument, a two-letter index
+abbreviation.  It reads the corresponding sorted index file (for
+printed output), and formats it appropriately into an index.
+
+  <p>The <code>@printindex</code> command does not generate a chapter heading
+for the index, since different manuals have different needs. 
+Consequently, you should precede the <code>@printindex</code> command with
+a suitable section or chapter command (usually <code>@appendix</code> or
+<code>@unnumbered</code>) to supply the chapter heading and put the index
+into the table of contents.  Precede the chapter heading with an
+<code>@node</code> line as usual.
+
+  <p>For example:
+
+<pre class="smallexample">     @node Variable Index
+     @unnumbered Variable Index
+     
+     @printindex vr
+     
+     @node Concept Index
+     @unnumbered Concept Index
+     
+     @printindex cp
+</pre>
+  <p>If you have more than one index, we recommend placing the concept index last.
+
+     <ul>
+<li>In printed output, <code>@printindex</code> produces a traditional
+two-column index, with dot leaders between the index terms and page
+numbers.
+
+     <li>In Info output, <code>@printindex</code> produces a special menu containing
+the line number of the entry, relative to the start of the node.  Info
+readers can use this to go to the exact line of an entry, not just the
+containing node.  (Older Info readers will just go to the node.) 
+Here's an example:
+
+     <pre class="smallexample">          * First index entry:   Top.   (line  7)
+     </pre>
+     <p class="noindent">The actual number of spaces is variable, to right-justify
+the line number; it's been reduced here to make the line fit in the
+printed manual.
+
+     <li>In plain text output, <code>@printindex</code> produces the same menu, but
+the line numbers are relative to the start of the file, since that's
+more convenient for that format.
+
+     <li>In HTML and Docbook output, <code>@printindex</code> produces links
+to the index entries.
+
+     <li>In XML output, it simply records the index to be printed. 
+</ul>
+
+  <p>It's not possible to generate an index when writing to standard
+output; <samp><span class="command">makeinfo</span></samp> generates a warning in this case.
+
+  </body></html>
+

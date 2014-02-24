@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+<title>HTML Xref Mismatch - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="HTML-Xref.html#HTML-Xref" title="HTML Xref">
+<link rel="prev" href="HTML-Xref-8_002dbit-Character-Expansion.html#HTML-Xref-8_002dbit-Character-Expansion" title="HTML Xref 8-bit Character Expansion">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="HTML-Xref-Mismatch"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="HTML-Xref-8_002dbit-Character-Expansion.html#HTML-Xref-8_002dbit-Character-Expansion">HTML Xref 8-bit Character Expansion</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="HTML-Xref.html#HTML-Xref">HTML Xref</a>
+<hr>
+</div>
+
+<h4 class="subsection">22.4.5 HTML Cross-reference Mismatch</h4>
+
+<p><a name="index-HTML-cross_002dreference-mismatch-1241"></a><a name="index-Mismatched-HTML-cross_002dreference-source-and-target-1242"></a>
+As mentioned earlier (see <a href="HTML-Xref-Link-Basics.html#HTML-Xref-Link-Basics">HTML Xref Link Basics</a>), the generating
+software has to guess whether a given manual being cross-referenced is
+available in split or monolithic form&mdash;and, inevitably, it might
+guess wrong.  However, it is possible when the referent manual itself
+is generated, it is possible to handle at least some mismatches.
+
+  <p>In the case where we assume the referent is split, but it is actually
+available in mono, the only recourse would be to generate a
+<samp><span class="file">manual/</span></samp> subdirectory full of HTML files which redirect back to
+the monolithic <samp><span class="file">manual.html</span></samp>.  Since this is essentially the same
+as a split manual in the first place, it's not very appealing.
+
+  <p>On the other hand, in the case where we assume the referent is mono,
+but it is actually available in split, it is possible to use
+JavaScript to redirect from the putatively monolithic
+<samp><span class="file">manual.html</span></samp> to the different <samp><span class="file">manual/node.html</span></samp> files. 
+Here's an example:
+
+<pre class="example">     function redirect() {
+       switch (location.hash) {
+         case "#Node1":
+           location.replace("manual/Node1.html#Node1"); break;
+         case "#Node2" :
+           location.replace("manual/Node2.html#Node2"); break;
+         ...
+         default:;
+       }
+     }
+</pre>
+  <p>Then, in the <code>&lt;body&gt;</code> tag of <samp><span class="file">manual.html</span></samp>:
+
+<pre class="example">     &lt;body onLoad="redirect();"&gt;
+</pre>
+  <p>Once again, this is something the software which generated the
+<em>referent</em> manual has to do in advance, it's not something the
+software generating the actual cross-reference in the present manual
+can control.
+
+  <p>Ultimately, we hope to allow for an external configuration file to
+control which manuals are available from where, and how.
+
+  </body></html>
+

@@ -1,0 +1,148 @@
+<html lang="en">
+<head>
+<title>Preparing for TeX - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Hardcopy.html#Hardcopy" title="Hardcopy">
+<link rel="prev" href="Requirements-Summary.html#Requirements-Summary" title="Requirements Summary">
+<link rel="next" href="Overfull-hboxes.html#Overfull-hboxes" title="Overfull hboxes">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Preparing-for-TeX"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Overfull-hboxes.html#Overfull-hboxes">Overfull hboxes</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Requirements-Summary.html#Requirements-Summary">Requirements Summary</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Hardcopy.html#Hardcopy">Hardcopy</a>
+<hr>
+</div>
+
+<h3 class="section">20.9 Preparing for TeX</h3>
+
+<p><a name="index-Preparing-for-_0040TeX_007b_007d-1023"></a><a name="index-g_t_0040TeX_007b_007d-input-initialization-1024"></a><a name="index-g_t_0040b_007b_002eprofile_007d-initialization-file-1025"></a><a name="index-g_t_0040b_007b_002ecshrc_007d-initialization-file-1026"></a><a name="index-Initialization-file-for-_0040TeX_007b_007d-input-1027"></a>
+TeX needs to know where to find the <samp><span class="file">texinfo.tex</span></samp> file that the
+`<samp><span class="samp">\input texinfo</span></samp>' command on the first line reads.  The
+<samp><span class="file">texinfo.tex</span></samp> file tells TeX how to handle @-commands; it is
+included in all standard GNU distributions.  The latest version is
+always available from the Texinfo source repository:
+<pre class="smalldisplay">     <a href="http://savannah.gnu.org/cgi-bin/viewcvs/texinfo/texinfo/doc/texinfo.tex?rev=HEAD">http://savannah.gnu.org/cgi-bin/viewcvs/texinfo/texinfo/doc/texinfo.tex?rev=HEAD</a>
+</pre>
+  <p><a name="index-texinfo_002etex_0040r_007b_002c-installing_007d-1028"></a>
+Usually, the installer has put the <samp><span class="file">texinfo.tex</span></samp> file in the
+default directory that contains TeX macros when GNU Texinfo, Emacs or
+other GNU software is installed.  In this case, TeX will find the
+file and you do not need to do anything special.  If this has not been
+done, you can put <samp><span class="file">texinfo.tex</span></samp> in the current directory when you
+run TeX, and TeX will find it there.
+
+  <p><a name="index-epsf_002etex_0040r_007b_002c-installing_007d-1029"></a>Also, you should install <samp><span class="file">epsf.tex</span></samp>, if it is not already installed
+from another distribution.  More details are at the end of the description
+of the <code>@image</code> command (see <a href="Images.html#Images">Images</a>).
+
+  <p><a name="index-pdfcolor_002etex_0040r_007b_002c-installing_007d-1030"></a>Likewise for <samp><span class="file">pdfcolor.tex</span></samp>, if it is not already installed and you
+use pdftex.
+
+  <p><a name="index-texinfo_002ecnf-_0040r_007binstallation_007d-1031"></a><a name="index-Customizing-of-_0040TeX_007b_007d-for-Texinfo-1032"></a><a name="index-Site_002dwide-Texinfo-configuration-file-1033"></a>Optionally, you may create an additional <samp><span class="file">texinfo.cnf</span></samp>, and install
+it as well.  This file is read by TeX when the <code>@setfilename</code>
+command is executed (see <a href="setfilename.html#setfilename"><code>@setfilename</code></a>).  You can put any
+commands you like there, according to local site-wide conventions.  They
+will be read by TeX when processing any Texinfo document.  For
+example, if <samp><span class="file">texinfo.cnf</span></samp> contains the line `<samp><span class="samp">@afourpaper</span></samp>'
+(see <a href="A4-Paper.html#A4-Paper">A4 Paper</a>), then all Texinfo documents will be processed with
+that page size in effect.  If you have nothing to put in
+<samp><span class="file">texinfo.cnf</span></samp>, you do not need to create it.
+
+  <p><a name="index-Environment-variable-_0040code_007bTEXINPUTS_007d-1034"></a><a name="index-TEXINPUTS-1035"></a>If neither of the above locations for these system files suffice for
+you, you can specify the directories explicitly.  For
+<samp><span class="file">texinfo.tex</span></samp>, you can do this by writing the complete path for the
+file after the <code>\input</code> command.  Another way, that works for both
+<samp><span class="file">texinfo.tex</span></samp> and <samp><span class="file">texinfo.cnf</span></samp> (and any other file TeX
+might read), is to set the <code>TEXINPUTS</code> environment variable in your
+<samp><span class="file">.cshrc</span></samp> or <samp><span class="file">.profile</span></samp> file.
+
+  <p>Which you use of <samp><span class="file">.cshrc</span></samp> or <samp><span class="file">.profile</span></samp> depends on
+whether you use a Bourne shell-compatible (<code>sh</code>, <code>bash</code>,
+<code>ksh</code>, <small class="dots">...</small>) or C shell-compatible (<code>csh</code>, <code>tcsh</code>)
+command interpreter.  The latter read the <samp><span class="file">.cshrc</span></samp> file for
+initialization information, and the former read <samp><span class="file">.profile</span></samp>.
+
+  <p>In a <samp><span class="file">.cshrc</span></samp> file, you could use the following <code>csh</code> command
+sequence:
+
+<pre class="example">     setenv TEXINPUTS .:/home/me/mylib:
+</pre>
+  <p>In a <samp><span class="file">.profile</span></samp> file, you could use the following <code>sh</code> command
+sequence:
+
+<pre class="example">     TEXINPUTS=.:/home/me/mylib:
+     export TEXINPUTS
+</pre>
+  <p>On MS-DOS/MS-Windows, you would say it like this<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>:
+
+<pre class="example">     set TEXINPUTS=.;d:/home/me/mylib;c:
+</pre>
+  <p class="noindent">It is customary for DOS/Windows users to put such commands in the
+<samp><span class="file">autoexec.bat</span></samp> file, or in the Windows Registry.
+
+<p class="noindent">These settings would cause TeX to look for <samp><span class="file">\input</span></samp> file first
+in the current directory, indicated by the `<samp><span class="samp">.</span></samp>', then in a
+hypothetical user `<samp><span class="samp">me</span></samp>''s <samp><span class="file">mylib</span></samp> directory, and finally in
+the system directories.  (A leading, trailing, or doubled `<samp><span class="samp">:</span></samp>'
+indicates searching the system directories at that point.)
+
+  <p><a name="index-Dumping-a-_002efmt-file-1036"></a><a name="index-Format-file_002c-dumping-1037"></a>Finally, you may wish to dump a <samp><span class="file">.fmt</span></samp> file (see <a href="../web2c/Memory-dumps.html#Memory-dumps">Memory dumps</a>) so that TeX can load Texinfo faster.  (The
+disadvantage is that then updating <samp><span class="file">texinfo.tex</span></samp> requires
+redumping.)  You can do this by running this command, assuming
+<samp><span class="file">epsf.tex</span></samp> is findable by TeX:
+
+<pre class="example">     initex texinfo @dump
+</pre>
+  <p>(<code>dump</code> is a TeX primitive.)  Then, move <samp><span class="file">texinfo.fmt</span></samp> to
+wherever your <code>.fmt</code> files are found; typically, this will be in the
+subdirectory <samp><span class="file">web2c</span></samp> of your TeX installation.
+
+  <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> Note the use
+of the `<samp><span class="samp">;</span></samp>' character, instead of `<samp><span class="samp">:</span></samp>', as directory separator
+on these systems.</p>
+
+  <p><hr></div>
+
+  </body></html>
+

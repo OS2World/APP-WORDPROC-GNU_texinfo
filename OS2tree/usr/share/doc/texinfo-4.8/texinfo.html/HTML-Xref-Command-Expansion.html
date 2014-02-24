@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+<title>HTML Xref Command Expansion - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="HTML-Xref.html#HTML-Xref" title="HTML Xref">
+<link rel="prev" href="HTML-Xref-Node-Name-Expansion.html#HTML-Xref-Node-Name-Expansion" title="HTML Xref Node Name Expansion">
+<link rel="next" href="HTML-Xref-8_002dbit-Character-Expansion.html#HTML-Xref-8_002dbit-Character-Expansion" title="HTML Xref 8-bit Character Expansion">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="HTML-Xref-Command-Expansion"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="HTML-Xref-8_002dbit-Character-Expansion.html#HTML-Xref-8_002dbit-Character-Expansion">HTML Xref 8-bit Character Expansion</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="HTML-Xref-Node-Name-Expansion.html#HTML-Xref-Node-Name-Expansion">HTML Xref Node Name Expansion</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="HTML-Xref.html#HTML-Xref">HTML Xref</a>
+<hr>
+</div>
+
+<h4 class="subsection">22.4.3 HTML Cross-reference Command Expansion</h4>
+
+<p><a name="index-HTML-cross_002dreference-command-expansion-1237"></a>
+In standard Texinfo, node names may not contain @-commands. 
+<samp><span class="command">makeinfo</span></samp> has an option <samp><span class="option">--commands-in-node-names</span></samp>
+which partially supports it (see <a href="Invoking-makeinfo.html#Invoking-makeinfo">Invoking makeinfo</a>), but it is not
+robust and not recommended.
+
+  <p>Thus, <samp><span class="command">makeinfo</span></samp> also does not fully implement this part of
+the HTML cross-reference algorithm, but it is documented here for the
+sake of completeness.
+
+  <p>First, comments are removed.
+
+  <p>Next, any <code>@value</code> commands (see <a href="set-value.html#set-value">set value</a>) and macro invocations
+(see <a href="Invoking-Macros.html#Invoking-Macros">Invoking Macros</a>) are fully expanded.
+
+  <p>Then, for the following commands, the command name and braces are removed,
+the text of the argument is recursively transformed:
+<pre class="example">     @asis @b @cite @code @command @dfn @dmn @dotless
+     @emph @env @file @indicateurl @kbd @key
+     @samp @sc @slanted @strong @t @var @w
+</pre>
+  <p class="noindent">For <code>@sc</code>, any letters are capitalized.
+
+  <p>The following commands are replaced by constant text, as shown.  If
+any of these commands have non-empty arguments, as in
+<code>@TeX{bad}</code>, it is an error, and the result is unspecified. 
+`(space)' means a space character, `(nothing)' means the empty string,
+etc.  The notation `U+<var>xxxx</var>' means Unicode code point <var>xxxx</var>. 
+There are further transformations of many of these expansions for the
+final file or target name, such as space characters to `<samp><span class="samp">-</span></samp>', etc.,
+according to the other rules.
+
+  <p><table summary=""><tr align="left"><td valign="top" width="30%"><code>@(newline)</code>        </td><td valign="top" width="50%">(space)
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@(space)</code>          </td><td valign="top" width="50%">(space)
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@(tab)</code>            </td><td valign="top" width="50%">(space)
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@!</code>                </td><td valign="top" width="50%">`<samp><span class="samp">!</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@*</code>                </td><td valign="top" width="50%">(space)
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@-</code>                </td><td valign="top" width="50%">(nothing)
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@.</code>                </td><td valign="top" width="50%">`<samp><span class="samp">.</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@:</code>                </td><td valign="top" width="50%">(nothing)
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@?</code>                </td><td valign="top" width="50%">`<samp><span class="samp">?</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@@</code>               </td><td valign="top" width="50%">`<samp><span class="samp">@</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@{</code>               </td><td valign="top" width="50%">`<samp><span class="samp">{</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@}</code>               </td><td valign="top" width="50%">`<samp><span class="samp">}</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@LaTeX</code>            </td><td valign="top" width="50%">`<samp><span class="samp">LaTeX</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@TeX</code>              </td><td valign="top" width="50%">`<samp><span class="samp">TeX</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@bullet</code>           </td><td valign="top" width="50%">U+2022
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@comma</code>            </td><td valign="top" width="50%">`<samp><span class="samp">,</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@copyright</code>        </td><td valign="top" width="50%">U+00A9
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@dots</code>             </td><td valign="top" width="50%">U+2026
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@enddots</code>          </td><td valign="top" width="50%">`<samp><span class="samp">...</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@equiv</code>            </td><td valign="top" width="50%">U+2261
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@error</code>            </td><td valign="top" width="50%">`<samp><span class="samp">error--&gt;</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@euro</code>             </td><td valign="top" width="50%">U+20AC
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@exclamdown</code>       </td><td valign="top" width="50%">U+00A1
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@expansion</code>        </td><td valign="top" width="50%">U+2192
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@minus</code>            </td><td valign="top" width="50%">U+2212
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@ordf</code>             </td><td valign="top" width="50%">U+00AA
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@ordm</code>             </td><td valign="top" width="50%">U+00BA
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@point</code>            </td><td valign="top" width="50%">U+2217
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@pounds</code>           </td><td valign="top" width="50%">U+00A3
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@print</code>            </td><td valign="top" width="50%">`<samp><span class="samp">-|</span></samp>'
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@questiondown</code>     </td><td valign="top" width="50%">U+00BF
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@registeredsymbol</code> </td><td valign="top" width="50%">U+00AE
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@result</code>           </td><td valign="top" width="50%">U+21D2
+<br></td></tr><tr align="left"><td valign="top" width="30%"><code>@tie</code>              </td><td valign="top" width="50%">(space)
+  <br></td></tr></table>
+
+  <p>An <code>@acronym</code> or <code>@abbr</code> command is replaced by the first
+argument, followed by the second argument in parentheses, if present. 
+See <a href="acronym.html#acronym">acronym</a>.
+
+  <p>An <code>@email</code> command is replaced by the <var>text</var> argument if
+present, else the address.  See <a href="email.html#email">email</a>.
+
+  <p>An <code>@image</code> command is replaced by the filename (first)
+argument.  See <a href="Images.html#Images">Images</a>.
+
+  <p>A <code>@verb</code> command is replaced by its transformed argument. 
+See <a href="verb.html#verb">verb</a>.
+
+  <p>Any other command is an error, and the result is unspecified.
+
+  </body></html>
+

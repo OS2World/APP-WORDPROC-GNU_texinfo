@@ -1,0 +1,151 @@
+<html lang="en">
+<head>
+<title>Output Formats - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Overview.html#Overview" title="Overview">
+<link rel="prev" href="Using-Texinfo.html#Using-Texinfo" title="Using Texinfo">
+<link rel="next" href="Info-Files.html#Info-Files" title="Info Files">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Output-Formats"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Info-Files.html#Info-Files">Info Files</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Using-Texinfo.html#Using-Texinfo">Using Texinfo</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Overview.html#Overview">Overview</a>
+<hr>
+</div>
+
+<h3 class="section">1.3 Output Formats</h3>
+
+<p><a name="index-Output-formats-14"></a><a name="index-Back_002dend-output-formats-15"></a>
+Here is a brief overview of the output formats currently supported by
+Texinfo.
+
+     <dl>
+<dt>Info<dd><a name="index-Info-output-16"></a>(Generated via <samp><span class="command">makeinfo</span></samp>.)  This format is essentially a
+plain text transliteration of the Texinfo source.  It adds a few
+control characters to separate nodes and provide navigational
+information for menus, cross-references, indices, and so on.  See the
+next section (see <a href="Info-Files.html#Info-Files">Info Files</a>) for more details on this format. 
+The Emacs Info subsystem (see <a href="../info/index.html#Top">Getting Started</a>),
+and the standalone <samp><span class="command">info</span></samp> program (see <a href="../info-stnd/index.html#Top">Info Standalone</a>), among others, can read these
+files.  See <a href="Creating-and-Installing-Info-Files.html#Creating-and-Installing-Info-Files">Creating and Installing Info Files</a>.
+
+     <br><dt>Plain text<dd><a name="index-Plain-text-output-17"></a>(Generated via <samp><span class="command">makeinfo --no-headers</span></samp>.)  This is almost the
+same as Info output, except the navigational control characters are
+omitted.  Also, standard output is used by default.
+
+     <br><dt>HTML<dd><a name="index-HTML-output-18"></a><a name="index-W3-consortium-19"></a><a name="index-Mozilla-20"></a><a name="index-Lynx-21"></a><a name="index-Emacs_002dW3-22"></a>(Generated via <samp><span class="command">makeinfo --html</span></samp>.)  This is the Hyper Text
+Markup Language that has become the most commonly used language for
+writing documents on the World Wide Web.  Web browsers, such as
+Mozilla, Lynx, and Emacs-W3, can render this language online.  There
+are many versions of HTML; <samp><span class="command">makeinfo</span></samp> tries to use a subset
+of the language that can be interpreted by any common browser.  For
+details of the HTML language and much related information, see
+<a href="http://www.w3.org/MarkUp/">http://www.w3.org/MarkUp/</a>.  See <a href="Generating-HTML.html#Generating-HTML">Generating HTML</a>.
+
+     <br><dt>DVI<dd><a name="index-DVI-output-23"></a><a name="index-dvips-24"></a><a name="index-xdvi-25"></a>(Generated via <samp><span class="command">texi2dvi</span></samp>.)  This DeVice Independent binary
+format is output by the TeX typesetting program
+(<a href="http://tug.org">http://tug.org</a>).  This is then read by a DVI `driver', which
+writes the actual device-specific commands that can be viewed or
+printed, notably Dvips for translation to PostScript (see <a href="../dvips/Invoking-Dvips.html#Invoking-Dvips">Invoking Dvips</a>) and Xdvi for viewing on an X display
+(<a href="http://sourceforge.net/projects/xdvi/">http://sourceforge.net/projects/xdvi/</a>).  See <a href="Hardcopy.html#Hardcopy">Hardcopy</a>.
+
+     <p>Be aware that the Texinfo language is very different from and much
+stricter than TeX's usual languages, plain TeX and LaTeX. 
+For more information on TeX in general, please see the book
+<cite>TeX for the Impatient</cite>, available from
+<a href="http://savannah.gnu.org/projects/teximpatient">http://savannah.gnu.org/projects/teximpatient</a>.
+
+     <br><dt>PDF<dd><a name="index-PDF-output-26"></a><a name="index-Beebe_002c-Nelson-27"></a><a name="index-pdftex-28"></a>(Generated via <samp><span class="command">texi2dvi --pdf</span></samp> or <samp><span class="command">texi2pdf</span></samp>.)  This
+was developed by Adobe Systems for portable document interchange,
+based on their previous PostScript language.  It can represent the exact
+appearance of a document, including fonts, and supporting arbitrary
+scaling.  It is intended to be platform-independent and easily
+viewable, among other design goals; for a discussion, see
+<a href="http://tug.org/TUGboat/Articles/tb22-3/tb72beebeI.pdf">http://tug.org/TUGboat/Articles/tb22-3/tb72beebeI.pdf</a>.  Texinfo
+uses the <samp><span class="command">pdftex</span></samp> program, a variant of TeX, to output PDF;
+see <a href="http://tug.org/applications/pdftex">http://tug.org/applications/pdftex</a>.  See <a href="PDF-Output.html#PDF-Output">PDF Output</a>.
+
+     <br><dt>XML<dd><a name="index-XML-output-29"></a><a name="index-DTD_002c-for-Texinfo-XML-30"></a><a name="index-texinfo_002edtd-31"></a>(Generated via <samp><span class="command">makeinfo --xml</span></samp>.)  XML is a generic syntax
+specification usable for any sort of content (see, for example,
+<a href="http://www.w3.org/XML/">http://www.w3.org/XML/</a>).  The <samp><span class="command">makeinfo</span></samp> xml output,
+unlike all the formats above, interprets very little of the Texinfo
+source.  Rather, it merely translates the Texinfo markup commands into
+XML syntax, for processing by further XML tools.  The particular
+syntax output is defined in the file <samp><span class="file">texinfo.dtd</span></samp> included in
+the Texinfo source distribution.
+
+     <br><dt>Docbook<dd><a name="index-Docbook-output-32"></a>(Generated via <samp><span class="command">makeinfo --docbook</span></samp>.)  This is an XML-based
+format developed some years ago, primarily for technical
+documentation.  It therefore bears some resemblance, in broad
+outlines, to Texinfo.  See <a href="http://www.docbook.org">http://www.docbook.org</a>.  If you want
+to convert from Docbook <em>to</em> Texinfo, please see
+<a href="http://docbook2X.sourceforge.net">http://docbook2X.sourceforge.net</a>.
+
+  </dl>
+
+  <p><a name="index-Man-page-output_002c-not-supported-33"></a>From time to time, proposals are made to generate traditional Unix man
+pages from Texinfo source.  However, because man pages have a very
+strict conventional format, generating a good man page requires a
+completely different source than the typical Texinfo applications of
+writing a good user tutorial and/or a good reference manual.  This
+makes generating man pages incompatible with the Texinfo design goal
+of not having to document the same information in different ways for
+different output formats.  You might as well just write the man page
+directly.
+
+  <p><a name="index-help2man-34"></a><a name="index-O_0027Dea_002c-Brendan-35"></a>Man pages still have their place, and if you wish to support them, you
+may find the program <samp><span class="command">help2man</span></samp> to be useful; it generates a
+traditional man page from the `<samp><span class="samp">--help</span></samp>' output of a program.  In
+fact, this is currently used to generate man pages for the programs in
+the Texinfo distribution.  It is GNU software written by Brendan
+O'Dea, available from <a href="ftp://ftp.gnu.org/gnu/help2man/">ftp://ftp.gnu.org/gnu/help2man/</a>.
+
+  <p><a name="index-Output-formats_002c-supporting-more-36"></a><a name="index-SGML_002dtools-output-format-37"></a>If you are a programmer and would like to contribute to the GNU project
+by implementing additional output formats for Texinfo, that would be
+excellent.  But please do not write a separate translator texi2foo for
+your favorite format foo!  That is the hard way to do the job, and makes
+extra work in subsequent maintenance, since the Texinfo language is
+continually being enhanced and updated.  Instead, the best approach is
+modify <code>makeinfo</code> to generate the new format.
+
+  </body></html>
+

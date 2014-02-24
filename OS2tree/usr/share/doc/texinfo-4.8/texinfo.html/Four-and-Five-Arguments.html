@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+<title>Four and Five Arguments - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="xref.html#xref" title="xref">
+<link rel="prev" href="Three-Arguments.html#Three-Arguments" title="Three Arguments">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Four-and-Five-Arguments"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Three-Arguments.html#Three-Arguments">Three Arguments</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="xref.html#xref">xref</a>
+<hr>
+</div>
+
+<h4 class="subsection">8.4.5 <code>@xref</code> with Four and Five Arguments</h4>
+
+<p>In a cross reference, a fourth argument specifies the name of another
+Info file, different from the file in which the reference appears, and
+a fifth argument specifies its title as a printed manual.
+
+  <p>Remember that a comma or period must follow the closing brace of an
+<code>@xref</code> command to terminate the cross reference.  In the
+following examples, a clause follows a terminating comma.
+
+<p class="noindent">The template is:
+
+<pre class="example">     @xref{<var>node-name</var>, <var>cross-reference-name</var>, <var>title-or-topic</var>,
+     <var>info-file-name</var>, <var>printed-manual-title</var>}.
+</pre>
+  <p class="noindent">For example,
+
+<pre class="example">     @xref{Electrical Effects, Lightning, Thunder and Lightning,
+     weather, An Introduction to Meteorology}, for details.
+</pre>
+  <p class="noindent">produces
+
+<pre class="example">     *Note Lightning: (weather)Electrical Effects, for details.
+</pre>
+  <p class="noindent">The name of the Info file is enclosed in parentheses and precedes
+the name of the node.
+
+<p class="noindent">In a printed manual, the reference looks like this:
+
+  <blockquote>
+See section &ldquo;Thunder and Lightning&rdquo; in <i>An Introduction to
+Meteorology</i>, for details. 
+</blockquote>
+
+<p class="noindent">The title of the printed manual is typeset in italics; and the
+reference lacks a page number since TeX cannot know to which page a
+reference refers when that reference is to another manual.
+
+  <p>Often, you will leave out the second argument when you use the long
+version of <code>@xref</code>.  In this case, the third argument, the topic
+description, will be used as the cross reference name in Info.
+
+<p class="noindent">The template looks like this:
+
+<pre class="example">     @xref{<var>node-name</var>, , <var>title-or-topic</var>, <var>info-file-name</var>,
+     <var>printed-manual-title</var>}, for details.
+</pre>
+  <p class="noindent">which produces
+
+<pre class="example">     *Note <var>title-or-topic</var>: (<var>info-file-name</var>)<var>node-name</var>, for details.
+</pre>
+  <p class="noindent">and
+
+  <blockquote>
+See section <var>title-or-topic</var> in <var>printed-manual-title</var>, for details. 
+</blockquote>
+
+<p class="noindent">For example,
+
+<pre class="example">     @xref{Electrical Effects, , Thunder and Lightning,
+     weather, An Introduction to Meteorology}, for details.
+</pre>
+  <p class="noindent">produces
+
+<pre class="example">     *Note Thunder and Lightning: (weather)Electrical Effects,
+     for details.
+</pre>
+  <p class="noindent">and
+
+  <blockquote>
+See section &ldquo;Thunder and Lightning&rdquo; in <i>An Introduction to
+Meteorology</i>, for details. 
+</blockquote>
+
+  <p>On rare occasions, you may want to refer to another Info file that
+is within a single printed manual&mdash;when multiple Texinfo files are
+incorporated into the same TeX run but make separate Info files. 
+In this case, you need to specify only the fourth argument, and not
+the fifth.
+
+  </body></html>
+

@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+<title>Raw Formatter Commands - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Conditionals.html#Conditionals" title="Conditionals">
+<link rel="prev" href="Conditional-Not-Commands.html#Conditional-Not-Commands" title="Conditional Not Commands">
+<link rel="next" href="set-clear-value.html#set-clear-value" title="set clear value">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Raw-Formatter-Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="set-clear-value.html#set-clear-value">set clear value</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Conditional-Not-Commands.html#Conditional-Not-Commands">Conditional Not Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Conditionals.html#Conditionals">Conditionals</a>
+<hr>
+</div>
+
+<h3 class="section">17.3 Raw Formatter Commands</h3>
+
+<p><a name="index-Raw-formatter-commands-899"></a><a name="index-g_t_0040TeX_007b_007d-commands_002c-using-ordinary-900"></a><a name="index-Ordinary-_0040TeX_007b_007d-commands_002c-using-901"></a><a name="index-Commands-using-raw-_0040TeX_007b_007d-902"></a><a name="index-Docbook_002c-including-raw-903"></a><a name="index-HTML_002c-including-raw-904"></a><a name="index-XML_002c-including-raw-905"></a><a name="index-Plain-_0040TeX_007b_007d-906"></a>
+Inside a region delineated by <code>@iftex</code> and <code>@end iftex</code>,
+you can embed some raw TeX commands.  The Texinfo processors will
+ignore such a region unless TeX output is being produced.  You can
+write the TeX commands as you would write them in a normal TeX
+file, except that you must replace the `<samp><span class="samp">\</span></samp>' used by TeX with an
+`<samp><span class="samp">@</span></samp>'.  For example, in the <code>@titlepage</code> section of a
+Texinfo file, you can use the TeX command <code>@vskip</code> to format
+the copyright page.  (The <code>@titlepage</code> command causes Info to
+ignore the region automatically, as it does with the <code>@iftex</code>
+command.)
+
+  <p>However, most features of plain TeX will not work within
+<code>@iftex</code>, as they are overridden by Texinfo features.  The
+purpose of <code>@iftex</code> is to provide conditional processing for the
+Texinfo source, not provide access to underlying formatting features.
+
+  <p><a name="index-tex-907"></a>You can enter plain TeX completely, and use `<samp><span class="samp">\</span></samp>' in the TeX
+commands, by delineating a region with the <code>@tex</code> and <code>@end
+tex</code> commands.  All plain TeX commands and category codes are
+restored within an <code>@tex</code> region.  The sole exception is that the
+<code>@</code> character still introduces a command, so that <code>@end tex</code>
+can be recognized properly.  As with <code>@iftex</code>, Texinfo
+processors will ignore such a region unless TeX output is being produced.
+
+  <p><a name="index-g_t_005cgdef-_0040r_007bwithin-_0040code_007b_0040_0040tex_007d_007d-908"></a>In complex cases, you may wish to define new TeX macros within
+<code>@tex</code>.  You must use <code>\gdef</code> to do this, not <code>\def</code>,
+because <code>@tex</code> regions are processed in a TeX group.
+
+  <p><a name="index-Mathematical-expressions-909"></a>As an example, here is a mathematical expression written in plain TeX:
+
+<pre class="example">     @tex
+     $$ \chi^2 = \sum_{i=1}^N
+              \left (y_i - (a + b x_i)
+              \over \sigma_i\right)^2 $$
+     @end tex
+</pre>
+  <p class="noindent">The output of this example will appear only in a printed manual.  If
+you are reading this in Info, you will not see the equation that appears
+in the printed manual.
+
+  <p><a name="index-ifhtml-910"></a><a name="index-html-911"></a>Analogously, you can use <code>@ifhtml ... @end ifhtml</code> to delimit
+a region to be included in HTML output only, and <code>@html ... 
+@end html</code> for a region of raw HTML.
+
+  <p><a name="index-ifxml-912"></a><a name="index-xml-913"></a>Likewise, you can use <code>@ifxml ... @end ifxml</code> to delimit
+a region to be included in XML output only, and <code>@xml ... 
+@end xml</code> for a region of raw XML.
+
+  <p><a name="index-ifdocbook-914"></a><a name="index-docbook-915"></a>Again likewise, you can use <code>@ifdocbook ... @end ifdocbook</code>
+to delimit a region to be included in Docbook output only, and
+<code>@docbook ... @end docbook</code> for a region of raw Docbook.
+
+  <p>In all cases, the exception to the raw processing is that <code>@</code> is
+still an escape character, so the <code>@end</code> command can be
+recognized.
+
+  </body></html>
+

@@ -1,0 +1,139 @@
+<html lang="en">
+<head>
+<title>Debugging with Info - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Catching-Mistakes.html#Catching-Mistakes" title="Catching Mistakes">
+<link rel="prev" href="makeinfo-Preferred.html#makeinfo-Preferred" title="makeinfo Preferred">
+<link rel="next" href="Debugging-with-TeX.html#Debugging-with-TeX" title="Debugging with TeX">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Debugging-with-Info"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Debugging-with-TeX.html#Debugging-with-TeX">Debugging with TeX</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="makeinfo-Preferred.html#makeinfo-Preferred">makeinfo Preferred</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Catching-Mistakes.html#Catching-Mistakes">Catching Mistakes</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">F.2 Catching Errors with Info Formatting</h3>
+
+<p><a name="index-Catching-errors-with-Info-formatting-1306"></a><a name="index-Debugging-with-Info-formatting-1307"></a>
+After you have written part of a Texinfo file, you can use the
+<code>texinfo-format-region</code> or the <code>makeinfo-region</code> command to
+see whether the region formats properly.
+
+  <p>Most likely, however, you are reading this section because for some
+reason you cannot use the <code>makeinfo-region</code> command; therefore, the
+rest of this section presumes that you are using
+<code>texinfo-format-region</code>.
+
+  <p>If you have made a mistake with an @-command,
+<code>texinfo-format-region</code> will stop processing at or after the
+error and display an error message.  To see where in the buffer the
+error occurred, switch to the `<samp><span class="samp">*Info Region*</span></samp>' buffer; the cursor
+will be in a position that is after the location of the error.  Also,
+the text will not be formatted after the place where the error
+occurred (or more precisely, where it was detected).
+
+  <p>For example, if you accidentally end a menu with the command <code>@end
+menus</code> with an `s' on the end, instead of with <code>@end menu</code>, you
+will see an error message that says:
+
+<pre class="example">     @end menus is not handled by texinfo
+</pre>
+  <p class="noindent">The cursor will stop at the point in the buffer where the error
+occurs, or not long after it.  The buffer will look like this:
+
+<pre class="example">     ---------- Buffer: *Info Region* ----------
+     * Menu:
+     
+     * Using texinfo-show-structure::  How to use
+                                      `texinfo-show-structure'
+                                      to catch mistakes.
+     * Running Info-Validate::         How to check for
+                                      unreferenced nodes.
+     @end menus
+     -!-
+     ---------- Buffer: *Info Region* ----------
+</pre>
+  <p>The <code>texinfo-format-region</code> command sometimes provides slightly
+odd error messages.  For example, the following cross reference fails to format:
+
+<pre class="example">     (@xref{Catching Mistakes, for more info.)
+</pre>
+  <p class="noindent">In this case, <code>texinfo-format-region</code> detects the missing closing
+brace but displays a message that says `<samp><span class="samp">Unbalanced parentheses</span></samp>'
+rather than `<samp><span class="samp">Unbalanced braces</span></samp>'.  This is because the formatting
+command looks for mismatches between braces as if they were
+parentheses.
+
+  <p>Sometimes <code>texinfo-format-region</code> fails to detect mistakes.  For
+example, in the following, the closing brace is swapped with the
+closing parenthesis:
+
+<pre class="example">     (@xref{Catching Mistakes), for more info.}
+</pre>
+  <p class="noindent">Formatting produces:
+<pre class="example">     (*Note for more info.: Catching Mistakes)
+</pre>
+  <p>The only way for you to detect this error is to realize that the
+reference should have looked like this:
+
+<pre class="example">     (*Note Catching Mistakes::, for more info.)
+</pre>
+  <p>Incidentally, if you are reading this node in Info and type <kbd>f
+&lt;RET&gt;</kbd> (<code>Info-follow-reference</code>), you will generate an error
+message that says:
+
+<pre class="example">     No such node: "Catching Mistakes) The only way ...
+</pre>
+  <p class="noindent">This is because Info perceives the example of the error as the first
+cross reference in this node and if you type a &lt;RET&gt; immediately
+after typing the Info <kbd>f</kbd> command, Info will attempt to go to the
+referenced node.  If you type <kbd>f catch &lt;TAB&gt; &lt;RET&gt;</kbd>, Info
+will complete the node name of the correctly written example and take
+you to the `Catching Mistakes' node.  (If you try this, you can return
+from the `Catching Mistakes' node by typing <kbd>l</kbd>
+(<code>Info-last</code>).)
+
+<!-- !!! section on using Elisp debugger ignored. -->
+</body></html>
+

@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+<title>Other Updating Commands - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Updating-Nodes-and-Menus.html#Updating-Nodes-and-Menus" title="Updating Nodes and Menus">
+<link rel="prev" href="Updating-Requirements.html#Updating-Requirements" title="Updating Requirements">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Other-Updating-Commands"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Updating-Requirements.html#Updating-Requirements">Updating Requirements</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Updating-Nodes-and-Menus.html#Updating-Nodes-and-Menus">Updating Nodes and Menus</a>
+<hr>
+</div>
+
+<h4 class="subsection">2.5.3 Other Updating Commands</h4>
+
+<p>In addition to the five major updating commands, Texinfo mode
+possesses several less frequently used updating commands:
+
+     <dl>
+<dt><kbd>M-x texinfo-insert-node-lines</kbd><dd><a name="index-texinfo_002dinsert_002dnode_002dlines-140"></a>Insert <code>@node</code> lines before the <code>@chapter</code>,
+<code>@section</code>, and other sectioning commands wherever they are
+missing throughout a region in a Texinfo file.
+
+     <p>With an argument (<kbd>C-u</kbd> as prefix argument, if interactive), the
+<code>texinfo-insert-node-lines</code> command not only inserts
+<code>@node</code> lines but also inserts the chapter or section titles as
+the names of the corresponding nodes.  In addition, it inserts the
+titles as node names in pre-existing <code>@node</code> lines that lack
+names.  Since node names should be more concise than section or
+chapter titles, you must manually edit node names so inserted.
+
+     <p>For example, the following marks a whole buffer as a region and inserts
+<code>@node</code> lines and titles throughout:
+
+     <pre class="example">          C-x h C-u M-x texinfo-insert-node-lines
+     </pre>
+     <p>This command inserts titles as node names in <code>@node</code> lines; the
+<code>texinfo-start-menu-description</code> command (see <a href="Inserting.html#Inserting">Inserting Frequently Used Commands</a>) inserts titles as descriptions in
+menu entries, a different action.  However, in both cases, you need to
+edit the inserted text.
+
+     <br><dt><kbd>M-x texinfo-multiple-files-update</kbd><dd><a name="index-texinfo_002dmultiple_002dfiles_002dupdate-_0040r_007b_0028in-brief_0029_007d-141"></a>Update nodes and menus in a document built from several separate files. 
+With <kbd>C-u</kbd> as a prefix argument, create and insert a master menu in
+the outer file.  With a numeric prefix argument, such as <kbd>C-u 2</kbd>, first
+update all the menus and all the `Next', `Previous', and `Up' pointers
+of all the included files before creating and inserting a master menu in
+the outer file.  The <code>texinfo-multiple-files-update</code> command is
+described in the appendix on <code>@include</code> files. 
+See <a href="texinfo_002dmultiple_002dfiles_002dupdate.html#texinfo_002dmultiple_002dfiles_002dupdate">texinfo-multiple-files-update</a>.
+
+     <br><dt><kbd>M-x texinfo-indent-menu-description</kbd><dd><a name="index-texinfo_002dindent_002dmenu_002ddescription-142"></a>Indent every description in the menu following point to the specified
+column.  You can use this command to give yourself more space for
+descriptions.  With an argument (<kbd>C-u</kbd> as prefix argument, if
+interactive), the <code>texinfo-indent-menu-description</code> command indents
+every description in every menu in the region.  However, this command
+does not indent the second and subsequent lines of a multi-line
+description.
+
+     <br><dt><kbd>M-x texinfo-sequential-node-update</kbd><dd><a name="index-texinfo_002dsequential_002dnode_002dupdate-143"></a>Insert the names of the nodes immediately following and preceding the
+current node as the `Next' or `Previous' pointers regardless of those
+nodes' hierarchical level.  This means that the `Next' node of a
+subsection may well be the next chapter.  Sequentially ordered nodes are
+useful for novels and other documents that you read through
+sequentially.  (However, in Info, the <kbd>g *</kbd> command lets
+you look through the file sequentially, so sequentially ordered nodes
+are not strictly necessary.)  With an argument (prefix argument, if
+interactive), the <code>texinfo-sequential-node-update</code> command
+sequentially updates all the nodes in the region. 
+</dl>
+
+  </body></html>
+

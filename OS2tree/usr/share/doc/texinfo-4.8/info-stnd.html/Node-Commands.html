@@ -1,0 +1,215 @@
+<html lang="en">
+<head>
+<title>Node Commands - GNU Info 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Info 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Scrolling-Commands.html#Scrolling-Commands" title="Scrolling Commands">
+<link rel="next" href="Searching-Commands.html#Searching-Commands" title="Searching Commands">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Info (version 4.8, 14 December 2004),
+a program for viewing documents in Info format (usually created from
+Texinfo source files).
+
+Copyright (C) 1992, 1993, 1996, 1997, 1998, 1999, 2001, 2002,
+2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Node-Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Searching-Commands.html#Searching-Commands">Searching Commands</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Scrolling-Commands.html#Scrolling-Commands">Scrolling Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">5 Selecting a Node</h2>
+
+<p><a name="index-nodes_002c-selection-of-121"></a>
+This section details the numerous Info commands which select a new node
+to view in the current window.
+
+   <p>The most basic node commands are `<samp><span class="samp">n</span></samp>', `<samp><span class="samp">p</span></samp>', `<samp><span class="samp">u</span></samp>', and
+`<samp><span class="samp">l</span></samp>'.  Note that the commands to select nodes are mapped differently
+when `<samp><span class="samp">--vi-keys</span></samp>' is in effect; these keybindings are designated
+below as &ldquo;vi-like operation&rdquo;.
+
+   <p>When you are viewing a node, the top line of the node contains some Info
+<dfn>pointers</dfn> which describe where the next, previous, and up nodes
+are.  Info uses this line to move about the node structure of the file
+when you use the following commands:
+
+     <dl>
+<dt>&lt;n&gt; (<code>next-node</code>)<dt><kbd>C-&lt;NEXT&gt;</kbd> (on DOS/Windows only)<dt><kbd>C-x &lt;n&gt;</kbd>, vi-like operation<dd><a name="index-n-122"></a><a name="index-C_002dNEXT-123"></a><a name="index-C_002dx-n_002c-vi_002dlike-operation-124"></a><a name="index-next_002dnode-125"></a>Select the `Next' node.
+
+     <p><a name="index-C_002dPgDn-126"></a>The &lt;NEXT&gt; key is known as the &lt;PgDn&gt; key on some
+keyboards.
+
+     <br><dt>&lt;p&gt; (<code>prev-node</code>)<dt><kbd>C-&lt;PREVIOUS&gt;</kbd> (on DOS/Windows only)<dd><a name="index-p-127"></a><a name="index-C_002dPREVIOUS-128"></a><a name="index-prev_002dnode-129"></a>Select the `Prev' node.
+
+     <p><a name="index-C_002dPgUp-130"></a>The &lt;PREVIOUS&gt; key is known as the &lt;PgUp&gt; key on some
+keyboards.
+
+     <br><dt>&lt;u&gt; (<code>up-node</code>)<dt><kbd>C-&lt;UP&gt;</kbd> (an arrow key on DOS/Windows only)<dt><kbd>C-x &lt;u&gt;</kbd>, vi-like operation<dd><a name="index-u-131"></a><a name="index-C_002dUP-132"></a><a name="index-C_002dx-u_002c-vi_002dlike-operation-133"></a><a name="index-up_002dnode-134"></a>Select the `Up' node. 
+</dl>
+
+   <p>You can easily select a node that you have already viewed in this window
+by using the `<samp><span class="samp">l</span></samp>' command&mdash;this name stands for &ldquo;last&rdquo;, and
+actually moves backwards through the history of visited nodes for this
+window.  This is handy when you followed a reference to another node,
+possibly to read about a related issue, and would like then to resume
+reading at the same place where you started the excursion.
+
+   <p>Each node where you press `<samp><span class="samp">l</span></samp>' is discarded from the history.  Thus,
+by the time you get to the first node you visited in a window, the
+entire history of that window is discarded.
+
+     <dl>
+<dt>&lt;l&gt; (<code>history-node</code>)<dt>&lt;C-&lt;CENTER&gt;&gt; (on DOS/Windows only)<dt>&lt;'&gt;, vi-like operation<dd><a name="index-l-135"></a><a name="index-C_002dCENTER-136"></a><a name="index-g_t_0027_002c-vi_002dlike-operation-137"></a><a name="index-history_002dnode-138"></a>Pop the most recently selected node in this window from the node
+history. 
+</dl>
+
+   <p>Two additional commands make it easy to select the most commonly
+selected nodes; they are `<samp><span class="samp">t</span></samp>' and `<samp><span class="samp">d</span></samp>'.
+
+     <dl>
+<dt>&lt;t&gt; (<code>top-node</code>)<dt>&lt;M-t&gt;, vi-like operation<dd><a name="index-t-139"></a><a name="index-M_002dt_002c-vi_002dlike-operation-140"></a><a name="index-top_002dnode-141"></a>Select the node `<samp><span class="samp">Top</span></samp>' in the current Info file.
+
+     <br><dt>&lt;d&gt; (<code>dir-node</code>)<dt>&lt;M-d&gt;, vi-like operation<dd><a name="index-d-142"></a><a name="index-M_002dd_002c-vi_002dlike-operation-143"></a><a name="index-dir_002dnode-144"></a>Select the directory node (i.e., the node `<samp><span class="samp">(dir)</span></samp>'). 
+</dl>
+
+   <p>Here are some other commands which immediately result in the selection
+of a different node in the current window:
+
+     <dl>
+<dt>&lt;&lt;&gt; (<code>first-node</code>)<dt>&lt;g&gt;, vi-like operation<dd><a name="index-g_t_003c-145"></a><a name="index-g_002c-vi_002dlike-operation-146"></a><a name="index-first_002dnode-147"></a>Selects the first node which appears in this file.  This node is most
+often `<samp><span class="samp">Top</span></samp>', but it does not have to be.  With a numeric argument
+<var>N</var>, select the <var>N</var>th node (the first node is node 1).  An
+argument of zero is the same as the argument of 1.
+
+     <br><dt>&lt;&gt;&gt; (<code>last-node</code>)<dt>&lt;G&gt;, vi-like operation<dd><a name="index-g_t_003e-148"></a><a name="index-G_002c-vi_002dlike-operation-149"></a><a name="index-last_002dnode-150"></a>Select the last node which appears in this file.  With a numeric argument
+<var>N</var>, select the <var>N</var>th node (the first node is node 1).  An
+argument of zero is the same as no argument, i.e., it selects the last
+node.
+
+     <br><dt>&lt;]&gt; (<code>global-next-node</code>)<dd><a name="index-g_t_005d-151"></a><a name="index-global_002dnext_002dnode-152"></a>Move forward or down through node structure.  If the node that you are
+currently viewing has a `<samp><span class="samp">Next</span></samp>' pointer, that node is selected. 
+Otherwise, if this node has a menu, the first menu item is selected.  If
+there is no `<samp><span class="samp">Next</span></samp>' and no menu, the same process is tried with the
+`<samp><span class="samp">Up</span></samp>' node of this node.
+
+     <br><dt>&lt;[&gt; (<code>global-prev-node</code>)<dd><a name="index-g_t_005b-153"></a><a name="index-global_002dprev_002dnode-154"></a>Move backward or up through node structure.  If the node that you are
+currently viewing has a `<samp><span class="samp">Prev</span></samp>' pointer, that node is selected. 
+Otherwise, if the node has an `<samp><span class="samp">Up</span></samp>' pointer, that node is selected,
+and if it has a menu, the last item in the menu is selected. 
+</dl>
+
+   <p>You can get the same behavior as <code>global-next-node</code> and
+<code>global-prev-node</code> while simply scrolling through the file with
+&lt;SPC&gt; and &lt;DEL&gt;; See <a href="Variables.html#Variables"><code>scroll-behavior</code></a>, for
+more information.
+
+     <dl>
+<a name="goto_002dnode"></a>
+<dt>&lt;g&gt; (<code>goto-node</code>)<dt><kbd>C-x &lt;g&gt;</kbd>, vi-like operation<dd><a name="index-g-155"></a><a name="index-C_002dx-g_002c-vi_002dlike-operation-156"></a><a name="index-goto_002dnode-157"></a>Read the name of a node and select it.  While reading the node name,
+completion (see <a href="The-Echo-Area.html#The-Echo-Area">completion</a>) is only done for the
+nodes which reside in one of the Info files that were loaded in the
+current Info session; if the desired node resides in some other file,
+you must type the node exactly as it appears in that Info file, and you
+must include the Info file of the other file.  For example,
+
+     <pre class="example">          <code>g(emacs)Buffers</code>
+     </pre>
+     <p>finds the node `<samp><span class="samp">Buffers</span></samp>' in the Info file <samp><span class="file">emacs</span></samp>.
+
+     <p><a name="goto_002dinvocation"></a>
+<br><dt>&lt;O&gt; (<code>goto-invocation</code><dt>&lt;I&gt;<dd><a name="index-O-158"></a><a name="index-I-159"></a><a name="index-goto_002dinvocation-160"></a><a name="index-finding-the-Invocation-node-161"></a>Read the name of a program and look for a node in the current Info file
+which describes the invocation and the command-line options for that
+program.  The default program name is derived from the name of the
+current Info file.  This command does the same as the
+`<samp><span class="samp">--show-options</span></samp>' command-line option (see <a href="_002d_002dshow_002doptions.html#g_t_002d_002dshow_002doptions">&ndash;show-options</a>), but
+it also allows to specify the program name; this is important for those
+manuals which describe several programs.
+
+     <p>If you need to find the Invocation node of a program that is documented
+in another Info file, you need to visit that file before invoking
+`<samp><span class="samp">I</span></samp>'.  For example, if you are reading the Emacs manual and want to
+see the command-line options of the <code>makeinfo</code> program, type <kbd>g
+(texinfo) &lt;RET&gt;</kbd> and then <kbd>I makeinfo &lt;RET&gt;</kbd>.  If you don't
+know what Info file documents the command, or if invoking `<samp><span class="samp">I</span></samp>'
+doesn't display the right node, go to the `<samp><span class="samp">(dir)</span></samp>' node (using the
+`<samp><span class="samp">d</span></samp>' command) and invoke `<samp><span class="samp">I</span></samp>' from there.
+
+     <br><dt>&lt;G&gt; (<code>menu-sequence</code>)<dd><a name="index-G-162"></a><a name="index-menu_002dsequence-163"></a><a name="index-menu_002c-following_002c-from-inside-Info-164"></a>Read a sequence of menu entries and follow it.  Info prompts for a
+sequence of menu items separated by commas.  (Since commas are not
+allowed in a node name, they are a natural choice for a delimiter in a
+list of menu items.)  Info then looks up the first item in the menu of
+the node `<samp><span class="samp">(dir)</span></samp>' (if the `<samp><span class="samp">(dir)</span></samp>' node cannot be found, Info
+uses `<samp><span class="samp">Top</span></samp>').  If such an entry is found, Info goes to the node it
+points to and looks up the second item in the menu of that node, etc. 
+In other words, you can specify a complete path which descends through
+the menu hierarchy of a particular Info file starting at the
+`<samp><span class="samp">(dir)</span></samp>' node.  This has the same effect as if you typed the menu
+item sequence on Info's command line, see <a href="command_002dline-menu-items.html#command_002dline-menu-items">Info command-line arguments processing</a>.  For example,
+
+     <pre class="example">           <kbd>G Texinfo,Overview,Reporting Bugs &lt;RET&gt;</kbd>
+     </pre>
+     <p class="noindent">displays the node `<samp><span class="samp">Reporting Bugs</span></samp>' in the Texinfo manual.  (You
+don't actually need to type the menu items in their full length, or in
+their exact letter-case.  However, if you do type the menu items
+exactly, Info will find it faster.)
+
+     <p>If any of the menu items you type are not found, Info stops at the last
+entry it did find and reports an error.
+
+     <br><dt><kbd>C-x &lt;k&gt;</kbd> (<code>kill-node</code>)<dd><a name="index-C_002dx-k-165"></a><a name="index-kill_002dnode-166"></a>Kill a node.  The node name is prompted for in the echo area, with a
+default of the current node.  <dfn>Killing</dfn> a node means that Info tries
+hard to forget about it, removing it from the list of history nodes kept
+for the window where that node is found.  Another node is selected in
+the window which contained the killed node.
+
+     <br><dt><kbd>C-x C-f</kbd> (<code>view-file</code>)<dd><a name="index-C_002dx-C_002df-167"></a><a name="index-view_002dfile-168"></a>Read the name of a file and selects the entire file.  The command
+     <pre class="example">          <code>C-x C-f </code><var>filename</var>
+     </pre>
+     <p>is equivalent to typing
+     <pre class="example">          <code>g(</code><var>filename</var><code>)*</code>
+     </pre>
+     <br><dt><kbd>C-x C-b</kbd> (<code>list-visited-nodes</code>)<dd><a name="index-C_002dx-C_002db-169"></a><a name="index-list_002dvisited_002dnodes-170"></a>Make a window containing a menu of all of the currently visited nodes. 
+This window becomes the selected window, and you may use the standard
+Info commands within it.
+
+     <br><dt><kbd>C-x &lt;b&gt;</kbd> (<code>select-visited-node</code>)<dd><a name="index-C_002dx-b-171"></a><a name="index-select_002dvisited_002dnode-172"></a>Select a node which has been previously visited in a visible window. 
+This is similar to `<samp><span class="samp">C-x C-b</span></samp>' followed by `<samp><span class="samp">m</span></samp>', but no window is
+created. 
+</dl>
+
+   </body></html>
+

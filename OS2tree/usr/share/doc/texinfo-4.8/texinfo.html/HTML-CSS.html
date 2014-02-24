@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+<title>HTML CSS - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Generating-HTML.html#Generating-HTML" title="Generating HTML">
+<link rel="prev" href="HTML-Splitting.html#HTML-Splitting" title="HTML Splitting">
+<link rel="next" href="HTML-Xref.html#HTML-Xref" title="HTML Xref">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="HTML-CSS"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="HTML-Xref.html#HTML-Xref">HTML Xref</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="HTML-Splitting.html#HTML-Splitting">HTML Splitting</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Generating-HTML.html#Generating-HTML">Generating HTML</a>
+<hr>
+</div>
+
+<h3 class="section">22.3 HTML CSS</h3>
+
+<p><a name="index-HTML_002c-and-CSS-1225"></a><a name="index-CSS_002c-and-HTML-output-1226"></a><a name="index-Cascading-Style-Sheets_002c-and-HTML-output-1227"></a>
+Cascading Style Sheets (CSS for short) is an Internet standard for
+influencing the display of HTML documents: see
+<a href="http://www.w3.org/Style/CSS/">http://www.w3.org/Style/CSS/</a>.
+
+  <p>By default, <samp><span class="command">makeinfo</span></samp> includes a few simple CSS commands to
+better implement the appearance of some of the environments.  Here
+are two of them, as an example:
+
+<pre class="example">     pre.display { font-family:inherit }
+     pre.smalldisplay { font-family:inherit; font-size:smaller }
+</pre>
+  <p>A full explanation of CSS is (far) beyond this manual; please see the
+reference above.  In brief, however, this specification tells the web
+browser to use a `smaller' font size for <code>@smalldisplay</code> text,
+and to use the `inherited' font (generally a regular roman typeface)
+for both <code>@smalldisplay</code> and <code>@display</code>.  By default, the
+HTML `<samp><span class="samp">&lt;pre&gt;</span></samp>' command uses a monospaced font.
+
+  <p>You can influence the CSS in the HTML output with the
+<samp><span class="option">--css-include=</span><var>file</var></samp> option to <samp><span class="command">makeinfo</span></samp>.  This
+includes the contents <var>file</var> in the HTML output, as you might
+expect.  However, the details are somewhat tricky, as described in the
+following, to provide maximum flexibility.
+
+  <p><a name="index-g_t_0040_0040import-specifications_002c-in-CSS-files-1228"></a>The CSS file may begin with so-called `<samp><span class="samp">@import</span></samp>' directives,
+which link to external CSS specifications for browsers to use when
+interpreting the document.  Again, a full description is beyond our
+scope here, but we'll describe how they work syntactically, so we can
+explain how <samp><span class="command">makeinfo</span></samp> handles them.
+
+  <p><a name="index-Comments_002c-in-CSS-files-1229"></a>There can be more than one `<samp><span class="samp">@import</span></samp>', but they have to come
+first in the file, with only whitespace and comments interspersed, no
+normal definitions.  (Technical exception: an `<samp><span class="samp">@charset</span></samp>'
+directive may precede the `<samp><span class="samp">@import</span></samp>''s.  This does not alter
+<samp><span class="command">makeinfo</span></samp>'s behavior, it just copies the `<samp><span class="samp">@charset</span></samp>' if
+present.)  Comments in CSS files are delimited by `<samp><span class="samp">/* ... */</span></samp>', as
+in C.  An `<samp><span class="samp">@import</span></samp>' directive must be in one of these two forms:
+
+<pre class="example">     @import url(http://example.org/foo.css);
+     @import "http://example.net/bar.css";
+</pre>
+  <p>As far as <samp><span class="command">makeinfo</span></samp> is concerned, the crucial characters are
+the `<samp><span class="samp">@</span></samp>' at the beginning and the semicolon terminating the
+directive.  When reading the CSS file, it simply copies any such
+`<samp><span class="samp">@</span></samp>'-directive into the output, as follows:
+
+     <ul>
+<li>If <var>file</var> contains only normal CSS declarations, it is
+included after <samp><span class="command">makeinfo</span></samp>'s default CSS, thus overriding it.
+
+     <li>If <var>file</var> begins with `<samp><span class="samp">@import</span></samp>' specifications (see
+below), then the `<samp><span class="samp">import</span></samp>''s are included first (they have to come
+first, according to the standard), and then <samp><span class="command">makeinfo</span></samp>'s
+default CSS is included.  If you need to override <samp><span class="command">makeinfo</span></samp>'s
+defaults from an `<samp><span class="samp">@import</span></samp>', you can do so with the `<samp><span class="samp">! 
+important</span></samp>' CSS construct, as in:
+     <pre class="example">          pre.smallexample { font-size: inherit ! important }
+     </pre>
+     <li>If <var>file</var> contains both `<samp><span class="samp">@import</span></samp>' and inline CSS
+specifications, the `<samp><span class="samp">@import</span></samp>''s are included first, then
+<samp><span class="command">makeinfo</span></samp>'s defaults, and lastly the inline CSS from
+<var>file</var>.
+
+     <li>Any @-directive other than `<samp><span class="samp">@import</span></samp>' and `<samp><span class="samp">@charset</span></samp>'
+is treated as a CSS declaration, meaning <samp><span class="command">makeinfo</span></samp> includes
+its default CSS and then the rest of the file.
+
+  </ul>
+
+  <p>If the CSS file is malformed or erroneous, <samp><span class="command">makeinfo</span></samp>'s output
+is unspecified.  <samp><span class="command">makeinfo</span></samp> does not try to interpret the
+meaning of the CSS file in any way; it just looks for the special
+`<samp><span class="samp">@</span></samp>' and `<samp><span class="samp">;</span></samp>' characters and blindly copies the text into the
+output.  Comments in the CSS file may or may not be included in the
+output.
+
+  </body></html>
+

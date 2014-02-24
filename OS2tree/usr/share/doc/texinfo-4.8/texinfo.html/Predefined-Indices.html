@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+<title>Predefined Indices - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Indices.html#Indices" title="Indices">
+<link rel="prev" href="Index-Entries.html#Index-Entries" title="Index Entries">
+<link rel="next" href="Indexing-Commands.html#Indexing-Commands" title="Indexing Commands">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Predefined-Indices"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Indexing-Commands.html#Indexing-Commands">Indexing Commands</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Index-Entries.html#Index-Entries">Index Entries</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Indices.html#Indices">Indices</a>
+<hr>
+</div>
+
+<h3 class="section">13.2 Predefined Indices</h3>
+
+<p>Texinfo provides six predefined indices.  Here are their nominal
+meanings, abbreviations, and the corresponding index entry commands:
+
+     <dl>
+<dt>`<samp><span class="samp">cp</span></samp>'<dd><a name="index-g_t_0040code_007bcp_007d-_0028concept_0029-index-602"></a>(<code>@cindex</code>) concept index, for general concepts. 
+<br><dt>`<samp><span class="samp">fn</span></samp>'<dd><a name="index-g_t_0040code_007bfn_007d-_0028function_0029-index-603"></a>(<code>@findex</code>) function index, for function and function-like
+names (such as entry points of libraries). 
+<br><dt>`<samp><span class="samp">ky</span></samp>'<dd><a name="index-g_t_0040code_007bky_007d-_0028keystroke_0029-index-604"></a>(<code>@kindex</code>) keystroke index, for keyboard commands. 
+<br><dt>`<samp><span class="samp">pg</span></samp>'<dd><a name="index-g_t_0040code_007bpg_007d-_0028program_0029-index-605"></a>(<code>@pindex</code>) program index, for names of programs. 
+<br><dt>`<samp><span class="samp">tp</span></samp>'<dd><a name="index-g_t_0040code_007btp_007d-_0028data-type_0029-index-606"></a>(<code>@tindex</code>) data type index, for type names (such as structures
+defined in header files). 
+<br><dt>`<samp><span class="samp">vr</span></samp>'<dd><a name="index-g_t_0040code_007bvr_007d-_0028variable_0029-index-607"></a>(<code>@vindex</code>) variable index, for variable names (such as global
+variables of libraries). 
+</dl>
+
+<p class="noindent">Not every manual needs all of these, and most manuals use only two or
+three at most.  The present manual, for example, has two indices: a
+concept index and an @-command index (that is actually the function
+index but is called a command index in the chapter heading).
+
+  <p>You are not required to use the predefined indices strictly for their
+canonical purposes.  For example, suppose you wish to index some C
+preprocessor macros.  You could put them in the function index along
+with actual functions, just by writing <code>@findex</code> commands for
+them; then, when you print the &ldquo;Function Index&rdquo; as an unnumbered
+chapter, you could give it the title `Function and Macro Index' and
+all will be consistent for the reader.
+
+  <p>On the other hand, it is best not to stray too far from the meaning of
+the predefined indices.  Otherwise, in the event that your text is
+combined with other text from other manuals, the index entries will
+not match up.  Instead, define your own new index (see <a href="New-Indices.html#New-Indices">New Indices</a>).
+
+  <p>We recommend having a single index in the final document whenever
+possible, however many source indices you use, since then readers have
+only one place to look.  Two or more source indices can be combined
+into one output index using the <code>@synindex</code> or
+<code>@syncodeindex</code> commands (see <a href="Combining-Indices.html#Combining-Indices">Combining Indices</a>).
+
+  </body></html>
+

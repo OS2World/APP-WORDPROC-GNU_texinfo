@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+<title>Not Ending a Sentence - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Inserting-Space.html#Inserting-Space" title="Inserting Space">
+<link rel="next" href="Ending-a-Sentence.html#Ending-a-Sentence" title="Ending a Sentence">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Not-Ending-a-Sentence"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Ending-a-Sentence.html#Ending-a-Sentence">Ending a Sentence</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Inserting-Space.html#Inserting-Space">Inserting Space</a>
+<hr>
+</div>
+
+<h4 class="subsection">14.2.1 Not Ending a Sentence</h4>
+
+<p><a name="index-Not-ending-a-sentence-643"></a><a name="index-Sentence-non_002dending-punctuation-644"></a><a name="index-Periods_002c-inserting-645"></a>Depending on whether a period or exclamation point or question mark is
+inside or at the end of a sentence, less or more space is inserted after
+a period in a typeset manual.  Since it is not always possible
+to determine when a period ends a sentence and when it is used
+in an abbreviation, special commands are needed in some circumstances. 
+Usually, Texinfo can guess how to handle periods, so you do not need to
+use the special commands; you just enter a period as you would if you
+were using a typewriter, which means you put two spaces after the
+period, question mark, or exclamation mark that ends a sentence.
+
+  <p><a name="index-g_t_003ccolon_003e-_0040r_007b_0028suppress-end_002dof_002dsentence-space_0029_007d-646"></a>Use the <code>@:</code> command after a period, question mark,
+exclamation mark, or colon that should not be followed by extra space. 
+For example, use <code>@:</code> after periods that end abbreviations
+which are not at the ends of sentences.
+
+  <p>For example,
+
+<pre class="example">     The s.o.p.@: has three parts ...
+     The s.o.p. has three parts ...
+</pre>
+  <p class="noindent">produces
+
+  <blockquote>
+The s.o.p. has three parts <small class="dots">...</small><br>
+The s.o.p. has three parts <small class="dots">...</small>
+</blockquote>
+
+<p class="noindent">(Incidentally, `<samp><span class="samp">s.o.p.</span></samp>' is an abbreviation for &ldquo;Standard Operating
+Procedure&rdquo;.)
+
+  <p><code>@:</code> has no effect on the Info and HTML output.  In Docbook and
+XML, the previous punctuation character (.?!:) is output as an entity
+instead of as the normal character: `<samp><span class="samp">&amp;period; &amp;quest; &amp;excl;
+&amp;colon;</span></samp>'.  This gives further processors a chance to notice and not
+add the usual extra space.
+
+  <p>Do not put braces after <code>@:</code> (or any non-alphabetic command).
+
+  </body></html>
+

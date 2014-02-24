@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+<title>Running Info-Validate - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Catching-Mistakes.html#Catching-Mistakes" title="Catching Mistakes">
+<link rel="prev" href="Using-occur.html#Using-occur" title="Using occur">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Running-Info-Validate"></a>
+<a name="Running-Info_002dValidate"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Using-occur.html#Using-occur">Using occur</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Catching-Mistakes.html#Catching-Mistakes">Catching Mistakes</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">F.6 Finding Badly Referenced Nodes</h3>
+
+<p><a name="index-Info_002dvalidate-1314"></a><a name="index-Nodes_002c-checking-for-badly-referenced-1315"></a><a name="index-Checking-for-badly-referenced-nodes-1316"></a><a name="index-Looking-for-badly-referenced-nodes-1317"></a><a name="index-Finding-badly-referenced-nodes-1318"></a><a name="index-Badly-referenced-nodes-1319"></a>
+You can use the <code>Info-validate</code> command to check whether any of
+the `Next', `Previous', `Up' or other node pointers fail to point to a
+node.  This command checks that every node pointer points to an
+existing node.  The <code>Info-validate</code> command works only on Info
+files, not on Texinfo files.
+
+  <p>The <code>makeinfo</code> program validates pointers automatically, so you
+do not need to use the <code>Info-validate</code> command if you are using
+<code>makeinfo</code>.  You only may need to use <code>Info-validate</code> if you
+are unable to run <code>makeinfo</code> and instead must create an Info file
+using <code>texinfo-format-region</code> or <code>texinfo-format-buffer</code>, or
+if you write an Info file from scratch.
+
+<ul class="menu">
+<li><a accesskey="1" href="Using-Info_002dvalidate.html#Using-Info_002dvalidate">Using Info-validate</a>:          How to run <code>Info-validate</code>. 
+<li><a accesskey="2" href="Unsplit.html#Unsplit">Unsplit</a>:                      How to create an unsplit file. 
+<li><a accesskey="3" href="Tagifying.html#Tagifying">Tagifying</a>:                    How to tagify a file. 
+<li><a accesskey="4" href="Splitting.html#Splitting">Splitting</a>:                    How to split a file manually. 
+</ul>
+
+  </body></html>
+

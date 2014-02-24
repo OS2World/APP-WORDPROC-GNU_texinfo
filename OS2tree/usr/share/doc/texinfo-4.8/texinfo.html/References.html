@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+<title>References - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Cross-References.html#Cross-References" title="Cross References">
+<link rel="next" href="Cross-Reference-Commands.html#Cross-Reference-Commands" title="Cross Reference Commands">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="References"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Cross-Reference-Commands.html#Cross-Reference-Commands">Cross Reference Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Cross-References.html#Cross-References">Cross References</a>
+<hr>
+</div>
+
+<h3 class="section">8.1 What References Are For</h3>
+
+<p>Often, but not always, a printed document should be designed so that
+it can be read sequentially.  People tire of flipping back and forth
+to find information that should be presented to them as they need
+it.
+
+  <p>However, in any document, some information will be too detailed for
+the current context, or incidental to it; use cross references to
+provide access to such information.  Also, an online help system or a
+reference manual is not like a novel; few read such documents in
+sequence from beginning to end.  Instead, people look up what they
+need.  For this reason, such creations should contain many cross
+references to help readers find other information that they may not
+have read.
+
+  <p>In a printed manual, a cross reference results in a page reference,
+unless it is to another manual altogether, in which case the cross
+reference names that manual.
+
+  <p>In Info, a cross reference results in an entry that you can follow
+using the Info `<samp><span class="samp">f</span></samp>' command.  (see <a href="../info/Help_002dXref.html#Help_002dXref">Following cross-references</a>.)
+
+  <p>The various cross reference commands use nodes (or anchors,
+see <a href="anchor.html#anchor"><code>@anchor</code></a>) to define cross reference locations. 
+This is evident in Info, in which a cross reference takes you to the
+specified location.  TeX also uses nodes to define cross reference
+locations, but the action is less obvious.  When TeX generates a DVI
+file, it records each node's page number and uses the page numbers in making
+references.  Thus, if you are writing a manual that will only be
+printed, and will not be used online, you must nonetheless write
+<code>@node</code> lines to name the places to which you make cross
+references.
+
+  </body></html>
+

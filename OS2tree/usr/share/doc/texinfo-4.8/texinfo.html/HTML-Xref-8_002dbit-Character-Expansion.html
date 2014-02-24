@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+<title>HTML Xref 8-bit Character Expansion - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="HTML-Xref.html#HTML-Xref" title="HTML Xref">
+<link rel="prev" href="HTML-Xref-Command-Expansion.html#HTML-Xref-Command-Expansion" title="HTML Xref Command Expansion">
+<link rel="next" href="HTML-Xref-Mismatch.html#HTML-Xref-Mismatch" title="HTML Xref Mismatch">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="HTML-Xref-8-bit-Character-Expansion"></a>
+<a name="HTML-Xref-8_002dbit-Character-Expansion"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="HTML-Xref-Mismatch.html#HTML-Xref-Mismatch">HTML Xref Mismatch</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="HTML-Xref-Command-Expansion.html#HTML-Xref-Command-Expansion">HTML Xref Command Expansion</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="HTML-Xref.html#HTML-Xref">HTML Xref</a>
+<hr>
+</div>
+
+<h4 class="subsection">22.4.4 HTML Cross-reference 8-bit Character Expansion</h4>
+
+<p><a name="index-HTML-cross_002dreference-8_002dbit-character-expansion-1238"></a><a name="index-g_t8_002dbit-characters_002c-in-HTML-cross_002dreferences-1239"></a><a name="index-Expansion-of-8_002dbit-characters-in-HTML-cross_002dreferences-1240"></a>
+Usually, characters other than plain 7-bit ASCII are transformed into
+the corresponding Unicode code point(s) in Normalization Form C, which
+uses precomposed characters where available.  (This is the
+normalization form recommended by the W3C and other bodies.)  This
+holds when that code point is 0xffff or less, as it almost always is.
+
+  <p>These will then be further transformed by the rules above into the
+string `<samp><span class="samp">_</span><var>xxxx</var></samp>', where <var>xxxx</var> is the code point in hex.
+
+  <p>For example, combining this rule and the previous section:
+
+<pre class="example">     @node @b{A} @TeX{} @u{B} @point{}@enddots{}
+     =&gt; A-TeX-B_0306-_2605_002e_002e_002e
+</pre>
+  <p>Notice: 1)&nbsp;<!-- /@w --><code>@enddots</code> expands to three periods which in
+turn expands to three `<samp><span class="samp">_002e</span></samp>''s; 2)&nbsp;<!-- /@w --><code>@u{B}</code> is a `B'
+with a breve accent, which does not exist as a pre-accented Unicode
+character, therefore expands to `<samp><span class="samp">B_0306</span></samp>' (B with combining
+breve).
+
+  <p>When the Unicode code point is above 0xffff, the transformation is
+`<samp><span class="samp">__</span><var>xxxxxx</var></samp>', that is, two leading underscores followed by
+six hex digits.  Since Unicode has declared that their highest code
+point is 0x10ffff, this is sufficient.  (We felt it was better to
+define this extra escape than to always use six hex digits, since the
+first two would nearly always be zeros.)
+
+  <p>For the definition of Unicode Normalization Form C, see Unicode report
+UAX#15, <a href="http://www.unicode.org/reports/tr15/">http://www.unicode.org/reports/tr15/</a>.  Many related
+documents and implementations are available elsewhere on the web.
+
+  </body></html>
+

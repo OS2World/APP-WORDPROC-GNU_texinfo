@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+<title>Other Info Files - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Menus.html#Menus" title="Menus">
+<link rel="prev" href="Menu-Example.html#Menu-Example" title="Menu Example">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Other-Info-Files"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Menu-Example.html#Menu-Example">Menu Example</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Menus.html#Menus">Menus</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">7.6 Referring to Other Info Files</h3>
+
+<p><a name="index-Referring-to-other-Info-files-356"></a><a name="index-Nodes-in-other-Info-files-357"></a><a name="index-Other-Info-files_0027-nodes-358"></a><a name="index-Going-to-other-Info-files_0027-nodes-359"></a><a name="index-Info_003b-other-files_0027-nodes-360"></a>
+You can create a menu entry that enables a reader in Info to go to a
+node in another Info file by writing the file name in parentheses just
+before the node name.  In this case, you should use the three-part menu
+entry format, which saves the reader from having to type the file
+name.
+
+  <p>The format looks like this:
+
+<pre class="example">     @menu
+     * <var>first-entry-name</var>:(<var>filename</var>)<var>nodename</var>.     <var>description</var>
+     * <var>second-entry-name</var>:(<var>filename</var>)<var>second-node</var>. <var>description</var>
+     @end menu
+</pre>
+  <p>For example, to refer directly to the `<samp><span class="samp">Outlining</span></samp>' and
+`<samp><span class="samp">Rebinding</span></samp>' nodes in the <cite>Emacs Manual</cite>, you would write a
+menu like this:
+
+<pre class="example">     @menu
+     * Outlining: (emacs)Outline Mode. The major mode for
+                                      editing outlines.
+     * Rebinding: (emacs)Rebinding.    How to redefine the
+                                      meaning of a key.
+     @end menu
+</pre>
+  <p>If you do not list the node name, but only name the file, then Info
+presumes that you are referring to the `Top' node.
+
+  <p>The <samp><span class="file">dir</span></samp> file that contains the main menu for Info has menu
+entries that list only file names.  These take you directly to the `Top'
+nodes of each Info document.  (See <a href="Installing-an-Info-File.html#Installing-an-Info-File">Installing an Info File</a>.)
+
+  <p>For example:
+
+<pre class="example">     * Info: (info).         Documentation browsing system.
+     * Emacs: (emacs).       The extensible, self-documenting
+                            text editor.
+</pre>
+  <p class="noindent">(The <samp><span class="file">dir</span></samp> top level directory for the Info system is an Info file,
+not a Texinfo file, but a menu entry looks the same in both types of
+file.)
+
+  <p>The GNU Emacs Texinfo mode menu updating commands only work with nodes
+within the current buffer, so you cannot use them to create menus that
+refer to other files.  You must write such menus by hand.
+
+  </body></html>
+

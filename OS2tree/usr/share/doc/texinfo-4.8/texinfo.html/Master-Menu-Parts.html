@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+<title>Master Menu Parts - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="The-Top-Node.html#The-Top-Node" title="The Top Node">
+<link rel="prev" href="Top-Node-Example.html#Top-Node-Example" title="Top Node Example">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Master-Menu-Parts"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Top-Node-Example.html#Top-Node-Example">Top Node Example</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="The-Top-Node.html#The-Top-Node">The Top Node</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.6.2 Parts of a Master Menu</h4>
+
+<p><a name="index-Master-menu-230"></a><a name="index-Menu_002c-master-231"></a><a name="index-Parts-of-a-master-menu-232"></a>
+A <dfn>master menu</dfn> is a detailed main menu listing all the nodes in a
+file.
+
+  <p>A master menu is enclosed in <code>@menu</code> and <code>@end menu</code>
+commands and does not appear in the printed document.
+
+  <p>Generally, a master menu is divided into parts.
+
+     <ul>
+<li>The first part contains the major nodes in the Texinfo file: the nodes
+for the chapters, chapter-like sections, and the appendices.
+
+     <li>The second part contains nodes for the indices.
+
+     <li>The third and subsequent parts contain a listing of the other, lower
+level nodes, often ordered by chapter.  This way, rather than go
+through an intermediary menu, an inquirer can go directly to a
+particular node when searching for specific information.  These menu
+items are not required; add them if you think they are a
+convenience.  If you do use them, put <code>@detailmenu</code> before the
+first one, and <code>@end detailmenu</code> after the last; otherwise,
+<code>makeinfo</code> will get confused. 
+</ul>
+
+  <p>Each section in the menu can be introduced by a descriptive line.  So
+long as the line does not begin with an asterisk, it will not be
+treated as a menu entry.  (See <a href="Writing-a-Menu.html#Writing-a-Menu">Writing a Menu</a>, for more
+information.)
+
+  <p>For example, the master menu for this manual looks like the following
+(but has many more entries):
+
+<pre class="example">     @menu
+     * Copying Conditions::  Your rights.
+     * Overview::            Texinfo in brief.
+     ...
+     * Command and Variable Index::
+     * Concept Index::
+     
+     @detailmenu
+     --- The Detailed Node Listing ---
+     
+     Overview of Texinfo
+     
+     * Reporting Bugs:: ...
+     ...
+     
+     Beginning a Texinfo File
+     
+     * Sample Beginning:: ...
+     ...
+     @end detailmenu
+     @end menu
+</pre>
+  </body></html>
+

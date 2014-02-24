@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+<title>Conventions - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Overview.html#Overview" title="Overview">
+<link rel="prev" href="Formatting-Commands.html#Formatting-Commands" title="Formatting Commands">
+<link rel="next" href="Comments.html#Comments" title="Comments">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Conventions"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Comments.html#Comments">Comments</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Formatting-Commands.html#Formatting-Commands">Formatting Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Overview.html#Overview">Overview</a>
+<hr>
+</div>
+
+<h3 class="section">1.7 General Syntactic Conventions</h3>
+
+<p><a name="index-General-syntactic-conventions-50"></a><a name="index-Syntactic-conventions-51"></a><a name="index-Conventions_002c-syntactic-52"></a><a name="index-Characters_002c-basic-input-53"></a>
+This section describes the general conventions used in all Texinfo documents.
+
+     <ul>
+<li><a name="index-Source-files_002c-characters-used-54"></a>All printable <span class="sc">ascii</span> characters except `<samp><span class="samp">@</span></samp>', `<samp><span class="samp">{</span></samp>' and
+`<samp><span class="samp">}</span></samp>' can appear in a Texinfo file and stand for themselves. 
+`<samp><span class="samp">@</span></samp>' is the escape character which introduces commands, while
+`<samp><span class="samp">{</span></samp>' and `<samp><span class="samp">}</span></samp>' are used to surround arguments to certain
+commands.  To put one of these special characters into the document, put
+an `<samp><span class="samp">@</span></samp>' character in front of it, like this: `<samp><span class="samp">@@</span></samp>',
+`<samp><span class="samp">@{</span></samp>', and `<samp><span class="samp">@}</span></samp>'.
+
+     <li><a name="index-Paragraph-separator-55"></a><a name="index-Blank-lines_002c-as-paragraph-separator-56"></a><a name="index-Newlines_002c-as-blank-lines-57"></a>Separate paragraphs with one or more blank lines.  Currently Texinfo
+only recognizes newline characters as end of line, not the CRLF
+sequence used on some systems; so a <dfn>blank line</dfn> means exactly two
+consecutive newlines.  Sometimes blank lines are useful or convenient
+in other cases as well; you can use the <code>@noindent</code> to inhibit
+paragraph indentation if required (see <a href="noindent.html#noindent"><code>@noindent</code></a>).
+
+     <li><a name="index-Quotation-characters-_0028_0060_0027_0029_002c-in-source-58"></a>Use doubled single-quote characters to begin and end quotations:
+<tt>`<!-- /@w -->`<small class="dots">...</small>'<!-- /@w -->'</tt><!-- /@w -->.  TeX converts two single quotes to
+left- and right-hand doubled quotation marks,
+<!-- this comes out as "like this" in Info, which is just confusing. -->
+and Info converts doubled single-quote characters to <span class="sc">ascii</span>
+double-quotes: <tt>`<!-- /@w -->`<small class="dots">...</small>'<!-- /@w -->'</tt><!-- /@w --> becomes <tt>"<small class="dots">...</small>"</tt><!-- /@w -->.
+
+     <p>You may occasionally need to produce two consecutive single quotes;
+for example, in documenting a computer language such as Maxima where
+<tt>'<!-- /@w -->'</tt> is a valid command.  You can do this with the input
+<tt>'@w{}'</tt>; the empty <code>@w</code> command stops the combination into
+the double-quote characters.
+
+     <p><a name="index-Unicode-quotation-characters-59"></a><a name="index-Grave-accent_002c-vs_002e_0040_003a-left-quote-60"></a>The left quote character (<tt>`</tt>, ASCII code 96) used in Texinfo is a
+grave accent in ANSI and ISO character set standards.  We use it as a
+quote character because that is how TeX is set up, by default.  We
+hope to eventually support the various quotation characters in
+Unicode.
+
+     <li><a name="index-Multiple-dashes-in-source-61"></a><a name="index-Dashes-in-source-62"></a><a name="index-Hyphens-in-source_002c-two-or-three-in-a-row-63"></a><a name="index-Em-dash_002c-producing-64"></a><a name="index-En-dash_002c-producing-65"></a>Use three hyphens in a row, `<samp><span class="samp">---</span></samp>', to produce a long dash&mdash;like
+this (called an <dfn>em dash</dfn>), used for punctuation in sentences. 
+Use two hyphens, `<samp><span class="samp">--</span></samp>', to produce a medium dash (called an
+<dfn>en dash</dfn>), used primarily for numeric ranges, as in &ldquo;June
+25&ndash;26&rdquo;.  Use a single hyphen, `<samp><span class="samp">-</span></samp>', to produce a standard hyphen
+used in compound words.  For display on the screen, Info reduces three
+hyphens to two and two hyphens to one (not transitively!).  Of course,
+any number of hyphens in the source remain as they are in literal
+contexts, such as <code>@code</code> and <code>@example</code>.
+
+     <li><a name="index-Tabs_003b-don_0027t-use_0021-66"></a><strong>Caution:</strong> Last and most important, do not use tab characters
+in a Texinfo file (except in verbatim modes)!  TeX uses
+variable-width fonts, which means that it is impractical at best to
+define a tab to work in all circumstances.  Consequently, TeX
+treats tabs like single spaces, and that is not what they look like in
+the source.  Furthermore, <code>makeinfo</code> does nothing special with
+tabs, and thus a tab character in your input file will usually appear
+differently in the output.
+
+     <p class="noindent">To avoid this problem, Texinfo mode causes GNU Emacs to insert multiple
+spaces when you press the &lt;TAB&gt; key.
+
+     <p class="noindent">Also, you can run <code>untabify</code> in Emacs to convert tabs in a region
+to multiple spaces, or use the <code>unexpand</code> command from the shell.
+
+  </ul>
+
+  </body></html>
+

@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+<title>Object-Oriented Variables - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Abstract-Objects.html#Abstract-Objects" title="Abstract Objects">
+<link rel="next" href="Object_002dOriented-Methods.html#Object_002dOriented-Methods" title="Object-Oriented Methods">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Object-Oriented-Variables"></a>
+<a name="Object_002dOriented-Variables"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Object_002dOriented-Methods.html#Object_002dOriented-Methods">Object-Oriented Methods</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Abstract-Objects.html#Abstract-Objects">Abstract Objects</a>
+<hr>
+</div>
+
+<h5 class="subsubsection">16.5.6.1 Object-Oriented Variables</h5>
+
+<p><a name="index-Variables_002c-object_002doriented-862"></a>
+These commands allow you to define different sorts of variables in
+object-oriented programming languages.
+
+     <dl>
+<dt><code>@defcv </code><var>category</var> <var>class</var> <var>name</var><dd><a name="index-defcv-863"></a>The <code>@defcv</code> command is the general definition command for
+variables associated with classes in object-oriented programming.  The
+<code>@defcv</code> command is followed by three arguments: the category of
+thing being defined, the class to which it belongs, and its
+name.  For instance:
+
+     <pre class="example">          @defcv {Class Option} Window border-pattern
+          ...
+          @end defcv
+     </pre>
+     <p class="noindent">produces:
+
+     <div class="defun">
+&mdash; Class Option of Window: <b>border-pattern</b><var><a name="index-border_002dpattern-864"></a></var><br>
+<blockquote><small class="dots">...</small>
+</blockquote></div>
+
+     <p><code>@defcv</code> creates an entry in the index of variables.
+
+     <br><dt><code>@deftypecv </code><var>category</var> <var>class</var> <var>data-type</var> <var>name</var><dd><a name="index-deftypecv-865"></a>The <code>@deftypecv</code> command is the definition command for typed
+class variables in object-oriented programming.  It is analogous to
+<code>@defcv</code> with the addition of the <var>data-type</var> parameter to
+specify the type of the instance variable.  Ordinarily, the data type
+is a programming language construct that should be marked with
+<code>@code</code>. For instance:
+
+     <pre class="example">          @deftypecv {Class Option} Window @code{int} border-pattern
+          ...
+          @end deftypecv
+     </pre>
+     <p class="noindent">produces:
+
+     <div class="defun">
+&mdash; Class Option of Window: <code>int</code> <b>border-pattern</b><var><a name="index-border_002dpattern-866"></a></var><br>
+<blockquote><small class="dots">...</small>
+</blockquote></div>
+
+     <p><code>@deftypecv</code> creates an entry in the index of variables.
+
+     <br><dt><code>@defivar </code><var>class</var> <var>name</var><dd><a name="index-defivar-867"></a>The <code>@defivar</code> command is the definition command for instance
+variables in object-oriented programming.  <code>@defivar</code> is
+equivalent to `<samp><span class="samp">@defcv {Instance Variable} ...</span></samp>'.  For
+instance:
+
+     <pre class="example">          @defivar Window border-pattern
+          ...
+          @end defivar
+     </pre>
+     <p class="noindent">produces:
+
+     <div class="defun">
+&mdash; Instance Variable of Window: <b>border-pattern</b><var><a name="index-border_002dpattern-868"></a></var><br>
+<blockquote><small class="dots">...</small>
+</blockquote></div>
+
+     <p><code>@defivar</code> creates an entry in the index of variables.
+
+     <br><dt><code>@deftypeivar </code><var>class</var> <var>data-type</var> <var>name</var><dd><a name="index-deftypeivar-869"></a>The <code>@deftypeivar</code> command is the definition command for typed
+instance variables in object-oriented programming.  It is analogous to
+<code>@defivar</code> with the addition of the <var>data-type</var> parameter to
+specify the type of the instance variable.  Ordinarily, the data type
+is a programming language construct that should be marked with
+<code>@code</code>. For instance:
+
+     <pre class="example">          @deftypeivar Window @code{int} border-pattern
+          ...
+          @end deftypeivar
+     </pre>
+     <p class="noindent">produces:
+
+     <div class="defun">
+&mdash; Instance Variable of Window: <code>int</code> <b>border-pattern</b><var><a name="index-border_002dpattern-of-Window-870"></a></var><br>
+<blockquote><small class="dots">...</small>
+</blockquote></div>
+
+     <p><code>@deftypeivar</code> creates an entry in the index of variables.
+
+  </dl>
+
+  </body></html>
+

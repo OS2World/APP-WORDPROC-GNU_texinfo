@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+<title>Sample Beginning - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Beginning-a-File.html#Beginning-a-File" title="Beginning a File">
+<link rel="next" href="Texinfo-File-Header.html#Texinfo-File-Header" title="Texinfo File Header">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Sample-Beginning"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Texinfo-File-Header.html#Texinfo-File-Header">Texinfo File Header</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Beginning-a-File.html#Beginning-a-File">Beginning a File</a>
+<hr>
+</div>
+
+<h3 class="section">3.1 Sample Texinfo File Beginning</h3>
+
+<p><a name="index-Example-beginning-of-Texinfo-file-161"></a>
+The following sample shows what is needed.  The elements given here are
+explained in more detail in the following sections.  Other commands are
+often included at the beginning of Texinfo files, but the ones here are
+the most critical.
+
+  <p>See <a href="GNU-Sample-Texts.html#GNU-Sample-Texts">GNU Sample Texts</a>, for the full texts to be used in GNU manuals.
+
+<pre class="example">     \input texinfo   @c -*-texinfo-*-
+     @c %**start of header
+     @setfilename <var>infoname</var>.info
+     @settitle <var>name-of-manual</var> <var>version</var>
+     @c %**end of header
+     
+     @copying
+     This manual is for <var>program</var>, version <var>version</var>.
+     
+     Copyright @copyright{} <var>years</var> <var>copyright-owner</var>.
+     
+     @quotation
+     Permission is granted to ...
+     @end quotation
+     @end copying
+     
+     @titlepage
+     @title <var>name-of-manual-when-printed</var>
+     @subtitle <var>subtitle-if-any</var>
+     @subtitle <var>second-subtitle</var>
+     @author <var>author</var>
+     
+     @c  The following two commands
+     @c  start the copyright page.
+     @page
+     @vskip 0pt plus 1filll
+     @insertcopying
+     
+     Published by ...
+     @end titlepage
+     
+     @c So the toc is printed at the start.
+     @contents
+     
+     @ifnottex
+     @node Top
+     @top <var>title</var>
+     
+     @insertcopying
+     @end ifnottex
+     
+     @menu
+     * First Chapter::    Getting started ...
+     * Second Chapter::          ...
+      ...
+     * Copying::          Your rights and freedoms.
+     @end menu
+     
+     @node First Chapter
+     @chapter First Chapter
+     
+     @cindex first chapter
+     @cindex chapter, first
+     ...
+</pre>
+  </body></html>
+

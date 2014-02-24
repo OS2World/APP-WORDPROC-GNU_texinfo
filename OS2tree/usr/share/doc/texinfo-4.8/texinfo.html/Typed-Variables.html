@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+<title>Typed Variables - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Def-Cmds-in-Detail.html#Def-Cmds-in-Detail" title="Def Cmds in Detail">
+<link rel="prev" href="Typed-Functions.html#Typed-Functions" title="Typed Functions">
+<link rel="next" href="Data-Types.html#Data-Types" title="Data Types">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Typed-Variables"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Data-Types.html#Data-Types">Data Types</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Typed-Functions.html#Typed-Functions">Typed Functions</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Def-Cmds-in-Detail.html#Def-Cmds-in-Detail">Def Cmds in Detail</a>
+<hr>
+</div>
+
+<h4 class="subsection">16.5.4 Variables in Typed Languages</h4>
+
+<p>Variables in typed languages are handled in a manner similar to
+functions in typed languages.  See <a href="Typed-Functions.html#Typed-Functions">Typed Functions</a>.  The general
+definition command <code>@deftypevr</code> corresponds to
+<code>@deftypefn</code> and the specialized definition command
+<code>@deftypevar</code> corresponds to <code>@deftypefun</code>.
+
+     
+<a name="index-deftypevr-858"></a>
+<dl><dt><code>@deftypevr </code><var>category</var> <var>data-type</var> <var>name</var><dd>The <code>@deftypevr</code> command is the general definition command for
+something like a variable in a typed language&mdash;an entity that records
+a value.  You must choose a term to describe the category of the
+entity being defined; for example, &ldquo;Variable&rdquo; could be used if the
+entity is a variable.
+
+     <p>The <code>@deftypevr</code> command is written at the beginning of a line
+and is followed on the same line by the category of the entity
+being described, the data type, and the name of this particular
+entity.
+
+     <p class="noindent">For example:
+
+     <pre class="example">          @deftypevr {Global Flag} int enable
+          ...
+          @end deftypevr
+     </pre>
+     <p class="noindent">produces the following in Info:
+
+     <pre class="example">          -- Global Flag: int enable
+          ...
+     </pre>
+     <p>The template is:
+
+     <pre class="example">          @deftypevr <var>category</var> <var>data-type</var> <var>name</var>
+          <var>body-of-description</var>
+          @end deftypevr
+     </pre>
+     <p><a name="index-deftypevar-859"></a><br><dt><code>@deftypevar </code><var>data-type</var> <var>name</var><dd>The <code>@deftypevar</code> command is the specialized definition command
+for variables in typed languages.  <code>@deftypevar</code> is equivalent
+to `<samp><span class="samp">@deftypevr Variable ...</span></samp>'.  The template is:
+
+     <pre class="example">          @deftypevar <var>data-type</var> <var>name</var>
+          <var>body-of-description</var>
+          @end deftypevar
+     </pre>
+     </dl>
+
+  <p>These commands create entries in the index of variables.
+
+  </body></html>
+

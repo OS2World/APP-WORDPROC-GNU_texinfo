@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+<title>Parts of an Xref - GNU Info 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Info 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Xref-Commands.html#Xref-Commands" title="Xref Commands">
+<link rel="next" href="Selecting-Xrefs.html#Selecting-Xrefs" title="Selecting Xrefs">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Info (version 4.8, 14 December 2004),
+a program for viewing documents in Info format (usually created from
+Texinfo source files).
+
+Copyright (C) 1992, 1993, 1996, 1997, 1998, 1999, 2001, 2002,
+2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Parts-of-an-Xref"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Selecting-Xrefs.html#Selecting-Xrefs">Selecting Xrefs</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Xref-Commands.html#Xref-Commands">Xref Commands</a>
+<hr>
+</div>
+
+<h3 class="section">7.1 Parts of an Xref</h3>
+
+<p>Cross references have two major parts: the first part is called the
+<dfn>label</dfn>; it is the name that you can use to refer to the cross
+reference, and the second is the <dfn>target</dfn>; it is the full name of
+the node that the cross reference points to.
+
+   <p>The target is separated from the label by a colon `<samp><span class="samp">:</span></samp>'; first the
+label appears, and then the target.  For example, in the sample menu
+cross reference below, the single colon separates the label from the
+target.
+
+<pre class="example">     * Foo Label: Foo Target.        More information about Foo.
+</pre>
+   <p>Note the `<samp><span class="samp">.</span></samp>' which ends the name of the target.  The `<samp><span class="samp">.</span></samp>' is
+not part of the target; it serves only to let Info know where the target
+name ends.
+
+   <p>A shorthand way of specifying references allows two adjacent colons to
+stand for a target name which is the same as the label name:
+
+<pre class="example">     * Foo Commands::                Commands pertaining to Foo.
+</pre>
+   <p>In the above example, the name of the target is the same as the name of
+the label, in this case <code>Foo Commands</code>.
+
+   <p>You will normally see two types of cross reference while viewing nodes:
+<dfn>menu</dfn> references, and <dfn>note</dfn> references.  Menu references
+appear within a node's menu; they begin with a `<samp><span class="samp">*</span></samp>' at the beginning
+of a line, and continue with a label, a target, and a comment which
+describes what the contents of the node pointed to contains.
+
+   <p>Note references appear within the body of the node text; they begin with
+<code>*Note</code>, and continue with a label and a target.
+
+   <p>Like `<samp><span class="samp">Next</span></samp>', `<samp><span class="samp">Prev</span></samp>', and `<samp><span class="samp">Up</span></samp>' pointers, cross references
+can point to any valid node.  They are used to refer you to a place
+where more detailed information can be found on a particular subject. 
+Here is a cross reference which points to a node within the Texinfo
+documentation:  See <a href="../texinfo/xref.html#xref">Writing an Xref</a>, for more information on creating your own texinfo cross
+references.
+
+   </body></html>
+

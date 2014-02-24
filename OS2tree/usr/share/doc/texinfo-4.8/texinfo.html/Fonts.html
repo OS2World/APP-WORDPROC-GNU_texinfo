@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+<title>Fonts - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Emphasis.html#Emphasis" title="Emphasis">
+<link rel="prev" href="Smallcaps.html#Smallcaps" title="Smallcaps">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Fonts"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Smallcaps.html#Smallcaps">Smallcaps</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Emphasis.html#Emphasis">Emphasis</a>
+<hr>
+</div>
+
+<h4 class="subsection">9.2.3 Fonts for Printing, Not Info</h4>
+
+<p><a name="index-Fonts-for-printing_002c-not-Info-449"></a>
+Texinfo provides a number of font commands that specify font changes
+in the printed manual and (where possible) in the HTML output, but
+have no effect in the Info file.  All the commands apply to an
+argument that follows, surrounded by braces.
+
+     <dl>
+<dt><code>@b</code><dd><a name="index-b-_0040r_007b_0028bold-font_0029_007d-450"></a><a name="index-Bold-font-451"></a>selects <b>bold</b> face;
+
+     <br><dt><code>@i</code><dd><a name="index-i-_0040r_007b_0028italic-font_0029_007d-452"></a><a name="index-Italic-font-453"></a>selects an <i>italic</i> font;
+
+     <br><dt><code>@r</code><dd><a name="index-r-_0040r_007b_0028roman-font_0029_007d-454"></a><a name="index-Roman-font-455"></a><a name="index-Default-font-456"></a>selects a <span class="roman">roman</span> font, which is the usual font in which text is
+printed.  It may or may not be seriffed.
+
+     <br><dt><code>@sansserif</code><dd><a name="index-sansserif-_0040r_007b_0028sans-serif-font_0029_007d-457"></a><a name="index-Sans-serif-font-458"></a>selects a <span class="sansserif">sans serif</span> font;
+
+     <br><dt><code>@slanted</code><dd><a name="index-slanted-_0040r_007b_0028slanted-font_0029_007d-459"></a><a name="index-Slanted-font-460"></a><a name="index-Oblique-font-461"></a>rselects a <i>slanted</i> font;
+
+     <br><dt><code>@t</code><dd><a name="index-t-_0040r_007b_0028typewriter-font_0029_007d-462"></a><a name="index-Monospace-font-463"></a><a name="index-Fixed_002dwidth-font-464"></a><a name="index-Typewriter-font-465"></a>selects the <tt>fixed-width</tt>, typewriter-style font used by <code>@code</code>;
+
+  </dl>
+
+  <p>(The commands with longer names were invented much later than the
+others, when it did not seem desirable to use very short names for
+such an infrequently needed feature.)
+
+  <p><a name="index-g_t_003clineannotation_003e-Docbook-tag-466"></a>Only the <code>@r</code> command has much use: in example-like
+environments, you can use the <code>@r</code> command to write comments in
+the standard roman font instead of the fixed-width font.  This looks
+better in printed output, and produces a <code>&lt;lineannotation&gt;</code> tag
+in Docbook output.
+
+  <p>For example,
+
+<pre class="example">     @lisp
+     (+ 2 2)    ; @r{Add two plus two.}
+     @end lisp
+</pre>
+  <p class="noindent">produces
+
+<pre class="lisp">     (+ 2 2)    ; <span class="roman">Add two plus two.</span>
+</pre>
+  <p>In general, you should avoid using the other font commands.  Some of
+them are only useful when documenting functionality with specific font
+effects, such as in \TeX\ and related packages.
+
+  </body></html>
+

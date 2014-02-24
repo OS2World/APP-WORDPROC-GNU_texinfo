@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+<title>anchor - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Nodes.html#Nodes" title="Nodes">
+<link rel="prev" href="makeinfo-Pointer-Creation.html#makeinfo-Pointer-Creation" title="makeinfo Pointer Creation">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="anchor"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="makeinfo-Pointer-Creation.html#makeinfo-Pointer-Creation">makeinfo Pointer Creation</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Nodes.html#Nodes">Nodes</a>
+<hr>
+</div>
+
+<h3 class="section">6.5 <code>@anchor</code>: Defining Arbitrary Cross-reference Targets</h3>
+
+<p><a name="index-anchor-333"></a><a name="index-Anchors-334"></a><a name="index-Cross_002dreference-targets_002c-arbitrary-335"></a><a name="index-Targets-for-cross_002dreferences_002c-arbitrary-336"></a>
+An <dfn>anchor</dfn> is a position in your document, labeled so that
+cross-references can refer to it, just as they can to nodes.  You create
+an anchor with the <code>@anchor</code> command, and give the label as a
+normal brace-delimited argument.  For example:
+
+<pre class="example">     This marks the @anchor{x-spot}spot.
+     ...
+     @xref{x-spot,,the spot}.
+</pre>
+  <p class="noindent">produces:
+
+<pre class="example">     This marks the spot.
+     ...
+     See [the spot], page 1.
+</pre>
+  <p>As you can see, the <code>@anchor</code> command itself produces no output. 
+This example defines an anchor `x-spot' just before the word `spot'. 
+You can refer to it later with an <code>@xref</code> or other cross-reference
+command, as shown.  See <a href="Cross-References.html#Cross-References">Cross References</a>, for details on the
+cross-reference commands.
+
+  <p>It is best to put <code>@anchor</code> commands just before the position you
+wish to refer to; that way, the reader's eye is led on to the correct
+text when they jump to the anchor.  You can put the <code>@anchor</code>
+command on a line by itself if that helps readability of the source. 
+Spaces are always ignored after <code>@anchor</code>.
+
+  <p>Anchor names and node names may not conflict.  Anchors and nodes are
+given similar treatment in some ways; for example, the <code>goto-node</code>
+command in standalone Info takes either an anchor name or a node name as
+an argument.  (See <a href="../info-stnd/goto_002dnode.html#goto_002dnode">goto-node</a>.)
+
+  </body></html>
+

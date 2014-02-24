@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+<title>math - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Insertions.html#Insertions" title="Insertions">
+<link rel="prev" href="minus.html#minus" title="minus">
+<link rel="next" href="Glyphs.html#Glyphs" title="Glyphs">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="math"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Glyphs.html#Glyphs">Glyphs</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="minus.html#minus">minus</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Insertions.html#Insertions">Insertions</a>
+<hr>
+</div>
+
+<h3 class="section">14.9 <code>@math</code>: Inserting Mathematical Expressions</h3>
+
+<p><a name="index-math-761"></a><a name="index-Mathematical-expressions-762"></a><a name="index-Formulas_002c-mathematical-763"></a>
+You can write a short mathematical expression with the <code>@math</code>
+command.  Write the mathematical expression between braces, like this:
+
+<pre class="example">     @math{(a + b)(a + b) = a^2 + 2ab + b^2}
+</pre>
+  <p class="noindent">This produces the following in Info and HTML:
+
+<pre class="example">     (a + b)(a + b) = a^2 + 2ab + b^2
+</pre>
+  <p>Thus, the <code>@math</code> command has no effect on the Info and HTML
+output; <samp><span class="command">makeinfo</span></samp> just reproduces the input, it does not try
+to interpret the mathematics in any way.
+
+  <p><code>@math</code> implies <code>@tex</code>.  This not only makes it possible to
+write superscripts and subscripts (as in the above example), but also
+allows you to use any of the plain TeX math control sequences.  It's
+conventional to use `<samp><span class="samp">\</span></samp>' instead of `<samp><span class="samp">@</span></samp>' for these commands. 
+As in:
+<pre class="example">     @math{\sin 2\pi \equiv \cos 3\pi}
+</pre>
+  <p class="noindent">which looks like the input in Info and HTML:
+<pre class="example">     \sin 2\pi \equiv \cos 3\pi
+</pre>
+  <p><a name="index-g_t_005c-_0040r_007b_0028literal-_005c-in-_0040code_007b_0040_0040math_007d_0029_007d-764"></a>Since `<samp><span class="samp">\</span></samp>' is an escape character inside <code>@math</code>, you can use
+<code>@\</code> to get a literal backslash (<code>\\</code> will work in TeX,
+but you'll get the literal `<samp><span class="samp">\\</span></samp>' in Info).  <code>@\</code> is not
+defined outside of <code>@math</code>, since a `<samp><span class="samp">\</span></samp>' ordinarily produces a
+literal `<samp><span class="samp">\</span></samp>'.
+
+  <p><a name="index-Displayed-equations-765"></a><a name="index-Equations_002c-displayed-766"></a>For displayed equations, you must at present use TeX directly
+(see <a href="Raw-Formatter-Commands.html#Raw-Formatter-Commands">Raw Formatter Commands</a>).
+
+  </body></html>
+

@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+<title>insertcopying - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Document-Permissions.html#Document-Permissions" title="Document Permissions">
+<link rel="prev" href="copying.html#copying" title="copying">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="insertcopying"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="copying.html#copying">copying</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Document-Permissions.html#Document-Permissions">Document Permissions</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.3.2 <code>@insertcopying</code>: Include Permissions Text</h4>
+
+<p><a name="index-insertcopying-188"></a><a name="index-Copying-text_002c-including-189"></a><a name="index-Permissions-text_002c-including-190"></a><a name="index-Including-permissions-text-191"></a>
+The <code>@insertcopying</code> command is simply written on a line by
+itself, like this:
+
+<pre class="example">     @insertcopying
+</pre>
+  <p>This inserts the text previously defined by <code>@copying</code>.  To meet
+legal requirements, it must be used on the copyright page in the printed
+manual (see <a href="Copyright.html#Copyright">Copyright</a>).
+
+  <p>We also strongly recommend using <code>@insertcopying</code> in the Top node
+of your manual (see <a href="The-Top-Node.html#The-Top-Node">The Top Node</a>), although it is not required
+legally.  Here's why:
+
+  <p>The <code>@copying</code> command itself causes the permissions text to
+appear in an Info file <em>before</em> the first node.  The text is also
+copied into the beginning of each split Info output file, as is legally
+necessary.  This location implies a human reading the manual using Info
+does <em>not</em> see this text (except when using the advanced Info
+command <kbd>g *</kbd>).  Therefore, an explicit <code>@insertcopying</code>
+in the Top node makes it apparent to readers that the manual is free.
+
+  <p>Similarly, the <code>@copying</code> text is automatically included at the
+beginning of each HTML output file, as an HTML comment.  Again, this
+text is not visible (unless the reader views the HTML source).  And
+therefore again, the <code>@insertcopying</code> in the Top node is valuable
+because it makes the copying permissions visible and thus promotes
+freedom.
+
+  <p>The permissions text defined by <code>@copying</code> also appears
+automatically at the beginning of the XML output file.
+
+  </body></html>
+

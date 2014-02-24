@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+<title>exdent - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Quotations-and-Examples.html#Quotations-and-Examples" title="Quotations and Examples">
+<link rel="prev" href="format.html#format" title="format">
+<link rel="next" href="flushleft-_0026-flushright.html#flushleft-_0026-flushright" title="flushleft & flushright">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="exdent"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="flushleft-_0026-flushright.html#flushleft-_0026-flushright">flushleft &amp; flushright</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="format.html#format">format</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Quotations-and-Examples.html#Quotations-and-Examples">Quotations and Examples</a>
+<hr>
+</div>
+
+<h3 class="section">10.10 <code>@exdent</code>: Undoing a Line's Indentation</h3>
+
+<p><a name="index-Indentation-undoing-494"></a><a name="index-exdent-495"></a>
+The <code>@exdent</code> command removes any indentation a line might have. 
+The command is written at the beginning of a line and applies only to
+the text that follows the command that is on the same line.  Do not use
+braces around the text.  In a printed manual, the text on an
+<code>@exdent</code> line is printed in the roman font.
+
+  <p><code>@exdent</code> is usually used within examples.  Thus,
+
+<pre class="example">     @example
+     This line follows an @@example command.
+     @exdent This line is exdented.
+     This line follows the exdented line.
+     The @@end example comes on the next line.
+     @end group
+</pre>
+  <p class="noindent">produces
+
+<pre class="example">     This line follows an @example command.
+<br>This line is exdented.<br>
+     This line follows the exdented line.
+     The @end example comes on the next line.
+</pre>
+  <p>In practice, the <code>@exdent</code> command is rarely used. 
+Usually, you un-indent text by ending the example and
+returning the page to its normal width.
+
+  </body></html>
+

@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+<title>Compile-Command - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Hardcopy.html#Hardcopy" title="Hardcopy">
+<link rel="prev" href="Texinfo-Mode-Printing.html#Texinfo-Mode-Printing" title="Texinfo Mode Printing">
+<link rel="next" href="Requirements-Summary.html#Requirements-Summary" title="Requirements Summary">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Compile-Command"></a>
+<a name="Compile_002dCommand"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Requirements-Summary.html#Requirements-Summary">Requirements Summary</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Texinfo-Mode-Printing.html#Texinfo-Mode-Printing">Texinfo Mode Printing</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Hardcopy.html#Hardcopy">Hardcopy</a>
+<hr>
+</div>
+
+<h3 class="section">20.7 Using the Local Variables List</h3>
+
+<p><a name="index-Local-variables-1017"></a><a name="index-Compile-command-for-formatting-1018"></a><a name="index-Format-with-the-compile-command-1019"></a>
+Yet another way to apply the TeX formatting command to a Texinfo file
+is to put that command in a <dfn>local variables list</dfn> at the end of the
+Texinfo file.  You can then specify the <code>tex</code> or <code>texi2dvi</code>
+commands as a <code>compile-command</code> and have Emacs run it by typing
+<kbd>M-x compile</kbd>.  This creates a special shell called the
+<samp><span class="file">*compilation*</span></samp> buffer in which Emacs runs the compile command. 
+For example, at the end of the <samp><span class="file">gdb.texinfo</span></samp> file, after the
+<code>@bye</code>, you could put the following:
+
+<pre class="example">     Local Variables:
+     compile-command: "texi2dvi gdb.texinfo"
+     End:
+</pre>
+  <p class="noindent">This technique is most often used by programmers who also compile programs
+this way; see <a href="../emacs/Compilation.html#Compilation">Compilation</a>.
+
+  </body></html>
+

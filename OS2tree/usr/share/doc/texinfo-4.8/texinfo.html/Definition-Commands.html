@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+<title>Definition Commands - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Breaks.html#Breaks" title="Breaks">
+<link rel="next" href="Conditionals.html#Conditionals" title="Conditionals">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Definition-Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Conditionals.html#Conditionals">Conditionals</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Breaks.html#Breaks">Breaks</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">16 Definition Commands</h2>
+
+<p><a name="index-Definition-commands-825"></a>
+The <code>@deffn</code> command and the other <dfn>definition commands</dfn>
+enable you to describe functions, variables, macros, commands, user
+options, special forms and other such artifacts in a uniform
+format.
+
+  <p>In the Info file, a definition causes the entity
+category&mdash;`Function', `Variable', or whatever&mdash;to appear at the
+beginning of the first line of the definition, followed by the
+entity's name and arguments.  In the printed manual, the command
+causes TeX to print the entity's name and its arguments on the left
+margin and print the category next to the right margin.  In both
+output formats, the body of the definition is indented.  Also, the
+name of the entity is entered into the appropriate index:
+<code>@deffn</code> enters the name into the index of functions,
+<code>@defvr</code> enters it into the index of variables, and so
+on (see <a href="Predefined-Indices.html#Predefined-Indices">Predefined Indices</a>).
+
+  <p>A manual need not and should not contain more than one definition for
+a given name.  An appendix containing a summary should use
+<code>@table</code> rather than the definition commands.
+
+<ul class="menu">
+<li><a accesskey="1" href="Def-Cmd-Template.html#Def-Cmd-Template">Def Cmd Template</a>:             Writing descriptions using definition commands. 
+<li><a accesskey="2" href="Def-Cmd-Continuation-Lines.html#Def-Cmd-Continuation-Lines">Def Cmd Continuation Lines</a>:   Continuing the heading over source lines. 
+<li><a accesskey="3" href="Optional-Arguments.html#Optional-Arguments">Optional Arguments</a>:           Handling optional and repeated arguments. 
+<li><a accesskey="4" href="deffnx.html#deffnx">deffnx</a>:                       Group two or more `first' lines. 
+<li><a accesskey="5" href="Def-Cmds-in-Detail.html#Def-Cmds-in-Detail">Def Cmds in Detail</a>:           Reference for all the definition commands. 
+<li><a accesskey="6" href="Def-Cmd-Conventions.html#Def-Cmd-Conventions">Def Cmd Conventions</a>:          Conventions for writing definitions. 
+<li><a accesskey="7" href="Sample-Function-Definition.html#Sample-Function-Definition">Sample Function Definition</a>:   An example. 
+</ul>
+
+  </body></html>
+

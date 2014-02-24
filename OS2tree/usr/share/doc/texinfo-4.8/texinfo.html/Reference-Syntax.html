@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+<title>Reference Syntax - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="xref.html#xref" title="xref">
+<link rel="next" href="One-Argument.html#One-Argument" title="One Argument">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Reference-Syntax"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="One-Argument.html#One-Argument">One Argument</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="xref.html#xref">xref</a>
+<hr>
+</div>
+
+<h4 class="subsection">8.4.1 What a Reference Looks Like and Requires</h4>
+
+<p>Most often, an Info cross reference looks like this:
+
+<pre class="example">     *Note <var>node-name</var>::.
+</pre>
+  <p class="noindent">or like this
+
+<pre class="example">     *Note <var>cross-reference-name</var>: <var>node-name</var>.
+</pre>
+  <p class="noindent">In TeX, a cross reference looks like this:
+
+  <blockquote>
+See Section <var>section-number</var> [<var>node-name</var>], page <var>page</var>. 
+</blockquote>
+
+<p class="noindent">or like this
+
+  <blockquote>
+See Section <var>section-number</var> [<var>title-or-topic</var>], page <var>page</var>. 
+</blockquote>
+
+  <p>The <code>@xref</code> command does not generate a period or comma to end
+the cross reference in either the Info file or the printed output. 
+You must write that period or comma yourself; otherwise, Info will not
+recognize the end of the reference.  (The <code>@pxref</code> command works
+differently.  See <a href="pxref.html#pxref"><code>@pxref</code></a>.)
+
+  <blockquote>
+<b>Caution:</b> A period or comma <strong>must</strong> follow the closing
+brace of an <code>@xref</code>.  It is required to terminate the cross
+reference.  This period or comma will appear in the output, both in
+the Info file and in the printed manual. 
+</blockquote>
+
+  <p><code>@xref</code> must refer to an Info node by name.  Use <code>@node</code>
+to define the node (see <a href="Writing-a-Node.html#Writing-a-Node">Writing a Node</a>).
+
+  <p><code>@xref</code> is followed by several arguments inside braces, separated by
+commas.  Whitespace before and after these commas is ignored.
+
+  <p>A cross reference requires only the name of a node; but it may contain
+up to four additional arguments.  Each of these variations produces a
+cross reference that looks somewhat different.
+
+  <blockquote>
+<b>Note:</b> Commas separate arguments in a cross reference;
+avoid including them in the title or other part lest the formatters
+mistake them for separators. 
+</blockquote>
+
+  </body></html>
+

@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+<title>Splitting - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Running-Info_002dValidate.html#Running-Info_002dValidate" title="Running Info-Validate">
+<link rel="prev" href="Tagifying.html#Tagifying" title="Tagifying">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Splitting"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Tagifying.html#Tagifying">Tagifying</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Running-Info_002dValidate.html#Running-Info_002dValidate">Running Info-Validate</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h4 class="subsection">F.6.4 Splitting a File Manually</h4>
+
+<p><a name="index-Splitting-an-Info-file-manually-1327"></a><a name="index-Info-file_002c-splitting-manually-1328"></a>
+You should split a large file or else let the
+<code>texinfo-format-buffer</code> or <code>makeinfo-buffer</code> command do it
+for you automatically.  (Generally you will let one of the formatting
+commands do this job for you.  See <a href="Creating-an-Info-File.html#Creating-an-Info-File">Creating an Info File</a>.)
+
+  <p>The split-off files are called the indirect subfiles.
+
+  <p>Info files are split to save memory.  With smaller files, Emacs does not
+have make such a large buffer to hold the information.
+
+  <p>If an Info file has more than 30 nodes, you should also make a tag
+table for it. See <a href="Using-Info_002dvalidate.html#Using-Info_002dvalidate">Using Info-validate</a>, for information
+about creating a tag table.  (Again, tag tables are usually created
+automatically by the formatting command; you only need to create a tag
+table yourself if you are doing the job manually.  Most likely, you
+will do this for a large, unsplit file on which you have run
+<code>Info-validate</code>.)
+
+<!-- Info-split is autoloaded in `loaddefs.el' in Emacs 18.51 -->
+<p>Visit the Info file you wish to tagify and split and type the two
+commands:
+
+<pre class="example">     M-x Info-tagify
+     M-x Info-split
+</pre>
+  <p class="noindent">(Note that the `<samp><span class="samp">I</span></samp>' in `<samp><span class="samp">Info</span></samp>' is upper case.)
+
+  <p>When you use the <code>Info-split</code> command, the buffer is modified into a
+(small) Info file which lists the indirect subfiles.  This file should be
+saved in place of the original visited file.  The indirect subfiles are
+written in the same directory the original file is in, with names generated
+by appending `<samp><span class="samp">-</span></samp>' and a number to the original file name.
+
+  <p>The primary file still functions as an Info file, but it contains just
+the tag table and a directory of subfiles.
+
+<!-- These are no longer ``new'', and the explanations -->
+<!-- are all given elsewhere anyway, I think.  -karl, 25apr97. -->
+<!-- So ignore the entire appendix. -->
+</body></html>
+

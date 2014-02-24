@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+<title>ifset ifclear - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="set-clear-value.html#set-clear-value" title="set clear value">
+<link rel="prev" href="set-value.html#set-value" title="set value">
+<link rel="next" href="value-Example.html#value-Example" title="value Example">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="ifset-ifclear"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="value-Example.html#value-Example">value Example</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="set-value.html#set-value">set value</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="set-clear-value.html#set-clear-value">set clear value</a>
+<hr>
+</div>
+
+<h4 class="subsection">17.4.2 <code>@ifset</code> and <code>@ifclear</code></h4>
+
+<p><a name="index-ifset-917"></a>When a <var>flag</var> is set, the Texinfo formatting commands format text
+between subsequent pairs of <code>@ifset </code><var>flag</var> and <code>@end
+ifset</code> commands.  When the <var>flag</var> is cleared, the Texinfo formatting
+commands do <em>not</em> format the text.  <code>@ifclear</code> operates
+analogously.
+
+  <p>Write the conditionally formatted text between <code>@ifset </code><var>flag</var>
+and <code>@end ifset</code> commands, like this:
+
+<pre class="example">     @ifset <var>flag</var>
+     <var>conditional-text</var>
+     @end ifset
+</pre>
+  <p>For example, you can create one document that has two variants, such as
+a manual for a `large' and `small' model:
+
+  <p><a name="index-Shrubbery-918"></a>
+<pre class="example">     You can use this machine to dig up shrubs
+     without hurting them.
+     
+     @set large
+     
+     @ifset large
+     It can also dig up fully grown trees.
+     @end ifset
+     
+     Remember to replant promptly ...
+</pre>
+  <p class="noindent">In the example, the formatting commands will format the text between
+<code>@ifset large</code> and <code>@end ifset</code> because the <code>large</code>
+flag is set.
+
+  <p>When <var>flag</var> is cleared, the Texinfo formatting commands do
+<em>not</em> format the text between <code>@ifset </code><var>flag</var> and
+<code>@end ifset</code>; that text is ignored and does not appear in either
+printed or Info output.
+
+  <p>For example, if you clear the flag of the preceding example by writing
+an <code>@clear large</code> command after the <code>@set large</code> command
+(but before the conditional text), then the Texinfo formatting commands
+ignore the text between the <code>@ifset large</code> and <code>@end ifset</code>
+commands.  In the formatted output, that text does not appear; in both
+printed and Info output, you see only the lines that say, &ldquo;You can use
+this machine to dig up shrubs without hurting them.  Remember to replant
+promptly <small class="dots">...</small>&rdquo;.
+
+  <p><a name="index-ifclear-919"></a>If a flag is cleared with an <code>@clear </code><var>flag</var> command, then
+the formatting commands format text between subsequent pairs of
+<code>@ifclear</code> and <code>@end ifclear</code> commands.  But if the flag
+is set with <code>@set </code><var>flag</var>, then the formatting commands do
+<em>not</em> format text between an <code>@ifclear</code> and an <code>@end
+ifclear</code> command; rather, they ignore that text.  An <code>@ifclear</code>
+command looks like this:
+
+<pre class="example">     @ifclear <var>flag</var>
+</pre>
+  </body></html>
+

@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+<title>Copyright - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Titlepage-_0026-Copyright-Page.html#Titlepage-_0026-Copyright-Page" title="Titlepage & Copyright Page">
+<link rel="prev" href="title-subtitle-author.html#title-subtitle-author" title="title subtitle author">
+<link rel="next" href="end-titlepage.html#end-titlepage" title="end titlepage">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Copyright"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="end-titlepage.html#end-titlepage">end titlepage</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="title-subtitle-author.html#title-subtitle-author">title subtitle author</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Titlepage-_0026-Copyright-Page.html#Titlepage-_0026-Copyright-Page">Titlepage &amp; Copyright Page</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.4.4 Copyright Page</h4>
+
+<p><a name="index-Copyright-page-206"></a><a name="index-Printed-permissions-207"></a><a name="index-Permissions_002c-printed-208"></a>
+By international treaty, the copyright notice for a book must be either
+on the title page or on the back of the title page.  When the copyright
+notice is on the back of the title page, that page is customarily not
+numbered.  Therefore, in Texinfo, the information on the copyright page
+should be within <code>@titlepage</code> and <code>@end titlepage</code>
+commands.
+
+  <p><a name="index-vskip-_0040r_007b_0040TeX_007b_007d-vertical-skip_007d-209"></a><a name="index-filll-_0040r_007b_0040TeX_007b_007d-dimension_007d-210"></a>Use the <code>@page</code> command to cause a page break.  To push the
+copyright notice and the other text on the copyright page towards the
+bottom of the page, use the following incantantion after <code>@page</code>:
+
+<pre class="example">     @vskip 0pt plus 1filll
+</pre>
+  <p class="noindent">This is a TeX command that is not supported by the Info formatting
+commands.  The <code>@vskip</code> command inserts whitespace.  The `<samp><span class="samp">0pt
+plus 1filll</span></samp>' means to put in zero points of mandatory whitespace, and as
+much optional whitespace as needed to push the following text to the
+bottom of the page.  Note the use of three `<samp><span class="samp">l</span></samp>'s in the word
+`<samp><span class="samp">filll</span></samp>'; this is correct.
+
+  <p>To insert the copyright text itself, write <code>@insertcopying</code>
+next (see <a href="Document-Permissions.html#Document-Permissions">Document Permissions</a>):
+
+<pre class="example">     @insertcopying
+</pre>
+  <p>Follow the copying text by the publisher, ISBN numbers, cover art
+credits, and other such information.
+
+  <p>Here is an example putting all this together:
+
+<pre class="example">     @titlepage
+     ...
+     @page
+     @vskip 0pt plus 1filll
+     @insertcopying
+     
+     Published by ...
+     
+     Cover art by ...
+     @end titlepage
+</pre>
+  </body></html>
+

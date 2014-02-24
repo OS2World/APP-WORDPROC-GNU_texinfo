@@ -1,0 +1,65 @@
+diff -PurB -X x-os2unix.dat texinfo-4.8/lib/Makefile.in texinfo-4.8-os2/lib/Makefile.in
+--- texinfo-4.8/lib/Makefile.in	Thu Jan 20 21:42:42 2005
++++ texinfo-4.8-os2/lib/Makefile.in	Thu Jan 20 21:24:36 2005
+@@ -102,7 +102,7 @@
+ am__DEPENDENCIES_2 = @ALLOCA@
+ am_libtxi_a_OBJECTS = getopt.$(OBJEXT) getopt1.$(OBJEXT) \
+ 	substring.$(OBJEXT) xexit.$(OBJEXT) xmalloc.$(OBJEXT) \
+-	xstrdup.$(OBJEXT)
++	xstrdup.$(OBJEXT) pc.$(OBJEXT)
+ libtxi_a_OBJECTS = $(am_libtxi_a_OBJECTS)
+ DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
+ depcomp = $(SHELL) $(top_srcdir)/depcomp
+@@ -269,7 +269,7 @@
+ libtxi_a_SOURCES = getopt.c getopt.h getopt1.c getopt_.h getopt_int.h \
+                    gettext.h \
+                    strcase.h strdup.h substring.c system.h \
+-		   xalloc.h xexit.c xmalloc.c xstrdup.c
++		   xalloc.h xexit.c xmalloc.c xstrdup.c pc.c
+ 
+ libtxi_a_LIBADD = $(LIBOBJS) $(ALLOCA)
+ ifeq ($(omf),on)
+diff -PurB -X x-os2unix.dat texinfo-4.8/makeinfo/Makefile.in texinfo-4.8-os2/makeinfo/Makefile.in
+--- texinfo-4.8/makeinfo/Makefile.in	Thu Jan 20 21:42:44 2005
++++ texinfo-4.8-os2/makeinfo/Makefile.in	Thu Jan 20 21:16:16 2005
+@@ -96,7 +96,7 @@
+ 	index.$(OBJEXT) insertion.$(OBJEXT) lang.$(OBJEXT) \
+ 	macro.$(OBJEXT) makeinfo.$(OBJEXT) multi.$(OBJEXT) \
+ 	node.$(OBJEXT) sectioning.$(OBJEXT) toc.$(OBJEXT) \
+-	xml.$(OBJEXT) xref.$(OBJEXT)
++	xml.$(OBJEXT) xref.$(OBJEXT) kanji.$(OBJEXT)
+ makeinfo_OBJECTS = $(am_makeinfo_OBJECTS)
+ makeinfo_LDADD = $(LDADD)
+ ifeq ($(omf),on)
+@@ -146,7 +146,7 @@
+ endif
+ 
+ CCDEPMODE = @CCDEPMODE@
+-CFLAGS = @CFLAGS@
++CFLAGS = @CFLAGS@ -DSJIS
+ CPP = @CPP@
+ CPPFLAGS = @CPPFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+@@ -280,7 +280,7 @@
+   files.c files.h float.c float.h footnote.c footnote.h \
+   html.c html.h index.c index.h insertion.c insertion.h lang.c lang.h \
+   macro.c macro.h makeinfo.c makeinfo.h multi.c multi.h node.c node.h \
+-  sectioning.c sectioning.h toc.c toc.h xml.c xml.h xref.c xref.h
++  sectioning.c sectioning.h toc.c toc.h xml.c xml.h xref.c xref.h kanji.c
+ 
+ EXTRA_DIST = README
+ SUBDIRS = tests
+
+diff -PurB -X x-os2unix.dat texinfo-4.8/util/Makefile.in texinfo-4.8-os2/util/Makefile.in
+--- texinfo-4.8/util/Makefile.in	Thu Jan 20 21:42:46 2005
++++ texinfo-4.8-os2/util/Makefile.in	Thu Jan 20 21:15:04 2005
+@@ -159,7 +159,7 @@
+ endif
+ 
+ CCDEPMODE = @CCDEPMODE@
+-CFLAGS = @CFLAGS@
++CFLAGS = @CFLAGS@ -DSJIS
+ CPP = @CPP@
+ CPPFLAGS = @CPPFLAGS@
+ CYGPATH_W = @CYGPATH_W@
+

@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+<title>Structuring Command Types - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Structuring.html#Structuring" title="Structuring">
+<link rel="prev" href="Tree-Structuring.html#Tree-Structuring" title="Tree Structuring">
+<link rel="next" href="makeinfo-top.html#makeinfo-top" title="makeinfo top">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Structuring-Command-Types"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="makeinfo-top.html#makeinfo-top">makeinfo top</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Tree-Structuring.html#Tree-Structuring">Tree Structuring</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Structuring.html#Structuring">Structuring</a>
+<hr>
+</div>
+
+<h3 class="section">5.2 Structuring Command Types</h3>
+
+<p>The chapter structuring commands fall into four groups or series, each
+of which contains structuring commands corresponding to the
+hierarchical levels of chapters, sections, subsections, and
+subsubsections.
+
+  <p>The four groups are the <code>@chapter</code> series, the
+<code>@unnumbered</code> series, the <code>@appendix</code> series, and the
+<code>@heading</code> series.
+
+  <p>Each command produces titles that have a different appearance on the
+printed page or Info file; only some of the commands produce
+titles that are listed in the table of contents of a printed book or
+manual.
+
+     <ul>
+<li>The <code>@chapter</code> and <code>@appendix</code> series of commands produce
+numbered or lettered entries both in the body of a printed work and in
+its table of contents.
+
+     <li>The <code>@unnumbered</code> series of commands produce unnumbered entries
+both in the body of a printed work and in its table of contents.  The
+<code>@top</code> command, which has a special use, is a member of this
+series (see <a href="makeinfo-top.html#makeinfo-top"><code>@top</code></a>).  An <code>@unnumbered</code>
+section should be associated with a node and be a normal part of the
+document structure.
+
+     <li>The <code>@heading</code> series of commands produce simple unnumbered
+headings that do not appear in a table of contents, are not associated
+with nodes, and cannot be cross-referenced.  The heading commands
+never start a new page.
+
+     <li>The <code>@majorheading</code> command is similar to <code>@chapheading</code>,
+except that it generates a larger vertical whitespace before the
+heading.
+
+     <li>When an <code>@setchapternewpage</code> command says to do so, the
+<code>@chapter</code>, <code>@unnumbered</code>, and <code>@appendix</code> commands
+start new pages in the printed manual; the <code>@heading</code> commands
+do not. 
+</ul>
+
+  <p>Here are the four groups of chapter structuring commands:
+
+  <p><table summary=""><tr align="left"><td valign="top" width="19%"></td><td valign="top" width="30%"></td><td valign="top" width="29%"></td><td valign="top" width="22%">No new page
+<br></td></tr><tr align="left"><td valign="top" width="19%"><i>Numbered</i>           </td><td valign="top" width="30%"><i>Unnumbered</i>               </td><td valign="top" width="29%"><i>Lettered/numbered</i> </td><td valign="top" width="22%"><i>Unnumbered</i>
+<br></td></tr><tr align="left"><td valign="top" width="19%">In contents            </td><td valign="top" width="30%">In contents                  </td><td valign="top" width="29%">In contents           </td><td valign="top" width="22%">Not in contents
+<br></td></tr><tr align="left"><td valign="top" width="19%"></td><td valign="top" width="30%"><code>@top</code>                 </td><td valign="top" width="29%"></td><td valign="top" width="22%"><code>@majorheading</code>
+<br></td></tr><tr align="left"><td valign="top" width="19%"><code>@chapter</code>       </td><td valign="top" width="30%"><code>@unnumbered</code>          </td><td valign="top" width="29%"><code>@appendix</code> </td><td valign="top" width="22%"><code>@chapheading</code>
+<br></td></tr><tr align="left"><td valign="top" width="19%"><code>@section</code>       </td><td valign="top" width="30%"><code>@unnumberedsec</code>       </td><td valign="top" width="29%"><code>@appendixsec</code> </td><td valign="top" width="22%"><code>@heading</code>
+<br></td></tr><tr align="left"><td valign="top" width="19%"><code>@subsection</code>    </td><td valign="top" width="30%"><code>@unnumberedsubsec</code>    </td><td valign="top" width="29%"><code>@appendixsubsec</code> </td><td valign="top" width="22%"><code>@subheading</code>
+<br></td></tr><tr align="left"><td valign="top" width="19%"><code>@subsubsection</code> </td><td valign="top" width="30%"><code>@unnumberedsubsubsec</code> </td><td valign="top" width="29%"><code>@appendixsubsubsec</code> </td><td valign="top" width="22%"><code>@subsubheading</code>
+  <br></td></tr></table>
+
+  </body></html>
+

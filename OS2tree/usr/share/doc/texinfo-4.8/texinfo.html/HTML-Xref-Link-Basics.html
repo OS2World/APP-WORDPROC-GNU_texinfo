@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+<title>HTML Xref Link Basics - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="HTML-Xref.html#HTML-Xref" title="HTML Xref">
+<link rel="next" href="HTML-Xref-Node-Name-Expansion.html#HTML-Xref-Node-Name-Expansion" title="HTML Xref Node Name Expansion">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="HTML-Xref-Link-Basics"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="HTML-Xref-Node-Name-Expansion.html#HTML-Xref-Node-Name-Expansion">HTML Xref Node Name Expansion</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="HTML-Xref.html#HTML-Xref">HTML Xref</a>
+<hr>
+</div>
+
+<h4 class="subsection">22.4.1 HTML Cross-reference Link Basics</h4>
+
+<p><a name="index-HTML-cross_002dreference-link-basics-1233"></a>
+For our purposes, an HTML link consists of four components: a host
+name, a directory part, a file part, and a target part.  We
+always assume the <code>http</code> protocol.  For example:
+
+<pre class="example">     http://<var>host</var>/<var>dir</var>/<var>file</var>.html#<var>target</var>
+</pre>
+  <p>The information to construct a link comes from the node name and
+manual name in the cross-reference command in the Texinfo source
+(see <a href="Cross-References.html#Cross-References">Cross References</a>), and from <dfn>external information</dfn>, which
+is currently simply hardwired.  In the future, it may come from an
+external data file.
+
+  <p>We now consider each part in turn.
+
+  <p>The <var>host</var> is hardwired to be the local host.  This could either
+be the literal string `<samp><span class="samp">localhost</span></samp>', or, according to the rules for
+HTML links, the `<samp><span class="samp">http://localhost/</span></samp>' could be omitted entirely.
+
+  <p>The <var>dir</var> and <var>file</var> parts are more complicated, and depend on
+the relative split/mono nature of both the manual being processed and
+the manual that the cross-reference refers to.  The underlying idea is
+that there is one directory for Texinfo manuals in HTML, and each
+manual is either available as a monolithic file <samp><span class="file">manual.html</span></samp>, or a
+split subdirectory <samp><span class="file">manual/*.html</span></samp>.  Here are the cases:
+
+     <ul>
+<li>If the present manual is split, and the referent manual is also split,
+the directory is `<samp><span class="samp">../</span><var>referent/</var></samp>' and the file is the
+expanded node name (described later).
+
+     <li>If the present manual is split, and the referent manual is mono, the
+directory is `<samp><span class="samp">../</span></samp>' and the file is <samp><var>referent</var><span class="file">.html</span></samp>.
+
+     <li>If the present manual is mono, and the referent manual is split, the
+directory is <samp><var>referent</var><span class="file">/</span></samp> and the file is the expanded node
+name.
+
+     <li>If the present manual is mono, and the referent manual is also mono,
+the directory is <samp><span class="file">./</span></samp> (or just the empty string), and the file is
+<samp><var>referent</var><span class="file">.html</span></samp>.
+
+  </ul>
+
+  <p>One exception: the algorithm for node name expansion prefixes the
+string `<samp><span class="samp">g_t</span></samp>' when the node name begins with a non-letter.  This
+kludge (due to XHTML rules) is not necessary for filenames, and is
+therefore omitted.
+
+  <p>Any directory part in the filename argument of the source
+cross-reference command is ignored.  Thus, <code>@xref{,,,../foo}</code>
+and <code>@xref{,,,foo}</code> both use `<samp><span class="samp">foo</span></samp>' as the manual name. 
+This is because any such attempted hardwiring of the directory is very
+unlikely to be useful for both Info and HTML output.
+
+  <p>Finally, the <var>target</var> part is always the expanded node name.
+
+  <p>Whether the present manual is split or mono is determined by user
+option; <samp><span class="command">makeinfo</span></samp> defaults to split, with the
+<samp><span class="option">--no-split</span></samp> option overriding this.
+
+  <p>Whether the referent manual is split or mono is another bit of the
+external information.  For now, <samp><span class="command">makeinfo</span></samp> simply assumes the
+referent manual is the same as the present manual.
+
+  <p>There can be a mismatch between the format of the referent manual that
+the generating software assumes, and the format it's actually present
+in.  See <a href="HTML-Xref-Mismatch.html#HTML-Xref-Mismatch">HTML Xref Mismatch</a>.
+
+  </body></html>
+

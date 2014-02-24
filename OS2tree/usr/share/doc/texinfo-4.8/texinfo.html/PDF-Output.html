@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+<title>PDF Output - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Hardcopy.html#Hardcopy" title="Hardcopy">
+<link rel="prev" href="Cropmarks-and-Magnification.html#Cropmarks-and-Magnification" title="Cropmarks and Magnification">
+<link rel="next" href="Obtaining-TeX.html#Obtaining-TeX" title="Obtaining TeX">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="PDF-Output"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Obtaining-TeX.html#Obtaining-TeX">Obtaining TeX</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Cropmarks-and-Magnification.html#Cropmarks-and-Magnification">Cropmarks and Magnification</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Hardcopy.html#Hardcopy">Hardcopy</a>
+<hr>
+</div>
+
+<h3 class="section">20.15 PDF Output</h3>
+
+<p><a name="index-PDF-output-1076"></a>
+<a name="index-pdftex-1077"></a>The simplest way to generate PDF output from Texinfo source is to run
+the convenience script <samp><span class="command">texi2pdf</span></samp>; this simply executes the
+<samp><span class="command">texi2dvi</span></samp> script with the <samp><span class="option">--pdf</span></samp> option
+(see <a href="Format-with-texi2dvi.html#Format-with-texi2dvi">Format with texi2dvi</a>).  If for some reason you want to
+process by hand, simply run the <samp><span class="command">pdftex</span></samp> program instead of
+plain <samp><span class="command">tex</span></samp>.  That is, run `<samp><span class="samp">pdftex foo.texi</span></samp>' instead of
+`<samp><span class="samp">tex foo.texi</span></samp>'.
+
+  <p><dfn>PDF</dfn> stands for `Portable Document Format'. It was invented by
+Adobe Systems some years ago for document interchange, based on their
+PostScript language.  Related links:
+
+     <ul>
+<li>GNU GV, a <a href="http://www.foolabs.com/xpdf/">Ghostscript-based PDF reader</a>.  (It can also preview PostScript documents.)
+
+     <li>A freely available standalone <a href="http://www.foolabs.com/xpdf/">PDF reader</a> for the X window system.
+
+     <li><a href="http://partners.adobe.com/asn/acrobat/sdk/public/docs/">PDF definition</a>.
+
+  </ul>
+
+  <p>At present, Texinfo does not provide
+`<samp><span class="samp">@ifpdf</span></samp>' or `<samp><span class="samp">@pdf</span></samp>' commands as for the other output
+formats, since PDF documents contain many internal links that would be
+hard or impossible to get right at the Texinfo source level.
+
+  <p>PDF files require special software to be displayed, unlike the plain
+ASCII formats (Info, HTML) that Texinfo supports.  They also tend to
+be much larger than the DVI files output by TeX by default. 
+Nevertheless, a PDF file does define an actual typeset document in a
+self-contained file, so it has its place.
+
+  </body></html>
+

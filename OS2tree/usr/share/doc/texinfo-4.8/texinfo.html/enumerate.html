@@ -1,0 +1,157 @@
+<html lang="en">
+<head>
+<title>enumerate - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Lists-and-Tables.html#Lists-and-Tables" title="Lists and Tables">
+<link rel="prev" href="itemize.html#itemize" title="itemize">
+<link rel="next" href="Two_002dcolumn-Tables.html#Two_002dcolumn-Tables" title="Two-column Tables">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="enumerate"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Two_002dcolumn-Tables.html#Two_002dcolumn-Tables">Two-column Tables</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="itemize.html#itemize">itemize</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Lists-and-Tables.html#Lists-and-Tables">Lists and Tables</a>
+<hr>
+</div>
+
+<h3 class="section">11.3 <code>@enumerate</code>: Making a Numbered or Lettered List</h3>
+
+<p><a name="index-Enumeration-519"></a><a name="index-enumerate-520"></a>
+<code>@enumerate</code> is like <code>@itemize</code> (see <a href="itemize.html#itemize"><code>@itemize</code></a>), except that the labels on the items are
+successive integers or letters instead of bullets.
+
+  <p>Write the <code>@enumerate</code> command at the beginning of a line.  The
+command does not require an argument, but accepts either a number or a
+letter as an option.  Without an argument, <code>@enumerate</code> starts the
+list with the number `<samp><span class="samp">1</span></samp>'.  With a numeric argument, such as
+`<samp><span class="samp">3</span></samp>', the command starts the list with that number.  With an upper
+or lower case letter, such as `<samp><span class="samp">a</span></samp>' or `<samp><span class="samp">A</span></samp>', the command starts
+the list with that letter.
+
+  <p>Write the text of the enumerated list in the same way as an itemized
+list: write a line starting with <code>@item</code> at the beginning of
+each paragraph that you want enumerated.  It is ok to have text
+following the <code>@item</code>.
+
+  <p>You should put a blank line between entries in the list. 
+This generally makes it easier to read the Info file.
+
+  <p>Here is an example of <code>@enumerate</code> without an argument:
+
+<pre class="example">     @enumerate
+     @item
+     Underlying causes.
+     
+     @item
+     Proximate causes.
+     @end enumerate
+</pre>
+  <p class="noindent">This produces:
+
+     <ol type=1 start=1>
+<li>Underlying causes.
+
+     <li>Proximate causes.
+       </ol>
+  <pre class="sp">
+
+</pre>
+Here is an example with an argument of <kbd>3</kbd>:
+  <pre class="sp">
+
+</pre>
+<pre class="example">     @enumerate 3
+     @item
+     Predisposing causes.
+     
+     @item
+     Precipitating causes.
+     
+     @item
+     Perpetuating causes.
+     @end enumerate
+</pre>
+  <p class="noindent">This produces:
+
+     <ol type=1 start=3>
+<li>Predisposing causes.
+
+     <li>Precipitating causes.
+
+     <li>Perpetuating causes.
+       </ol>
+  <pre class="sp">
+
+</pre>
+Here is a brief summary of the alternatives.  The summary is constructed
+using <code>@enumerate</code> with an argument of <kbd>a</kbd>.
+  <pre class="sp">
+
+</pre>
+     <ol type=a start=1>
+<li><code>@enumerate</code>
+
+     <p>Without an argument, produce a numbered list, starting with the number
+1.
+
+     <li><code>@enumerate </code><var>positive-integer</var>
+
+     <p>With a (positive) numeric argument, start a numbered list with that
+number.  You can use this to continue a list that you interrupted with
+other text.
+
+     <li><code>@enumerate </code><var>upper-case-letter</var>
+
+     <p>With an upper case letter as argument, start a list
+in which each item is marked
+by a letter, beginning with that upper case letter.
+
+     <li><code>@enumerate </code><var>lower-case-letter</var>
+
+     <p>With a lower case letter as argument, start a list
+in which each item is marked by
+a letter, beginning with that lower case letter.
+       </ol>
+
+  <p>You can also nest enumerated lists, as in an outline.
+
+  </body></html>
+

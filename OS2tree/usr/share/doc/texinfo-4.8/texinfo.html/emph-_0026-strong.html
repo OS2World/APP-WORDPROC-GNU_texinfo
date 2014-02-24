@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+<title>emph &amp; strong - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Emphasis.html#Emphasis" title="Emphasis">
+<link rel="next" href="Smallcaps.html#Smallcaps" title="Smallcaps">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="emph-%26-strong"></a>
+<a name="emph-_0026-strong"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Smallcaps.html#Smallcaps">Smallcaps</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Emphasis.html#Emphasis">Emphasis</a>
+<hr>
+</div>
+
+<h4 class="subsection">9.2.1 <code>@emph</code>{<var>text</var>} and <code>@strong</code>{<var>text</var>}</h4>
+
+<p><a name="index-Emphasizing-text_002c-font-for-443"></a><a name="index-emph-444"></a><a name="index-strong-445"></a>
+The <code>@emph</code> and <code>@strong</code> commands are for emphasis;
+<code>@strong</code> is stronger.  In printed output, <code>@emph</code> produces
+<em>italics</em> and <code>@strong</code> produces <strong>bold</strong>.
+
+  <p>For example,
+
+<pre class="example">     @strong{Caution:} @samp{rm * .[^.]*}
+     removes @emph{all} files in the directory.
+</pre>
+  <p class="noindent">produces the following in printed output and HTML:
+
+  <blockquote>
+<strong>Caution</strong>: `<samp><span class="samp">rm * .[^.]*</span></samp>'
+removes <em>all</em> files in the directory. 
+</blockquote>
+
+<p class="noindent">and the following in Info:
+
+<pre class="example">     *Caution:* `rm * .[^.]*' removes _all_
+     files in the directory.
+</pre>
+  <p>The <code>@strong</code> command is seldom used except to mark what is, in
+effect, a typographical element, such as the word `Caution' in the
+preceding example.
+
+  <p>In the Info output, <code>@emph</code> surrounds the text with underscores
+(`<samp><span class="samp">_</span></samp>'), and <code>@strong</code> puts asterisks around the text.
+
+  <blockquote>
+<b>Caution:</b> Do not use <code>@strong</code> with the word `<samp><span class="samp">Note</span></samp>'; Info will
+mistake the combination for a cross reference.  (It's usually
+redundant, anyway.)  Use a phrase such as <strong>Please notice</strong> or
+<strong>Caution</strong> instead, or the optional argument to
+<code>@quotation</code>&mdash;`<samp><span class="samp">Note</span></samp>' is allowable there. 
+</blockquote>
+
+  </body></html>
+

@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+<title>example - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Quotations-and-Examples.html#Quotations-and-Examples" title="Quotations and Examples">
+<link rel="prev" href="quotation.html#quotation" title="quotation">
+<link rel="next" href="verbatim.html#verbatim" title="verbatim">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="example"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="verbatim.html#verbatim">verbatim</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="quotation.html#quotation">quotation</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Quotations-and-Examples.html#Quotations-and-Examples">Quotations and Examples</a>
+<hr>
+</div>
+
+<h3 class="section">10.3 <code>@example</code>: Example Text</h3>
+
+<p><a name="index-Examples_002c-formatting-them-472"></a><a name="index-Formatting-examples-473"></a><a name="index-example-474"></a>
+The <code>@example</code> environment is used to indicate an example that
+is not part of the running text, such as computer input or output. 
+Write an <code>@example</code> command at the beginning of a line by
+itself.  Mark the end of the example with an <code>@end example</code>
+command, also written at the beginning of a line by itself.
+
+  <p>An <code>@example</code> environment has the following characteristics:
+
+     <ul>
+<li>Each line in the input file is a line in the output; that is,
+the source text is not filled as it normally is. 
+<li>Extra spaces and blank lines are significant. 
+<li>The output is indented. 
+<li>The output uses a fixed-width font. 
+<li>Texinfo commands <em>are</em> expanded; if you want the output to
+be the input verbatim, use the <code>@verbatim</code> environment instead
+(see <a href="verbatim.html#verbatim"><code>@verbatim</code></a>). 
+</ul>
+
+  <p>For example,
+
+<pre class="example">     @example
+     cp foo @var{dest1}; \
+      cp foo @var{dest2}
+     @end example
+</pre>
+  <p class="noindent">produces
+
+<pre class="example">     cp foo <var>dest1</var>; \
+      cp foo <var>dest2</var>
+</pre>
+  <p>The lines containing <code>@example</code> and <code>@end example</code> will
+disappear from the output.  To make the output look good, you should
+put a blank line before the <code>@example</code> and another blank line
+after the <code>@end example</code>.  Blank lines inside the beginning
+<code>@example</code> and the ending <code>@end example</code>, on the other
+hand, do appear in the output.
+
+  <blockquote>
+<b>Caution:</b> Do not use tabs in the lines of an example!  (Or anywhere else in
+Texinfo, except in verbatim environments.)  TeX treats tabs as
+single spaces, and that is not what they look like.  In Emacs, you can
+use <kbd>M-x untabify</kbd> to convert tabs in a region to multiple spaces. 
+</blockquote>
+
+  <p>Examples are often, logically speaking, &ldquo;in the middle&rdquo; of a
+paragraph, and the text that continues afterwards should not be
+indented, as in the example above.  The <code>@noindent</code> command
+prevents a piece of text from being indented as if it were a new
+paragraph (see <a href="noindent.html#noindent"><code>@noindent</code></a>.
+
+  <p>If you want to embed code fragments within sentences, instead of
+displaying them, use the <code>@code</code> command or its relatives
+(see <a href="code.html#code"><code>@code</code></a>).
+
+  <p>If you wish to write a &ldquo;comment&rdquo; on a line of an example in the
+normal roman font, you can use the <code>@r</code> command (see <a href="Fonts.html#Fonts">Fonts</a>).
+
+  </body></html>
+

@@ -1,0 +1,167 @@
+<html lang="en">
+<head>
+<title>Scrolling Commands - GNU Info 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Info 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Cursor-Commands.html#Cursor-Commands" title="Cursor Commands">
+<link rel="next" href="Node-Commands.html#Node-Commands" title="Node Commands">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Info (version 4.8, 14 December 2004),
+a program for viewing documents in Info format (usually created from
+Texinfo source files).
+
+Copyright (C) 1992, 1993, 1996, 1997, 1998, 1999, 2001, 2002,
+2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Scrolling-Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Node-Commands.html#Node-Commands">Node Commands</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Cursor-Commands.html#Cursor-Commands">Cursor Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">4 Moving Text Within a Window</h2>
+
+<p><a name="index-scrolling-74"></a>
+Sometimes you are looking at a screenful of text, and only part of the
+current paragraph you are reading is visible on the screen.  The
+commands detailed in this section are used to shift which part of the
+current node is visible on the screen.
+
+   <p>Scrolling commands are bound differently when `<samp><span class="samp">--vi-keys</span></samp>' operation
+is in effect (see <a href="_002d_002dvi_002dkeys.html#g_t_002d_002dvi_002dkeys">&ndash;vi-keys</a>).  These key bindings are designated
+with &ldquo;vi-like operation&rdquo;.
+
+     <dl>
+<dt>&lt;SPC&gt; (<code>scroll-forward</code>)<dd><a name="index-SPC_002c-in-Info-windows-75"></a><a name="index-scroll_002dforward-76"></a>Shift the text in this window up.  That is, show more of the node which
+is currently below the bottom of the window.  With a numeric argument,
+show that many more lines at the bottom of the window; a numeric
+argument of 4 would shift all of the text in the window up 4 lines
+(discarding the top 4 lines), and show you four new lines at the bottom
+of the window.  Without a numeric argument, &lt;SPC&gt; takes the bottom
+two lines of the window and places them at the top of the window,
+redisplaying almost a completely new screenful of lines.  If you are at
+the end of a node, &lt;SPC&gt; takes you to the &ldquo;next&rdquo; node, so that you can
+read an entire manual from start to finish by repeating &lt;SPC&gt;.
+
+     <p>The default scroll size is one screen-full, but it can be changed by
+invoking the (<code>scroll-forward-page-only-set-window</code>) command,
+`<samp><span class="samp">z</span></samp>' under `<samp><span class="samp">--vi-keys</span></samp>', with a numeric argument.
+
+     <br><dt>&lt;NEXT&gt; (an arrow key) (<code>scroll-forward-page-only</code>)<dt>&lt;C-v&gt;<dt>&lt;C-f&gt;, vi-like operation<dt>&lt;f&gt;, vi-like operation<dt>&lt;M-SPC&gt;, vi-like operation<dd><a name="index-NEXT-77"></a><a name="index-C_002dv-78"></a><a name="index-C_002df_002c-vi_002dlike-operation-79"></a><a name="index-f_002c-vi_002dlike-operation-80"></a><a name="index-M_002dSPC_002c-vi_002dlike-operation-81"></a><a name="index-scroll_002dforward_002dpage_002donly-82"></a>Shift the text in this window up.  This is identical to the &lt;SPC&gt;
+operation above, except that it never scrolls beyond the end of the
+current node.
+
+     <p><a name="index-PageDown-83"></a>The &lt;NEXT&gt; key is known as the &lt;PageDown&gt; key on some
+keyboards.
+
+     <br><dt>&lt;z&gt; (<code>scroll-forward-page-only-set-window</code>, vi-like operation)<dd><a name="index-z_002c-vi_002dlike-operation-84"></a><a name="index-scroll_002dforward_002dpage_002donly_002dset_002dwindow-85"></a>Scroll forward, like with &lt;NEXT&gt;, but if a numeric argument is
+specified, it becomes the default scroll size for subsequent
+<code>scroll-forward</code> and <code>scroll-backward</code> commands and their
+ilk.
+
+     <br><dt>&lt;DEL&gt; (<code>scroll-backward</code>)<dd><a name="index-DEL_002c-in-Info-windows-86"></a><a name="index-scroll_002dbackward-87"></a>Shift the text in this window down.  The inverse of
+<code>scroll-forward</code>. 
+If you are at the start of a node, &lt;DEL&gt; takes you to the
+&ldquo;previous&rdquo; node, so that you can read an entire manual from finish to
+start by repeating &lt;DEL&gt;.  The default scroll size can be changed by
+invoking the (<code>scroll-backward-page-only-set-window</code>) command,
+`<samp><span class="samp">w</span></samp>' under `<samp><span class="samp">--vi-keys</span></samp>', with a numeric argument.
+
+     <dt>&lt;PREVIOUS&gt; (arrow key) (<code>scroll-backward-page-only</code>)<dt>&lt;PRIOR&gt; (arrow key)<dt>&lt;M-v&gt;<dt>&lt;b&gt;, vi-like operation<dt>&lt;C-b&gt;, vi-like operation<dd><a name="index-PREVIOUS-88"></a><a name="index-M_002dv-89"></a><a name="index-b_002c-vi_002dlike-operation-90"></a><a name="index-C_002db_002c-vi_002dlike-operation-91"></a><a name="index-scroll_002dbackward_002dpage_002donly-92"></a>Shift the text in this window down.  The inverse of
+<code>scroll-forward-page-only</code>.  Does not scroll beyond the start of
+the current node.  The default scroll size can be changed by invoking
+the(<code>scroll-backward-page-only-set-window</code>) command, `<samp><span class="samp">w</span></samp>' under
+`<samp><span class="samp">--vi-keys</span></samp>', with a numeric argument.
+
+     <br><dt>&lt;w&gt; (<code>scroll-backward-page-only-set-window</code>, vi-like operation)<dd><a name="index-w_002c-vi_002dlike-operation-93"></a><a name="index-scroll_002dbackward_002dpage_002donly_002dset_002dwindow-94"></a>Scroll backward, like with &lt;PREVIOUS&gt;, but if a numeric argument is
+specified, it becomes the default scroll size for subsequent
+<code>scroll-forward</code> and <code>scroll-backward</code> commands.
+
+     <br><dt>&lt;C-n&gt; (<code>down-line</code>, vi-like operation)<dt>&lt;C-e&gt;, vi-like operation<dt>&lt;RET&gt;, vi-like operation<dt>&lt;LFD&gt;, vi-like operation<dt>&lt;DOWN&gt;, vi-like operation<dd><a name="index-C_002dn_002c-vi_002dlike-operation-95"></a><a name="index-C_002de_002c-vi_002dlike-operation-96"></a><a name="index-RET_002c-vi_002dlike-operation-97"></a><a name="index-LFD_002c-vi_002dlike-operation-98"></a><a name="index-DOWN_002c-vi_002dlike-operation-99"></a><a name="index-down_002dline-100"></a>Scroll forward by one line.  With a numeric argument, scroll forward
+that many lines.
+
+     <br><dt>&lt;C-p&gt; (<code>up-line</code>, vi-like operation)<dt>&lt;UP&gt;, vi-like operation<dt>&lt;y&gt;, vi-like operation<dt>&lt;k&gt;, vi-like operation<dt>&lt;C-k&gt;, vi-like operation<dt>&lt;C-y&gt;, vi-like operation<dd><a name="index-C_002dp_002c-vi_002dlike-operation-101"></a><a name="index-UP_002c-vi_002dlike-operation-102"></a><a name="index-y_002c-vi_002dlike-operation-103"></a><a name="index-k_002c-vi_002dlike-operation-104"></a><a name="index-C_002dk_002c-vi_002dlike-operation-105"></a><a name="index-C_002dy_002c-vi_002dlike-operation-106"></a><a name="index-up_002dline-107"></a>Scroll backward one line.  With a numeric argument, scroll backward that
+many lines.
+
+     <br><dt>&lt;d&gt; (<code>scroll-half-screen-down</code>, vi-like operation)<dt>&lt;C-d&gt;, vi-like operation<dd><a name="index-d_002c-vi_002dlike-operation-108"></a><a name="index-C_002dd_002c-vi_002dlike-operation-109"></a><a name="index-scroll_002dhalf_002dscreen_002ddown-110"></a>Scroll forward by half of the screen size.  With a numeric argument,
+scroll that many lines.  If an argument is specified, it becomes the new
+default number of lines to scroll for subsequent `<samp><span class="samp">d</span></samp>' and `<samp><span class="samp">u</span></samp>'
+commands.
+
+     <br><dt>&lt;u&gt; (<code>scroll-half-screen-up</code>, vi-like operation)<dt>&lt;C-u&gt;, vi-like operation<dd><a name="index-u_002c-vi_002dlike-operation-111"></a><a name="index-C_002du_002c-vi_002dlike-operation-112"></a><a name="index-scroll_002dhalf_002dscreen_002dup-113"></a>Scroll back by half of the screen size.  With a numeric argument,
+scroll that many lines.  If an argument is specified, it becomes the new
+default number of lines to scroll for subsequent `<samp><span class="samp">u</span></samp>' and `<samp><span class="samp">d</span></samp>'
+commands. 
+</dl>
+
+   <p><a name="index-scrolling-through-node-structure-114"></a>The <code>scroll-forward</code> and <code>scroll-backward</code> commands can also
+move forward and backward through the node structure of the file.  If
+you press &lt;SPC&gt; while viewing the end of a node, or &lt;DEL&gt; while
+viewing the beginning of a node, what happens is controlled by the
+variable <code>scroll-behavior</code>.  See <a href="Variables.html#Variables"><code>scroll-behavior</code></a>, for more information.
+
+   <p>The <code>scroll-forward-page-only</code> and <code>scroll-backward-page-only</code>
+commands never scroll beyond the current node.
+
+   <p><a name="index-PageUp-115"></a>The &lt;PREVIOUS&gt; key is the &lt;PageUp&gt; key on many keyboards.  Emacs
+refers to it by the name &lt;PRIOR&gt;.  When you use &lt;PRIOR&gt; or
+&lt;PageUp&gt; to scroll, Info never scrolls beyond the beginning of the
+current node.
+
+   <p><a name="index-BS-_0028backspace_0029-116"></a>If your keyboard lacks the &lt;DEL&gt; key, look for a key called
+&lt;BS&gt;, or `<samp><span class="samp">BackSpace</span></samp>', sometimes designated with an arrow which
+points to the left, which should perform the same function.
+
+     <dl>
+<dt>&lt;C-l&gt; (<code>redraw-display</code>)<dd><a name="index-C_002dl-117"></a><a name="index-redraw_002ddisplay-118"></a>Redraw the display from scratch, or shift the line containing the cursor
+to a specified location.  With no numeric argument, `<samp><span class="samp">C-l</span></samp>' clears
+the screen, and then redraws its entire contents.  Given a numeric
+argument of <var>n</var>, the line containing the cursor is shifted so that
+it is on the <var>n</var>th line of the window.
+
+     <br><dt><kbd>C-x &lt;w&gt;</kbd> (<code>toggle-wrap</code>)<dd><a name="index-C_002dw-119"></a><a name="index-toggle_002dwrap-120"></a>Toggles the state of line wrapping in the current window.  Normally,
+lines which are longer than the screen width <dfn>wrap</dfn>, i.e., they are
+continued on the next line.  Lines which wrap have a `<samp><span class="samp">\</span></samp>' appearing
+in the rightmost column of the screen.  You can cause such lines to be
+terminated at the rightmost column by changing the state of line
+wrapping in the window with <code>C-x w</code>.  When a line which needs more
+space than one screen width to display is displayed, a `<samp><span class="samp">$</span></samp>' appears
+in the rightmost column of the screen, and the remainder of the line is
+invisible.  When long lines are truncated, the modeline displays the
+`<samp><span class="samp">$</span></samp>' character near its left edge. 
+</dl>
+
+   </body></html>
+

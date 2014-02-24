@@ -1,0 +1,287 @@
+/*------- texinfo-4.8 for OS/2  Thu, 20 Jan 2005 21:41:27 +0900  -------*/
+
+  This is GNU texinfo version 4.8 ported to OS/2, with Japanization patch. 
+     texindex.exe and makeinfo.exe accepts Japanese charactors. 
+
+  Executable are statically linked with GNU intl library (gettext-0.14.1), 
+  and dynamically linked with libiconv 1.7 (iconv.dll).
+ 
+  You can run command in `info' using ALT-key + 'key' for ESC + 'key'. 
+
+
+
+                                             SAWATAISHI JUN, YOKOHAMA JAPAN
+                                                       <jsawa@attglobal.net>
+                           http://www2s.biglobe.ne.jp/~vtgf3mpr/indxos2.htm
+
+Table of contents
+=================
+
+General Instruction           @gen
+History of OS/2 Port          @his
+Required Executables          @req
+Setup Language                @lan
+Compile and Make              @com
+
+
+General Instruction
+===================
+
+  A lot of Linux distributions follow the Filesystem Hierarchy Standard (FHS),
+a collaborative document that defines the names and locations of many files 
+and  directories. 
+  I have decided to make zip archive for which end users can install files 
+in FHS like way. 
+
+File Structure of ZIP archive
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  From Feb-17-2001, newly uploaded zip archive will contain four files. 
+  
+ = texinfo-4.8.zip
+       README_texinfo-4.8.os2      -- instruction
+       OS2tree.zip                         -- binary and library treee
+       filelist.dat                        -- list of `OS2tree.zip'
+
+   - OS2tree.zip
+       /usr/bin/                           -- executables
+       /usr/dll/                           -- DLLs
+       /usr/lib/                           -- C library files
+       /usr/include/                       -- C include files
+       /usr/share/doc/texinfo-4.8          -- documents: text, dvi, ps. pdf
+                                                          and html
+       /usr/share/man/                     -- manpages
+       /usr/share/info/                    -- Info manuals
+       /usr/share/locale/                  -- message files for gettext 
+                                              compliant programs and other 
+                                              locale related  files
+       /usr/share/emacs/site-lisp/         -- emacs lisp files
+
+       /usr/src/redhat/SOURCES/texinfo-4.8-OS2-patch.zip   
+                                           -- patch kit to build from scratch
+
+       /usr/src/redhat/SPECS/texinfo-4.8-os2.spec : spec file for rpm
+       
+
+
+  - texinfo-4.8-OS2-patch.zip
+       BUILD_texinfo-4.8.os2      -- instruction
+       os2config.cmd                       -- modify source using `os2unix' 
+                                              and apply diff files 
+                                              followed by running configure 
+                                         
+       os2/C_Source.diff                   -- patch for C source
+       os2/In-make.diff                         for Makefile.in's and scripts
+       os2/Other.diff                           for other files
+       
+    +--- os2unix utility -------------------------------+
+    |  os2/os2_convert_configure.sed                    |
+    |  os2/os2_convert_Makefile_in.sed                  |
+    |  os2/os2_convert_Makefile_in_in.sed               |
+    |  os2/os2_convert_Makefile_in_lib_prog.sed         |
+    |  os2/os2_convert_mk.sed                           |
+    |  os2/os2_convert_Makefile_in.grep                 |
+    |  os2/os2_mkinstalldirs                            |
+    |  os2/os2_missing                                  |
+    |  os2unix.cmd                                      |
+    +---------------------------------------------------+
+
+
+UNIXROOT environment variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  I recommend you to set UNIXROOT env. var., where OS/2 ported free software 
+are to be installed. You will be able to install ZIP archives easily, and 
+will be able to run programs with minimun efforts. 
+  Without UNIXROOT env. var., message from a program will be always 
+in English. 
+
+
+  Installation is simple: when UNIXROOT is equal to "e:"
+
+       x:\foo\tmp> unzip -o texinfo-4.8.zip
+
+       x:\foo\tmp> unzip -o OS2tree -d e:/
+    or
+       x:\foo\tmp> e:
+       e:\> unzip -o x:/foo/tmp/OS2tree
+
+
+  Confirm these variables are properly set. 
+
+         UNIXROOT       e:
+         PATH           e:\usr\bin;.....
+         LIBPATH        e:\usr\dll;....
+
+         INFOPATH       e:/usr/share/info;...
+         MANPATH        e:/usr/share/man;....
+     or
+         INFOPATH       %UNIXROOT%/usr/share/info;...
+         MANPATH        %UNIXROOT%/usr/share/man;....
+
+  If UNIXROOT env. var. is not set or empty and HOME env. var. is 
+set, drive name part of HOME is assumed as UNIXROOT. 
+
+         e.g.  HOME=g:\emx
+               programs treat `g:/usr/share/locale'  as locale directory
+
+
+   Custom Key Bindings
+     If you'd like to customize your key, make $HOME/.info using 
+     `infokey.exe' from $HOME/.infokey. 
+     An example of my own `.infokey' files is included in this package. 
+       See `/usr/share/doc/texinfo-4.8/example.infoky. 
+
+       If you don't know the syntal of `.infokey' file, 
+       execute "info infokey" in OS/2 command prompt to read instruction. 
+
+       To test infokey function. you may copy `example.infokey' in your 
+       HOME directory as `.infokey', and execute "infokey" in command 
+       prompt. New binary file $HOME/.info will be created, and 
+       key function may change. 
+
+
+
+
+
+History of OS/2 Port	@his
+====================
+2005-01-20  Jun Sawataishi<jsawa@attglobal.net>
+  Uploaded into  ftp://hobbes.nmsu.edu
+                 /pub/os2/apps/wp/tex/util
+
+2002-03-24  Jun Sawataishi<jsawa@attglobal.net>
+  Uploaded version 4.1 in my web page;
+           http://www2s.biglobe.ne.jp/~vtgf3mpr/index-e.html
+
+
+Required Executables	@req
+====================
+
+   HOBBES=ftp://hobbes.nmsu.edu/pub/os2
+   LEO=ftp://ftp.leo.org/pub/comp/os/os2/leo
+   JSAWA=http://www2s.biglobe.ne.jp/~vtgf3mpr
+ 
+ emx runtime version 0.9d (or later): Not included
+     HOBBES/dev/emx/v0.9d/emxrt.zip
+     LEO/dev/emx/v0.9d/emxrt.zip
+
+ `man' (requires GNU groff)
+      HOBBES/dev/help/gnuman.zip        ; v1.0
+      LEO/gnu/doc/man11a.zip            ; v1.1a
+      JSAWA/linux/man.htm               ; v1.5g
+                         
+
+ GNU groff  -- to read manpages
+   Groff v1.10
+      HOBBES/apps/wp/gnugroff.zip
+      LEO/gnu/doc/gnugroff.zip
+
+   GNU groff v1.15 (with Japanization patch) 
+     JSAWA/manpage/manpage-e.htm [English]
+     JSAWA/manpage/manpage.htm  [Japanese]
+          
+
+ GNU grep (grep.exe)
+     HOBBES/util/file/gnugrep.zip    ; v2.0
+     LEO/gnu/systools/gnugrep.zip    ; v2.0 
+     JSAWA/gnu/grep.htm              ; v2.3h or later
+
+ Pager : I strongly recommend you to install `less'
+
+      less 332 with Japanese patch: 
+
+               http://hp.vector.co.jp/authors/VA000199/os2/
+
+         You can use this in virtual terminal (xterm etc) of XFree86 for OS/2. 
+         You should get this one if you'd like to see manpages in XFree86. 
+
+      less 329 without XFree86 capability
+               LEO/unix/gnu/less329-2.zip
+               HOBBES/unix/util/util/file/less329-2.zip
+
+`gzip.exe' and `bzip2.exe'
+    [gzip]
+        HOBBES/util/archiver/gz124_32.zip
+        LEO/gnu/archiver/gz124-32.zip
+    [bzip2]
+        HOBBES/util/archiver/bzip090b.zip
+        LEO/archiver/bzip090b.zip
+        http://www.muraroa.demon.co.uk/
+        JSAWA/rpm/bzip2.htm  ; v0.9.5d --- this version preserve time stamp
+        http://netpassport-wc.netpassport.or.jp/~wmakoto/CLUB-bzip2.html
+
+  GNU Awk (gawk.exe)
+     [English version]
+         HOBBES/dev/awk/gnuawk.zip   ; v3.0.3
+     [Japanized version]
+         JSAWA/gnu/awk.htm           ; v3.0.4
+
+  GNU find (find.exe)
+      LEO/gnu/systools/gnufind.zip   ; v4.1
+      HOBBES/util/disk/gnufind.zip   ; v4.1
+  
+  GNU sed 
+      LEO/gnu/systools/gnused.zip    ; v2.05
+      HOBBES/apps/editors/gnused.zip ; v3.0
+      JSAWA/gnu/sed.htm              ; v3.02.80
+  
+ `tr.exe' and `cat.exe' included in GNU text utilities
+     LEO/gnu/systools/gnututil.zip   ; v1.19
+     HOBBES/util/file/gnututil.zip   ; v1.19
+     JSAWA/gnu/text-util.htm         ; v1.22f or later
+
+ `sh.exe' included in KSH package
+     LEO/shells/pdksh-5.2.13-emx.zip
+     HOBBES/util/shell/ksh527rt.zip
+  
+  `chmod.exe' included in GNU file utilities
+     LEO/gnu/systools/gnufutil.zip   ; v3.13
+     HOBBES/util/file/gnufutil.zip   ; v3.13
+     JSAWA/gnu/fileutils.htm         ; v3.16
+
+
+
+Setup Language	@lan
+==============
+
+ In your `config.sys', batch file, or rc files (e. g. ~/.bashrc ...), 
+ you should set LANG and LANGUAGE environment variable. 
+
+
+            set LANG=YOUR_CHOICE  ; optional
+
+                          e.g. ja_JP.SJIS, deutsch, sjis, euc-jp
+
+
+
+
+            set LANGUAGE=xx       ; optional, two letter for you country
+
+              Chinese `zh', Czech `cs', Danish `da', Dutch `nl', Esperanto `eo',
+              Finnish `fi', French `fr', Irish `ga', German `de', Greek `el',
+              Italian `it', Japanese `ja', Indonesian `in', Norwegian `no',
+              Polish `pl', Portuguese `pt', Russian `ru', Spanish `es', Swedish
+              `sv' and Turkish `tr'.
+
+                   Replae xx by the two-letter ISO 639 code for your language. 
+                   Read Info manual of gettext. 
+                      
+               LANGUAGE env. var. overrides LANG. 
+                     When LANG=deutsch and LANGUAGE=ja, 
+                     Japanese message will shown by programs. 
+  
+Compile and Make              @com
+================
+
+   Source   ftp://ftp.gnu.org/gnu/texinfo/texinfo-4.8.tar.gz
+           or
+            ftp://alpha.gnu.org/gnu/texinfo/texinfo-4.8.tar.gz
+
+
+   OS/2 patch kit - texinfo-4.8-OS2-patch.zip 
+        If a patch kit is not included in full package, you will be able 
+        to get one from my web page (see the top of this document). 
+   
+   
+
+/*----- end of document -----------------------------------------------------*/

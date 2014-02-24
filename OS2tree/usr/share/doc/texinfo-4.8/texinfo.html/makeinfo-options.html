@@ -1,0 +1,247 @@
+<html lang="en">
+<head>
+<title>makeinfo options - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Creating-an-Info-File.html#Creating-an-Info-File" title="Creating an Info File">
+<link rel="prev" href="Invoking-makeinfo.html#Invoking-makeinfo" title="Invoking makeinfo">
+<link rel="next" href="Pointer-Validation.html#Pointer-Validation" title="Pointer Validation">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="makeinfo-options"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Pointer-Validation.html#Pointer-Validation">Pointer Validation</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Invoking-makeinfo.html#Invoking-makeinfo">Invoking makeinfo</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Creating-an-Info-File.html#Creating-an-Info-File">Creating an Info File</a>
+<hr>
+</div>
+
+<h4 class="subsection">21.1.3 Options for <code>makeinfo</code></h4>
+
+<p><a name="index-g_t_0040code_007bmakeinfo_007d-options-1084"></a><a name="index-Options-for-_0040code_007bmakeinfo_007d-1085"></a>
+The <samp><span class="command">makeinfo</span></samp> program accepts many options.  Perhaps the most
+commonly needed are those that change the output format.  By default,
+<samp><span class="command">makeinfo</span></samp> outputs Info files.
+
+  <p>Each command line option is a word preceded by `<samp><span class="samp">--</span></samp>' or a letter
+preceded by `<samp><span class="samp">-</span></samp>'.  You can use abbreviations for the long option
+names as long as they are unique.
+
+  <p>For example, you could use the following shell command to create an Info
+file for <samp><span class="file">bison.texinfo</span></samp> in which each line is filled to only 68
+columns:
+
+<pre class="example">     makeinfo --fill-column=68 bison.texinfo
+</pre>
+  <p>You can write two or more options in sequence, like this:
+
+<pre class="example">     makeinfo --no-split --fill-column=70 ...
+</pre>
+  <p class="noindent">This would keep the Info file together as one possibly very long
+file and would also set the fill column to 70.
+
+  <p>The options are:
+
+     <dl>
+<dt><code>-D </code><var>var</var><dd><a name="index-g_t_002dD-_0040var_007bvar_007d-1086"></a>Cause the variable <var>var</var> to be defined.  This is equivalent to
+<code>@set </code><var>var</var> in the Texinfo file (see <a href="set-clear-value.html#set-clear-value">set clear value</a>).
+
+     <br><dt><code>--commands-in-node-names</code><dd><a name="index-g_t_002d_002dcommands_002din_002dnode_002dnames-1087"></a>Allow <code>@</code>-commands in node names.  This is not recommended, as it
+can probably never be implemented in TeX.  It also makes
+<code>makeinfo</code> much slower.  Also, this option is ignored when
+`<samp><span class="samp">--no-validate</span></samp>' is used.  See <a href="Pointer-Validation.html#Pointer-Validation">Pointer Validation</a>, for more
+details.
+
+     <br><dt><code>--css-include=</code><var>file</var><dd><a name="index-g_t_002d_002dcss_002dinclude-1088"></a>Include the contents of <var>file</var>, which should contain cascading
+style sheets specifications, in the `<samp><span class="samp">&lt;style&gt;</span></samp>' block of the HTML
+output.  See <a href="HTML-CSS.html#HTML-CSS">HTML CSS</a>.  If <var>file</var> is `<samp><span class="samp">-</span></samp>', read standard
+input.
+
+     <br><dt><code>--docbook</code><dd><a name="index-g_t_002d_002ddocbook-1089"></a>Generate Docbook output rather than Info.
+
+     <br><dt><code>--enable-encoding</code><dd><a name="index-g_t_002d_002denable_002dencoding-1090"></a>Output accented and special characters in Info or plain text output
+based on `<samp><span class="samp">@documentencoding</span></samp>'. 
+See <a href="documentencoding.html#documentencoding"><code>documentencoding</code></a>, and <a href="Inserting-Accents.html#Inserting-Accents">Inserting Accents</a>.
+
+     <br><dt><code>--error-limit=</code><var>limit</var><dt><code>-e </code><var>limit</var><dd><a name="index-g_t_002d_002derror_002dlimit_003d_0040var_007blimit_007d-1091"></a><a name="index-g_t_002de-_0040var_007blimit_007d-1092"></a>Set the maximum number of errors that <code>makeinfo</code> will report
+before exiting (on the assumption that continuing would be useless);
+default 100.
+
+     <br><dt><code>--fill-column=</code><var>width</var><dt><code>-f </code><var>width</var><dd><a name="index-g_t_002d_002dfill_002dcolumn_003d_0040var_007bwidth_007d-1093"></a><a name="index-g_t_002df-_0040var_007bwidth_007d-1094"></a>Specify the maximum number of columns in a line; this is the right-hand
+edge of a line.  Paragraphs that are filled will be filled to this
+width.  (Filling is the process of breaking up and connecting lines so
+that lines are the same length as or shorter than the number specified
+as the fill column.  Lines are broken between words.) The default value
+is 72.  Ignored with `<samp><span class="samp">--html</span></samp>'.
+
+     <br><dt><code>--footnote-style=</code><var>style</var><dt><code>-s </code><var>style</var><dd><a name="index-g_t_002d_002dfootnote_002dstyle_003d_0040var_007bstyle_007d-1095"></a><a name="index-g_t_002ds-_0040var_007bstyle_007d-1096"></a>Set the footnote style to <var>style</var>, either `<samp><span class="samp">end</span></samp>' for the end
+node style (the default) or `<samp><span class="samp">separate</span></samp>' for the separate node style. 
+The value set by this option overrides the value set in a Texinfo file
+by an <code>@footnotestyle</code> command (see <a href="Footnotes.html#Footnotes">Footnotes</a>).  When the
+footnote style is `<samp><span class="samp">separate</span></samp>', <code>makeinfo</code> makes a new node
+containing the footnotes found in the current node.  When the footnote
+style is `<samp><span class="samp">end</span></samp>', <code>makeinfo</code> places the footnote references at
+the end of the current node.  Ignored with `<samp><span class="samp">--html</span></samp>'.
+
+     <br><dt><code>--force</code><dt><code>-F</code><dd><a name="index-g_t_002d_002dforce-1097"></a><a name="index-g_t_002dF-1098"></a>Ordinarily, if the input file has errors, the output files are not
+created.  With this option, they are preserved.
+
+     <br><dt><code>--help</code><dt><code>-h</code><dd><a name="index-g_t_002d_002dhelp-1099"></a><a name="index-g_t_002dh-1100"></a>Print a usage message listing all available options, then exit successfully.
+
+     <br><dt><code>--html</code><dd><a name="index-g_t_002d_002dhtml-1101"></a>Generate HTML output rather than Info.  See <a href="Generating-HTML.html#Generating-HTML">Generating HTML</a>.  By
+default, the HTML output is split into one output file per Texinfo
+source node, and the split output is written into a subdirectory with
+the name of the top-level info file.
+
+     <br><dt><code>-I </code><var>dir</var><dd><a name="index-g_t_002dI-_0040var_007bdir_007d-1102"></a>Append <var>dir</var> to the directory search list for finding files that
+are included using the <code>@include</code> command.  By default,
+<code>makeinfo</code> searches only the current directory.  If <var>dir</var> is
+not given, the current directory <samp><span class="file">.</span></samp> is appended.  Note that
+<var>dir</var> can actually be a list of several directories separated by the
+usual path separator character (`<samp><span class="samp">:</span></samp>' on Unix, `<samp><span class="samp">;</span></samp>' on
+MS-DOS/MS-Windows).
+
+     <br><dt><code>--ifdocbook</code><dd><a name="index-g_t_002d_002difdocbook-1103"></a><dt><code>--ifhtml</code><dd><a name="index-g_t_002d_002difhtml-1104"></a><dt><code>--ifinfo</code><dd><a name="index-g_t_002d_002difinfo-1105"></a><dt><code>--ifplaintext</code><dd><a name="index-g_t_002d_002difplaintext-1106"></a><dt><code>--iftex</code><dd><a name="index-g_t_002d_002diftex-1107"></a><dt><code>--ifxml</code><dd><a name="index-g_t_002d_002difxml-1108"></a>For the specified format, process `<samp><span class="samp">@if</span><var>format</var></samp>' and
+`<samp><span class="samp">@</span><var>format</var></samp>' commands even if not generating the given output
+format.  For instance, if <samp><span class="option">--iftex</span></samp> is specified, then
+`<samp><span class="samp">@iftex</span></samp>' and `<samp><span class="samp">@tex</span></samp>' blocks will be read.
+
+     <br><dt><code>--macro-expand=</code><var>file</var><dt><code>-E </code><var>file</var><dd><a name="index-g_t_002d_002dmacro_002dexpand_003d_0040var_007bfile_007d-1109"></a><a name="index-g_t_002dE-_0040var_007bfile_007d-1110"></a>Output the Texinfo source with all the macros expanded to the named
+file.  Normally, the results of macro expansion are used internally by
+<code>makeinfo</code> and then discarded.  This option is used by
+<samp><span class="command">texi2dvi</span></samp>.
+
+     <br><dt><code>--no-headers</code><br><dt><code>--plaintext</code><dd><a name="index-g_t_002d_002dno_002dheaders-1111"></a><a name="index-g_t_002d_002dplaintext-1112"></a><a name="index-Plain-text-output-1113"></a><a name="index-ASCII-text-output-1114"></a><a name="index-Generating-plain-text-files-1115"></a><a name="index-g_t_0040file_007bINSTALL_007d-file_002c-generating-1116"></a><a name="index-Node-separators_002c-omitting-1117"></a><a name="index-Menus_002c-omitting-1118"></a>Do not include menus or node separator lines in the output, and
+implicitly <samp><span class="option">--enable-encoding</span></samp> (see above).  This results in a
+simple plain text file that you can (for example) send in email
+without complications, or include in a distribution (as in an
+<samp><span class="file">INSTALL</span></samp> file).
+
+     <p><a name="index-Navigation-links_002c-omitting-1119"></a>For HTML output, likewise omit menus.  And if `<samp><span class="samp">--no-split</span></samp>' is also
+specified, do not include a navigation links at the top of each node
+(these are never included in the default case of split output). 
+See <a href="Generating-HTML.html#Generating-HTML">Generating HTML</a>.
+
+     <p>In both cases, ignore <code>@setfilename</code> and write to standard
+output by default&mdash;can be overridden with <samp><span class="option">-o</span></samp>.
+
+     <br><dt><code>--no-ifdocbook</code><dd><a name="index-g_t_002d_002dno_002difdocbook-1120"></a><dt><code>--no-ifhtml</code><dd><a name="index-g_t_002d_002dno_002difhtml-1121"></a><dt><code>--no-ifinfo</code><dd><a name="index-g_t_002d_002dno_002difinfo-1122"></a><dt><code>--no-ifplaintext</code><dd><a name="index-g_t_002d_002dno_002difplaintext-1123"></a><dt><code>--no-iftex</code><dd><a name="index-g_t_002d_002dno_002diftex-1124"></a><dt><code>--no-ifxml</code><dd><a name="index-g_t_002d_002dno_002difxml-1125"></a>Do not process `<samp><span class="samp">@if</span><var>format</var></samp>' and `<samp><span class="samp">@</span><var>format</var></samp>'
+commands, and do process `<samp><span class="samp">@ifnot</span><var>format</var></samp>', even if
+generating the given format.  For instance, if <samp><span class="option">--no-ifhtml</span></samp> is
+specified, then `<samp><span class="samp">@ifhtml</span></samp>' and `<samp><span class="samp">@html</span></samp>' blocks will not be
+read, and `<samp><span class="samp">@ifnothtml</span></samp>' blocks will be.
+
+     <br><dt><code>--no-number-footnotes</code><dd><a name="index-g_t_002d_002dno_002dnumber_002dfootnotes-1126"></a>Suppress automatic footnote numbering.  By default, <code>makeinfo</code>
+numbers each footnote sequentially in a single node, resetting the
+current footnote number to 1 at the start of each node.
+
+     <br><dt><code>--no-number-sections</code><dd><a name="index-g_t_002d_002dno_002dnumber_002dsections-1127"></a>Do not output chapter, section, and appendix numbers. 
+You need to specify this if your manual is not hierarchically-structured.
+
+     <br><dt><code>--no-split</code><dd><a name="index-g_t_002d_002dno_002dsplit-1128"></a><a name="index-Splitting-of-output-files-1129"></a><a name="index-Output-file-splitting-1130"></a>Suppress the splitting stage of <code>makeinfo</code>.  By default, large
+output files (where the size is greater than 70k bytes) are split into
+smaller subfiles.  For Info output, each one is approximately 50k bytes. 
+For HTML output, each file contains one node (see <a href="Generating-HTML.html#Generating-HTML">Generating HTML</a>).
+
+     <br><dt><code>--no-pointer-validate</code><dt><code>--no-validate</code><dd><a name="index-g_t_002d_002dno_002dpointer_002dvalidate-1131"></a><a name="index-g_t_002d_002dno_002dvalidate-1132"></a><a name="index-Pointer-validation_002c-suppressing-1133"></a>Suppress the pointer-validation phase of <code>makeinfo</code>&mdash;a dangerous
+thing to do.  This can also be done with the <code>@novalidate</code>
+command (see <a href="Use-TeX.html#Use-TeX">Use TeX</a>).  Normally, after a Texinfo file
+is processed, some consistency checks are made to ensure that cross
+references can be resolved, etc.  See <a href="Pointer-Validation.html#Pointer-Validation">Pointer Validation</a>.
+
+     <br><dt><code>--no-warn</code><dd><a name="index-g_t_002d_002dno_002dwarn-1134"></a>Suppress warning messages (but <em>not</em> error messages).
+
+     <br><dt><code>--number-sections</code><dd><a name="index-g_t_002d_002dnumber_002dsections-1135"></a>Output chapter, section, and appendix numbers as in printed manuals. 
+This is the default.  It works only with hierarchically-structured
+manuals.
+
+     <br><dt><code>--output=</code><var>file</var><dt><code>-o </code><var>file</var><dd><a name="index-g_t_002d_002doutput_003d_0040var_007bfile_007d-1136"></a><a name="index-g_t_002do-_0040var_007bfile_007d-1137"></a>Specify that the output should be directed to <var>file</var> and not to the
+file name specified in the <code>@setfilename</code> command found in the
+Texinfo source (see <a href="setfilename.html#setfilename">setfilename</a>).  If <var>file</var> is `<samp><span class="samp">-</span></samp>', output
+goes to standard output and `<samp><span class="samp">--no-split</span></samp>' is implied.  For split
+HTML output, <var>file</var> is the name for the directory into which all
+HTML nodes are written (see <a href="Generating-HTML.html#Generating-HTML">Generating HTML</a>).
+
+     <br><dt><code>-P </code><var>dir</var><dd><a name="index-g_t_002dP-_0040var_007bdir_007d-1138"></a>Prepend <var>dir</var> to the directory search list for <code>@include</code>. 
+If <var>dir</var> is not given, the current directory <samp><span class="file">.</span></samp> is prepended. 
+See `<samp><span class="samp">-I</span></samp>' for more details.
+
+     <br><dt><code>--paragraph-indent=</code><var>indent</var><dt><code>-p </code><var>indent</var><dd><a name="index-g_t_002d_002dparagraph_002dindent_003d_0040var_007bindent_007d-1139"></a><a name="index-g_t_002dp-_0040var_007bindent_007d-1140"></a>Set the paragraph indentation style to <var>indent</var>.  The value set by
+this option overrides the value set in a Texinfo file by an
+<code>@paragraphindent</code> command (see <a href="paragraphindent.html#paragraphindent">paragraphindent</a>).  The value
+of <var>indent</var> is interpreted as follows:
+
+          <dl>
+<dt>`<samp><span class="samp">asis</span></samp>'<dd>Preserve any existing indentation at the starts of paragraphs.
+
+          <br><dt>`<samp><span class="samp">0</span></samp>' or `<samp><span class="samp">none</span></samp>'<dd>Delete any existing indentation.
+
+          <br><dt><var>num</var><dd>Indent each paragraph by <var>num</var> spaces. 
+</dl>
+
+     <br><dt><code>--reference-limit=</code><var>limit</var><dt><code>-r </code><var>limit</var><dd><a name="index-g_t_002d_002dreference_002dlimit_003d_0040var_007blimit_007d-1141"></a><a name="index-g_t_002dr-_0040var_007blimit_007d-1142"></a>Set the value of the number of references to a node that
+<code>makeinfo</code> will make without reporting a warning.  If a node has more
+than this number of references in it, <code>makeinfo</code> will make the
+references but also report a warning.  The default is 1000.
+
+     <br><dt><code>--split-size=</code><var>num</var><dd><a name="index-g_t_002d_002dsplit_002dsize_003d_0040var_007bnum_007d-1143"></a>Keep Info files to at most <var>num</var> characters; default is 300,000.
+
+     <br><dt><code>-U </code><var>var</var><dd>Cause <var>var</var> to be undefined.  This is equivalent to
+<code>@clear </code><var>var</var> in the Texinfo file (see <a href="set-clear-value.html#set-clear-value">set clear value</a>).
+
+     <br><dt><code>--verbose</code><dd><a name="index-g_t_002d_002dverbose-1144"></a>Cause <code>makeinfo</code> to display messages saying what it is doing. 
+Normally, <code>makeinfo</code> only outputs messages if there are errors or
+warnings.
+
+     <br><dt><code>--version</code><dt><code>-V</code><dd><a name="index-g_t_002d_002dversion-1145"></a><a name="index-g_t_002dV-1146"></a>Print the version number, then exit successfully.
+
+     <br><dt><code>--xml</code><dd><a name="index-g_t_002d_002dxml-1147"></a>Generate XML output rather than Info.
+
+  </dl>
+
+  <p><a name="index-TEXINFO_005fOUTPUT_005fFORMAT-1148"></a><a name="index-Environment-variable-_0040code_007bTEXINFO_005fOUTPUT_005fFORMAT_007d-1149"></a><samp><span class="command">makeinfo</span></samp> also reads the environment variable
+<samp><span class="env">TEXINFO_OUTPUT_FORMAT</span></samp> to determine the output format, if not
+overridden by a command line option.  The possible values are:
+
+<pre class="example">     docbook  html  info  plaintext  xml
+</pre>
+  <p>If not set, Info output is the default.
+
+  </body></html>
+

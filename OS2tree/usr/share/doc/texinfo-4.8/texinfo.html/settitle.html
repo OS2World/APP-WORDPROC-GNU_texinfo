@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+<title>settitle - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Texinfo-File-Header.html#Texinfo-File-Header" title="Texinfo File Header">
+<link rel="prev" href="setfilename.html#setfilename" title="setfilename">
+<link rel="next" href="End-of-Header.html#End-of-Header" title="End of Header">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="settitle"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="End-of-Header.html#End-of-Header">End of Header</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="setfilename.html#setfilename">setfilename</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Texinfo-File-Header.html#Texinfo-File-Header">Texinfo File Header</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.2.4 <code>@settitle</code>: Set the document title</h4>
+
+<p><a name="index-settitle-176"></a>
+In order to be made into a printed manual, a Texinfo file must contain
+a line that looks like this:
+
+<pre class="example">     @settitle <var>title</var>
+</pre>
+  <p>Write the <code>@settitle</code> command at the beginning of a line and
+follow it on the same line by the title.  This tells TeX the title to
+use in a header or footer.  Do not write anything else on the line;
+anything on the line after the command is considered part of the title,
+including what would otherwise be a comment.
+
+  <p>The <code>@settitle</code> command should precede everything that generates
+actual output.  The best place for it is right after the
+<code>@setfilename</code> command (see the previous section).
+
+  <p><a name="index-g_t_003ctitle_003e-HTML-tag-177"></a>In the HTML file produced by <samp><span class="command">makeinfo</span></samp>, <var>title</var> serves as
+the document `<samp><span class="samp">&lt;title&gt;</span></samp>'.  It also becomes the default document
+description in the `<samp><span class="samp">&lt;head&gt;</span></samp>' part (see <a href="documentdescription.html#documentdescription">documentdescription</a>).
+
+  <p>The title in the <code>@settitle</code> command does not affect the title as
+it appears on the title page.  Thus, the two do not need not match
+exactly.  A practice we recommend is to include the version or edition
+number of the manual in the <code>@settitle</code> title; on the title page,
+the version number generally appears as a <code>@subtitle</code> so it would
+be omitted from the <code>@title</code>.  See <a href="titlepage.html#titlepage">titlepage</a>.
+
+  <p>Conventionally, when TeX formats a Texinfo file for double-sided
+output, the title is printed in the left-hand (even-numbered) page
+headings and the current chapter title is printed in the right-hand
+(odd-numbered) page headings.  (TeX learns the title of each chapter
+from each <code>@chapter</code> command.)  By default, no page footer is
+printed.
+
+  <p>Even if you are printing in a single-sided style, TeX looks for an
+<code>@settitle</code> command line, in case you include the manual title
+in the heading.
+
+  <p>TeX prints page headings only for that text that comes after the
+<code>@end titlepage</code> command in the Texinfo file, or that comes
+after an <code>@headings</code> command that turns on headings. 
+(See <a href="headings-on-off.html#headings-on-off">The <code>@headings</code> Command</a>, for more
+information.)
+
+  <p>You may, if you wish, create your own, customized headings and footings. 
+See <a href="Headings.html#Headings">Headings</a>, for a detailed discussion of this.
+
+  </body></html>
+

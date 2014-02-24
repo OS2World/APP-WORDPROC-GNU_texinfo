@@ -1,0 +1,215 @@
+<html lang="en">
+<head>
+<title>GNU Sample Texts - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Sample-Texinfo-Files.html#Sample-Texinfo-Files" title="Sample Texinfo Files">
+<link rel="prev" href="Short-Sample-Texinfo-File.html#Short-Sample-Texinfo-File" title="Short Sample Texinfo File">
+<link rel="next" href="Verbatim-Copying-License.html#Verbatim-Copying-License" title="Verbatim Copying License">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="GNU-Sample-Texts"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Verbatim-Copying-License.html#Verbatim-Copying-License">Verbatim Copying License</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Short-Sample-Texinfo-File.html#Short-Sample-Texinfo-File">Short Sample Texinfo File</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Sample-Texinfo-Files.html#Sample-Texinfo-Files">Sample Texinfo Files</a>
+<hr>
+</div>
+
+<h3 class="section">C.2 GNU Sample Texts</h3>
+
+<p><a name="index-GNU-sample-texts-1256"></a><a name="index-Sample-texts_002c-GNU-1257"></a><a name="index-Full-texts_002c-GNU-1258"></a>
+Following is a sample Texinfo document with the full texts that should
+be used in GNU manuals.
+
+  <p>As well as the legal texts, it also serves as a practical example of how
+many elements in a GNU system can affect the manual.  If you're not
+familiar with all these different elements, don't worry.  They're not
+required and a perfectly good manual can be written without them. 
+They're included here nonetheless because many manuals do (or could)
+benefit from them.
+
+  <p>See <a href="Short-Sample.html#Short-Sample">Short Sample</a>, for a minimal example of a Texinfo file. 
+See <a href="Beginning-a-File.html#Beginning-a-File">Beginning a File</a>, for a full explanation of that minimal
+example.
+
+  <p>Here are some notes on the example:
+
+     <ul>
+<li><a name="index-g_t_0024Id-1259"></a><a name="index-CVS-_0024Id-1260"></a><a name="index-RCS-_0024Id-1261"></a><a name="index-Documentation-identification-1262"></a><a name="index-Identification-of-documentation-1263"></a>The `<samp><span class="samp">$Id:</span></samp>' comment is for the CVS (see <a href="../cvs/index.html#Top">Overview</a>) or RCS (see rcsintro(1)) version control
+systems, which expand it into a string such as:
+     <pre class="example">          $Id: texinfo.txi,v 1.128 2004/12/29 15:06:41 karl Exp $
+     </pre>
+     <p>(This is useful in all sources that use version control, not just manuals.) 
+You may wish to include the `<samp><span class="samp">$Id:</span></samp>' comment in the <code>@copying</code>
+text, if you want a completely unambiguous reference to the
+documentation version.
+
+     <p>If you want to literally write <tt>$<!-- /@w -->Id$</tt>, use <code>@w</code>:
+<code>@w{$}Id$</code>.
+
+     <li><a name="index-automake_0040r_007b_002c-and-version-info_007d-1264"></a><a name="index-UPDATED-_0040r_007bAutomake-variable_007d-1265"></a><a name="index-VERSION-_0040r_007bAutomake-variable_007d-1266"></a><a name="index-time_002dstamp_002eel-1267"></a>The <samp><span class="file">version.texi</span></samp> in the <code>@include</code> command is maintained
+automatically by Automake (see <a href="../automake/index.html#Top">Introduction</a>).  It sets the `<samp><span class="samp">VERSION</span></samp>' and `<samp><span class="samp">UPDATED</span></samp>' values used
+elsewhere.  If your distribution doesn't use Automake, but you do use
+Emacs, you may find the time-stamp.el package helpful (see <a href="../emacs/Time-Stamps.html#Time-Stamps">Time Stamps</a>).
+
+     <li>The <code>@syncodeindex</code> command reflects the recommendation to use
+only one index where possible, to make it easier for readers to look up
+index entries.
+
+     <li>The <code>@dircategory</code> is for constructing the Info directory. 
+See <a href="Installing-Dir-Entries.html#Installing-Dir-Entries">Installing Dir Entries</a>, which includes a variety of recommended
+category names.
+
+     <li>The `Invoking' node is a GNU standard to help users find the basic
+information about command-line usage of a given program.  See <a href="../standards/Manual-Structure-Details.html#Manual-Structure-Details">Manual Structure Details</a>.
+
+     <li><a name="index-GNU-Free-Documentation-License_002c-including-entire-1268"></a><a name="index-Free-Documentation-License_002c-including-entire-1269"></a>It is best to include the entire GNU Free Documentation License in a GNU
+manual, unless the manual is only a few pages long.  Of course this
+sample is even shorter than that, but it includes the FDL anyway in
+order to show one conventional way to do so.  The <samp><span class="file">fdl.texi</span></samp> file
+is available on the GNU machines and in the Texinfo and other GNU
+source distributions.
+
+     <p>The FDL provides for omitting itself under certain conditions, but in
+that case the sample texts given here have to be modified.  See <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">GNU Free Documentation License</a>.
+
+     <li>If your manual has invariant sections (again, see the license itself for
+details), then don't forget to change the text here accordingly.
+
+     <li>For documents that express your personal views, feelings or experiences,
+it is more appropriate to use a license permitting only verbatim
+copying, rather than the FDL.  See <a href="Verbatim-Copying-License.html#Verbatim-Copying-License">Verbatim Copying License</a>.
+
+  </ul>
+
+  <p>Here is the sample document:
+
+<pre class="verbatim">
+\input texinfo   @c -*-texinfo-*-
+@comment $Id: texinfo.txi,v 1.128 2004/12/29 15:06:41 karl Exp $
+@comment %**start of header
+@setfilename sample.info
+@include version.texi
+@settitle GNU Sample @value{VERSION}
+@syncodeindex pg cp
+@comment %**end of header
+@copying
+This manual is for GNU Sample
+(version @value{VERSION}, @value{UPDATED}),
+which is an example in the Texinfo documentation.
+
+Copyright @copyright{} 2004 Free Software Foundation, Inc.
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being ``A GNU Manual,''
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled ``GNU Free Documentation
+License.''
+
+(a) The FSF's Back-Cover Text is: ``You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development.''
+@end quotation
+@end copying
+
+@dircategory Texinfo documentation system
+@direntry
+* sample: (sample)Invoking sample.
+@end direntry
+
+@titlepage
+@title GNU Sample
+@subtitle for version @value{VERSION}, @value{UPDATED}
+@author A.U. Thor (@email{bug-texinfo@@gnu.org})
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@ifnottex
+@node Top
+@top GNU Sample
+
+@insertcopying
+@end ifnottex
+
+@menu
+* Invoking sample::
+* Copying This Manual::
+* Index::
+@end menu
+
+
+@node Invoking sample
+@chapter Invoking sample
+
+@pindex sample
+@cindex invoking @command{sample}
+
+This is a sample manual.  There is no sample program to
+invoke, but if there was, you could see its basic usage
+and command line options here.
+
+
+@node Copying This Manual
+@appendix Copying This Manual
+
+@menu
+* GNU Free Documentation License::  License for copying this manual.
+@end menu
+
+@include fdl.texi
+
+
+@node Index
+@unnumbered Index
+
+@printindex cp
+
+@bye
+</pre>
+
+  </body></html>
+

@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+<title>var - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Indicating.html#Indicating" title="Indicating">
+<link rel="prev" href="verb.html#verb" title="verb">
+<link rel="next" href="env.html#env" title="env">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="var"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="env.html#env">env</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="verb.html#verb">verb</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Indicating.html#Indicating">Indicating</a>
+<hr>
+</div>
+
+<h4 class="subsection">9.1.7 <code>@var</code>{<var>metasyntactic-variable</var>}</h4>
+
+<p><a name="index-var-421"></a>
+Use the <code>@var</code> command to indicate metasyntactic variables.  A
+<dfn>metasyntactic variable</dfn> is something that stands for another piece of
+text.  For example, you should use a metasyntactic variable in the
+documentation of a function to describe the arguments that are passed
+to that function.
+
+  <p>Do not use <code>@var</code> for the names of particular variables in
+programming languages.  These are specific names from a program, so
+<code>@code</code> is correct for them (see <a href="code.html#code">code</a>).  For example, the
+Emacs Lisp variable <code>texinfo-tex-command</code> is not a metasyntactic
+variable; it is properly formatted using <code>@code</code>.
+
+  <p>Do not use <code>@var</code> for environment variables either; <code>@env</code>
+is correct for them (see the next section).
+
+  <p>The effect of <code>@var</code> in the Info file is to change the case of the
+argument to all upper case.  In the printed manual and HTML output, the
+argument is printed in slanted type.
+
+  <p>For example,
+
+<pre class="example">     To delete file @var{filename},
+     type @samp{rm @var{filename}}.
+</pre>
+  <p class="noindent">produces
+
+  <blockquote>
+To delete file <var>filename</var>, type `<samp><span class="samp">rm </span><var>filename</var></samp>'. 
+</blockquote>
+
+<p class="noindent">(Note that <code>@var</code> may appear inside <code>@code</code>,
+<code>@samp</code>, <code>@file</code>, etc.)
+
+  <p>Write a metasyntactic variable all in lower case without spaces, and
+use hyphens to make it more readable.  Thus, the Texinfo source for
+the illustration of how to begin a Texinfo manual looks like
+this:
+
+<pre class="example">     \input texinfo
+     @@setfilename @var{info-file-name}
+     @@settitle @var{name-of-manual}
+</pre>
+  <p class="noindent">This produces:
+
+<pre class="example">     \input texinfo
+     @setfilename <var>info-file-name</var>
+     @settitle <var>name-of-manual</var>
+</pre>
+  <p>In some documentation styles, metasyntactic variables are shown with
+angle brackets, for example:
+
+<pre class="example">     ..., type rm &lt;filename&gt;
+</pre>
+  <p class="noindent">However, that is not the style that Texinfo uses.  (You can, of
+course, modify the sources to <samp><span class="file">texinfo.tex</span></samp> and the Info formatting commands
+to output the <code>&lt;...&gt;</code> format if you wish.)
+
+  </body></html>
+

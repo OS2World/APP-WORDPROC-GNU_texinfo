@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+<title>acronym - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Indicating.html#Indicating" title="Indicating">
+<link rel="prev" href="abbr.html#abbr" title="abbr">
+<link rel="next" href="indicateurl.html#indicateurl" title="indicateurl">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="acronym"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="indicateurl.html#indicateurl">indicateurl</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="abbr.html#abbr">abbr</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Indicating.html#Indicating">Indicating</a>
+<hr>
+</div>
+
+<h4 class="subsection">9.1.15 <code>@acronym</code>{<var>acronym</var>[, <var>meaning</var>]}</h4>
+
+<p><a name="index-acronym-433"></a>
+<a name="index-NASA_002c-as-acronym-434"></a><a name="index-Acronyms_002c-tagging-435"></a>Use the <code>@acronym</code> command for abbreviations written in all
+capital letters, such as `<acronym>NASA</acronym>'.  The abbreviation is given as
+the single argument in braces, as in `<samp><span class="samp">@acronym{NASA}</span></samp>'.  As
+a matter of style, or for particular acronyms, you may prefer to
+use periods, as in `<samp><span class="samp">@acronym{N.A.S.A.}</span></samp>'.
+
+  <p><code>@acronym</code> accepts an optional second argument, intended to be
+used for the meaning of the acronym.
+
+  <p>If the acronym is at the end of a sentence, and if there is no second
+argument, remember to use the <code>@.</code> or similar command
+(see <a href="Ending-a-Sentence.html#Ending-a-Sentence">Ending a Sentence</a>) to get the correct spacing.
+
+  <p><a name="index-g_t_003cacronym_003e-tag-436"></a>In TeX, the acronym is printed in slightly smaller font.  In the
+Info output, the argument is printed as-is.  In either format, if the
+second argument is present, it is printed in parentheses after the
+acronym.  In HTML, Docbook, and XML, the <code>&lt;acronym&gt;</code> tag is
+used.
+
+  <p>For instance (since GNU is a recursive acronym, we use
+<code>@acronym</code> recursively):
+
+<pre class="example">     @acronym{GNU, @acronym{GNU}'s Not Unix}
+</pre>
+  <p class="noindent">produces:
+
+<pre class="display">     <acronym title="GNU's Not Unix">GNU</acronym> (@acronym{GNU}'s Not Unix)
+</pre>
+  <p>In some circumstances, it is conventional to print family names in all
+capitals.  Don't use <code>@acronym</code> for this, since a name is not an
+acronym.  Use <code>@sc</code> instead (see <a href="Smallcaps.html#Smallcaps">Smallcaps</a>).
+
+  <p><code>@abbr</code> and <code>@acronym</code> are closely related commands: they
+both signal to the reader that a shortened form is being used, and
+possibly give a meaning.  When choosing whether to use these two
+commands, please bear the following in mind.
+
+     <ul>
+<li>In standard English usage, acronyms are a subset of abbreviations:
+they include pronounceable words like `<acronym>NATO</acronym>', `radar', and
+`snafu', and some sources also include syllable acronyms like
+`Usenet', hybrids like `<acronym>SIGGRAPH</acronym>', and unpronounceable
+initialisms like `<acronym>FBI</acronym>'.
+
+     <li>In Texinfo, an acronym (but not an abbreviation) should consist only
+of capital letters and periods, no lowercase.
+
+     <li>In TeX, an acronym (but not an abbreviation) is printed in a
+slightly smaller font.
+
+     <li>Some browsers place a dotted bottom border under abbreviations but not
+acronyms.
+
+     <li>It's not essential to use these commands for all abbreviations.  Text
+is perfectly readable without them, and for common abbreviations like
+`etc.', we consider them to be overkill.
+
+  </ul>
+
+  </body></html>
+

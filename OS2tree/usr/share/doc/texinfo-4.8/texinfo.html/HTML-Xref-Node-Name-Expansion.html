@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+<title>HTML Xref Node Name Expansion - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="HTML-Xref.html#HTML-Xref" title="HTML Xref">
+<link rel="prev" href="HTML-Xref-Link-Basics.html#HTML-Xref-Link-Basics" title="HTML Xref Link Basics">
+<link rel="next" href="HTML-Xref-Command-Expansion.html#HTML-Xref-Command-Expansion" title="HTML Xref Command Expansion">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="HTML-Xref-Node-Name-Expansion"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="HTML-Xref-Command-Expansion.html#HTML-Xref-Command-Expansion">HTML Xref Command Expansion</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="HTML-Xref-Link-Basics.html#HTML-Xref-Link-Basics">HTML Xref Link Basics</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="HTML-Xref.html#HTML-Xref">HTML Xref</a>
+<hr>
+</div>
+
+<h4 class="subsection">22.4.2 HTML Cross-reference Node Name Expansion</h4>
+
+<p><a name="index-HTML-cross_002dreference-node-name-expansion-1234"></a><a name="index-node-name-expansion_002c-in-HTML-cross_002dreferences-1235"></a><a name="index-expansion_002c-of-node-names-in-HTML-cross_002dreferences-1236"></a>
+As mentioned in the previous section, the key part of the HTML
+cross-reference algorithm is the conversion of node names in the
+Texinfo source into strings suitable for XHTML identifiers and
+filenames.  The restrictions are similar for each: plain ASCII
+letters, numbers, and the `<samp><span class="samp">-</span></samp>' and `<samp><span class="samp">_</span></samp>' characters are all
+that can be used.  (Although HTML anchors can contain most characters,
+XHTML is more restrictive.)
+
+  <p>Cross-references in Texinfo can actually refer either to nodes or
+anchors (see <a href="anchor.html#anchor">anchor</a>), but anchors are treated identically to nodes
+in this context, so we'll continue to say &ldquo;node&rdquo; names for
+simplicity.
+
+  <p>(@-commands and 8-bit characters are not presently handled by
+<samp><span class="command">makeinfo</span></samp> for HTML cross-references.  See the next section.)
+
+  <p>A special exception: the Top node (see <a href="The-Top-Node.html#The-Top-Node">The Top Node</a>) is always
+mapped to the file <samp><span class="file">index.html</span></samp>, to match web server software. 
+However, the HTML <em>target</em> is `<samp><span class="samp">Top</span></samp>'.  Thus (in the split case):
+
+<pre class="example">     @xref{Top, Introduction,, emacs, The GNU Emacs Manual}.
+     =&gt; &lt;a href="emacs/index.html#Top"&gt;
+</pre>
+     <ol type=1 start=1>
+<li>The standard ASCII letters (a-z and A-Z) are not modified.  All other
+characters are changed as specified below.
+
+     <li>The standard ASCII numbers (0-9) are not modified except when a number
+is the first character of the node name.  In that case, see below.
+
+     <li>Multiple consecutive space, tab and newline characters are transformed
+into just one space.  (It's not possible to have newlines in node
+names with the current implementation, but we specify it anyway, just
+in case.)
+
+     <li>Leading and trailing spaces are removed.
+
+     <li>After the above has been applied, each remaining space character is
+converted into a `<samp><span class="samp">-</span></samp>' character.
+
+     <li>Other ASCII 7-bit characters are transformed into `<samp><span class="samp">_00</span><var>xx</var></samp>',
+where <var>xx</var> is the ASCII character code in (lowercase) hexadecimal. 
+This includes `<samp><span class="samp">_</span></samp>', which is mapped to `<samp><span class="samp">_005f</span></samp>'.
+
+     <li>If the node name does not begin with a letter, the literal string
+`<samp><span class="samp">g_t</span></samp>' is prefixed to the result.  (Due to the rules above, that
+string can never occur otherwise; it is an arbitrary choice, standing
+for &ldquo;GNU Texinfo&rdquo;.)  This is necessary because XHTML requires that
+identifiers begin with a letter.
+
+       </ol>
+
+  <p>For example:
+
+<pre class="example">     @node A  node --- with _'%
+     =&gt; A-node-_002d_002d_002d-with-_005f_0027_0025
+</pre>
+  <p>Notice in particular:
+
+     <ul>
+<li>`<samp><span class="samp">_</span></samp>' =&gt; `<samp><span class="samp">_005f</span></samp>'
+<li>`<samp><span class="samp">-</span></samp>' =&gt; `<samp><span class="samp">_002d</span></samp>'
+<li>`<samp><span class="samp">A  node</span></samp>' =&gt; `<samp><span class="samp">A-node</span></samp>'
+</ul>
+
+  <p>On case-folding computer systems, nodes differing only by case will be
+mapped to the same file.
+
+  <p>In particular, as mentioned above, Top always maps to the file
+<samp><span class="file">index.html</span></samp>.  Thus, on a case-folding system, Top and a node
+named `Index' will both be written to <samp><span class="file">index.html</span></samp>.
+
+  <p>Fortunately, the targets serve to distinguish these cases, since HTML
+target names are always case-sensitive, independent of operating
+system.
+
+  </body></html>
+

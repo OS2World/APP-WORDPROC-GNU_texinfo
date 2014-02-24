@@ -1,0 +1,51 @@
+diff -PurB -X x-os2unix.dat texinfo-4.8/os2configure_make.cmd texinfo-4.8-os2/os2configure_make.cmd
+--- texinfo-4.8/os2configure_make.cmd	Thu Jan  1 00:00:00 1970
++++ texinfo-4.8-os2/os2configure_make.cmd	Thu Jan 20 21:14:10 2005
+@@ -0,0 +1,16 @@
++extproc sh
++#!sh
++
++if [ ! -f Makefile ] ; then
++    configure --prefix=/usr \
++     --datadir=/usr/share \
++     --infodir=/usr/share/info\
++     --mandir=/usr/share/man \
++     --x-includes=${X11ROOT}/XFree86/include\
++     --x-libraries=${X11ROOT}/XFree86/lib\
++else
++	echo "Now make main programs"
++	make
++fi
++#
++#EOF
+diff -PurB -X x-os2unix.dat texinfo-4.8/util/texi2dvi texinfo-4.8-os2/util/texi2dvi
+--- texinfo-4.8/util/texi2dvi	Thu Jan 20 21:42:38 2005
++++ texinfo-4.8-os2/util/texi2dvi	Thu Jan 20 21:10:04 2005
+@@ -115,9 +115,26 @@
+ # In case someone crazy insists on using grep -E.
+ : ${EGREP=egrep}
+ 
+-# return true if program $1 is somewhere in PATH, else false.
++#
++# emulation of "test -x"
++#    When `foo'(shell script), `foo.cmd', or `foo.exe' exists in
++#    PATH directory, "test -x" returns true.
+ #
+ findprog () {
++    if [ -f "$1" ] ; then return ; fi
++    if type $1.cmd 1>nul 2>&1  ; then  return ; fi
++    if type $1.exe 1>nul 2>&1  ; then  return ; fi
++    x=`type $* 1>nul 2>&1|  sed -e 's@^.* @@' -e 's@\\\\@/@g' -e 's@\\.$@@'`
++    if [ -n "$x" ] ; then
++      grep '^\(#!\|[ \t]*extproc\)' "$x">nul 2>&1
++    else
++      return 1
++    fi
++}
++
++# return true if program $1 is somewhere in PATH, else false.
++#
++findprog__ () {
+   foundprog=false
+   for dir in `echo $PATH | tr "$path_sep" " "`; do
+     if test -x "$dir/$1"; then  # does anyone still need test -f?

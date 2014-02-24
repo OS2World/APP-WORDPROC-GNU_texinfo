@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+<title>caption shortcaption - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Floats.html#Floats" title="Floats">
+<link rel="prev" href="float.html#float" title="float">
+<link rel="next" href="listoffloats.html#listoffloats" title="listoffloats">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="caption-shortcaption"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="listoffloats.html#listoffloats">listoffloats</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="float.html#float">float</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Floats.html#Floats">Floats</a>
+<hr>
+</div>
+
+<h4 class="subsection">12.1.2 <code>@caption</code> &amp; <code>@shortcaption</code></h4>
+
+<p><a name="index-caption-556"></a><a name="index-shortcaption-557"></a><a name="index-Captions_002c-for-floats-558"></a><a name="index-Short-captions_002c-for-lists-of-floats-559"></a>
+You may write an <code>@caption</code> anywhere within a <code>@float</code>
+environment, to define a caption for the float.  It is not allowed in
+any other context.  <code>@caption</code> takes a single argument, enclosed
+in braces.  Here's an example:
+
+<pre class="example">     @float
+     An example float, with caption.
+     @caption{Caption for example float.}
+     @end float
+</pre>
+  <p class="noindent">The output is:
+
+  <div class="float">
+An example float, with caption.
+
+  <p><strong class="float-caption">Caption for example float.</strong></p></div>
+
+  <p><code>@caption</code> can appear anywhere within the float; it is not
+processed until the <code>@end float</code>.  The caption text is usually a
+sentence or two, but may consist of several paragraphs if necessary.
+
+  <p>In the output, the caption always appears below the float; this is not
+currently changeable.  It is preceded by the float type and/or number,
+as specified to the <code>@float</code> command (see the previous section).
+
+  <p>The <code>@shortcaption</code> command likewise may be used only within
+<code>@float</code>, and takes a single argument in braces.  The short
+caption text is used instead of the caption text in a list of floats
+(see the next section).  Thus, you can write a long caption for the
+main document, and a short title to appear in the list of floats.  For
+example:
+
+<pre class="example">     @float
+     ... as above ...
+     @shortcaption{Text for list of floats.}
+     @end float
+</pre>
+  <p>The text for <code>@caption</code> and <code>@shortcaption</code> may not
+contain comments (<code>@c</code>), verbatim text (<code>@verb</code>),
+environments such as <code>@example</code>, or other complex constructs.
+
+  </body></html>
+

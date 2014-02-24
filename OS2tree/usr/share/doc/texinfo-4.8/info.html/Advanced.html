@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+<title>Advanced - Info</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Info">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Expert-Info.html#Expert-Info" title="Expert Info">
+<link rel="next" href="Info-Search.html#Info-Search" title="Info Search">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This file describes how to use Info, the on-line, menu-driven GNU
+documentation system.
+
+Copyright (C) 1989, 1992, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004
+Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in the Emacs manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Advanced"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Info-Search.html#Info-Search">Info Search</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Expert-Info.html#Expert-Info">Expert Info</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">2.1 Advanced Info Commands</h3>
+
+<p>Here are some more Info commands that make it easier to move around.
+
+<h4 class="subheading"><kbd>g</kbd> goes to a node by name</h4>
+
+<p><a name="index-g-_0040r_007b_0028Info-mode_0029_007d-46"></a><a name="index-Info_002dgoto_002dnode-47"></a><a name="index-go-to-a-node-by-name-48"></a>  If you know a node's name, you can go there by typing <kbd>g</kbd>, the
+name, and &lt;RET&gt;.  Thus, <kbd>gTop&lt;RET&gt;</kbd> would go to the node
+called `<samp><span class="samp">Top</span></samp>' in this file.  (This is equivalent to <kbd>t</kbd>, see
+<a href="Help_002dInt.html#Help_002dInt">Help-Int</a>.)  <kbd>gAdvanced&lt;RET&gt;</kbd> would come back here. 
+<kbd>g</kbd> in Emacs runs the command <code>Info-goto-node</code>.
+
+   <p>Unlike <kbd>m</kbd>, <kbd>g</kbd> does not allow the use of abbreviations. 
+But it does allow completion, so you can type &lt;TAB&gt; to complete a
+partial node name.
+
+   <p><a name="index-go-to-another-Info-file-49"></a>  To go to a node in another file, you can include the file name in the
+node name by putting it at the front, in parentheses.  Thus,
+<kbd>g(dir)Top&lt;RET&gt;</kbd> would go to the Info Directory node, which is
+the node `<samp><span class="samp">Top</span></samp>' in the Info file <samp><span class="file">dir</span></samp>.  Likewise,
+<kbd>g(emacs)Top&lt;RET&gt;</kbd> goes to the top node of the Emacs manual.
+
+   <p>The node name `<samp><span class="samp">*</span></samp>' specifies the whole file.  So you can look at
+all of the current file by typing <kbd>g*&lt;RET&gt;</kbd> or all of any
+other file with <kbd>g(</kbd><var>filename</var><kbd>)&lt;RET&gt;</kbd>.
+
+<h4 class="subheading"><kbd>1</kbd>&ndash;<kbd>9</kbd> choose a menu subtopic by its number</h4>
+
+<p><a name="index-g_t1-_0040r_007bthrough_007d-9-_0040r_007b_0028Info-mode_0029_007d-50"></a><a name="index-Info_002dnth_002dmenu_002ditem-51"></a><a name="index-select-_0040var_007bn_007d_0027th-menu-item-52"></a>  If you begrudge each character of type-in which your system requires,
+you might like to use the commands <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd>,
+<small class="dots">...</small>, <kbd>9</kbd>.  They are short for the <kbd>m</kbd> command together
+with a name of a menu subtopic.  <kbd>1</kbd> goes through the first item
+in the current node's menu; <kbd>2</kbd> goes through the second item, etc. 
+In the stand-alone reader, <kbd>0</kbd> goes through the last menu item;
+this is so you need not count how many entries are there.  In Emacs,
+the digit keys run the command <code>Info-nth-menu-item</code>.
+
+   <p>If your display supports multiple fonts, colors or underlining, and
+you are using Emacs' Info mode to read Info files, the third, sixth
+and ninth menu items have a `<samp><span class="samp">*</span></samp>' that stands out, either in color
+or in some other attribute, such as underline; this makes it easy to
+see at a glance which number to use for an item.
+
+   <p>Some terminals don't support either multiple fonts, colors or
+underlining.  If you need to actually count items, it is better to use
+<kbd>m</kbd> instead, and specify the name, or use &lt;TAB&gt; to quickly
+move between menu items.
+
+<h4 class="subheading"><kbd>e</kbd> makes Info document editable</h4>
+
+<p><a name="index-e-_0040r_007b_0028Info-mode_0029_007d-53"></a><a name="index-Info_002dedit-54"></a><a name="index-edit-Info-document-55"></a>  The Info command <kbd>e</kbd> changes from Info mode to an ordinary
+Emacs editing mode, so that you can edit the text of the current node. 
+Type <kbd>C-c C-c</kbd> to switch back to Info.  The <kbd>e</kbd> command is allowed
+only if the variable <code>Info-enable-edit</code> is non-<code>nil</code>.
+
+   <p>The <kbd>e</kbd> command only works in Emacs, where it runs the command
+<code>Info-edit</code>.  The stand-alone Info reader doesn't allow you to
+edit the Info file, so typing <kbd>e</kbd> there goes to the end of the
+current node.
+
+<h4 class="subheading"><kbd>M-n</kbd> creates a new independent Info buffer in Emacs</h4>
+
+<p><a name="index-M_002dn-_0040r_007b_0028Info-mode_0029_007d-56"></a><a name="index-clone_002dbuffer-57"></a><a name="index-multiple-Info-buffers-58"></a>  If you are reading Info in Emacs, you can select a new independent
+Info buffer in another window by typing <kbd>M-n</kbd>.  The new buffer
+starts out as an exact copy of the old one, but you will be able to
+move independently between nodes in the two buffers.  (In Info mode,
+<kbd>M-n</kbd> runs the Emacs command <code>clone-buffer</code>.)
+
+   <p>In Emacs Info, you can also produce new Info buffers by giving a
+numeric prefix argument to the <kbd>m</kbd> and <kbd>g</kbd> commands.  <kbd>C-u
+m</kbd> and <kbd>C-u g</kbd> go to a new node in exactly the same way that
+<kbd>m</kbd> and <kbd>g</kbd> do, but they do so in a new Info buffer which they
+select in another window.
+
+   </body></html>
+

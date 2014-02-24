@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+<title>inforef - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Cross-References.html#Cross-References" title="Cross References">
+<link rel="prev" href="pxref.html#pxref" title="pxref">
+<link rel="next" href="uref.html#uref" title="uref">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="inforef"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="uref.html#uref">uref</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="pxref.html#pxref">pxref</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Cross-References.html#Cross-References">Cross References</a>
+<hr>
+</div>
+
+<h3 class="section">8.8 <code>@inforef</code></h3>
+
+<p><a name="index-Cross-references-using-_0040code_007b_0040_0040inforef_007d-381"></a><a name="index-References-using-_0040code_007b_0040_0040inforef_007d-382"></a><a name="index-inforef-383"></a>
+<code>@inforef</code> is used for making cross references to Info
+documents&mdash;even from a printed manual.  This might be because you
+want to refer to conditional <code>@ifinfo</code> text
+(see <a href="Conditionals.html#Conditionals">Conditionals</a>), or because printed output is not available
+(perhaps because there is no Texinfo source), among other
+possibilities.
+
+  <p>The command takes either two or three arguments, in the following
+order:
+
+     <ol type=1 start=1>
+<li>The node name.
+
+     <li>The cross reference name (optional).
+
+     <li>The Info file name.
+       </ol>
+
+<p class="noindent">Separate the arguments with commas, as with <code>@xref</code>.  Also, you
+must terminate the reference with a comma or period after the
+`<samp><span class="samp">}</span></samp>', as you do with <code>@xref</code>.
+
+<p class="noindent">The template is:
+
+<pre class="example">     @inforef{<var>node-name</var>, <var>cross-reference-name</var>, <var>info-file-name</var>},
+</pre>
+  <p class="noindent">For example,
+
+<pre class="example">     @inforef{Advanced, Advanced Info commands, info},
+     for more information.
+</pre>
+  <p class="noindent">produces (in Info):
+
+<pre class="example">     *Note Advanced Info commands: (info)Advanced,
+     for more information.
+</pre>
+  <p class="noindent">and (in the printed output):
+
+  <blockquote>
+See Info file <samp><span class="file">info</span></samp>, node `<samp><span class="samp">Advanced</span></samp>', for more information. 
+</blockquote>
+
+  <p>(This particular example is not realistic, since the Info manual is
+written in Texinfo, so all formats are available.)
+
+  <p>The converse of <code>@inforef</code> is <code>@cite</code>, which is used to
+refer to printed works for which no Info form exists.  See <a href="cite.html#cite"><code>@cite</code></a>.
+
+  </body></html>
+

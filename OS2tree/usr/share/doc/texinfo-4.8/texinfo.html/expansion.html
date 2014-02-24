@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+<title>expansion - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Glyphs.html#Glyphs" title="Glyphs">
+<link rel="prev" href="result.html#result" title="result">
+<link rel="next" href="Print-Glyph.html#Print-Glyph" title="Print Glyph">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="expansion"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Print-Glyph.html#Print-Glyph">Print Glyph</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="result.html#result">result</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Glyphs.html#Glyphs">Glyphs</a>
+<hr>
+</div>
+
+<h4 class="subsection">14.10.3 <code>@expansion{}</code> (==&gt;): Indicating an Expansion</h4>
+
+<p><a name="index-Expansion_002c-indicating-774"></a><a name="index-Macro-expansion_002c-indicating-775"></a><a name="index-expansion-776"></a>
+When an expression is a macro call, it expands into a new expression. 
+You can indicate the result of the expansion with the
+<code>@expansion{}</code> command.
+
+  <p>The <code>@expansion{}</code> command is displayed as `<samp><span class="samp">==&gt;</span></samp>'
+in Info and HTML, and as a long arrow with a flat base in the printed
+output.
+
+  <p>For example, the following
+
+<pre class="example">     @lisp
+     (third '(a b c))
+         @expansion{} (car (cdr (cdr '(a b c))))
+         @result{} c
+     @end lisp
+</pre>
+  <p class="noindent">produces
+
+<pre class="lisp">     (third '(a b c))
+         ==&gt; (car (cdr (cdr '(a b c))))
+         =&gt; c
+</pre>
+  <p class="noindent">which may be read as:
+
+  <blockquote>
+<code>(third '(a b c))</code> expands to <code>(car (cdr (cdr '(a b c))))</code>;
+the result of evaluating the expression is <code>c</code>. 
+</blockquote>
+
+<p class="noindent">Often, as in this case, an example looks better if the
+<code>@expansion{}</code> and <code>@result{}</code> commands are indented.
+
+  </body></html>
+

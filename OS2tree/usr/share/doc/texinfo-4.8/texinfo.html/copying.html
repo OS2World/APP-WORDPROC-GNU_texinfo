@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+<title>copying - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Document-Permissions.html#Document-Permissions" title="Document Permissions">
+<link rel="next" href="insertcopying.html#insertcopying" title="insertcopying">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="copying"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="insertcopying.html#insertcopying">insertcopying</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Document-Permissions.html#Document-Permissions">Document Permissions</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.3.1 <code>@copying</code>: Declare Copying Permissions</h4>
+
+<p><a name="index-copying-181"></a>
+The <code>@copying</code> command should be given very early in the document;
+the recommended location is right after the header material
+(see <a href="Texinfo-File-Header.html#Texinfo-File-Header">Texinfo File Header</a>).  It conventionally consists of a sentence
+or two about what the program is, identification of the documentation
+itself, the legal copyright line, and the copying permissions.  Here is
+a skeletal example:
+
+<pre class="example">     @copying
+     This manual is for <var>program</var> (version <var>version</var>, updated
+     <var>date</var>), which ...
+     
+     Copyright @copyright{} <var>years</var> <var>copyright-owner</var>.
+     
+     @quotation
+     Permission is granted to ...
+     @end quotation
+     @end copying
+</pre>
+  <p>The <code>@quotation</code> has no legal significance; it's there to improve
+readability in some contexts.
+
+  <p>See <a href="GNU-Sample-Texts.html#GNU-Sample-Texts">GNU Sample Texts</a>, for the full text to be used in GNU manuals. 
+See <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">GNU Free Documentation License</a>, for the license itself under
+which GNU and other free manuals are distributed.  You need to include
+the license as an appendix to your document.
+
+  <p>The text of <code>@copying</code> is output as a comment at the beginning of
+Info, HTML, and XML output files.  It is <em>not</em> output implicitly in
+plain text or TeX; it's up to you to use <code>@insertcopying</code> to
+emit the copying information.  See the next section for details.
+
+  <p><a name="index-copyright-182"></a>The <code>@copyright{}</code> command generates a `<samp><span class="samp">c</span></samp>' inside a circle
+in output formats that support this (print and HTML).  In the other
+formats (Info and plain text), it generates `<samp><span class="samp">(C)</span></samp>'.  The copyright
+notice itself has the following legally defined sequence:
+
+<pre class="example">     Copyright &copy; <var>years</var> <var>copyright-owner</var>.
+</pre>
+  <p><a name="index-Copyright-word_002c-always-in-English-183"></a>The word `Copyright' must always be written in English, even if the
+document is otherwise written in another language.  This is due to
+international law.
+
+  <p><a name="index-Years_002c-in-copyright-line-184"></a>The list of years should include all years in which a version was
+completed (even if it was released in a subsequent year).  Ranges are
+not allowed; each year must be written out individually and in full,
+separated by commas.
+
+  <p><a name="index-Copyright-holder-for-FSF-works-185"></a><a name="index-Holder-of-copyright-for-FSF-works-186"></a><a name="index-Owner-of-copyright-for-FSF-works-187"></a>The copyright owner (or owners) is whoever holds legal copyright on the
+work.  In the case of works assigned to the FSF, the owner is `Free
+Software Foundation, Inc.'.
+
+  <p>The copyright `line' may actually be split across multiple
+lines, both in the source document and in the output.  This often
+happens for documents with a long history, having many different years
+of publication.
+
+  <p>See <a href="../maintain/Copyright-Notices.html#Copyright-Notices">Copyright Notices</a>, for
+additional information.
+
+  </body></html>
+

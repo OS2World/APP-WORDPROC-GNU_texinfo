@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+<title>Format with texi2dvi - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Hardcopy.html#Hardcopy" title="Hardcopy">
+<link rel="prev" href="Format-with-tex_002ftexindex.html#Format-with-tex_002ftexindex" title="Format with tex/texindex">
+<link rel="next" href="Print-with-lpr.html#Print-with-lpr" title="Print with lpr">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Format-with-texi2dvi"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Print-with-lpr.html#Print-with-lpr">Print with lpr</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Format-with-tex_002ftexindex.html#Format-with-tex_002ftexindex">Format with tex/texindex</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Hardcopy.html#Hardcopy">Hardcopy</a>
+<hr>
+</div>
+
+<h3 class="section">20.3 Format with <code>texi2dvi</code></h3>
+
+<p><a name="index-texi2dvi-_0040r_007b_0028shell-script_0029_007d-1002"></a>
+The <code>texi2dvi</code> command automatically runs both TeX and
+<samp><span class="command">texindex</span></samp> as many times as necessary to produce a DVI file
+with sorted indices and all cross-references resolved.  It is
+therefore simpler than manually executing the
+<code>tex</code>&mdash;<code>texindex</code>&mdash;<code>tex</code>&mdash;<code>tex</code> sequence
+described in the previous section.
+
+  <p>To run <code>texi2dvi</code> on an input file <samp><span class="file">foo.texi</span></samp>, do this (where
+`<samp><span class="samp">prompt$ </span></samp>' is your shell prompt):
+
+<pre class="example">     prompt$ <kbd>texi2dvi foo.texi</kbd>
+</pre>
+  <p>As shown in this example, the input filenames to <code>texi2dvi</code> must
+include any extension (`<samp><span class="samp">.texi</span></samp>', `<samp><span class="samp">.texinfo</span></samp>', etc.).  Under
+MS-DOS and perhaps in other circumstances, you may need to run `<samp><span class="samp">sh
+texi2dvi foo.texi</span></samp>' instead of relying on the operating system to invoke
+the shell on the `<samp><span class="samp">texi2dvi</span></samp>' script.
+
+  <p>Perhaps the most useful option to <code>texi2dvi</code> is
+`<samp><span class="samp">--command=</span><var>cmd</var></samp>'.  This inserts <var>cmd</var> on a line by itself
+after the <code>@setfilename</code> in a temporary copy of the input file
+before running TeX.  With this, you can specify different printing
+formats, such as <code>@smallbook</code> (see <a href="smallbook.html#smallbook">smallbook</a>),
+<code>@afourpaper</code> (see <a href="A4-Paper.html#A4-Paper">A4 Paper</a>), or <code>@pagesizes</code>
+(see <a href="pagesizes.html#pagesizes">pagesizes</a>), without actually changing the document source. 
+(You can also do this on a site-wide basis with <samp><span class="file">texinfo.cnf</span></samp>;
+see <a href="Preparing-for-TeX.html#Preparing-for-TeX">Preparing for TeX</a>).
+
+  <p>With the <samp><span class="option">--pdf</span></samp> option, <samp><span class="command">texi2dvi</span></samp> produces PDF output
+instead of DVI (see <a href="PDF-Output.html#PDF-Output">PDF Output</a>), by running <samp><span class="command">pdftex</span></samp>
+instead of <samp><span class="command">tex</span></samp>.  Alternatively, the command
+<samp><span class="command">texi2pdf</span></samp> is an abbreviation for running `<samp><span class="samp">texi2dvi --pdf</span></samp>'.
+
+  <p><a name="index-g_t_0040LaTeX_007b_007d_002c-processing-with-_0040command_007btexi2dvi_007d-1003"></a><samp><span class="command">texi2dvi</span></samp> can also be used to process LaTeX files; simply
+run `<samp><span class="samp">texi2dvi filename.ext</span></samp>'.
+
+  <p><samp><span class="command">texi2dvi</span></samp> will use <samp><span class="command">etex</span></samp> (or <samp><span class="command">pdfetex</span></samp>) if
+they are available; these extended versions of TeX are not
+required, and the DVI (or PDF) output is identical, but they simplify
+the TeX programming in some cases, and provide additional tracing
+information when debugging <samp><span class="file">texinfo.tex</span></samp>.
+
+  <p>For a list of other options, run `<samp><span class="samp">texi2dvi --help</span></samp>'.
+
+  </body></html>
+

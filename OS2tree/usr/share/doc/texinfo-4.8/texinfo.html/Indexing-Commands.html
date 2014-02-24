@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+<title>Indexing Commands - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Indices.html#Indices" title="Indices">
+<link rel="prev" href="Predefined-Indices.html#Predefined-Indices" title="Predefined Indices">
+<link rel="next" href="Combining-Indices.html#Combining-Indices" title="Combining Indices">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Indexing-Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Combining-Indices.html#Combining-Indices">Combining Indices</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Predefined-Indices.html#Predefined-Indices">Predefined Indices</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Indices.html#Indices">Indices</a>
+<hr>
+</div>
+
+<h3 class="section">13.3 Defining the Entries of an Index</h3>
+
+<p><a name="index-Defining-indexing-entries-608"></a><a name="index-Index-entries-609"></a><a name="index-Entries-for-an-index-610"></a><a name="index-Specifying-index-entries-611"></a><a name="index-Creating-index-entries-612"></a>
+The data to make an index come from many individual indexing commands
+scattered throughout the Texinfo source file.  Each command says to add
+one entry to a particular index; after formatting, the index will give
+the current page number or node name as the reference.
+
+  <p>An index entry consists of an indexing command at the beginning of a
+line followed, on the rest of the line, by the entry.
+
+  <p>For example, this section begins with the following five entries for
+the concept index:
+
+<pre class="example">     @cindex Defining indexing entries
+     @cindex Index entries, defining
+     @cindex Entries for an index
+     @cindex Specifying index entries
+     @cindex Creating index entries
+</pre>
+  <p>Each predefined index has its own indexing command&mdash;<code>@cindex</code>
+for the concept index, <code>@findex</code> for the function index, and so
+on, as listed in the previous section.
+
+  <p><a name="index-Writing-index-entries-613"></a><a name="index-Index-entry-writing-614"></a>Concept index entries consist of text.  The best way to write an index
+is to choose entries that are terse yet clear.  If you can do this,
+the index often looks better if the entries are not capitalized, but
+written just as they would appear in the middle of a sentence. 
+(Capitalize proper names and acronyms that always call for upper case
+letters.)  This is the case convention we use in most GNU manuals'
+indices.
+
+  <p>If you don't see how to make an entry terse yet clear, make it longer
+and clear&mdash;not terse and confusing.  If many of the entries are several
+words long, the index may look better if you use a different convention:
+to capitalize the first word of each entry.  But do not capitalize a
+case-sensitive name such as a C or Lisp function name or a shell
+command; that would be a spelling error.
+
+  <p>Whichever case convention you use, please use it consistently!
+
+  <p>Entries in indices other than the concept index are symbol names in
+programming languages, or program names; these names are usually
+case-sensitive, so use upper and lower case as required for them.
+
+  <p><a name="index-Index-font-types-615"></a>By default, entries for a concept index are printed in a small roman
+font and entries for the other indices are printed in a small
+<code>@code</code> font.  You may change the way part of an entry is
+printed with the usual Texinfo commands, such as <code>@file</code> for
+file names (see <a href="Marking-Text.html#Marking-Text">Marking Text</a>), and <code>@r</code> for the normal roman
+font (see <a href="Fonts.html#Fonts">Fonts</a>).
+
+  <blockquote>
+<b>Caution:</b> Do not use a colon in an index entry.  In Info, a colon separates the
+menu entry name from the node name, so a colon in the entry itself
+confuses Info.  See <a href="Menu-Parts.html#Menu-Parts">Menu Parts</a>, for more information about the
+structure of a menu entry. 
+</blockquote>
+
+  </body></html>
+

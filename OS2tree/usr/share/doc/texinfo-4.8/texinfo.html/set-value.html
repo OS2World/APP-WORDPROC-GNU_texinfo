@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+<title>set value - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="set-clear-value.html#set-clear-value" title="set clear value">
+<link rel="next" href="ifset-ifclear.html#ifset-ifclear" title="ifset ifclear">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="set-value"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="ifset-ifclear.html#ifset-ifclear">ifset ifclear</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="set-clear-value.html#set-clear-value">set clear value</a>
+<hr>
+</div>
+
+<h4 class="subsection">17.4.1 <code>@set</code> and <code>@value</code></h4>
+
+<p><a name="index-value-916"></a>
+You use the <code>@set</code> command to specify a value for a flag, which
+is later expanded by the <code>@value</code> command.
+
+  <p>A <dfn>flag</dfn> (aka <dfn>variable</dfn>) is an identifier.  It is best to use
+only letters and numerals in a flag name, not `<samp><span class="samp">-</span></samp>' or
+`<samp><span class="samp">_</span></samp>'&mdash;they will work in some contexts, but not all, due to
+limitations in TeX.
+
+  <p>The value is the remainder of the input line, and can contain anything.
+
+  <p>Write the <code>@set</code> command like this:
+
+<pre class="example">     @set foo This is a string.
+</pre>
+  <p class="noindent">This sets the value of the flag <code>foo</code> to &ldquo;This is a string.&rdquo;.
+
+  <p>The Texinfo formatters then replace an <code>@value{</code><var>flag</var><code>}</code>
+command with the string to which <var>flag</var> is set.  Thus, when
+<code>foo</code> is set as shown above, the Texinfo formatters convert this:
+
+<pre class="example">     @value{foo}
+<br><span class="roman">to this:</span><br>
+     This is a string.
+</pre>
+  <p>You can write an <code>@value</code> command within a paragraph; but you
+must write an <code>@set</code> command on a line of its own.
+
+  <p>If you write the <code>@set</code> command like this:
+
+<pre class="example">     @set foo
+</pre>
+  <p class="noindent">without specifying a string, the value of <code>foo</code> is the empty string.
+
+  <p>If you clear a previously set flag with <code>@clear </code><var>flag</var>, a
+subsequent <code>@value{flag}</code> command will report an error.
+
+  <p>For example, if you set <code>foo</code> as follows:
+
+<pre class="example">     @set howmuch very, very, very
+</pre>
+  <p class="noindent">then the formatters transform
+
+<pre class="example">     It is a @value{howmuch} wet day.
+<br><span class="roman">into</span><br>
+     It is a very, very, very wet day.
+</pre>
+  <p>If you write
+
+<pre class="example">     @clear howmuch
+</pre>
+  <p class="noindent">then the formatters transform
+
+<pre class="example">     It is a @value{howmuch} wet day.
+<br><span class="roman">into</span><br>
+     It is a {No value for "howmuch"} wet day.
+</pre>
+  </body></html>
+

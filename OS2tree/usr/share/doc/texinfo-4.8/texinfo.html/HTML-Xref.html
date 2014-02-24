@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+<title>HTML Xref - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Generating-HTML.html#Generating-HTML" title="Generating HTML">
+<link rel="prev" href="HTML-CSS.html#HTML-CSS" title="HTML CSS">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="HTML-Xref"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="HTML-CSS.html#HTML-CSS">HTML CSS</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Generating-HTML.html#Generating-HTML">Generating HTML</a>
+<hr>
+</div>
+
+<h3 class="section">22.4 HTML Cross-references</h3>
+
+<p><a name="index-HTML-cross_002dreferences-1230"></a><a name="index-Cross_002dreferences_002c-in-HTML-output-1231"></a>
+Cross-references between Texinfo manuals in HTML format amount, in the
+end, to a standard HTML <code>&lt;a&gt;</code> link, but the details are
+unfortunately complex.  This section describes the algorithm used in
+detail, so that Texinfo can cooperate with other programs, such as
+<samp><span class="command">texi2html</span></samp>, by writing mutually compatible HTML files.
+
+  <p>This algorithm may or may not be used for links <em>within</em> HTML
+output for a Texinfo file.  Since no issues of compatibility arise in
+such cases, we do not need to specify this.
+
+  <p>We try to support references to such &ldquo;external&rdquo; manuals in both
+monolithic and split forms.  A <dfn>monolithic</dfn> (mono) manual is
+entirely contained in one file, and a <dfn>split</dfn> manual has a file
+for each node.  (See <a href="HTML-Splitting.html#HTML-Splitting">HTML Splitting</a>.)
+
+  <p><a name="index-Dumas_002c-Patrice-1232"></a>Acknowledgement: this algorithm was primarily devised by Patrice Dumas
+in 2003&ndash;04.
+
+<ul class="menu">
+<li><a accesskey="1" href="HTML-Xref-Link-Basics.html#HTML-Xref-Link-Basics">Link Basics</a>
+<li><a accesskey="2" href="HTML-Xref-Node-Name-Expansion.html#HTML-Xref-Node-Name-Expansion">Node Expansion</a>
+<li><a accesskey="3" href="HTML-Xref-Command-Expansion.html#HTML-Xref-Command-Expansion">Command Expansion</a>
+<li><a accesskey="4" href="HTML-Xref-8_002dbit-Character-Expansion.html#HTML-Xref-8_002dbit-Character-Expansion">8-bit Expansion</a>
+<li><a accesskey="5" href="HTML-Xref-Mismatch.html#HTML-Xref-Mismatch">Mismatch</a>
+</ul>
+
+  </body></html>
+

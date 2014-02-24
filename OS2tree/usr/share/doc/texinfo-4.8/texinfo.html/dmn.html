@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+<title>dmn - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Inserting-Space.html#Inserting-Space" title="Inserting Space">
+<link rel="prev" href="Multiple-Spaces.html#Multiple-Spaces" title="Multiple Spaces">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="dmn"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Multiple-Spaces.html#Multiple-Spaces">Multiple Spaces</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Inserting-Space.html#Inserting-Space">Inserting Space</a>
+<hr>
+</div>
+
+<h4 class="subsection">14.2.4 <code>@dmn</code>{<var>dimension</var>}: Format a Dimension</h4>
+
+<p><a name="index-Thin-space-between-number_002c-dimension-658"></a><a name="index-Dimension-formatting-659"></a><a name="index-Format-a-dimension-660"></a><a name="index-dmn-661"></a>
+At times, you may want to write `<samp><span class="samp">12pt</span></samp>' or
+`<samp><span class="samp">8.5in</span></samp>' with little or no space between the number and the
+abbreviation for the dimension.  You can use the <code>@dmn</code> command
+to do this.  On seeing the command, TeX inserts just enough space
+for proper typesetting; the Info formatting commands insert no space
+at all, since the Info file does not require it.
+
+  <p>To use the <code>@dmn</code> command, write the number and then follow it
+immediately, with no intervening space, by <code>@dmn</code>, and then by
+the dimension within braces.  For example,
+
+<pre class="example">     A4 paper is 8.27@dmn{in} wide.
+</pre>
+  <p class="noindent">produces
+
+  <blockquote>
+A4 paper is 8.27<span class="dmn">in</span> wide. 
+</blockquote>
+
+  <p>Not everyone uses this style.  Some people prefer `<samp><span class="samp">8.27&nbsp;in.@:</span></samp>'<!-- /@w -->
+or `<samp><span class="samp">8.27&nbsp;inches</span></samp>'<!-- /@w --> to `<samp><span class="samp">8.27@dmn{in}</span></samp>' in the Texinfo file. 
+In these cases, however, the formatters may insert a line break between
+the number and the dimension, so use <code>@w</code> (see <a href="w.html#w">w</a>).  Also, if
+you write a period after an abbreviation within a sentence, you should
+write `<samp><span class="samp">@:</span></samp>' after the period to prevent TeX from inserting extra
+whitespace, as shown here.  See <a href="Not-Ending-a-Sentence.html#Not-Ending-a-Sentence">Not Ending a Sentence</a>.
+
+  </body></html>
+

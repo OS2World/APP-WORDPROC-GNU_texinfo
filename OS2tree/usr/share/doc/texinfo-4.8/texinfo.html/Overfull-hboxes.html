@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+<title>Overfull hboxes - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Hardcopy.html#Hardcopy" title="Hardcopy">
+<link rel="prev" href="Preparing-for-TeX.html#Preparing-for-TeX" title="Preparing for TeX">
+<link rel="next" href="smallbook.html#smallbook" title="smallbook">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Overfull-hboxes"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="smallbook.html#smallbook">smallbook</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Preparing-for-TeX.html#Preparing-for-TeX">Preparing for TeX</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Hardcopy.html#Hardcopy">Hardcopy</a>
+<hr>
+</div>
+
+<h3 class="section">20.10 Overfull &ldquo;hboxes&rdquo;</h3>
+
+<p><a name="index-Overfull-_0040samp_007bhboxes_007d-1038"></a><a name="index-g_t_0040samp_007bhboxes_007d_002c-overfull-1039"></a><a name="index-Final-output-1040"></a>
+TeX is sometimes unable to typeset a line without extending it into
+the right margin.  This can occur when TeX comes upon what it
+interprets as a long word that it cannot hyphenate, such as an
+electronic mail network address or a very long title.  When this
+happens, TeX prints an error message like this:
+
+<pre class="example">     Overfull @hbox (20.76302pt too wide)
+</pre>
+  <p><a name="index-hbox-1041"></a>(In TeX, lines are in &ldquo;horizontal boxes&rdquo;, hence the term, &ldquo;hbox&rdquo;. 
+`<samp><span class="samp">@hbox</span></samp>' is a TeX primitive not needed in the Texinfo language.)
+
+  <p>TeX also provides the line number in the Texinfo source file and
+the text of the offending line, which is marked at all the places that
+TeX considered hyphenation. 
+See <a href="Debugging-with-TeX.html#Debugging-with-TeX">Catching Errors with TeX Formatting</a>,
+for more information about typesetting errors.
+
+  <p>If the Texinfo file has an overfull hbox, you can rewrite the sentence
+so the overfull hbox does not occur, or you can decide to leave it.  A
+small excursion into the right margin often does not matter and may not
+even be noticeable.
+
+  <p>If you have many overfull boxes and/or an antipathy to rewriting, you
+can coerce TeX into greatly increasing the allowable interword
+spacing, thus (if you're lucky) avoiding many of the bad line breaks,
+like this:
+
+  <p><a name="index-g_t_005cemergencystretch-1042"></a>
+<pre class="example">     @tex
+     \global\emergencystretch = .9\hsize
+     @end tex
+</pre>
+  <p class="noindent">(You should adjust the fraction as needed.)  This huge value for
+<code>\emergencystretch</code> cannot be the default, since then the typeset
+output would generally be of noticeably lower quality; the default
+is `<samp><span class="samp">.15\hsize</span></samp>'.  <code>\hsize</code> is the TeX dimension
+containing the current line width.
+
+  <p><a name="index-Black-rectangle-in-hardcopy-1043"></a><a name="index-Rectangle_002c-black-in-hardcopy-1044"></a><a name="index-Box_002c-ugly-black-in-hardcopy-1045"></a><a name="index-Ugly-black-rectangles-in-hardcopy-1046"></a>For what overfull boxes you have, however, TeX will print a large,
+ugly, black rectangle beside the line that contains the overfull hbox
+unless told otherwise.  This is so you will notice the location of the
+problem if you are correcting a draft.
+
+  <p><a name="index-finalout-1047"></a>To prevent such a monstrosity from marring your final printout, write
+the following in the beginning of the Texinfo file on a line of its own,
+before the <code>@titlepage</code> command:
+
+<pre class="example">     @finalout
+</pre>
+  </body></html>
+

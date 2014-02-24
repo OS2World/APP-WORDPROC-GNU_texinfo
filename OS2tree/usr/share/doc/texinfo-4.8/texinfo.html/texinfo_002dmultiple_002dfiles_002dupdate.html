@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+<title>texinfo-multiple-files-update - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Include-Files.html#Include-Files" title="Include Files">
+<link rel="prev" href="Using-Include-Files.html#Using-Include-Files" title="Using Include Files">
+<link rel="next" href="Include-Files-Requirements.html#Include-Files-Requirements" title="Include Files Requirements">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="texinfo-multiple-files-update"></a>
+<a name="texinfo_002dmultiple_002dfiles_002dupdate"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Include-Files-Requirements.html#Include-Files-Requirements">Include Files Requirements</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Using-Include-Files.html#Using-Include-Files">Using Include Files</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Include-Files.html#Include-Files">Include Files</a>
+<hr>
+</div>
+
+<h3 class="section">D.2 <code>texinfo-multiple-files-update</code></h3>
+
+<p><a name="index-texinfo_002dmultiple_002dfiles_002dupdate-1276"></a>
+GNU Emacs Texinfo mode provides the <code>texinfo-multiple-files-update</code>
+command.  This command creates or updates `Next', `Previous', and `Up'
+pointers of included files as well as those in the outer or overall
+Texinfo file, and it creates or updates a main menu in the outer file. 
+Depending whether you call it with optional arguments, the command
+updates only the pointers in the first <code>@node</code> line of the
+included files or all of them:
+
+     <dl>
+<dt><kbd>M-x texinfo-multiple-files-update</kbd><dd>Called without any arguments:
+
+          <ul>
+<li>Create or update the `Next', `Previous', and `Up' pointers of the
+first <code>@node</code> line in each file included in an outer or overall
+Texinfo file.
+
+          <li>Create or update the `Top' level node pointers of the outer or
+overall file.
+
+          <li>Create or update a main menu in the outer file. 
+</ul>
+
+     <br><dt><kbd>C-u M-x texinfo-multiple-files-update</kbd><dd>Called with <kbd>C-u</kbd> as a prefix argument:
+
+          <ul>
+<li>Create or update pointers in the first <code>@node</code> line in each
+included file.
+
+          <li>Create or update the `Top' level node pointers of the outer file.
+
+          <li>Create and insert a master menu in the outer file.  The master menu
+is made from all the menus in all the included files. 
+</ul>
+
+     <br><dt><kbd>C-u 8 M-x texinfo-multiple-files-update</kbd><dd>Called with a numeric prefix argument, such as <kbd>C-u 8</kbd>:
+
+          <ul>
+<li>Create or update <strong>all</strong> the `Next', `Previous', and `Up' pointers
+of all the included files.
+
+          <li>Create or update <strong>all</strong> the menus of all the included
+files.
+
+          <li>Create or update the `Top' level node pointers of the outer or
+overall file.
+
+          <li>And then create a master menu in the outer file.  This is similar to
+invoking <code>texinfo-master-menu</code> with an argument when you are
+working with just one file. 
+</ul>
+     </dl>
+
+  <p>Note the use of the prefix argument in interactive use: with a regular
+prefix argument, just <kbd>C-u</kbd><!-- /@w -->, the
+<code>texinfo-multiple-files-update</code> command inserts a master menu;
+with a numeric prefix argument, such as <kbd>C-u 8</kbd>, the command
+updates <strong>every</strong> pointer and menu in <strong>all</strong> the files and then inserts a
+master menu.
+
+  </body></html>
+

@@ -1,0 +1,112 @@
+<html lang="en">
+<head>
+<title>Updating Requirements - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Updating-Nodes-and-Menus.html#Updating-Nodes-and-Menus" title="Updating Nodes and Menus">
+<link rel="prev" href="Updating-Commands.html#Updating-Commands" title="Updating Commands">
+<link rel="next" href="Other-Updating-Commands.html#Other-Updating-Commands" title="Other Updating Commands">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Updating-Requirements"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Other-Updating-Commands.html#Other-Updating-Commands">Other Updating Commands</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Updating-Commands.html#Updating-Commands">Updating Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Updating-Nodes-and-Menus.html#Updating-Nodes-and-Menus">Updating Nodes and Menus</a>
+<hr>
+</div>
+
+<h4 class="subsection">2.5.2 Updating Requirements</h4>
+
+<p><a name="index-Updating-requirements-138"></a><a name="index-Requirements-for-updating-commands-139"></a>
+To use the updating commands, you must organize the Texinfo file
+hierarchically with chapters, sections, subsections, and the like. 
+When you construct the hierarchy of the manual, do not `jump down'
+more than one level at a time: you can follow the `Top' node with a
+chapter, but not with a section; you can follow a chapter with a
+section, but not with a subsection.  However, you may `jump up' any
+number of levels at one time&mdash;for example, from a subsection to a
+chapter.
+
+  <p>Each <code>@node</code> line, with the exception of the line for the `Top'
+node, must be followed by a line with a structuring command such as
+<code>@chapter</code>, <code>@section</code>, or
+<code>@unnumberedsubsec</code>.
+
+  <p>Each <code>@node</code> line/structuring-command line combination
+must look either like this:
+
+<pre class="example">     @node     Comments,  Minimum, Conventions, Overview
+     @comment  node-name, next,    previous,    up
+     @section Comments
+</pre>
+  <p>or like this (without the <code>@comment</code> line):
+
+<pre class="example">     @node Comments, Minimum, Conventions, Overview
+     @section Comments
+</pre>
+  <p>or like this (without the explicit node pointers):
+
+<pre class="example">     @node Comments
+     @section Comments
+</pre>
+  <p class="noindent">In this example, `Comments' is the name of both the node and the
+section.  The next node is called `Minimum' and the previous node is
+called `Conventions'.  The `Comments' section is within the `Overview'
+node, which is specified by the `Up' pointer.  (Instead of an
+<code>@comment</code> line, you may also write an <code>@ifinfo</code> line.)
+
+  <p>If a file has a `Top' node, it must be called `<samp><span class="samp">top</span></samp>' or `<samp><span class="samp">Top</span></samp>'
+and be the first node in the file.
+
+  <p>The menu updating commands create a menu of sections within a chapter,
+a menu of subsections within a section, and so on.  This means that
+you must have a `Top' node if you want a menu of chapters.
+
+  <p>Incidentally, the <code>makeinfo</code> command will create an Info file for a
+hierarchically organized Texinfo file that lacks `Next', `Previous' and
+`Up' pointers.  Thus, if you can be sure that your Texinfo file will be
+formatted with <code>makeinfo</code>, you have no need for the update node
+commands.  (See <a href="Creating-an-Info-File.html#Creating-an-Info-File">Creating an Info File</a>, for more information about
+<code>makeinfo</code>.)  However, both <code>makeinfo</code> and the
+<code>texinfo-format-...</code> commands require that you insert menus in
+the file.
+
+  </body></html>
+

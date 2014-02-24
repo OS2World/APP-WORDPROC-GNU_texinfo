@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+<title>Node Menu Illustration - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Nodes.html#Nodes" title="Nodes">
+<link rel="prev" href="Two-Paths.html#Two-Paths" title="Two Paths">
+<link rel="next" href="node.html#node" title="node">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Node-Menu-Illustration"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="node.html#node">node</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Two-Paths.html#Two-Paths">Two Paths</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Nodes.html#Nodes">Nodes</a>
+<hr>
+</div>
+
+<h3 class="section">6.2 Node and Menu Illustration</h3>
+
+<p>Here is a copy of the diagram shown earlier that illustrates a Texinfo
+file with three chapters, each of which contains two sections.
+
+  <p>The &ldquo;root&rdquo; is at the top of the diagram and the &ldquo;leaves&rdquo; are at the
+bottom.  This is how such a diagram is drawn conventionally; it
+illustrates an upside-down tree.  For this reason, the root node is
+called the `Top' node, and `Up' node pointers carry you closer to the
+root.
+
+<pre class="example">                              Top
+                               |
+             -------------------------------------
+            |                  |                  |
+         Chapter 1          Chapter 2          Chapter 3
+            |                  |                  |
+         --------           --------           --------
+        |        |         |        |         |        |
+     Section  Section   Section  Section   Section  Section
+       1.1      1.2       2.1      2.2       3.1      3.2
+</pre>
+  <p>The fully-written command to start Chapter 2 would be this:
+
+<pre class="example">     @node     Chapter 2,  Chapter 3, Chapter 1, Top
+     @comment  node-name,  next,      previous,  up
+</pre>
+  <p class="noindent">This <code>@node</code> line says that the name of this node is &ldquo;Chapter
+2&rdquo;, the name of the `Next' node is &ldquo;Chapter 3&rdquo;, the name of the
+`Previous' node is &ldquo;Chapter 1&rdquo;, and the name of the `Up' node is
+&ldquo;Top&rdquo;.  You can omit writing out these node names if your document is
+hierarchically organized (see <a href="makeinfo-Pointer-Creation.html#makeinfo-Pointer-Creation">makeinfo Pointer Creation</a>), but the
+pointer relationships still obtain.
+
+  <blockquote>
+<b>Note:</b> <strong>Please Note:</strong> `Next' refers to the next node at the same
+hierarchical level in the manual, not necessarily to the next node
+within the Texinfo file.  In the Texinfo file, the subsequent node may
+be at a lower level&mdash;a section-level node most often follows a
+chapter-level node, for example.  `Next' and `Previous' refer to nodes
+at the <em>same</em> hierarchical level.  (The `Top' node contains the
+exception to this rule.  Since the `Top' node is the only node at that
+level, `Next' refers to the first following node, which is almost always
+a chapter or chapter-level node.) 
+</blockquote>
+
+  <p>To go to Sections 2.1 and 2.2 using Info, you need a menu inside Chapter
+2.  (See <a href="Menus.html#Menus">Menus</a>.)  You would write the menu just
+before the beginning of Section 2.1, like this:
+
+<pre class="example">        @menu
+        * Sect. 2.1::    Description of this section.
+        * Sect. 2.2::
+        @end menu
+</pre>
+  <p>Write the node for Sect. 2.1 like this:
+
+<pre class="example">        @node     Sect. 2.1, Sect. 2.2, Chapter 2, Chapter 2
+        @comment  node-name, next,      previous,  up
+</pre>
+  <p>In Info format, the `Next' and `Previous' pointers of a node usually
+lead to other nodes at the same level&mdash;from chapter to chapter or from
+section to section (sometimes, as shown, the `Previous' pointer points
+up); an `Up' pointer usually leads to a node at the level above (closer
+to the `Top' node); and a `Menu' leads to nodes at a level below (closer
+to `leaves').  (A cross reference can point to a node at any level;
+see <a href="Cross-References.html#Cross-References">Cross References</a>.)
+
+  <p>Usually, an <code>@node</code> command and a chapter structuring command are
+used in sequence, along with indexing commands.  (You may follow the
+<code>@node</code> line with a comment line that reminds you which pointer is
+which.)
+
+  <p>Here is the beginning of the chapter in this manual called &ldquo;Ending a
+Texinfo File&rdquo;.  This shows an <code>@node</code> line followed by a comment
+line, an <code>@chapter</code> line, and then by indexing lines.
+
+<pre class="example">     @node    Ending a File, Structuring, Beginning a File, Top
+     @comment node-name,     next,        previous,         up
+     @chapter Ending a Texinfo File
+     @cindex Ending a Texinfo file
+     @cindex Texinfo file ending
+     @cindex File ending
+</pre>
+  </body></html>
+

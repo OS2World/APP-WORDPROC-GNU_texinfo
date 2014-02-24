@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+<title>Writing a Node - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="node.html#node" title="node">
+<link rel="prev" href="Node-Names.html#Node-Names" title="Node Names">
+<link rel="next" href="Node-Line-Tips.html#Node-Line-Tips" title="Node Line Tips">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Writing-a-Node"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Node-Line-Tips.html#Node-Line-Tips">Node Line Tips</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Node-Names.html#Node-Names">Node Names</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="node.html#node">node</a>
+<hr>
+</div>
+
+<h4 class="subsection">6.3.2 How to Write an <code>@node</code> Line</h4>
+
+<p><a name="index-Writing-an-_0040code_007b_0040_0040node_007d-line-304"></a><a name="index-g_t_0040code_007b_0040_0040node_007d-line-writing-305"></a><a name="index-Node-line-writing-306"></a>
+The easiest way to write an <code>@node</code> line is to write <code>@node</code>
+at the beginning of a line and then the name of the node, like
+this:
+
+<pre class="example">     @node <var>node-name</var>
+</pre>
+  <p>If you are using GNU Emacs, you can use the update node commands
+provided by Texinfo mode to insert the names of the pointers; or you
+can leave the pointers out of the Texinfo file and let <code>makeinfo</code>
+insert node pointers into the Info file it creates.  (See <a href="Texinfo-Mode.html#Texinfo-Mode">Texinfo Mode</a>, and <a href="makeinfo-Pointer-Creation.html#makeinfo-Pointer-Creation">makeinfo Pointer Creation</a>.)
+
+  <p>Alternatively, you can insert the `Next', `Previous', and `Up'
+pointers yourself.  If you do this, you may find it helpful to use the
+Texinfo mode keyboard command <kbd>C-c C-c n</kbd>.  This command inserts
+`<samp><span class="samp">@node</span></samp>' and a comment line listing the names of the pointers in
+their proper order.  The comment line helps you keep track of which
+arguments are for which pointers.  This comment line is especially useful
+if you are not familiar with Texinfo.
+
+  <p>The template for a fully-written-out node line with `Next', `Previous',
+and `Up' pointers looks like this:
+
+<pre class="example">     @node <var>node-name</var>, <var>next</var>, <var>previous</var>, <var>up</var>
+</pre>
+  <p>If you wish, you can ignore <code>@node</code> lines altogether in your first
+draft and then use the <code>texinfo-insert-node-lines</code> command to
+create <code>@node</code> lines for you.  However, we do not recommend this
+practice.  It is better to name the node itself at the same time that
+you write a segment so you can easily make cross references.  A large
+number of cross references are an especially important feature of a good
+Info file.
+
+  <p>After you have inserted an <code>@node</code> line, you should immediately
+write an @-command for the chapter or section and insert its name. 
+Next (and this is important!), put in several index entries.  Usually,
+you will find at least two and often as many as four or five ways of
+referring to the node in the index.  Use them all.  This will make it
+much easier for people to find the node.
+
+  </body></html>
+

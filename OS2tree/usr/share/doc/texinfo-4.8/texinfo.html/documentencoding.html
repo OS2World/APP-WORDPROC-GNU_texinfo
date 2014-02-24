@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+<title>documentencoding - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Internationalization.html#Internationalization" title="Internationalization">
+<link rel="prev" href="documentlanguage.html#documentlanguage" title="documentlanguage">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="documentencoding"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="documentlanguage.html#documentlanguage">documentlanguage</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Internationalization.html#Internationalization">Internationalization</a>
+<hr>
+</div>
+
+<h3 class="section">18.2 <code>@documentencoding </code><var>enc</var>: Set Input Encoding</h3>
+
+<p><a name="index-documentencoding-930"></a><a name="index-Encoding_002c-declaring-931"></a><a name="index-Input-encoding_002c-declaring-932"></a><a name="index-Character-set_002c-declaring-933"></a><a name="index-Document-input-encoding-934"></a>
+The <code>@documentencoding</code> command declares the input document
+encoding.  Write it on a line by itself, with a valid encoding
+specification following.
+
+  <p>At present, Texinfo supports only these encodings:
+
+     <dl>
+<dt><code>US-ASCII</code><dd>This has no particular effect, but it's included for completeness.
+
+     <dt><code>ISO-8859-1</code><dt><code>ISO-8859-15</code><br><dt><code>ISO-8859-2</code><dd>These specify the standard encodings for Western European (the first
+two) and Eastern European languages (the third), respectively.  ISO
+8859-15 replaces some little-used characters from 8859-1 (e.g.,
+precomposed fractions) with more commonly needed ones, such as the
+Euro symbol.
+
+     <p>A full description of the encodings is beyond our scope here;
+one useful reference is <a href="http://czyborra.com/charsets/iso8859.html">http://czyborra.com/charsets/iso8859.html</a>. 
+</dl>
+
+  <p>Specifying an encoding <var>enc</var> has the following effects:
+
+  <p><a name="index-g_t_002d_002denable_002dencoding-935"></a><a name="index-Local-Variables_003a-section_002c-for-encoding-936"></a><a name="index-Info-output_002c-and-encoding-937"></a>In Info output, if the option <samp><span class="option">--enable-encoding</span></samp> is given
+to <samp><span class="command">makeinfo</span></samp>, a so-called `Local Variables' section
+(see <a href="../emacs/File-Variables.html#File-Variables">File Variables</a>) is output
+including <var>enc</var>.  This allows Info readers to set the encoding
+appropriately.
+
+<pre class="example">     Local Variables:
+     coding: <var>enc</var>
+     End:
+</pre>
+  <p><a name="index-HTML-output_002c-and-encodings-938"></a><a name="index-g_t_0040code_007bhttp_002dequiv_007d_002c-and-charset-specification-939"></a><a name="index-g_t_0040code_007b_003cmeta_003e_007d-HTML-tag_002c-and-charset-specification-940"></a>In HTML output, a `<samp><span class="samp">&lt;meta&gt;</span></samp>' tag is output, in the `<samp><span class="samp">&lt;head&gt;</span></samp>'
+section of the HTML, that specifies <var>enc</var>.  Web servers and
+browsers cooperate to use this information so the correct encoding is
+used to display the page, if supported by the system.
+
+<pre class="example">     &lt;meta http-equiv="Content-Type" content="text/html;
+          charset=<var>enc</var>"&gt;
+</pre>
+  <p>In all other cases, it is recognized but ignored.
+
+  </body></html>
+

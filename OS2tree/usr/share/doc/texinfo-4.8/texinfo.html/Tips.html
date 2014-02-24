@@ -1,0 +1,381 @@
+<html lang="en">
+<head>
+<title>Tips - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Command-List.html#Command-List" title="Command List">
+<link rel="next" href="Sample-Texinfo-Files.html#Sample-Texinfo-Files" title="Sample Texinfo Files">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Tips"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Sample-Texinfo-Files.html#Sample-Texinfo-Files">Sample Texinfo Files</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Command-List.html#Command-List">Command List</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="appendix">Appendix B Tips and Hints</h2>
+
+<p>Here are some tips for writing Texinfo documentation:
+
+  <p><a name="index-Tips-1251"></a><a name="index-Usage-tips-1252"></a><a name="index-Hints-1253"></a>
+     <ul>
+<li>Write in the present tense, not in the past or the future.
+
+     <li>Write actively!  For example, write &ldquo;We recommend that <small class="dots">...</small>&rdquo; rather
+than &ldquo;It is recommended that <small class="dots">...</small>&rdquo;.
+
+     <li>Use 70 or 72 as your fill column.  Longer lines are hard to read.
+
+     <li>Include a copyright notice and copying permissions. 
+</ul>
+
+<h5 class="subsubheading">Index, Index, Index!</h5>
+
+<p>Write many index entries, in different ways. 
+Readers like indices; they are helpful and convenient.
+
+  <p>Although it is easiest to write index entries as you write the body of
+the text, some people prefer to write entries afterwards.  In either
+case, write an entry before the paragraph to which it applies.  This
+way, an index entry points to the first page of a paragraph that is
+split across pages.
+
+  <p>Here are more hints we have found valuable:
+
+     <ul>
+<li>Write each index entry differently, so each entry refers to a different
+place in the document.
+
+     <li>Write index entries only where a topic is discussed significantly.  For
+example, it is not useful to index &ldquo;debugging information&rdquo; in a
+chapter on reporting bugs.  Someone who wants to know about debugging
+information will certainly not find it in that chapter.
+
+     <li>Consistently capitalize the first word of every concept index entry,
+or else consistently use lower case.  Terse entries often call for
+lower case; longer entries for capitalization.  Whichever case
+convention you use, please use one or the other consistently!  Mixing
+the two styles looks bad.
+
+     <li>Always capitalize or use upper case for those words in an index for
+which this is proper, such as names of countries or acronyms.  Always
+use the appropriate case for case-sensitive names, such as those in C or
+Lisp.
+
+     <li>Write the indexing commands that refer to a whole section immediately
+after the section command, and write the indexing commands that refer to
+a paragraph before that paragraph.
+
+     <p>In the example that follows, a blank line comes after the index
+entry for &ldquo;Leaping&rdquo;:
+
+     <pre class="example">          @section The Dog and the Fox
+          @cindex Jumping, in general
+          @cindex Leaping
+          
+          @cindex Dog, lazy, jumped over
+          @cindex Lazy dog jumped over
+          @cindex Fox, jumps over dog
+          @cindex Quick fox jumps over dog
+          The quick brown fox jumps over the lazy dog.
+     </pre>
+     <p class="noindent">(Note that the example shows entries for the same concept that are
+written in different ways&mdash;`<samp><span class="samp">Lazy dog</span></samp>', and `<samp><span class="samp">Dog, lazy</span></samp>'&mdash;so
+readers can look up the concept in different ways.) 
+</ul>
+
+<h5 class="subsubheading">Blank Lines</h5>
+
+     <ul>
+<li>Insert a blank line between a sectioning command and the first following
+sentence or paragraph, or between the indexing commands associated with
+the sectioning command and the first following sentence or paragraph, as
+shown in the tip on indexing.  Otherwise, a formatter may fold title and
+paragraph together.
+
+     <li>Always insert a blank line before an <code>@table</code> command and after an
+<code>@end table</code> command; but never insert a blank line after an
+<code>@table</code> command or before an <code>@end table</code> command.
+
+     <p>For example,
+
+     <pre class="example">          Types of fox:
+          
+          @table @samp
+          @item Quick
+          Jump over lazy dogs.
+          
+          @item Brown
+          Also jump over lazy dogs.
+          @end table
+          @noindent
+          On the other hand, ...
+     </pre>
+     <p>Insert blank lines before and after <code>@itemize</code> <small class="dots">...</small> <code>@end
+itemize</code> and <code>@enumerate</code> <small class="dots">...</small> <code>@end enumerate</code> in the
+same way. 
+</ul>
+
+<h5 class="subsubheading">Complete Phrases</h5>
+
+<p>Complete phrases are easier to read than <small class="dots">...</small>
+
+     <ul>
+<li>Write entries in an itemized list as complete sentences; or at least, as
+complete phrases.  Incomplete expressions <small class="dots">...</small> awkward <small class="dots">...</small> like
+this.
+
+     <li>Write the prefatory sentence or phrase for a multi-item list or table as
+a complete expression.  Do not write &ldquo;You can set:&rdquo;; instead, write
+&ldquo;You can set these variables:&rdquo;.  The former expression sounds cut off. 
+</ul>
+
+<h5 class="subsubheading">Editions, Dates and Versions</h5>
+
+<p>Include edition numbers, version numbers, and dates in the
+<code>@copying</code> text (for people reading the Texinfo file, and for the
+legal copyright in the output files).  Then use <code>@insertcopying</code>
+in the <code>@titlepage</code> section (for people reading the printed
+output) and the Top node (for people reading the online output).
+
+  <p>It is easiest to do this using <code>@set</code> and <code>@value</code>. 
+See <a href="value-Example.html#value-Example"><code>@value</code> Example</a>, and <a href="GNU-Sample-Texts.html#GNU-Sample-Texts">GNU Sample Texts</a>.
+
+<h5 class="subsubheading">Definition Commands</h5>
+
+<p>Definition commands are <code>@deffn</code>, <code>@defun</code>,
+<code>@defmac</code>, and the like, and enable you to write descriptions in
+a uniform format.
+
+     <ul>
+<li>Write just one definition command for each entity you define with a
+definition command.  The automatic indexing feature creates an index
+entry that leads the reader to the definition.
+
+     <li>Use <code>@table</code> <small class="dots">...</small> <code>@end table</code> in an appendix that
+contains a summary of functions, not <code>@deffn</code> or other definition
+commands. 
+</ul>
+
+<h5 class="subsubheading">Capitalization</h5>
+
+     <ul>
+<li>Capitalize &ldquo;Texinfo&rdquo;; it is a name.  Do not write the `<samp><span class="samp">x</span></samp>' or
+`<samp><span class="samp">i</span></samp>' in upper case.
+
+     <li>Capitalize &ldquo;Info&rdquo;; it is a name.
+
+     <li>Write TeX using the <code>@TeX{}</code> command.  Note the uppercase
+`<samp><span class="samp">T</span></samp>' and `<samp><span class="samp">X</span></samp>'.  This command causes the formatters to
+typeset the name according to the wishes of Donald Knuth, who wrote
+TeX. 
+</ul>
+
+<h5 class="subsubheading">Spaces</h5>
+
+<p>Do not use spaces to format a Texinfo file, except inside of
+<code>@example</code> <small class="dots">...</small> <code>@end example</code> and other literal
+environments and commands.
+
+  <p>For example, TeX fills the following:
+
+<pre class="example">        @kbd{C-x v}
+        @kbd{M-x vc-next-action}
+           Perform the next logical operation
+           on the version-controlled file
+           corresponding to the current buffer.
+</pre>
+  <p class="noindent">so it looks like this:
+
+  <blockquote>
+`C-x v' `M-x vc-next-action' Perform the next logical operation on the
+version-controlled file corresponding to the current buffer. 
+</blockquote>
+
+<p class="noindent">In this case, the text should be formatted with
+<code>@table</code>, <code>@item</code>, and <code>@itemx</code>, to create a table.
+
+<h5 class="subsubheading">@code, @samp, @var, and `<samp><span class="samp">---</span></samp>'</h5>
+
+     <ul>
+<li>Use <code>@code</code> around Lisp symbols, including command names. 
+For example,
+
+     <pre class="example">          The main function is @code{vc-next-action}, ...
+     </pre>
+     <li>Avoid putting letters such as `<samp><span class="samp">s</span></samp>' immediately after an
+`<samp><span class="samp">@code</span></samp>'.  Such letters look bad.
+
+     <li>Use <code>@var</code> around meta-variables.  Do not write angle brackets
+around them.
+
+     <li>Use three hyphens in a row, `<samp><span class="samp">---</span></samp>', to indicate a long dash.  TeX
+typesets these as a long dash and the Info formatters reduce three
+hyphens to two. 
+</ul>
+
+<h5 class="subsubheading">Periods Outside of Quotes</h5>
+
+<p>Place periods and other punctuation marks <em>outside</em> of quotations,
+unless the punctuation is part of the quotation.  This practice goes
+against publishing conventions in the United States, but enables the
+reader to distinguish between the contents of the quotation and the
+whole passage.
+
+  <p>For example, you should write the following sentence with the period
+outside the end quotation marks:
+
+<pre class="example">     Evidently, `<samp><span class="samp">au</span></samp>' is an abbreviation for ``author''.
+</pre>
+  <p class="noindent">since `<samp><span class="samp">au</span></samp>' does <em>not</em> serve as an  abbreviation for
+`<samp><span class="samp">author.</span></samp>' (with a period following the word).
+
+<h5 class="subsubheading">Introducing New Terms</h5>
+
+     <ul>
+<li>Introduce new terms so that a reader who does not know them can
+understand them from context; or write a definition for the term.
+
+     <p>For example, in the following, the terms &ldquo;check in&rdquo;, &ldquo;register&rdquo; and
+&ldquo;delta&rdquo; are all appearing for the first time; the example sentence should be
+rewritten so they are understandable.
+
+     <blockquote>
+The major function assists you in checking in a file to your
+version control system and registering successive sets of changes to
+it as deltas. 
+</blockquote>
+
+     <li>Use the <code>@dfn</code> command around a word being introduced, to indicate
+that the reader should not expect to know the meaning already, and
+should expect to learn the meaning from this passage. 
+</ul>
+
+<h5 class="subsubheading">@pxref</h5>
+
+<!-- !!! maybe include this in the tips on pxref -->
+<p>Absolutely never use <code>@pxref</code> except in the special context for
+which it is designed: inside parentheses, with the closing parenthesis
+following immediately after the closing brace.  One formatter
+automatically inserts closing punctuation and the other does not.  This
+means that the output looks right both in printed output and in an Info
+file, but only when the command is used inside parentheses.
+
+<h5 class="subsubheading">Invoking from a Shell</h5>
+
+<p>You can invoke programs such as Emacs, GCC, and <code>gawk</code> from a
+shell.  The documentation for each program should contain a section that
+describes this.  Unfortunately, if the node names and titles for these
+sections are all different, they are difficult for users to find.
+
+  <p>So, there is a convention to name such sections with a phrase beginning
+with the word `Invoking', as in `Invoking Emacs'; this way, users can
+find the section easily.
+
+<h5 class="subsubheading">ANSI C Syntax</h5>
+
+<p>When you use <code>@example</code> to describe a C function's calling
+conventions, use the ANSI C syntax, like this:
+
+<pre class="example">     void dld_init (char *@var{path});
+</pre>
+  <p class="noindent">And in the subsequent discussion, refer to the argument values by
+writing the same argument names, again highlighted with
+<code>@var</code>.
+
+  <p>Avoid the obsolete style that looks like this:
+
+<pre class="example">     #include &lt;dld.h&gt;
+     
+     dld_init (path)
+     char *path;
+</pre>
+  <p>Also, it is best to avoid writing <code>#include</code> above the
+declaration just to indicate that the function is declared in a
+header file.  The practice may give the misimpression that the
+<code>#include</code> belongs near the declaration of the function.  Either
+state explicitly which header file holds the declaration or, better
+yet, name the header file used for a group of functions at the
+beginning of the section that describes the functions.
+
+<h5 class="subsubheading">Bad Examples</h5>
+
+<p>Here are several examples of bad writing to avoid:
+
+  <p>In this example, say, &ldquo; <small class="dots">...</small> you must <code>@dfn</code>{check
+in} the new version.&rdquo;  That flows better.
+
+  <blockquote>
+When you are done editing the file, you must perform a
+<code>@dfn</code>{check in}. 
+</blockquote>
+
+  <p>In the following example, say, &ldquo;<small class="dots">...</small> makes a unified interface such as VC
+mode possible.&rdquo;
+
+  <blockquote>
+SCCS, RCS and other version-control systems all perform similar
+functions in broadly similar ways (it is this resemblance which makes
+a unified control mode like this possible). 
+</blockquote>
+
+  <p>And in this example, you should specify what `it' refers to:
+
+  <blockquote>
+If you are working with other people, it assists in coordinating
+everyone's changes so they do not step on each other. 
+</blockquote>
+
+<h5 class="subsubheading">And Finally <small class="dots">...</small></h5>
+
+     <ul>
+<li>Pronounce TeX as if the `<samp><span class="samp">X</span></samp>' were a Greek `chi', as the last
+sound in the name `Bach'.  But pronounce Texinfo as in `speck':
+&ldquo;teckinfo&rdquo;.
+
+     <li>Write notes for yourself at the very end of a Texinfo file after the
+<code>@bye</code>.  None of the formatters process text after the
+<code>@bye</code>; it is as if the text were within <code>@ignore</code> <small class="dots">...</small>
+<code>@end ignore</code>. 
+</ul>
+
+  </body></html>
+

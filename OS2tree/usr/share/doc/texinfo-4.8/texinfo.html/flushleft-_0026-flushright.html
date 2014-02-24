@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+<title>flushleft &amp; flushright - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Quotations-and-Examples.html#Quotations-and-Examples" title="Quotations and Examples">
+<link rel="prev" href="exdent.html#exdent" title="exdent">
+<link rel="next" href="noindent.html#noindent" title="noindent">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="flushleft-%26-flushright"></a>
+<a name="flushleft-_0026-flushright"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="noindent.html#noindent">noindent</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="exdent.html#exdent">exdent</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Quotations-and-Examples.html#Quotations-and-Examples">Quotations and Examples</a>
+<hr>
+</div>
+
+<h3 class="section">10.11 <code>@flushleft</code> and <code>@flushright</code></h3>
+
+<p><a name="index-flushleft-496"></a><a name="index-flushright-497"></a><a name="index-Ragged-right-498"></a><a name="index-Ragged-left-499"></a>
+The <code>@flushleft</code> and <code>@flushright</code> commands line up the
+ends of lines on the left and right margins of a page,
+but do not fill the text.  The commands are written on lines of their
+own, without braces.  The <code>@flushleft</code> and <code>@flushright</code>
+commands are ended by <code>@end flushleft</code> and <code>@end
+flushright</code> commands on lines of their own.
+
+  <p>For example,
+
+<pre class="example">     @flushleft
+     This text is
+     written flushleft.
+     @end flushleft
+</pre>
+  <p class="noindent">produces
+
+  <blockquote>
+     <div align="left">This text is
+     written flushleft.
+     </div>
+  </blockquote>
+
+  <p><code>@flushright</code> produces the type of indentation often used in the
+return address of letters.  For example,
+
+<pre class="example">     @flushright
+     Here is an example of text written
+     flushright.  The @code{@flushright} command
+     right justifies every line but leaves the
+     left end ragged.
+     @end flushright
+</pre>
+  <p class="noindent">produces
+
+                  <div align="right">Here is an example of text written
+                   <p>flushright.  The <code>@flushright</code> command
+                           <p>right justifies every line but leaves the
+                                                    <p>left end ragged.
+  </div>
+
+  </body></html>
+

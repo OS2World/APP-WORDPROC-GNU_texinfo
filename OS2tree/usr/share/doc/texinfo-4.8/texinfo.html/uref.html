@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+<title>uref - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Cross-References.html#Cross-References" title="Cross References">
+<link rel="prev" href="inforef.html#inforef" title="inforef">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="uref"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="inforef.html#inforef">inforef</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Cross-References.html#Cross-References">Cross References</a>
+<hr>
+</div>
+
+<h3 class="section">8.9 <code>@url</code>, <code>@uref{</code><var>url</var><code>[, </code><var>text</var><code>][, </code><var>replacement</var><code>]}</code></h3>
+
+<p><a name="index-uref-384"></a><a name="index-Uniform-resource-locator_002c-referring-to-385"></a><a name="index-URL_002c-referring-to-386"></a>
+<a name="index-g_t_0040code_007bhref_007d_002c-producing-HTML-387"></a><code>@uref</code> produces a reference to a uniform resource locator (url). 
+It takes one mandatory argument, the url, and two optional arguments
+which control the text that is displayed.  In HTML output, <code>@uref</code>
+produces a link you can follow.
+
+  <p><code>@url</code> is a synonym for <code>@uref</code>.  Originally, <code>@url</code>
+had the meaning of <code>@indicateurl</code>
+(see <a href="indicateurl.html#indicateurl"><code>@indicateurl</code></a>), but in actual practice it
+was misused the vast majority of the time.  So we've changed the
+definitions.
+
+  <p>The second argument, if specified, is the text to display (the default
+is the url itself); in Info and DVI output, but not in HTML output, the
+url is also output.
+
+  <p><a name="index-Man-page_002c-reference-to-388"></a>The third argument, if specified, is the text to display, but in this
+case the url is <em>not</em> output in any format.  This is useful when
+the text is already sufficiently referential, as in a man page.  If
+the third argument is given, the second argument is ignored.
+
+  <p>If the url is long enough to cause problems with line breaking, you
+may find it useful to insert <code>@/</code> at places where a line break
+would be acceptable (after `<samp><span class="samp">/</span></samp>' characters, for instance).  This
+tells TeX to allow (but not force) a line break at those places. 
+See <a href="Line-Breaks.html#Line-Breaks">Line Breaks</a>.
+
+  <p>Here is an example of the simple one argument form, where the url is
+both the target and the text of the link:
+
+<pre class="example">     The official GNU ftp site is @uref{ftp://ftp.gnu.org/gnu}.
+</pre>
+  <p class="noindent">produces:
+<pre class="display">     The official GNU ftp site is <a href="ftp://ftp.gnu.org/gnu">ftp://ftp.gnu.org/gnu</a>.
+</pre>
+  <p>An example of the two-argument form:
+<pre class="example">     The official @uref{ftp://ftp.gnu.org/gnu, GNU ftp site}
+     holds programs and texts.
+</pre>
+  <p class="noindent">produces:
+<pre class="display">     The official <a href="ftp://ftp.gnu.org/gnu">GNU ftp site</a>
+     holds programs and texts.
+</pre>
+  <p class="noindent">that is, the Info output is this:
+<pre class="example">     The official GNU ftp site (ftp://ftp.gnu.org/gnu)
+     holds programs and texts.
+</pre>
+  <p class="noindent">and the HTML output is this:
+<pre class="example">     The official &lt;a href="ftp://ftp.gnu.org/gnu"&gt;GNU ftp site&lt;/a&gt;
+     holds programs and texts.
+</pre>
+  <p>An example of the three-argument form:
+<pre class="example">     The @uref{/man.cgi/1/ls,,ls(1)} program ...
+</pre>
+  <p class="noindent">produces:
+<pre class="display">     The <a href="/man.cgi/1/ls">ls(1)</a> program <small class="dots">...</small>
+</pre>
+  <p class="noindent">but with HTML:
+<pre class="example">     The &lt;a href="/man.cgi/1/ls"&gt;ls(1)&lt;/a&gt; program ...
+</pre>
+  <p>To merely indicate a url without creating a link people can follow, use
+<code>@indicateurl</code> (see <a href="indicateurl.html#indicateurl"><code>@indicateurl</code></a>).
+
+  <p>Some people prefer to display url's in the unambiguous format:
+
+<pre class="display">     &lt;URL:http://<var>host</var>/<var>path</var>&gt;
+</pre>
+  <p class="noindent"><a name="index-g_t_003cURL_003a-convention_002c-not-used-389"></a>You can use this form in the input file if you wish.  We feel it's not
+necessary to include the `<samp><span class="samp">&lt;URL:</span></samp>' and `<samp><span class="samp">&gt;</span></samp>' in the output,
+since any software that tries to detect url's in text already has to
+detect them without the `<samp><span class="samp">&lt;URL:</span></samp>' to be useful.
+
+  </body></html>
+

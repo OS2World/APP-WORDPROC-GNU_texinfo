@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+<title>HTML Splitting - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Generating-HTML.html#Generating-HTML" title="Generating HTML">
+<link rel="prev" href="HTML-Translation.html#HTML-Translation" title="HTML Translation">
+<link rel="next" href="HTML-CSS.html#HTML-CSS" title="HTML CSS">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="HTML-Splitting"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="HTML-CSS.html#HTML-CSS">HTML CSS</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="HTML-Translation.html#HTML-Translation">HTML Translation</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Generating-HTML.html#Generating-HTML">Generating HTML</a>
+<hr>
+</div>
+
+<h3 class="section">22.2 HTML Splitting</h3>
+
+<p><a name="index-Split-HTML-output-1223"></a><a name="index-HTML-output_002c-split-1224"></a>
+When splitting output (which is the default), <samp><span class="command">makeinfo</span></samp>
+writes HTML output into (generally) one output file per Texinfo source
+<code>@node</code>.
+
+  <p>The output file name is the node name with special characters replaced
+by `<samp><span class="samp">-</span></samp>''s, so it can work as a filename.  In the unusual case of
+two different nodes having the same name after this treatment, they
+are written consecutively to the same file, with HTML anchors so each
+can be referred to separately.  If <samp><span class="command">makeinfo</span></samp> is run on a
+system which does not distinguish case in filenames, nodes which are
+the same except for case will also be folded into the same output
+file.
+
+  <p>When splitting, the HTML output files are written into a subdirectory,
+with the name chosen as follows:
+     <ol type=1 start=1>
+<li><samp><span class="command">makeinfo</span></samp> first tries the subdirectory with the base name
+from <code>@setfilename</code> (that is, any extension is removed).  For
+example, HTML output for <code>@setfilename gcc.info</code> would be
+written into a subdirectory named `<samp><span class="samp">gcc</span></samp>'.
+
+     <li>If that directory cannot be created for any reason, then
+<samp><span class="command">makeinfo</span></samp> tries appending `<samp><span class="samp">.html</span></samp>' to the directory name. 
+For example, output for <code>@setfilename texinfo</code> would be written
+to `<samp><span class="samp">texinfo.html</span></samp>'.
+
+     <li>If the `<samp><var>name</var><span class="samp">.html</span></samp>' directory can't be
+created either, <code>makeinfo</code> gives up.
+
+       </ol>
+
+<p class="noindent">In any case, the top-level output file within the directory
+is always named `<samp><span class="samp">index.html</span></samp>'.
+
+  <p>Monolithic output (<code>--no-split</code>) is named according to
+<code>@setfilename</code> (with any `<samp><span class="samp">.info</span></samp>' extension is replaced with
+`<samp><span class="samp">.html</span></samp>') or <code>--output</code> (the argument is used literally).
+
+  </body></html>
+

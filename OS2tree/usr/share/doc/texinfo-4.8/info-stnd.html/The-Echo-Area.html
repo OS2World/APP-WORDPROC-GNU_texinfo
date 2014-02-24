@@ -1,0 +1,184 @@
+<html lang="en">
+<head>
+<title>The Echo Area - GNU Info 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Info 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Window-Commands.html#Window-Commands" title="Window Commands">
+<link rel="prev" href="Basic-Windows.html#Basic-Windows" title="Basic Windows">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Info (version 4.8, 14 December 2004),
+a program for viewing documents in Info format (usually created from
+Texinfo source files).
+
+Copyright (C) 1992, 1993, 1996, 1997, 1998, 1999, 2001, 2002,
+2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="The-Echo-Area"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Basic-Windows.html#Basic-Windows">Basic Windows</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Window-Commands.html#Window-Commands">Window Commands</a>
+<hr>
+</div>
+
+<h3 class="section">8.3 The Echo Area</h3>
+
+<p><a name="index-echo-area-249"></a>
+The <dfn>echo area</dfn> is a one line window which appears at the bottom of
+the screen.  It is used to display informative or error messages, and to
+read lines of input from you when that is necessary.  Almost all of the
+commands available in the echo area are identical to their Emacs
+counterparts, so please refer to that documentation for greater depth of
+discussion on the concepts of editing a line of text.  The following
+table briefly lists the commands that are available while input is being
+read in the echo area:
+
+     <dl>
+<dt>&lt;C-f&gt; (<code>echo-area-forward</code>)<dt>&lt;RIGHT&gt; (an arrow key)<dt>&lt;M-h&gt;, vi-like operation<dd><a name="index-C_002df_002c-in-the-echo-area-250"></a><a name="index-RIGHT_002c-in-the-echo-area-251"></a><a name="index-M_002dh_002c-in-the-echo-area_002c-vi_002dlike-operation-252"></a><a name="index-echo_002darea_002dforward-253"></a>Move forward a character.
+
+     <br><dt>&lt;C-b&gt; (<code>echo-area-backward</code>)<dt>&lt;LEFT&gt; (an arrow key)<dt>&lt;M-l&gt;, vi-like operation<dd><a name="index-LEFT_002c-in-the-echo-area-254"></a><a name="index-C_002db_002c-in-the-echo-area-255"></a><a name="index-M_002dl_002c-in-the-echo-area_002c-vi_002dlike-operation-256"></a><a name="index-echo_002darea_002dbackward-257"></a>Move backward a character.
+
+     <br><dt>&lt;C-a&gt; (<code>echo-area-beg-of-line</code>)<dt>&lt;M-0&gt;, vi-like operation<dd><a name="index-C_002da_002c-in-the-echo-area-258"></a><a name="index-M_002d0_002c-in-the-echo-area_002c-vi_002dlike-operation-259"></a><a name="index-echo_002darea_002dbeg_002dof_002dline-260"></a>Move to the start of the input line.
+
+     <br><dt>&lt;C-e&gt; (<code>echo-area-end-of-line</code>)<dt>&lt;M-$&gt;, vi-like operation<dd><a name="index-C_002de_002c-in-the-echo-area-261"></a><a name="index-M_002d_0024_002c-vi_002dlike-operation-262"></a><a name="index-echo_002darea_002dend_002dof_002dline-263"></a>Move to the end of the input line.
+
+     <br><dt>&lt;M-f&gt; (<code>echo-area-forward-word</code>)<dt>&lt;C-&lt;RIGHT&gt;&gt; (DOS/Windows only)<dt>&lt;M-w&gt;, vi-like operation<dd><a name="index-M_002df_002c-in-the-echo-area-264"></a><a name="index-M_002dw_002c-in-the-echo-area_002c-vi_002dlike-operation-265"></a><a name="index-echo_002darea_002dforward_002dword-266"></a>Move forward a word.
+
+     <p><a name="index-C_002dRIGHT_002c-in-the-echo-area-267"></a>On DOS/Windows, <kbd>C-&lt;RIGHT&gt;</kbd> moves forward by words.
+
+     <br><dt>&lt;M-b&gt; (<code>echo-area-backward-word</code>)<dt>&lt;C-&lt;LEFT&gt;&gt; (DOS/Windows only)<dd><a name="index-M_002db_002c-in-the-echo-area-268"></a><a name="index-echo_002darea_002dbackward_002dword-269"></a>Move backward a word.
+
+     <p><a name="index-C_002dLEFT_002c-in-the-echo-area-270"></a>On DOS/Windows, <kbd>C-&lt;LEFT&gt;</kbd> moves backward by words.
+
+     <br><dt>&lt;C-d&gt; (<code>echo-area-delete</code>)<dt>&lt;M-x&gt;, vi-like operation<dd><a name="index-C_002dd_002c-in-the-echo-area-271"></a><a name="index-M_002dx_002c-in-the-echo-area_002c-vi_002dlike-operation-272"></a><a name="index-echo_002darea_002ddelete-273"></a>Delete the character under the cursor.
+
+     <br><dt>&lt;DEL&gt; (<code>echo-area-rubout</code>)<dd><a name="index-DEL_002c-in-the-echo-area-274"></a><a name="index-echo_002darea_002drubout-275"></a>Delete the character behind the cursor.
+
+     <p>On some keyboards, this key is designated &lt;BS&gt;, for
+`<samp><span class="samp">BackSpace</span></samp>'.  Those keyboards will usually bind &lt;DEL&gt; in the
+echo area to <code>echo-area-delete</code>.
+
+     <br><dt>&lt;C-g&gt; (<code>echo-area-abort</code>)<dt>&lt;C-u&gt;, vi-like operation<dd><a name="index-C_002dg_002c-in-the-echo-area-276"></a><a name="index-C_002du_002c-in-the-echo-area_002c-vi_002dlike-operation-277"></a><a name="index-echo_002darea_002dabort-278"></a>Cancel or quit the current operation.  If completion is being read, this
+command discards the text of the input line which does not match any
+completion.  If the input line is empty, it aborts the calling function.
+
+     <br><dt>&lt;RET&gt; (<code>echo-area-newline</code>)<dd><a name="index-RET_002c-in-the-echo-area-279"></a><a name="index-echo_002darea_002dnewline-280"></a>Accept (or forces completion of) the current input line.
+
+     <br><dt>&lt;C-q&gt; (<code>echo-area-quoted-insert</code>)<dt>&lt;C-v&gt;, vi-like operation<dd><a name="index-C_002dq_002c-in-the-echo-area-281"></a><a name="index-C_002dv_002c-in-the-echo-area_002c-vi_002dlike-operation-282"></a><a name="index-echo_002darea_002dquoted_002dinsert-283"></a>Insert the next character verbatim.  This is how you can insert control
+characters into a search string, for example, or the `<samp><span class="samp">?</span></samp>' character
+when Info prompts with completion.
+
+     <br><dt><var>printing character</var> (<code>echo-area-insert</code>)<dd><a name="index-printing-characters_002c-in-the-echo-area-284"></a><a name="index-echo_002darea_002dinsert-285"></a>Insert the character.  Characters that have their 8th bit set, and not
+bound to `<samp><span class="samp">M-</span></samp>' commands, are also inserted verbatim; this is useful
+for terminals which support Latin scripts.
+
+     <br><dt>&lt;M-TAB&gt; (<code>echo-area-tab-insert</code>)<dt>&lt;Shift-&lt;TAB&gt;&gt; (on DOS/Windows only)<dd><a name="index-M_002dTAB_002c-in-the-echo-area-286"></a><a name="index-Shift_002dTAB_002c-in-the-echo-area-287"></a><a name="index-echo_002darea_002dtab_002dinsert-288"></a>Insert a TAB character.
+
+     <p><a name="index-Shift_002dTAB_002c-in-the-echo-area-289"></a><a name="index-BackTab_002c-in-the-echo-area-290"></a>On DOS/Windows only, the <kbd>Shift-&lt;TAB&gt;</kbd> key is an alias for
+<kbd>M-&lt;TAB&gt;</kbd>.  This key is sometimes called `<samp><span class="samp">BackTab</span></samp>'.
+
+     <br><dt>&lt;C-t&gt; (<code>echo-area-transpose-chars</code>)<dd><a name="index-C_002dt_002c-in-the-echo-area-291"></a><a name="index-echo_002darea_002dtranspose_002dchars-292"></a>Transpose the characters at the cursor. 
+</dl>
+
+   <p>The next group of commands deal with <dfn>killing</dfn>, and <dfn>yanking</dfn>
+text<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>.   For an in-depth discussion of killing and
+yanking, see <a href="../emacs/Killing.html#Killing">Killing and Deleting</a>.
+
+     <dl>
+<dt>&lt;M-d&gt; (<code>echo-area-kill-word</code>)<dt>&lt;M-X&gt;, vi-like operation<dd><a name="index-M_002dd_002c-in-the-echo-area-293"></a><a name="index-M_002dX_002c-in-the-echo-area_002c-vi_002dlike-operation-294"></a><a name="index-echo_002darea_002dkill_002dword-295"></a>Kill the word following the cursor.
+
+     <br><dt>&lt;M-DEL&gt; (<code>echo-area-backward-kill-word</code>)<dt>&lt;M-&lt;BS&gt;&gt;<dd><a name="index-M_002dDEL_002c-in-the-echo-area-296"></a><a name="index-echo_002darea_002dbackward_002dkill_002dword-297"></a>Kill the word preceding the cursor.
+
+     <p><a name="index-M_002dBS_002c-in-the-echo-area-298"></a>On some keyboards, the <code>Backspace</code> key is used instead of
+<code>DEL</code>, so <code>M-&lt;Backspace&gt;</code> has the same effect as
+<code>M-&lt;DEL&gt;</code>.
+
+     <br><dt>&lt;C-k&gt; (<code>echo-area-kill-line</code>)<dd><a name="index-C_002dk_002c-in-the-echo-area-299"></a><a name="index-echo_002darea_002dkill_002dline-300"></a>Kill the text from the cursor to the end of the line.
+
+     <br><dt><kbd>C-x &lt;DEL&gt;</kbd> (<code>echo-area-backward-kill-line</code>)<dd><a name="index-C_002dx-DEL_002c-in-the-echo-area-301"></a><a name="index-echo_002darea_002dbackward_002dkill_002dline-302"></a>Kill the text from the cursor to the beginning of the line.
+
+     <br><dt>&lt;C-y&gt; (<code>echo-area-yank</code>)<dd><a name="index-C_002dy_002c-in-the-echo-area-303"></a><a name="index-echo_002darea_002dyank-304"></a>Yank back the contents of the last kill.
+
+     <br><dt>&lt;M-y&gt; (<code>echo-area-yank-pop</code>)<dd><a name="index-M_002dy_002c-in-the-echo-area-305"></a><a name="index-echo_002darea_002dyank_002dpop-306"></a>Yank back a previous kill, removing the last yanked text first. 
+</dl>
+
+   <p><a name="index-completion-307"></a>Sometimes when reading input in the echo area, the command that needed
+input will only accept one of a list of several choices.  The choices
+represent the <dfn>possible completions</dfn>, and you must respond with one
+of them.  Since there are a limited number of responses you can make,
+Info allows you to abbreviate what you type, only typing as much of the
+response as is necessary to uniquely identify it.  In addition, you can
+request Info to fill in as much of the response as is possible; this
+is called <dfn>completion</dfn>.
+
+   <p>The following commands are available when completing in the echo area:
+
+     <dl>
+<dt>&lt;TAB&gt; (<code>echo-area-complete</code>)<dt>&lt;SPC&gt;<dd><a name="index-TAB_002c-in-the-echo-area-308"></a><a name="index-SPC_002c-in-the-echo-area-309"></a><a name="index-echo_002darea_002dcomplete-310"></a>Insert as much of a completion as is possible.
+
+     <br><dt>&lt;?&gt; (<code>echo-area-possible-completions</code>)<dd><a name="index-g_t_003f_002c-in-the-echo-area-311"></a><a name="index-echo_002darea_002dpossible_002dcompletions-312"></a>Display a window containing a list of the possible completions of what
+you have typed so far.  For example, if the available choices are:
+
+     <pre class="example">          bar
+          foliate
+          food
+          forget
+     </pre>
+     <p class="noindent">and you have typed an `<samp><span class="samp">f</span></samp>', followed by `<samp><span class="samp">?</span></samp>', Info will pop up a
+window showing a node called `<samp><span class="samp">*Completions*</span></samp>' which lists the
+possible completions like this:
+
+     <pre class="example">          3 completions:
+          foliate         food
+          forget
+     </pre>
+     <p class="noindent">i.e., all of the choices which begin with `<samp><span class="samp">f</span></samp>'.  Pressing &lt;SPC&gt;
+or &lt;TAB&gt; would result in `<samp><span class="samp">fo</span></samp>' appearing in the echo area, since
+all of the choices which begin with `<samp><span class="samp">f</span></samp>' continue with `<samp><span class="samp">o</span></samp>'. 
+Now, typing `<samp><span class="samp">l</span></samp>' followed by `<samp><span class="samp">TAB</span></samp>' results in `<samp><span class="samp">foliate</span></samp>'
+appearing in the echo area, since that is the only choice which begins
+with `<samp><span class="samp">fol</span></samp>'.
+
+     <br><dt>&lt;ESC C-v&gt; (<code>echo-area-scroll-completions-window</code>)<dd><a name="index-ESC-C_002dv_002c-in-the-echo-area-313"></a><a name="index-echo_002darea_002dscroll_002dcompletions_002dwindow-314"></a>Scroll the completions window, if that is visible, or the &ldquo;other&rdquo;
+window if not. 
+</dl>
+
+   <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> 
+Some people are used to calling these operations <dfn>cut</dfn> and
+<dfn>paste</dfn>, respectively.</p>
+
+   <p><hr></div>
+
+   </body></html>
+

@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+<title>set clear value - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Conditionals.html#Conditionals" title="Conditionals">
+<link rel="prev" href="Raw-Formatter-Commands.html#Raw-Formatter-Commands" title="Raw Formatter Commands">
+<link rel="next" href="Conditional-Nesting.html#Conditional-Nesting" title="Conditional Nesting">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="set-clear-value"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Conditional-Nesting.html#Conditional-Nesting">Conditional Nesting</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Raw-Formatter-Commands.html#Raw-Formatter-Commands">Raw Formatter Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Conditionals.html#Conditionals">Conditionals</a>
+<hr>
+</div>
+
+<h3 class="section">17.4 <code>@set</code>, <code>@clear</code>, and <code>@value</code></h3>
+
+<p>You can direct the Texinfo formatting commands to format or ignore parts
+of a Texinfo file with the <code>@set</code>, <code>@clear</code>, <code>@ifset</code>,
+and <code>@ifclear</code> commands.
+
+  <p>Here are brief descriptions of these commands, see the following
+sections for more details:
+
+     <dl>
+<dt><code>@set </code><var>flag</var><code> [</code><var>value</var><code>]</code><dd>Set the variable <var>flag</var>, to the optional <var>value</var> if specifed.
+
+     <br><dt><code>@clear </code><var>flag</var><dd>Undefine the variable <var>flag</var>, whether or not it was previously defined.
+
+     <br><dt><code>@ifset </code><var>flag</var><dd>If <var>flag</var> is set, text through the next <code>@end ifset</code> command
+is formatted.  If <var>flag</var> is clear, text through the following
+<code>@end ifset</code> command is ignored.
+
+     <br><dt><code>@ifclear </code><var>flag</var><dd>If <var>flag</var> is set, text through the next <code>@end ifclear</code> command
+is ignored.  If <var>flag</var> is clear, text through the following
+<code>@end ifclear</code> command is formatted. 
+</dl>
+
+<ul class="menu">
+<li><a accesskey="1" href="set-value.html#set-value">set value</a>:                    Expand a flag variable to a string. 
+<li><a accesskey="2" href="ifset-ifclear.html#ifset-ifclear">ifset ifclear</a>:                Format a region if a flag is set. 
+<li><a accesskey="3" href="value-Example.html#value-Example">value Example</a>:                An easy way to update edition information. 
+</ul>
+
+  </body></html>
+

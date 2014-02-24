@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+<title>itemize - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Lists-and-Tables.html#Lists-and-Tables" title="Lists and Tables">
+<link rel="prev" href="Introducing-Lists.html#Introducing-Lists" title="Introducing Lists">
+<link rel="next" href="enumerate.html#enumerate" title="enumerate">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="itemize"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="enumerate.html#enumerate">enumerate</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Introducing-Lists.html#Introducing-Lists">Introducing Lists</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Lists-and-Tables.html#Lists-and-Tables">Lists and Tables</a>
+<hr>
+</div>
+
+<h3 class="section">11.2 <code>@itemize</code>: Making an Itemized List</h3>
+
+<p><a name="index-Itemization-515"></a><a name="index-itemize-516"></a>
+The <code>@itemize</code> command produces sequences of indented
+paragraphs, with a bullet or other mark inside the left margin
+at the beginning of each paragraph for which such a mark is desired.
+
+  <p><a name="index-g_t_0040code_007b_0040_0040w_007d_002c-for-blank-items-517"></a>Begin an itemized list by writing <code>@itemize</code> at the beginning of
+a line.  Follow the command, on the same line, with a character or a
+Texinfo command that generates a mark.  Usually, you will write
+<code>@bullet</code> after <code>@itemize</code>, but you can use
+<code>@minus</code>, or any command or character that results in a single
+character in the Info file.  If you don't want any mark at all, use
+<code>@w</code>.  (When you write the mark command such as
+<code>@bullet</code> after an <code>@itemize</code> command, you may omit the
+`<samp><span class="samp">{}</span></samp>'.)  If you don't specify a mark command, the default is
+<code>@bullet</code>.
+
+  <p>Write the text of the indented paragraphs themselves after the
+<code>@itemize</code>, up to another line that says <code>@end
+itemize</code>.
+
+  <p><a name="index-item-518"></a>At the beginning of each paragraph for which a mark in the margin is
+desired, write a line that starts with <code>@item</code>.  It is ok to
+have text following the <code>@item</code>.
+
+  <p>Usually, you should put a blank line before an <code>@item</code>.  This
+puts a blank line in the Info file. (TeX inserts the proper
+interline whitespace in either case.)  Except when the entries are
+very brief, these blank lines make the list look better.
+
+  <p>Here is an example of the use of <code>@itemize</code>, followed by the
+output it produces.  <code>@bullet</code> produces an `<samp><span class="samp">*</span></samp>' in Info and a
+round dot in TeX.
+
+<pre class="example">     @itemize @bullet
+     @item
+     Some text for foo.
+     
+     @item
+     Some text
+     for bar.
+     @end itemize
+</pre>
+  <p class="noindent">This produces:
+
+  <blockquote>
+          <ul>
+<li>Some text for foo.
+
+          <li>Some text
+for bar. 
+</ul>
+  </blockquote>
+
+  <p>Itemized lists may be embedded within other itemized lists.  Here is a
+list marked with dashes embedded in a list marked with bullets:
+
+<pre class="example">     @itemize @bullet
+     @item
+     First item.
+     
+     @itemize @minus
+     @item
+     Inner item.
+     
+     @item
+     Second inner item.
+     @end itemize
+     
+     @item
+     Second outer item.
+     @end itemize
+</pre>
+  <p class="noindent">This produces:
+
+  <blockquote>
+          <ul>
+<li>First item.
+
+               <ul>
+<li>Inner item.
+
+               <li>Second inner item. 
+</ul>
+
+          <li>Second outer item. 
+</ul>
+  </blockquote>
+
+  </body></html>
+

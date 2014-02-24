@@ -1,0 +1,144 @@
+<html lang="en">
+<head>
+<title>Help-Xref - Info</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Info">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Getting-Started.html#Getting-Started" title="Getting Started">
+<link rel="prev" href="Help_002dM.html#Help_002dM" title="Help-M">
+<link rel="next" href="Help_002dInt.html#Help_002dInt" title="Help-Int">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This file describes how to use Info, the on-line, menu-driven GNU
+documentation system.
+
+Copyright (C) 1989, 1992, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004
+Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in the Emacs manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Help-Xref"></a>
+<a name="Help_002dXref"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Help_002dInt.html#Help_002dInt">Help-Int</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Help_002dM.html#Help_002dM">Help-M</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Getting-Started.html#Getting-Started">Getting Started</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">1.7 Following Cross-References</h3>
+
+<p><a name="index-cross-references-in-Info-documents-34"></a>  In Info documentation, you will see many <dfn>cross references</dfn>. 
+Cross references look like this: See <a href="Help_002dCross.html#Help_002dCross">Cross</a>.  That text
+is a real, live cross reference, whose name is `<samp><span class="samp">Cross</span></samp>' and which
+points to the node named `<samp><span class="samp">Help-Cross</span></samp>'.  (The node name is hidden
+in Emacs.  Do <kbd>M-x visible-mode</kbd> to show or hide it.)
+
+   <p><a name="index-f-_0040r_007b_0028Info-mode_0029_007d-35"></a><a name="index-Info_002dfollow_002dreference-36"></a>  There are two ways to follow a cross reference.  You can move the
+cursor to it and press &lt;RET&gt;, just as in a menu.  &lt;RET&gt;
+follows the cross reference that the cursor is on.  Or you can type
+<kbd>f</kbd> and then specify the name of the cross reference (in this
+case, `<samp><span class="samp">Cross</span></samp>') as an argument.  In Emacs Info, <kbd>f</kbd> runs
+<code>Info-follow-reference</code>,
+
+   <p>In the <kbd>f</kbd> command, you select the cross reference with its
+name, so it does not matter where the cursor was.  If the cursor is on
+or near a cross reference, <kbd>f</kbd> suggests that reference name in
+parentheses as the default; typing &lt;RET&gt; will follow that
+reference.  However, if you type a different reference name, <kbd>f</kbd>
+will follow the other reference which has that name.
+
+<pre class="format">&gt;&gt; Type <kbd>f</kbd>, followed by <kbd>Cross</kbd>, and then &lt;RET&gt;.
+</pre>
+   <p>As you enter the reference name, you can use the &lt;DEL&gt; (or
+&lt;BACKSPACE&gt;) key to edit your input.  If you change your mind
+about following any reference, you can use <kbd>Control-g</kbd> to cancel
+the command.  Completion is available in the <kbd>f</kbd> command; you can
+complete among all the cross reference names in the current node by
+typing a &lt;TAB&gt;.
+
+   <p>To get a list of all the cross references in the current node, you
+can type <kbd>?</kbd> after an <kbd>f</kbd>.  The <kbd>f</kbd> continues to await a
+cross reference name even after displaying the list, so if you don't
+actually want to follow a reference, you should type a <kbd>Control-g</kbd>
+to cancel the <kbd>f</kbd>.
+
+<pre class="format">&gt;&gt; Type <kbd>f?</kbd> to get a list of the cross references in this node.  Then
+   type a <kbd>Control-g</kbd> and see how the `<samp><span class="samp">f</span></samp>' gives up.
+</pre>
+   <p>The &lt;TAB&gt; and <kbd>M-&lt;TAB&gt;</kbd> key, which move between menu
+items in a menu, also move between cross references outside of menus.
+
+   <p>Sometimes a cross reference (or a node) can lead to another file (in
+other words another &ldquo;manual&rdquo;), or, on occasion, even a file on a
+remote machine (although Info files distributed with Emacs or the
+stand-alone Info avoid using remote links).  Such a cross reference
+looks like this: See <a href="../texinfo/index.html#Top">Overview of Texinfo</a>.  (After following this link, type
+<kbd>l</kbd> to get back to this node.)  Here the name `<samp><span class="samp">texinfo</span></samp>'
+between parentheses (shown in the stand-alone version) refers to the
+file name.  This file name appears in cross references and node names
+if it differs from the current file.  In Emacs, the file name is
+hidden (along with other text).  (Use <kbd>M-x visible-mode</kbd> to show
+or hide it.)
+
+   <p>The remainder of this node applies only to the Emacs version.  If
+you use the stand-alone version, you can type <kbd>n</kbd> immediately.
+
+   <p>To some users, switching manuals is a much bigger switch than
+switching sections.  These users like to know that they are going to
+be switching to another manual (and which one) before actually doing
+so, especially given that, if one does not notice, Info commands like
+<kbd>t</kbd> (see the next node) can have confusing results.
+
+   <p>If you put your mouse over the cross reference and if the cross
+reference leads to a different manual, then the information appearing
+in a separate box (tool tip) or in the echo area, will mention the
+file the cross reference will carry you to (between parentheses). 
+This is also true for menu subtopic names.  If you have a mouse, just
+leave it over the `<samp><span class="samp">Overview</span></samp>' cross reference above and watch what
+happens.
+
+   <p>If you always like to have that information available without having
+to move your mouse over the cross reference, set
+<code>Info-hide-note-references</code> to a value other than t (see <a href="Emacs-Info-Variables.html#Emacs-Info-Variables">Emacs Info Variables</a>).  You might also want to do that if you have a lot of
+cross references to files on remote machines and have non-permanent or
+slow access, since otherwise you might not be able to distinguish
+between local and remote links.
+
+<pre class="format">&gt;&gt; Now type <kbd>n</kbd> to learn more commands.
+</pre>
+   </body></html>
+

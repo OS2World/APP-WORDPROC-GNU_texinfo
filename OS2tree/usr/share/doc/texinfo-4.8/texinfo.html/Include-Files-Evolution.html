@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+<title>Include Files Evolution - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Include-Files.html#Include-Files" title="Include Files">
+<link rel="prev" href="Sample-Include-File.html#Sample-Include-File" title="Sample Include File">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Include-Files-Evolution"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Sample-Include-File.html#Sample-Include-File">Sample Include File</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Include-Files.html#Include-Files">Include Files</a>
+<hr>
+</div>
+
+<h3 class="section">D.5 Evolution of Include Files</h3>
+
+<p>When Info was first created, it was customary to create many small
+Info files on one subject.  Each Info file was formatted from its own
+Texinfo source file.  This custom meant that Emacs did not need to
+make a large buffer to hold the whole of a large Info file when
+someone wanted information; instead, Emacs allocated just enough
+memory for the small Info file that contained the particular
+information sought.  This way, Emacs could avoid wasting memory.
+
+  <p>References from one file to another were made by referring to the file
+name as well as the node name. (See <a href="Other-Info-Files.html#Other-Info-Files">Referring to Other Info Files</a>.  Also, see <a href="Four-and-Five-Arguments.html#Four-and-Five-Arguments"><code>@xref</code> with Four and Five Arguments</a>.)
+
+  <p>Include files were designed primarily as a way to create a single,
+large printed manual out of several smaller Info files.  In a printed
+manual, all the references were within the same document, so TeX
+could automatically determine the references' page numbers.  The Info
+formatting commands used include files only for creating joint
+indices; each of the individual Texinfo files had to be formatted for
+Info individually.  (Each, therefore, required its own
+<code>@setfilename</code> line.)
+
+  <p>However, because large Info files are now split automatically, it is
+no longer necessary to keep them small.
+
+  <p>Nowadays, multiple Texinfo files are used mostly for large documents,
+such as <cite>The GNU Emacs Lisp Reference Manual</cite>, and for projects
+in which several different people write different sections of a
+document simultaneously.
+
+  <p>In addition, the Info formatting commands have been extended to work
+with the <code>@include</code> command so as to create a single large Info
+file that is split into smaller files if necessary.  This means that
+you can write menus and cross references without naming the different
+Texinfo files.
+
+  </body></html>
+

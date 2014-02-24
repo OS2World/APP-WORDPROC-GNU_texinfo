@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+<title>Def Cmd Continuation Lines - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Definition-Commands.html#Definition-Commands" title="Definition Commands">
+<link rel="prev" href="Def-Cmd-Template.html#Def-Cmd-Template" title="Def Cmd Template">
+<link rel="next" href="Optional-Arguments.html#Optional-Arguments" title="Optional Arguments">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Def-Cmd-Continuation-Lines"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Optional-Arguments.html#Optional-Arguments">Optional Arguments</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Def-Cmd-Template.html#Def-Cmd-Template">Def Cmd Template</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Definition-Commands.html#Definition-Commands">Definition Commands</a>
+<hr>
+</div>
+
+<h3 class="section">16.2 Definition Command Continuation Lines</h3>
+
+<p><a name="index-Continuation-lines-in-definition-commands-830"></a><a name="index-Definition-command-headings_002c-continuing-831"></a><a name="index-g_t_0040samp_007b_0040_0040_007d-as-continuation-in-definition-commands-832"></a>
+The heading line of a definition command can get very long. 
+Therefore, Texinfo has a special syntax allowing them to be continued
+over multiple lines of the source file: a lone `<samp><span class="samp">@</span></samp>' at the end of
+each line to be continued.  Here's an example:
+
+<pre class="example">     @defun fn-name @
+       arg1 arg2 arg3
+     This is the basic continued defun.
+     @end defun
+</pre>
+  <p class="noindent">produces:
+
+<div class="defun">
+&mdash; Function: <b>fn-name</b><var> arg1 arg2 arg3<a name="index-fn_002dname-833"></a></var><br>
+<blockquote><p>This is the basic continued defun. 
+</p></blockquote></div>
+
+<p class="noindent">As you can see, the continued lines are combined, as if they had been
+typed on one source line.
+
+  <p>Although this example only shows a one-line continuation,
+continuations may extend over any number of lines; simply put an
+<code>@</code> at the end of each line to be continued.
+
+  <p>The <code>@</code> character does not have to be the last character on the
+physical line: whitespace is allowed (and ignored) afterwards.
+
+  <p><a name="index-Whitespace_002c-collapsed-around-continuations-834"></a><a name="index-Collapsing-whitespace-around-continuations-835"></a>In general, any number of spaces or tabs around the <code>@</code>
+continuation character, both on the line with the <code>@</code> and on the
+continued line, are collapsed into a single space.  There is one
+exception: the Texinfo processors will not fully collapse whitespace
+around a continuation inside braces.  For example:
+
+<pre class="example">     @deffn {Category @
+       Name} ...
+</pre>
+  <p class="noindent">The output (not shown) has excess space between `Category'
+and `Name'.  In this case, simply elide any unwanted whitespace in
+your input, or put the continuation <code>@</code> outside braces.
+
+  <p><code>@</code> does not (currently) function as a continuation character in
+<em>any</em> other context.  Ordinarily, `<samp><span class="samp">@</span></samp>' followed by a
+whitespace character (space, tab, newline) produces a normal interword
+space (see <a href="Multiple-Spaces.html#Multiple-Spaces">Multiple Spaces</a>).
+
+  </body></html>
+

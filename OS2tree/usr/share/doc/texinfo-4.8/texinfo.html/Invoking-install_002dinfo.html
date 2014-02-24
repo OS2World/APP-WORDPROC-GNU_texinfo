@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+<title>Invoking install-info - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Installing-an-Info-File.html#Installing-an-Info-File" title="Installing an Info File">
+<link rel="prev" href="Installing-Dir-Entries.html#Installing-Dir-Entries" title="Installing Dir Entries">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Invoking-install-info"></a>
+<a name="Invoking-install_002dinfo"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Installing-Dir-Entries.html#Installing-Dir-Entries">Installing Dir Entries</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Installing-an-Info-File.html#Installing-an-Info-File">Installing an Info File</a>
+<hr>
+</div>
+
+<h4 class="subsection">21.2.5 Invoking <samp><span class="command">install-info</span></samp></h4>
+
+<p><a name="index-install_002dinfo-1195"></a>
+<code>install-info</code> inserts menu entries from an Info file into the
+top-level <samp><span class="file">dir</span></samp> file in the Info system (see the previous sections
+for an explanation of how the <samp><span class="file">dir</span></samp> file works).  It's most often
+run as part of software installation, or when constructing a <samp><span class="file">dir</span></samp> file
+for all manuals on a system.  Synopsis:
+
+<pre class="example">     install-info [<var>option</var>]... [<var>info-file</var> [<var>dir-file</var>]]
+</pre>
+  <p>If <var>info-file</var> or <var>dir-file</var> are not specified, the options
+(described below) that define them must be.  There are no compile-time
+defaults, and standard input is never used.  <code>install-info</code> can
+read only one Info file and write only one <samp><span class="file">dir</span></samp> file per invocation.
+
+  <p><a name="index-g_t_0040file_007bdir_007d_002c-created-by-_0040code_007binstall_002dinfo_007d-1196"></a>If <var>dir-file</var> (however specified) does not exist,
+<code>install-info</code> creates it if possible (with no entries).
+
+  <p><a name="index-Compressed-files_002c-reading-1197"></a><a name="index-Dir-files_002c-compressed-1198"></a>If any input file is compressed with <code>gzip</code> (see <a href="../gzip/Invoking-gzip.html#Invoking-gzip">Invoking gzip</a>), <code>install-info</code> automatically uncompresses it
+for reading.  And if <var>dir-file</var> is compressed, <code>install-info</code>
+also automatically leaves it compressed after writing any changes. 
+If <var>dir-file</var> itself does not exist, <code>install-info</code> tries to
+open <samp><var>dir-file</var><span class="file">.gz</span></samp>.
+
+  <p>Options:
+
+     <dl>
+<dt><code>--delete</code><dd><a name="index-g_t_002d_002ddelete-1199"></a>Delete the entries in <var>info-file</var> from <var>dir-file</var>.  The file
+name in the entry in <var>dir-file</var> must be <var>info-file</var> (except for
+an optional `<samp><span class="samp">.info</span></samp>' in either one).  Don't insert any new entries.
+
+     <br><dt><code>--dir-file=</code><var>name</var><dt><code>-d </code><var>name</var><dd><a name="index-g_t_002d_002ddir_002dfile_003d_0040var_007bname_007d-1200"></a><a name="index-g_t_002dd-_0040var_007bname_007d-1201"></a>Specify file name of the Info directory file.  This is equivalent to
+using the <var>dir-file</var> argument.
+
+     <br><dt><code>--entry=</code><var>text</var><dt><code>-e </code><var>text</var><dd><a name="index-g_t_002d_002dentry_003d_0040var_007btext_007d-1202"></a><a name="index-g_t_002de-_0040var_007btext_007d-1203"></a>Insert <var>text</var> as an Info directory entry; <var>text</var> should have the
+form of an Info menu item line plus zero or more extra lines starting
+with whitespace.  If you specify more than one entry, they are all
+added.  If you don't specify any entries, they are determined from
+information in the Info file itself.
+
+     <br><dt><code>--help</code><dt><code>-h</code><dd><a name="index-g_t_002d_002dhelp-1204"></a><a name="index-g_t_002dh-1205"></a>Display a usage message listing basic usage and all available options,
+then exit successfully.
+
+     <br><dt><code>--info-file=</code><var>file</var><dt><code>-i </code><var>file</var><dd><a name="index-g_t_002d_002dinfo_002dfile_003d_0040var_007bfile_007d-1206"></a><a name="index-g_t_002di-_0040var_007bfile_007d-1207"></a>Specify Info file to install in the directory. 
+Equivalent to using the <var>info-file</var> argument.
+
+     <br><dt><code>--info-dir=</code><var>dir</var><dt><code>-D </code><var>dir</var><dd><a name="index-g_t_002d_002dinfo_002ddir_003d_0040var_007bdir_007d-1208"></a><a name="index-g_t_002dD-_0040var_007bdir_007d-1209"></a>Specify the directory where the directory file <samp><span class="file">dir</span></samp> resides. 
+Equivalent to `<samp><span class="samp">--dir-file=</span><var>dir</var><span class="samp">/dir</span></samp>'.
+
+     <br><dt><code>--item=</code><var>text</var><dd><a name="index-g_t_002d_002ditem_003d_0040var_007btext_007d-1210"></a>Same as `<samp><span class="samp">--entry=</span><var>text</var></samp>'.  An Info directory entry is actually
+a menu item.
+
+     <br><dt><code>--quiet</code><dd><a name="index-g_t_002d_002dquiet-1211"></a>Suppress warnings.
+
+     <br><dt><code>--remove</code><dt><code>-r</code><dd><a name="index-g_t_002d_002dremove-1212"></a><a name="index-g_t_002dr-1213"></a>Same as `<samp><span class="samp">--delete</span></samp>'.
+
+     <br><dt><code>--section=</code><var>sec</var><dt><code>-s </code><var>sec</var><dd><a name="index-g_t_002d_002dsection_003d_0040var_007bsec_007d-1214"></a><a name="index-g_t_002ds-_0040var_007bsec_007d-1215"></a>Put this file's entries in section <var>sec</var> of the directory.  If you
+specify more than one section, all the entries are added in each of the
+sections.  If you don't specify any sections, they are determined from
+information in the Info file itself.
+
+     <br><dt><code>--version</code><dt><code>-V</code><dd><a name="index-g_t_002d_002dversion-1216"></a><a name="index-g_t_002dV-1217"></a><a name="index-Version-number_002c-for-install_002dinfo-1218"></a>Display version information and exit successfully.
+
+  </dl>
+
+  </body></html>
+

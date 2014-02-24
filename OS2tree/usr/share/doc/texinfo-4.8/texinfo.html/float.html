@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+<title>float - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Floats.html#Floats" title="Floats">
+<link rel="next" href="caption-shortcaption.html#caption-shortcaption" title="caption shortcaption">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="float"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="caption-shortcaption.html#caption-shortcaption">caption shortcaption</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Floats.html#Floats">Floats</a>
+<hr>
+</div>
+
+<h4 class="subsection">12.1.1 <code>@float</code> [<var>type</var>][,<var>label</var>]: Floating material</h4>
+
+<p><a name="index-float-550"></a><a name="index-Float-environment-551"></a>
+To produce floating material, enclose the material you want to be
+displayed separate between <code>@float</code> and <code>@end float</code>
+commands, on lines by themselves.
+
+  <p>Floating material uses <code>@image</code> to display an already-existing
+graphic (see <a href="Images.html#Images">Images</a>), or <code>@multitable</code> to display a table
+(see <a href="Multi_002dcolumn-Tables.html#Multi_002dcolumn-Tables">Multi-column Tables</a>).  However, the contents of the float can
+be anything.  Here's an example with simple text:
+
+<pre class="example">     @float Figure,fig:ex1
+     This is an example float.
+     @end float
+</pre>
+  <p class="noindent">And the output:
+
+  <div class="float">
+<a name="fig_003aex1"></a>This is an example float. 
+<p><strong class="float-caption">Figure 12.1</strong></p></div>
+
+  <p>As shown in the example, <code>@float</code> takes two arguments (separated
+by a comma), <var>type</var> and <var>label</var>.  Both are optional.
+
+     <dl>
+<dt><var>type</var><dd>Specifies the sort of float this is; typically a word such as
+&ldquo;Figure&rdquo;, &ldquo;Table&rdquo;, etc.  If not given, and <var>label</var> is, any
+cross-referencing will simply use a bare number.
+
+     <br><dt><var>label</var><dd>Specifies a cross-reference label for this float.  If given, this
+float is automatically given a number, and will appear in any
+<code>@listofloats</code> output (see <a href="listoffloats.html#listoffloats">listoffloats</a>).  Cross-references
+to <var>label</var> are allowed.
+
+     <p><a name="index-Floats_002c-making-unnumbered-552"></a><a name="index-Unnumbered-float_002c-creating-553"></a>On the other hand, if <var>label</var> is not given, then the float will
+not be numbered and consequently will not appear in the
+<code>@listoffloats</code> output or be cross-referenceable. 
+</dl>
+
+<p class="noindent">Normally, you specify both <var>type</var> and <var>label</var>, to get a
+labeled and numbered float.
+
+  <p><a name="index-Floats_002c-numbering-of-554"></a><a name="index-Numbering-of-floats-555"></a>In Texinfo, all floats are numbered the same way: with the chapter
+number (or appendix letter), a period, and the float number, which
+simply counts 1, 2, 3, <small class="dots">...</small>, and is reset at each chapter.  Each
+float type is counted independently.
+
+  <p>Floats within an <code>@unnumbered</code> are numbered, or outside of any
+chapter, are simply numbered consecutively from 1.
+
+  <p>These numbering conventions are not, at present, changeable.
+
+  </body></html>
+

@@ -1,0 +1,9 @@
+#info
+\t move-to-next-xref
+j next-line
+k prev-line
+#\kx echo-area-delete
+#echo-area-rubout
+#echo-area-insert
+#var
+ISO-Latin=on

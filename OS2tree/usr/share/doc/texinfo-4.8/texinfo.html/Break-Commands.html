@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+<title>Break Commands - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Breaks.html#Breaks" title="Breaks">
+<link rel="next" href="Line-Breaks.html#Line-Breaks" title="Line Breaks">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Break-Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Line-Breaks.html#Line-Breaks">Line Breaks</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Breaks.html#Breaks">Breaks</a>
+<hr>
+</div>
+
+<h3 class="section">15.1 Break Commands</h3>
+
+<p>The break commands create or allow line and paragraph breaks:
+
+     <dl>
+<dt><code>@*</code><dd>Force a line break.
+
+     <br><dt><code>@sp </code><var>n</var><dd>Skip <var>n</var> blank lines.
+
+     <br><dt><code>@-</code><dd>Insert a discretionary hyphen.
+
+     <br><dt><code>@hyphenation{</code><var>hy-phen-a-ted words</var><code>}</code><dd>Define hyphen points in <var>hy-phen-a-ted words</var>. 
+</dl>
+
+  <p>These commands hold text together on a single line:
+
+     <dl>
+<dt><code>@w{</code><var>text</var><code>}</code><dd>Prevent <var>text</var> from being split and hyphenated across two lines. 
+<br><dt><code>@tie{}</code><dd>Insert a normal interword space at which a line break may not occur. 
+</dl>
+
+  <p>The pagination commands apply only to printed output, since Info
+files do not have pages.
+
+     <dl>
+<dt><code>@page</code><dd>Start a new page in the printed manual.
+
+     <br><dt><code>@group</code><dd>Hold text together that must appear on one printed page.
+
+     <br><dt><code>@need </code><var>mils</var><dd>Start a new printed page if not enough space on this one. 
+</dl>
+
+  </body></html>
+

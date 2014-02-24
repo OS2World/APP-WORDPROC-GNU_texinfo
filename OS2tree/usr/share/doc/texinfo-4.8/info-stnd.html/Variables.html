@@ -1,0 +1,171 @@
+<html lang="en">
+<head>
+<title>Variables - GNU Info 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Info 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Miscellaneous-Commands.html#Miscellaneous-Commands" title="Miscellaneous Commands">
+<link rel="next" href="Custom-Key-Bindings.html#Custom-Key-Bindings" title="Custom Key Bindings">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Info (version 4.8, 14 December 2004),
+a program for viewing documents in Info format (usually created from
+Texinfo source files).
+
+Copyright (C) 1992, 1993, 1996, 1997, 1998, 1999, 2001, 2002,
+2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Variables"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Custom-Key-Bindings.html#Custom-Key-Bindings">Custom Key Bindings</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Miscellaneous-Commands.html#Miscellaneous-Commands">Miscellaneous Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">11 Manipulating Variables</h2>
+
+<p>GNU Info contains several <dfn>variables</dfn> whose values are looked at by
+various Info commands.  You can change the values of these variables,
+and thus change the behavior of Info to more closely match your
+environment and Info file reading manner.
+
+   <p>There are two ways to set the value of a variable: interactively, using
+the <code>set-variable</code> command described below, or in the <code>#var</code>
+section of the <code>.infokey</code> file.  See <a href="Custom-Key-Bindings.html#Custom-Key-Bindings">Custom Key Bindings</a>.
+
+     <dl>
+<dt><kbd>M-x set-variable</kbd><dd><a name="index-variables_002c-setting-360"></a><a name="index-set_002dvariable-361"></a>Read the name of a variable, and the value for it, in the echo area and
+then set the variable to that value.  Completion is available when
+reading the variable name (see <a href="The-Echo-Area.html#The-Echo-Area">completion</a>); often,
+completion is available when reading the value to give to the variable,
+but that depends on the variable itself.  If a variable does <em>not</em>
+supply multiple choices to complete over, it expects a numeric value.
+
+     <br><dt><kbd>M-x describe-variable</kbd><dd><a name="index-variables_002c-describing-362"></a><a name="index-describe_002dvariable-363"></a>Read the name of a variable in the echo area and then display a brief
+description of what the variable affects. 
+</dl>
+
+   <p>Here is a list of the variables that you can set in Info.
+
+     <dl>
+<dt><code>automatic-footnotes</code><dd><a name="index-automatic_002dfootnotes-364"></a>When set to <code>On</code>, footnotes appear and disappear automatically;
+else, they appear at the bottom of the node text.  This variable is
+<code>Off</code> by default.  When a node is selected, a window containing
+the footnotes which appear in that node is created, and the footnotes
+are displayed within the new window.  The window that Info creates to
+contain the footnotes is called `<samp><span class="samp">*Footnotes*</span></samp>'.  If a node is
+selected which contains no footnotes, and a `<samp><span class="samp">*Footnotes*</span></samp>' window
+is on the screen, the `<samp><span class="samp">*Footnotes*</span></samp>' window is deleted.  Footnote
+windows created in this fashion are not automatically tiled so that
+they can use as little of the display as is possible.
+
+     <br><dt><code>automatic-tiling</code><dd><a name="index-automatic_002dtiling-365"></a>When set to <code>On</code>, creating or deleting a window resizes other
+windows.  This variable is <code>Off</code> by default.  Normally, typing
+`<samp><span class="samp">C-x 2</span></samp>' divides the current window into two equal parts.  When
+<code>automatic-tiling</code> is set to <code>On</code>, all of the windows are
+resized automatically, keeping an equal number of lines visible in each
+window.  There are exceptions to the automatic tiling; specifically, the
+windows `<samp><span class="samp">*Completions*</span></samp>' and `<samp><span class="samp">*Footnotes*</span></samp>' are <em>not</em>
+resized through automatic tiling; they remain their original size.
+
+     <br><dt><code>errors-ring-bell</code><dd><a name="index-errors_002dring_002dbell-366"></a>When set to <code>On</code>, errors cause the bell to ring.  The default
+setting of this variable is <code>On</code>.
+
+     <br><dt><code>gc-compressed-files</code><dd><a name="index-gc_002dcompressed_002dfiles-367"></a>When set to <code>On</code>, Info garbage collects files which had to be
+uncompressed.  The default value of this variable is <code>Off</code>. 
+Whenever a node is visited in Info, the Info file containing that node
+is read into core, and Info reads information about the tags and nodes
+contained in that file.  Once the tags information is read by Info, it
+is never forgotten.  However, the actual text of the nodes does not need
+to remain in core unless a particular Info window needs it.  For
+non-compressed files, the text of the nodes does not remain in core when
+it is no longer in use.  But de-compressing a file can be a time
+consuming operation, and so Info tries hard not to do it twice. 
+<code>gc-compressed-files</code> tells Info it is okay to garbage collect the
+text of the nodes of a file which was compressed on disk.
+
+     <br><dt><code>ISO-Latin</code><dd><a name="index-ISO-Latin-characters-368"></a><a name="index-ISO_002dLatin-369"></a>When set to <code>On</code>, Info accepts and displays ISO Latin characters. 
+By default, Info assumes an ASCII character set.  <code>ISO-Latin</code> tells
+Info that it is running in an environment where the European standard
+character set is in use, and allows you to input such characters to
+Info, as well as display them.
+
+     <br><dt><code>scroll-behavior</code><dd><a name="index-scroll_002dbehavior-370"></a>Control what happens when forward scrolling is requested at the end of
+a node, or when backward scrolling is requested at the beginning of a
+node.  The default value for this variable is <code>Continuous</code>.  There
+are three possible values for this variable:
+
+          <dl>
+<dt><code>Continuous</code><dd>Try to get the first item in this node's menu, or failing that, the
+`<samp><span class="samp">Next</span></samp>' node, or failing that, the `<samp><span class="samp">Next</span></samp>' of the `<samp><span class="samp">Up</span></samp>'. 
+This behavior is identical to using the `<samp><span class="samp">]</span></samp>'
+(<code>global-next-node</code>) and `<samp><span class="samp">[</span></samp>' (<code>global-prev-node</code>)
+commands.
+
+          <br><dt><code>Next Only</code><dd>Only try to get the `<samp><span class="samp">Next</span></samp>' node.
+
+          <br><dt><code>Page Only</code><dd>Simply give up, changing nothing.  If <code>scroll-behavior</code> is
+<code>Page Only</code>, no scrolling command can change the node that is being
+viewed. 
+</dl>
+
+     <br><dt><code>scroll-step</code><dd><a name="index-scroll_002dstep-371"></a>The number of lines to scroll when the cursor moves out of the window. 
+Scrolling happens automatically if the cursor has moved out of the
+visible portion of the node text when it is time to display.  Usually
+the scrolling is done so as to put the cursor on the center line of the
+current window.  However, if the variable <code>scroll-step</code> has a
+nonzero value, Info attempts to scroll the node text by that many lines;
+if that is enough to bring the cursor back into the window, that is what
+is done.  The default value of this variable is 0, thus placing the
+cursor (and the text it is attached to) in the center of the window. 
+Setting this variable to 1 causes a kind of &ldquo;smooth scrolling&rdquo; which
+some people prefer.
+
+     <br><dt><code>show-index-match</code><dd><a name="index-show_002dindex_002dmatch-372"></a>When set to <code>On</code>, the portion of the matched search string is
+highlighted in the message which explains where the matched search
+string was found.  The default value of this variable is <code>On</code>. 
+When Info displays the location where an index match was found,
+(see <a href="Searching-Commands.html#Searching-Commands"><code>next-index-match</code></a>), the portion of the
+string that you had typed is highlighted by displaying it in the inverse
+case from its surrounding characters.
+
+     <br><dt><code>visible-bell</code><dd><a name="index-visible_002dbell-373"></a>When set to <code>On</code>, GNU Info attempts to flash the screen instead of
+ringing the bell.  This variable is <code>Off</code> by default.  Of course,
+Info can only flash the screen if the terminal allows it; in the case
+that the terminal does not allow it, the setting of this variable has no
+effect.  However, you can make Info perform quietly by setting the
+<code>errors-ring-bell</code> variable to <code>Off</code>.
+
+   </dl>
+
+   </body></html>
+

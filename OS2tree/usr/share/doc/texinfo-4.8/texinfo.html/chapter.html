@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+<title>chapter - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Structuring.html#Structuring" title="Structuring">
+<link rel="prev" href="makeinfo-top.html#makeinfo-top" title="makeinfo top">
+<link rel="next" href="unnumbered-_0026-appendix.html#unnumbered-_0026-appendix" title="unnumbered & appendix">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="chapter"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="unnumbered-_0026-appendix.html#unnumbered-_0026-appendix">unnumbered &amp; appendix</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="makeinfo-top.html#makeinfo-top">makeinfo top</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Structuring.html#Structuring">Structuring</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">5.4 <code>@chapter</code></h3>
+
+<p><a name="index-chapter-274"></a>
+<code>@chapter</code> identifies a chapter in the document.  Write the
+command at the beginning of a line and follow it on the same line by
+the title of the chapter.
+
+  <p>For example, this chapter in this manual is entitled &ldquo;Chapter
+Structuring&rdquo;; the <code>@chapter</code> line looks like this:
+
+<pre class="example">     @chapter Chapter Structuring
+</pre>
+  <p>In TeX, the <code>@chapter</code> command creates a chapter in the
+document, specifying the chapter title.  The chapter is numbered
+automatically.
+
+  <p>In Info, the <code>@chapter</code> command causes the title to appear on a
+line by itself, with a line of asterisks inserted underneath.  Thus,
+in Info, the above example produces the following output:
+
+<pre class="example">     Chapter Structuring
+     *******************
+</pre>
+  <p><a name="index-centerchap-275"></a>Texinfo also provides a command <code>@centerchap</code>, which is analogous
+to <code>@unnumbered</code>, but centers its argument in the printed output. 
+This kind of stylistic choice is not usually offered by Texinfo. 
+<!-- but the Hacker's Dictionary wanted it ... -->
+
+  </body></html>
+

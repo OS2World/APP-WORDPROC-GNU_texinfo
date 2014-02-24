@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+<title>Custom Key Bindings - GNU Info 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Info 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Variables.html#Variables" title="Variables">
+<link rel="next" href="Copying-This-Manual.html#Copying-This-Manual" title="Copying This Manual">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Info (version 4.8, 14 December 2004),
+a program for viewing documents in Info format (usually created from
+Texinfo source files).
+
+Copyright (C) 1992, 1993, 1996, 1997, 1998, 1999, 2001, 2002,
+2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Custom-Key-Bindings"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Copying-This-Manual.html#Copying-This-Manual">Copying This Manual</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Variables.html#Variables">Variables</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">12 Customizing Key Bindings and Variables</h2>
+
+<p><a name="index-default-key-bindings_002c-overriding-374"></a><a name="index-overriding-default-key-bindings-375"></a><a name="index-customizing-key-bindings-376"></a><a name="index-key-bindings_002c-customizing-377"></a><a name="index-infokey-378"></a><a name="index-g_t_002einfo-379"></a><a name="index-g_t_002einfokey-380"></a><a name="index-g_t_005finfo-file-_0028MS_002dDOS_0029-381"></a>
+For those whose editor/pager of choice is not Emacs and who are not
+entirely satisfied with the &ndash;vi-keys option (see <a href="_002d_002dvi_002dkeys.html#g_t_002d_002dvi_002dkeys">&ndash;vi-keys</a>), GNU
+Info provides a way to define different key-to-command bindings and
+variable settings from the defaults described in this document.
+
+   <p>On startup, GNU Info looks for a configuration file in the invoker's
+HOME directory called <samp><span class="file">.info</span></samp><a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>.  If it is present, and
+appears to contain Info configuration data, and was created with the
+current version of the <code>infokey</code> command, then Info adopts the
+key bindings and variable settings contained therein.
+
+   <p>The <samp><span class="file">.info</span></samp> file contains compact, non-textual data for reasons of
+efficiency and because its design was lifted wholesale from the GNU Less
+program, which also does it that way.  It must be created by compiling a
+textual source file using the <code>infokey</code> command.
+
+<ul class="menu">
+<li><a accesskey="1" href="Invoking-infokey.html#Invoking-infokey">Invoking infokey</a>
+<li><a accesskey="2" href="infokey-source-format.html#infokey-source-format">infokey source format</a>
+</ul>
+
+   <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> Due to the limitations of
+DOS filesystems, the MS-DOS version of Info looks for a file
+<samp><span class="file">_info</span></samp> instead.  If the <samp><span class="env">HOME</span></samp> variable is not defined, Info
+additionally looks in the current directory.</p>
+
+   <p><hr></div>
+
+   </body></html>
+

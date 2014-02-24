@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+<title>table - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Two_002dcolumn-Tables.html#Two_002dcolumn-Tables" title="Two-column Tables">
+<link rel="next" href="ftable-vtable.html#ftable-vtable" title="ftable vtable">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="table"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="ftable-vtable.html#ftable-vtable">ftable vtable</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Two_002dcolumn-Tables.html#Two_002dcolumn-Tables">Two-column Tables</a>
+<hr>
+</div>
+
+<h4 class="subsection">11.4.1 Using the <code>@table</code> Command</h4>
+
+<p><a name="index-Definition-lists_002c-typesetting-523"></a>Use the <code>@table</code> command to produce two-column tables.  It is
+usually listed for &ldquo;definition lists&rdquo; of various sorts, where you
+have a list of terms and a brief text with each one.
+
+  <p>Write the <code>@table</code> command at the beginning of a line, after a
+blank line, and follow it on the same line with an argument that is a
+Texinfo &ldquo;indicating&rdquo; command such as <code>@code</code>, <code>@samp</code>,
+<code>@var</code>, <code>@option</code>, or <code>@kbd</code> (see <a href="Indicating.html#Indicating">Indicating</a>).
+
+  <p>This command will be applied to the text that goes into the first
+column of each item and thus determines how it will be highlighted. 
+For example, <code>@table @code</code> will cause the text in the first
+column to be output as if it <code>@code</code> command.
+
+  <p><a name="index-asis-524"></a>You may also use the <code>@asis</code> command as an argument to
+<code>@table</code>.  <code>@asis</code> is a command that does nothing; if you
+use this command after <code>@table</code>, the first column entries are
+output without added highlighting (&ldquo;as is&rdquo;).
+
+  <p>The <code>@table</code> command works with other commands besides those
+explicitly mentioned here.  However, you can only use commands that
+normally take arguments in braces.  (In this case, however, you use
+the command name without an argument, because the subsequent
+<code>@item</code>'s will supply the argument.)
+
+  <p><a name="index-item-525"></a>Begin each table entry with an <code>@item</code> command at the beginning
+of a line.  Write the first column text on the same line as the
+<code>@item</code> command.  Write the second column text on the line
+following the <code>@item</code> line and on subsequent lines.  (You do not
+need to type anything for an empty second column entry.)  You may
+write as many lines of supporting text as you wish, even several
+paragraphs.  But only the text on the same line as the <code>@item</code>
+will be placed in the first column (including any footnotes).
+
+  <p>Normally, you should put a blank line before an <code>@item</code> line. 
+This puts a blank line in the Info file.  Except when the entries are
+very brief, a blank line looks better.
+
+  <p>End the table with a line consisting of <code>@end table</code>, followed
+by a blank line.  TeX will always start a new paragraph after the
+table, so the blank line is needed for the Info output to be analogous.
+
+  <p>The following table, for example, highlights the text in the first
+column with an <code>@samp</code> command:
+
+<pre class="example">     @table @samp
+     @item foo
+     This is the text for
+     @samp{foo}.
+     
+     @item bar
+     Text for @samp{bar}.
+     @end table
+</pre>
+  <p class="noindent">This produces:
+
+     <dl>
+<dt>`<samp><span class="samp">foo</span></samp>'<dd>This is the text for
+`<samp><span class="samp">foo</span></samp>'. 
+<br><dt>`<samp><span class="samp">bar</span></samp>'<dd>Text for `<samp><span class="samp">bar</span></samp>'. 
+</dl>
+
+  <p>If you want to list two or more named items with a single block of
+text, use the <code>@itemx</code> command.  (See <a href="itemx.html#itemx"><code>@itemx</code></a>.)
+
+  </body></html>
+

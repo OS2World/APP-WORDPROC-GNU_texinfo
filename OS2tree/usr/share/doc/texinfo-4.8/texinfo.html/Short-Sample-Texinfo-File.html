@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+<title>Short Sample Texinfo File - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Sample-Texinfo-Files.html#Sample-Texinfo-Files" title="Sample Texinfo Files">
+<link rel="next" href="GNU-Sample-Texts.html#GNU-Sample-Texts" title="GNU Sample Texts">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Short-Sample-Texinfo-File"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="GNU-Sample-Texts.html#GNU-Sample-Texts">GNU Sample Texts</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Sample-Texinfo-Files.html#Sample-Texinfo-Files">Sample Texinfo Files</a>
+<hr>
+</div>
+
+<h3 class="section">C.1 Short Sample</h3>
+
+<p><a name="index-Sample-Texinfo-file_002c-no-comments-1255"></a>
+Here is a complete, short sample Texinfo file, without any commentary. 
+You can see this file, with comments, in the first chapter.  See <a href="Short-Sample.html#Short-Sample">Short Sample</a>.
+
+  <p>In a nutshell: The <samp><span class="command">makeinfo</span></samp> program transforms a Texinfo
+source file such as this into an Info file or HTML; and TeX typesets
+it for a printed manual.
+
+  <pre class="sp">
+
+</pre>
+<pre class="example">     \input texinfo   @c -*-texinfo-*-
+     @c %**start of header
+     @setfilename sample.info
+     @settitle Sample Manual 1.0
+     @c %**end of header
+     
+     @copying
+     This is a short example of a complete Texinfo file.
+     
+     Copyright (C) 2004 Free Software Foundation, Inc.
+     @end copying
+     
+     @titlepage
+     @title Sample Title
+     @page
+     @vskip 0pt plus 1filll
+     @insertcopying
+     @end titlepage
+     
+     @c Output the table of the contents at the beginning.
+     @contents
+     
+     @ifnottex
+     @node Top
+     @top GNU Sample
+     
+     @insertcopying
+     @end ifnottex
+     
+     @menu
+     * First Chapter::    The first chapter is the
+                           only chapter in this sample.
+     * Index::            Complete index.
+     @end menu
+     
+     
+     @node First Chapter
+     @chapter First Chapter
+     
+     @cindex chapter, first
+     
+     This is the first chapter.
+     @cindex index entry, another
+     
+     Here is a numbered list.
+     
+     @enumerate
+     @item
+     This is the first item.
+     
+     @item
+     This is the second item.
+     @end enumerate
+     
+     
+     @node Index
+     @unnumbered Index
+     
+     @printindex cp
+     
+     @bye
+</pre>
+  </body></html>
+

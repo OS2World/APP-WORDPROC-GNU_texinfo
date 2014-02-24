@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+<title>Heading Choice - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Headings.html#Headings" title="Headings">
+<link rel="prev" href="Heading-Format.html#Heading-Format" title="Heading Format">
+<link rel="next" href="Custom-Headings.html#Custom-Headings" title="Custom Headings">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Heading-Choice"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Custom-Headings.html#Custom-Headings">Custom Headings</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Heading-Format.html#Heading-Format">Heading Format</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Headings.html#Headings">Headings</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">E.3 Specifying the Type of Heading</h3>
+
+<p>TeX does not begin to generate page headings for a standard Texinfo
+file until it reaches the <code>@end titlepage</code> command.  Thus, the
+title and copyright pages are not numbered.  The <code>@end
+titlepage</code> command causes TeX to begin to generate page headings
+according to a standard format specified by the
+<code>@setchapternewpage</code> command that precedes the
+<code>@titlepage</code> section.
+
+  <p>There are four possibilities:
+
+     <dl>
+<dt>No <code>@setchapternewpage</code> command<dd>Cause TeX to specify the single-sided heading format, with chapters
+on new pages. This is the same as <code>@setchapternewpage on</code>.
+
+     <br><dt><code>@setchapternewpage on</code><dd>Specify the single-sided heading format, with chapters on new pages.
+
+     <br><dt><code>@setchapternewpage off</code><dd>Cause TeX to start a new chapter on the same page as the last page of
+the preceding chapter, after skipping some vertical whitespace.  Also
+cause TeX to typeset for single-sided printing.  (You can override
+the headers format with the <code>@headings double</code> command; see
+<a href="headings-on-off.html#headings-on-off">The <code>@headings</code> Command</a>.)
+
+     <br><dt><code>@setchapternewpage odd</code><dd>Specify the double-sided heading format, with chapters on new pages. 
+</dl>
+
+<p class="noindent">Texinfo lacks an <code>@setchapternewpage even</code> command.
+
+  </body></html>
+

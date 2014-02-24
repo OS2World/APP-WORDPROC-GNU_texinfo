@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+<title>verb - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Indicating.html#Indicating" title="Indicating">
+<link rel="prev" href="samp.html#samp" title="samp">
+<link rel="next" href="var.html#var" title="var">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="verb"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="var.html#var">var</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="samp.html#samp">samp</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Indicating.html#Indicating">Indicating</a>
+<hr>
+</div>
+
+<h4 class="subsection">9.1.6 <code>@verb</code>{&lt;char&gt;<var>text</var>&lt;char&gt;}</h4>
+
+<p><a name="index-verb-418"></a><a name="index-Verbatim-in_002dline-text-419"></a>
+<a name="index-Delimiter-character_002c-for-verbatim-420"></a>Use the <code>@verb</code> command to print a verbatim sequence of
+characters.
+
+  <p>Like LaTeX's <code>\verb</code> command, the verbatim text can be quoted using
+any unique delimiter character.  Enclose the verbatim text, including the
+delimiters, in braces.  Text is printed in a fixed-width font:
+
+<pre class="example">     How many @verb{|@|}-escapes does one need to print this
+     @verb{.@a @b @c.} string or @verb{+@'e?`!`{}\+} this?
+</pre>
+  <p class="noindent">produces
+
+<pre class="example">     How many <tt>@</tt>-escapes does one need to print this
+     <tt>@a @b @c</tt> string or these <tt>@'e?`{}!`\</tt> this?
+</pre>
+  <p>This is in contrast to <code>@samp</code> (see the previous section),
+<code>@code</code>, and similar commands; in those cases, the argument is
+normal Texinfo text, where the three characters <code>@{}</code> are
+special.  With <code>@verb</code>, nothing is special except the delimiter
+character you choose.
+
+  <p>It is not reliable to use <code>@verb</code> inside other Texinfo
+constructs.  In particular, it does not work to use <code>@verb</code> in
+anything related to cross-referencing, such as section titles or
+figure captions.
+
+  </body></html>
+

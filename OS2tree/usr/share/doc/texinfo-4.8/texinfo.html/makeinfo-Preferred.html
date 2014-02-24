@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+<title>makeinfo Preferred - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Catching-Mistakes.html#Catching-Mistakes" title="Catching Mistakes">
+<link rel="next" href="Debugging-with-Info.html#Debugging-with-Info" title="Debugging with Info">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="makeinfo-Preferred"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Debugging-with-Info.html#Debugging-with-Info">Debugging with Info</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Catching-Mistakes.html#Catching-Mistakes">Catching Mistakes</a>
+<hr>
+</div>
+
+<h3 class="section">F.1 <code>makeinfo</code> Find Errors</h3>
+
+<p>The <code>makeinfo</code> program does an excellent job of catching errors
+and reporting them&mdash;far better than <code>texinfo-format-region</code> or
+<code>texinfo-format-buffer</code>.  In addition, the various functions for
+automatically creating and updating node pointers and menus remove
+many opportunities for human error.
+
+  <p>If you can, use the updating commands to create and insert pointers
+and menus.  These prevent many errors.  Then use <code>makeinfo</code> (or
+its Texinfo mode manifestations, <code>makeinfo-region</code> and
+<code>makeinfo-buffer</code>) to format your file and check for other
+errors.  This is the best way to work with Texinfo.  But if you
+cannot use <code>makeinfo</code>, or your problem is very puzzling, then you
+may want to use the tools described in this appendix.
+
+  </body></html>
+

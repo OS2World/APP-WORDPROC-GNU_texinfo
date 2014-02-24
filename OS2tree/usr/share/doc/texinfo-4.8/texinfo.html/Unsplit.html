@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+<title>Unsplit - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Running-Info_002dValidate.html#Running-Info_002dValidate" title="Running Info-Validate">
+<link rel="prev" href="Using-Info_002dvalidate.html#Using-Info_002dvalidate" title="Using Info-validate">
+<link rel="next" href="Tagifying.html#Tagifying" title="Tagifying">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Unsplit"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Tagifying.html#Tagifying">Tagifying</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Using-Info_002dvalidate.html#Using-Info_002dvalidate">Using Info-validate</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Running-Info_002dValidate.html#Running-Info_002dValidate">Running Info-Validate</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h4 class="subsection">F.6.2 Creating an Unsplit File</h4>
+
+<p><a name="index-Creating-an-unsplit-file-1323"></a><a name="index-Unsplit-file-creation-1324"></a>
+You can run <code>Info-validate</code> only on a single Info file that has a
+tag table.  The command will not work on the indirect subfiles that
+are generated when a master file is split.  If you have a large file
+(longer than 300,000 bytes or so), you need to run the
+<code>texinfo-format-buffer</code> or <code>makeinfo-buffer</code> command in such
+a way that it does not create indirect subfiles.  You will also need
+to create a tag table for the Info file.  After you have done this,
+you can run <code>Info-validate</code> and look for badly referenced
+nodes.
+
+  <p>The first step is to create an unsplit Info file.  To prevent
+<code>texinfo-format-buffer</code> from splitting a Texinfo file into
+smaller Info files, give a prefix to the <kbd>M-x
+texinfo-format-buffer</kbd> command:
+
+<pre class="example">     C-u M-x texinfo-format-buffer
+</pre>
+  <p class="noindent">or else
+
+<pre class="example">     C-u C-c C-e C-b
+</pre>
+  <p class="noindent">When you do this, Texinfo will not split the file and will not create
+a tag table for it. 
+<a name="index-Making-a-tag-table-manually-1325"></a><a name="index-Tag-table_002c-making-manually-1326"></a>
+
+  </body></html>
+

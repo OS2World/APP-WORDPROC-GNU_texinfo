@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+<title>Emacs Editing - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Texinfo-Mode.html#Texinfo-Mode" title="Texinfo Mode">
+<link rel="prev" href="Texinfo-Mode-Overview.html#Texinfo-Mode-Overview" title="Texinfo Mode Overview">
+<link rel="next" href="Inserting.html#Inserting" title="Inserting">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Emacs-Editing"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Inserting.html#Inserting">Inserting</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Texinfo-Mode-Overview.html#Texinfo-Mode-Overview">Texinfo Mode Overview</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Texinfo-Mode.html#Texinfo-Mode">Texinfo Mode</a>
+<hr>
+</div>
+
+<h3 class="section">2.2 The Usual GNU Emacs Editing Commands</h3>
+
+<p>In most cases, the usual Text mode commands work the same in Texinfo
+mode as they do in Text mode.  Texinfo mode adds new editing commands
+and tools to GNU Emacs' general purpose editing features.  The major
+difference concerns filling.  In Texinfo mode, the paragraph
+separation variable and syntax table are redefined so that Texinfo
+commands that should be on lines of their own are not inadvertently
+included in paragraphs.  Thus, the <kbd>M-q</kbd> (<code>fill-paragraph</code>)
+command will refill a paragraph but not mix an indexing command on a
+line adjacent to it into the paragraph.
+
+  <p>In addition, Texinfo mode sets the <code>page-delimiter</code> variable to
+the value of <code>texinfo-chapter-level-regexp</code>; by default, this is
+a regular expression matching the commands for chapters and their
+equivalents, such as appendices.  With this value for the page
+delimiter, you can jump from chapter title to chapter title with the
+<kbd>C-x ]</kbd> (<code>forward-page</code>) and <kbd>C-x [</kbd>
+(<code>backward-page</code>) commands and narrow to a chapter with the
+<kbd>C-x p</kbd> (<code>narrow-to-page</code>) command.  (See <a href="../emacs/Pages.html#Pages">Pages</a>, for details about the page commands.)
+
+  <p>You may name a Texinfo file however you wish, but the convention is to
+end a Texinfo file name with one of the extensions
+<samp><span class="file">.texinfo</span></samp>, <samp><span class="file">.texi</span></samp>, <samp><span class="file">.txi</span></samp>, or <samp><span class="file">.tex</span></samp>.  A longer
+extension is preferred, since it is explicit, but a shorter extension
+may be necessary for operating systems that limit the length of file
+names.  GNU Emacs automatically enters Texinfo mode when you visit a
+file with a <samp><span class="file">.texinfo</span></samp>, <samp><span class="file">.texi</span></samp> or <samp><span class="file">.txi</span></samp>
+extension.  Also, Emacs switches to Texinfo mode
+when you visit a
+file that has `<samp><span class="samp">-*-texinfo-*-</span></samp>' in its first line.  If ever you are
+in another mode and wish to switch to Texinfo mode, type <code>M-x
+texinfo-mode</code>.
+
+  <p>Like all other Emacs features, you can customize or enhance Texinfo
+mode as you wish.  In particular, the keybindings are very easy to
+change.  The keybindings described here are the default or standard
+ones.
+
+  </body></html>
+

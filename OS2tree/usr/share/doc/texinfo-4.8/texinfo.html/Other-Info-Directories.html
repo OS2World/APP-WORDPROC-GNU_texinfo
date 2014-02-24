@@ -1,0 +1,172 @@
+<html lang="en">
+<head>
+<title>Other Info Directories - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Installing-an-Info-File.html#Installing-an-Info-File" title="Installing an Info File">
+<link rel="prev" href="New-Info-File.html#New-Info-File" title="New Info File">
+<link rel="next" href="Installing-Dir-Entries.html#Installing-Dir-Entries" title="Installing Dir Entries">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Other-Info-Directories"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Installing-Dir-Entries.html#Installing-Dir-Entries">Installing Dir Entries</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="New-Info-File.html#New-Info-File">New Info File</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Installing-an-Info-File.html#Installing-an-Info-File">Installing an Info File</a>
+<hr>
+</div>
+
+<h4 class="subsection">21.2.3 Info Files in Other Directories</h4>
+
+<p><a name="index-Installing-Info-in-another-directory-1179"></a><a name="index-Info-installed-in-another-directory-1180"></a><a name="index-Another-Info-directory-1181"></a><a name="index-g_t_0040file_007bdir_007d-files-and-Info-directories-1182"></a>
+If an Info file is not in the <samp><span class="file">info</span></samp> directory, there are three
+ways to specify its location:
+
+     <ol type=1 start=1>
+<li>Write the pathname in the <samp><span class="file">dir</span></samp> file as the second part of the menu.
+
+     <li>If you are using Emacs, list the name of the file in a second <samp><span class="file">dir</span></samp>
+file, in its directory; and then add the name of that directory to the
+<code>Info-directory-list</code> variable in your personal or site
+initialization file.
+
+     <p>This variable tells Emacs where to look for <samp><span class="file">dir</span></samp> files (the files
+must be named <samp><span class="file">dir</span></samp>).  Emacs merges the files named <samp><span class="file">dir</span></samp> from
+each of the listed directories.  (In Emacs version 18, you can set the
+<code>Info-directory</code> variable to the name of only one
+directory.)
+
+     <li>Specify the Info directory name in the <code>INFOPATH</code> environment
+variable in your <samp><span class="file">.profile</span></samp> or <samp><span class="file">.cshrc</span></samp> initialization file. 
+(Only you and others who set this environment variable will be able to
+find Info files whose location is specified this way.)
+       </ol>
+
+  <p>For example, to reach a test file in the <samp><span class="file">/home/bob/info</span></samp>
+directory, you could add an entry like this to the menu in the
+standard <samp><span class="file">dir</span></samp> file:
+
+<pre class="example">     * Test: (/home/bob/info/info-test).  Bob's own test file.
+</pre>
+  <p class="noindent">In this case, the absolute file name of the <samp><span class="file">info-test</span></samp> file is
+written as the second part of the menu entry.
+
+  <p>Alternatively, you could write the following in your <samp><span class="file">.emacs</span></samp> file:
+
+  <p><a name="index-Info_002ddirectory_002dlist-1183"></a>
+<pre class="example">     (require 'info)
+     (setq Info-directory-list
+      (cons (expand-file-name "/home/bob/info")
+            Info-directory-list))
+</pre>
+  <p>This tells Emacs to merge the system <samp><span class="file">dir</span></samp> file with the <samp><span class="file">dir</span></samp>
+file in <samp><span class="file">/home/bob/info</span></samp>.  Thus, Info will list the
+<samp><span class="file">/home/bob/info/info-test</span></samp> file as a menu entry in the
+<samp><span class="file">/home/bob/info/dir</span></samp> file.  Emacs does the merging only when
+<kbd>M-x info</kbd> is first run, so if you want to set
+<code>Info-directory-list</code> in an Emacs session where you've already run
+<code>info</code>, you must <code>(setq Info-dir-contents nil)</code> to force Emacs
+to recompose the <samp><span class="file">dir</span></samp> file.
+
+  <p><a name="index-INFOPATH-1184"></a><a name="index-Environment-variable-_0040code_007bINFOPATH_007d-1185"></a>Finally, you can tell Info where to look by setting the <code>INFOPATH</code>
+environment variable in your shell startup file, such as <samp><span class="file">.cshrc</span></samp>,
+<samp><span class="file">.profile</span></samp> or <samp><span class="file">autoexec.bat</span></samp>.  If you use a Bourne-compatible
+shell such as <code>sh</code> or <code>bash</code> for your shell command
+interpreter, you set the <code>INFOPATH</code> environment variable in the
+<samp><span class="file">.profile</span></samp> initialization file; but if you use <code>csh</code> or
+<code>tcsh</code>, you set the variable in the <samp><span class="file">.cshrc</span></samp> initialization
+file.  On MS-DOS/MS-Windows systems, you must set <code>INFOPATH</code> in
+your <samp><span class="file">autoexec.bat</span></samp> file or in the Registry.  Each type of shell
+uses a different syntax.
+
+     <ul>
+<li>In a <samp><span class="file">.cshrc</span></samp> file, you could set the <code>INFOPATH</code>
+variable as follows:
+
+     <pre class="smallexample">          setenv INFOPATH .:~/info:/usr/local/emacs/info
+     </pre>
+     <li>In a <samp><span class="file">.profile</span></samp> file, you would achieve the same effect by
+writing:
+
+     <pre class="smallexample">          INFOPATH=.:$HOME/info:/usr/local/emacs/info
+          export INFOPATH
+     </pre>
+     <li><a name="index-autoexec_002ebat-1186"></a>In a <samp><span class="file">autoexec.bat</span></samp> file, you write this command<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>:
+
+     <pre class="smallexample">          set INFOPATH=.;%HOME%/info;c:/usr/local/emacs/info
+     </pre>
+     </ul>
+
+<p class="noindent">The `<samp><span class="samp">.</span></samp>' indicates the current directory as usual.  Emacs uses the
+<code>INFOPATH</code> environment variable to initialize the value of Emacs's
+own <code>Info-directory-list</code> variable.  The stand-alone Info reader
+merges any files named <samp><span class="file">dir</span></samp> in any directory listed in the
+<samp><span class="env">INFOPATH</span></samp> variable into a single menu presented to you in the node
+called `<samp><span class="samp">(dir)Top</span></samp>'.
+
+  <p><a name="index-Colon_002c-last-in-_0040env_007bINFOPATH_007d-1187"></a>However you set <samp><span class="env">INFOPATH</span></samp>, if its last character is a
+colon<a rel="footnote" href="#fn-2" name="fnd-2"><sup>2</sup></a>, this
+is replaced by the default (compiled-in) path.  This gives you a way to
+augment the default path with new directories without having to list all
+the standard places.  For example (using <code>sh</code> syntax):
+
+<pre class="example">     INFOPATH=/local/info:
+     export INFOPATH
+</pre>
+  <p class="noindent">will search <samp><span class="file">/local/info</span></samp> first, then the standard directories. 
+Leading or doubled colons are not treated specially.
+
+  <p><a name="index-g_t_0040file_007bdir_007d-file_002c-creating-your-own-1188"></a>When you create your own <samp><span class="file">dir</span></samp> file for use with
+<code>Info-directory-list</code> or <samp><span class="env">INFOPATH</span></samp>, it's easiest to start by
+copying an existing <samp><span class="file">dir</span></samp> file and replace all the text after the
+`<samp><span class="samp">* Menu:</span></samp>' with your desired entries.  That way, the punctuation and
+special CTRL-_ characters that Info needs will be present.
+
+  <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> Note the
+use of `<samp><span class="samp">;</span></samp>' as the directory separator, and a different syntax for
+using values of other environment variables.</p>
+
+  <p class="footnote"><small>[<a name="fn-2" href="#fnd-2">2</a>]</small> On MS-DOS/MS-Windows systems, use semi-colon instead.</p>
+
+  <p><hr></div>
+
+  </body></html>
+

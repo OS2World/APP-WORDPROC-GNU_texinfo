@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+<title>Def Cmd Template - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Definition-Commands.html#Definition-Commands" title="Definition Commands">
+<link rel="next" href="Def-Cmd-Continuation-Lines.html#Def-Cmd-Continuation-Lines" title="Def Cmd Continuation Lines">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Def-Cmd-Template"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Def-Cmd-Continuation-Lines.html#Def-Cmd-Continuation-Lines">Def Cmd Continuation Lines</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Definition-Commands.html#Definition-Commands">Definition Commands</a>
+<hr>
+</div>
+
+<h3 class="section">16.1 The Template for a Definition</h3>
+
+<p><a name="index-Definition-template-826"></a><a name="index-Template-for-a-definition-827"></a>
+The <code>@deffn</code> command is used for definitions of entities that
+resemble functions.  To write a definition using the <code>@deffn</code>
+command, write the <code>@deffn</code> command at the beginning of a line
+and follow it on the same line by the category of the entity, the name
+of the entity itself, and its arguments (if any).  Then write the body
+of the definition on succeeding lines.  (You may embed examples in the
+body.)  Finally, end the definition with an <code>@end deffn</code> command
+written on a line of its own.
+
+  <p>The other definition commands follow the same format: a line with the
+<code>@def...</code> command and whatever arguments are appropriate for
+that command; the body of the definition; and a corresponding
+<code>@end</code> line.
+
+  <p>The template for a definition looks like this:
+
+<pre class="example">     @deffn <var>category</var> <var>name</var> <var>arguments</var>...
+     <var>body-of-definition</var>
+     @end deffn
+</pre>
+  <p class="noindent">For example,
+
+<pre class="example">     @deffn Command forward-word count
+     This command moves point forward @var{count} words
+     (or backward if @var{count} is negative). ...
+     @end deffn
+</pre>
+  <p class="noindent">produces
+
+  <blockquote>
+
+     <div class="defun">
+&mdash; Command: <b>forward-word</b><var> count<a name="index-forward_002dword-828"></a></var><br>
+<blockquote><p>This function moves point forward <var>count</var> words
+(or backward if <var>count</var> is negative). <small class="dots">...</small>
+</p></blockquote></div>
+  </blockquote>
+
+  <p>Capitalize the category name like a title.  If the name of the
+category contains spaces, as in the phrase `Interactive Command',
+enclose it in braces.  For example:
+
+<pre class="example">     @deffn {Interactive Command} isearch-forward
+     ...
+     @end deffn
+</pre>
+  <p class="noindent">Otherwise, the second word will be mistaken for the name of the
+entity.  As a general rule, when any of the arguments in the heading
+line <em>except</em> the last one are more than one word, you need to
+enclose them in braces.
+
+  <p>Some of the definition commands are more general than others.  The
+<code>@deffn</code> command, for example, is the general definition command
+for functions and the like&mdash;for entities that may take arguments. 
+When you use this command, you specify the category to which the
+entity belongs.  Three predefined, specialized variations
+(<code>@defun</code>, <code>@defmac</code>, and <code>@defspec</code>) specify the
+category for you: &ldquo;Function&rdquo;, &ldquo;Macro&rdquo;, and &ldquo;Special Form&rdquo;
+respectively.  (In Lisp, a special form is an entity much like a
+function.)  Similarly, the general <code>@defvr</code> command is
+accompanied by several specialized variations for describing
+particular kinds of variables.
+
+  <p>See <a href="Sample-Function-Definition.html#Sample-Function-Definition">Sample Function Definition</a>, for a detailed example of a
+function definition, including the use of <code>@example</code> inside the
+definition.
+
+  <p><a name="index-Macros-in-definition-commands-829"></a>Unfortunately, due to implementation difficulties, macros are not expanded
+in <code>@deffn</code> and all the other definition commands.
+
+  </body></html>
+

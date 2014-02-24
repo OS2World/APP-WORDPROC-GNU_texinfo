@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+<title>Print with lpr - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Hardcopy.html#Hardcopy" title="Hardcopy">
+<link rel="prev" href="Format-with-texi2dvi.html#Format-with-texi2dvi" title="Format with texi2dvi">
+<link rel="next" href="Within-Emacs.html#Within-Emacs" title="Within Emacs">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Print-with-lpr"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Within-Emacs.html#Within-Emacs">Within Emacs</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Format-with-texi2dvi.html#Format-with-texi2dvi">Format with texi2dvi</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Hardcopy.html#Hardcopy">Hardcopy</a>
+<hr>
+</div>
+
+<h3 class="section">20.4 Shell Print Using <code>lpr -d</code></h3>
+
+<p><a name="index-lpr-_0040r_007b_0028DVI-print-command_0029_007d-1004"></a>
+The precise command to print a DVI file depends on your system
+installation.  Two common ones are `<samp><span class="samp">dvips foo.dvi -o</span></samp>' and `<samp><span class="samp">lpr
+-d foo.dvi</span></samp>'.
+
+  <p>For example, the following commands will (perhaps) suffice to sort the
+indices, format, and print the <cite>Bison Manual</cite>:
+
+<pre class="example">     tex bison.texinfo
+     texindex bison.??
+     tex bison.texinfo
+     lpr -d bison.dvi
+</pre>
+  <p class="noindent">(Remember that the shell commands may be different at your site; but
+these are commonly used versions.)
+
+  <p>Using the <code>texi2dvi</code> shell script (see the previous section):
+
+<pre class="example">     texi2dvi bison.texinfo
+     lpr -d bison.dvi
+     # or perhaps dvips bison.dvi -o
+</pre>
+  <p><a name="index-Shell-printing_002c-on-MS_002dDOS_002fMS_002dWindows-1005"></a><a name="index-Printing-DVI-files_002c-on-MS_002dDOS_002fMS_002dWindows-1006"></a><a name="index-lpr_0040r_007b_002dd_002c-replacements-on-MS_002dDOS_002fMS_002dWindows_007d-1007"></a><code>lpr</code> is a standard program on Unix systems, but it is usually
+absent on MS-DOS/MS-Windows.  Some network packages come with a
+program named <code>lpr</code>, but these are usually limited to sending files
+to a print server over the network, and generally don't support the
+`<samp><span class="samp">-d</span></samp>' option.  If you are unfortunate enough to work on one of these
+systems, you have several alternative ways of printing DVI files:
+
+     <ul>
+<li>Find and install a Unix-like <code>lpr</code> program, or its clone. 
+If you can do that, you will be able to print DVI files just like
+described above.
+
+     <li>Send the DVI files to a network printer queue for DVI files. 
+Some network printers have special queues for printing DVI files.  You
+should be able to set up your network software to send files to that
+queue.  In some cases, the version of <code>lpr</code> which comes with your
+network software will have a special option to send a file to specific
+queues, like this:
+
+     <pre class="example">          lpr -Qdvi -hprint.server.domain bison.dvi
+     </pre>
+     <li>Convert the DVI file to a Postscript or PCL file and send it to your
+local printer.  See <a href="../dvips/Invoking-Dvips.html#Invoking-Dvips">Invoking Dvips</a>, and the man
+pages for <code>dvilj</code>, for detailed description of these tools.  Once
+the DVI file is converted to the format your local printer understands
+directly, just send it to the appropriate port, usually `<samp><span class="samp">PRN</span></samp>'. 
+</ul>
+
+  </body></html>
+

@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+<title>The Mode Line - GNU Info 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Info 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Window-Commands.html#Window-Commands" title="Window Commands">
+<link rel="next" href="Basic-Windows.html#Basic-Windows" title="Basic Windows">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Info (version 4.8, 14 December 2004),
+a program for viewing documents in Info format (usually created from
+Texinfo source files).
+
+Copyright (C) 1992, 1993, 1996, 1997, 1998, 1999, 2001, 2002,
+2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="The-Mode-Line"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Basic-Windows.html#Basic-Windows">Basic Windows</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Window-Commands.html#Window-Commands">Window Commands</a>
+<hr>
+</div>
+
+<h3 class="section">8.1 The Mode Line</h3>
+
+<p>A <dfn>mode line</dfn> is a line of inverse video which appears at the bottom
+of an Info window.  It describes the contents of the window just above
+it; this information includes the name of the file and node appearing in
+that window, the number of screen lines it takes to display the node,
+and the percentage of text that is above the top of the window.  It can
+also tell you if the indirect tags table for this Info file needs to be
+updated, and whether or not the Info file was compressed when stored on
+disk.
+
+   <p>Here is a sample mode line for a window containing an uncompressed file
+named <samp><span class="file">dir</span></samp>, showing the node `<samp><span class="samp">Top</span></samp>'.
+
+<pre class="example">     -----Info: (dir)Top, 40 lines --Top-------------------------------------
+                 ^^   ^   ^^^        ^^
+               (file)Node #lines    where
+</pre>
+   <p>When a node comes from a file which is compressed on disk, this is
+indicated in the mode line with two small `<samp><span class="samp">z</span></samp>''s.  In addition, if
+the Info file containing the node has been split into subfiles, the name
+of the subfile containing the node appears in the modeline as well:
+
+<pre class="example">     --zz-Info: (emacs)Top, 291 lines --Top-- Subfile: emacs-1.Z-------------
+</pre>
+   <p>Truncation of long lines (as opposed to wrapping them to the next
+display line, see <a href="Scrolling-Commands.html#Scrolling-Commands">toggle-wrap</a>) is indicated by a
+`<samp><span class="samp">$</span></samp>' at the left edge of the mode line:
+
+<pre class="example">     --$--Info: (texinfo)Top, 480 lines --Top-- Subfile: texinfo-1-----------
+</pre>
+   <p>When Info makes a node internally, such that there is no corresponding
+info file on disk, the name of the node is surrounded by asterisks
+(`<samp><span class="samp">*</span></samp>').  The name itself tells you what the contents of the window
+are; the sample mode line below shows an internally constructed node
+showing possible completions:
+
+<pre class="example">     -----Info: *Completions*, 7 lines --All---------------------------------
+</pre>
+   </body></html>
+

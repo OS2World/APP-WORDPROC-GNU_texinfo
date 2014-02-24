@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+<title>First Node - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="node.html#node" title="node">
+<link rel="prev" href="Node-Line-Requirements.html#Node-Line-Requirements" title="Node Line Requirements">
+<link rel="next" href="makeinfo-top-command.html#makeinfo-top-command" title="makeinfo top command">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="First-Node"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="makeinfo-top-command.html#makeinfo-top-command">makeinfo top command</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Node-Line-Requirements.html#Node-Line-Requirements">Node Line Requirements</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="node.html#node">node</a>
+<hr>
+</div>
+
+<h4 class="subsection">6.3.5 The First Node</h4>
+
+<p><a name="index-Top-node-is-first-323"></a><a name="index-First-node-324"></a>
+The first node of a Texinfo file is the <dfn>Top</dfn> node, except in an
+included file (see <a href="Include-Files.html#Include-Files">Include Files</a>).  The Top node should contain a
+short summary, copying permissions, and a master menu.  See <a href="The-Top-Node.html#The-Top-Node">The Top Node</a>, for more information on the Top node contents and examples.
+
+  <p>Here is a description of the node pointers to be used in the Top node:
+
+     <ul>
+<li><a name="index-Up-node-of-Top-node-325"></a><a name="index-g_t_0028dir_0029-as-Up-node-of-Top-node-326"></a>The Top node (which must be named `<samp><span class="samp">top</span></samp>' or `<samp><span class="samp">Top</span></samp>') should have
+as its `Up' node the name of a node in another file, where there is a
+menu that leads to this file.  Specify the file name in parentheses.
+
+     <p>Usually, all Info files are installed in the same Info directory tree;
+in this case, use `<samp><span class="samp">(dir)</span></samp>' as the parent of the Top node; this is
+short for `<samp><span class="samp">(dir)top</span></samp>', and specifies the Top node in the <samp><span class="file">dir</span></samp>
+file, which contains the main menu for the Info system as a whole.
+
+     <li><a name="index-Previous-node-of-Top-node-327"></a>On the other hand, do not define the `Previous' node of the Top node to
+be `<samp><span class="samp">(dir)</span></samp>', as it causes confusing behavior for users: if you are
+in the Top node and hits &lt;DEL&gt; to go backwards, you wind up in the
+middle of the some other entry in the <samp><span class="file">dir</span></samp> file, which has nothing
+to do with what you were reading.
+
+     <li><a name="index-Next-node-of-Top-node-328"></a>The `Next' node of the Top node should be the first chapter in your
+document.
+
+  </ul>
+
+  <p>See <a href="Installing-an-Info-File.html#Installing-an-Info-File">Installing an Info File</a>, for more information about installing
+an Info file in the <samp><span class="file">info</span></samp> directory.
+
+  <p>For concreteness, here is an example with explicit pointers (which you
+can maintain automatically with the texinfo mode commands):
+
+  <p>Or you can leave the pointers off entirely and let the tools implicitly
+define them.  This is recommended.  Thus:
+
+<pre class="example">     @node Top
+</pre>
+  </body></html>
+

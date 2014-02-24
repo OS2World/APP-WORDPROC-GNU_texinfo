@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+<title>Combining Indices - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Indices.html#Indices" title="Indices">
+<link rel="prev" href="Indexing-Commands.html#Indexing-Commands" title="Indexing Commands">
+<link rel="next" href="New-Indices.html#New-Indices" title="New Indices">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Combining-Indices"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="New-Indices.html#New-Indices">New Indices</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Indexing-Commands.html#Indexing-Commands">Indexing Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Indices.html#Indices">Indices</a>
+<hr>
+</div>
+
+<h3 class="section">13.4 Combining Indices</h3>
+
+<p><a name="index-Combining-indices-616"></a><a name="index-Indices_002c-combining-them-617"></a>
+Sometimes you will want to combine two disparate indices such as
+functions and concepts, perhaps because you have few enough entries
+that a separate index would look silly.
+
+  <p>You could put functions into the concept index by writing
+<code>@cindex</code> commands for them instead of <code>@findex</code> commands,
+and produce a consistent manual by printing the concept index with the
+title `Function and Concept Index' and not printing the `Function
+Index' at all; but this is not a robust procedure.  It works only if
+your document is never included as part of another document that is
+designed to have a separate function index; if your document were to
+be included with such a document, the functions from your document and
+those from the other would not end up together.  Also, to make your
+function names appear in the right font in the concept index, you
+would need to enclose every one of them between the braces of
+<code>@code</code>.
+
+<ul class="menu">
+<li><a accesskey="1" href="syncodeindex.html#syncodeindex">syncodeindex</a>:                 How to merge two indices, using <code>@code</code>
+                                 font for the merged-from index. 
+<li><a accesskey="2" href="synindex.html#synindex">synindex</a>:                     How to merge two indices, using the
+                                 default font of the merged-to index. 
+</ul>
+
+  </body></html>
+

@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+<title>Minimum - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Overview.html#Overview" title="Overview">
+<link rel="prev" href="Comments.html#Comments" title="Comments">
+<link rel="next" href="Six-Parts.html#Six-Parts" title="Six Parts">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Minimum"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Six-Parts.html#Six-Parts">Six Parts</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Comments.html#Comments">Comments</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Overview.html#Overview">Overview</a>
+<hr>
+</div>
+
+<h3 class="section">1.9 What a Texinfo File Must Have</h3>
+
+<p><a name="index-Minimal-Texinfo-file-_0028requirements_0029-73"></a><a name="index-Must-have-in-Texinfo-file-74"></a><a name="index-Required-in-Texinfo-file-75"></a><a name="index-Texinfo-file-minimum-76"></a>
+By convention, the namea of a Texinfo file ends with (in order of
+preference) one of the extensions <samp><span class="file">.texinfo</span></samp>, <samp><span class="file">.texi</span></samp>,
+<samp><span class="file">.txi</span></samp>, or <samp><span class="file">.tex</span></samp>.  The longer extensions are preferred since
+they describe more clearly to a human reader the nature of the file. 
+The shorter extensions are for operating systems that cannot handle long
+file names.
+
+  <p>In order to be made into a printed manual and an Info file, a Texinfo
+file <strong>must</strong> begin with lines like this:
+
+<pre class="example">     \input texinfo
+     @setfilename <var>info-file-name</var>
+     @settitle <var>name-of-manual</var>
+</pre>
+  <p class="noindent">The contents of the file follow this beginning, and then you
+<strong>must</strong> end a Texinfo file with a line like this:
+
+<pre class="example">     @bye
+</pre>
+  <p><a name="index-g_t_005cinput-_0040r_007b_0028raw-_0040TeX_007b_007d-startup_0029_007d-77"></a>Here's an explanation:
+
+     <ul>
+<li>The `<samp><span class="samp">\input texinfo</span></samp>' line tells TeX to use the
+<samp><span class="file">texinfo.tex</span></samp> file, which tells TeX how to translate the Texinfo
+@-commands into TeX typesetting commands.  (Note the use of the
+backslash, `<samp><span class="samp">\</span></samp>'; this is correct for TeX.)
+
+     <li>The <code>@setfilename</code> line provides a name for the Info file and
+tells TeX to open auxiliary files.  <strong>All text before
+</strong><code>@setfilename</code><strong> is ignored!</strong>
+
+     <li>The <code>@settitle</code> line specifies a title for the page headers (or
+footers) of the printed manual, and the default document description for
+the `<samp><span class="samp">&lt;head&gt;</span></samp>' in HTML format.  Strictly speaking, <code>@settitle</code>
+is optional&mdash;if you don't mind your document being titled `Untitled'.
+
+     <li>The <code>@bye</code> line at the end of the file on a line of its own tells
+the formatters that the file is ended and to stop formatting.
+
+  </ul>
+
+  <p>Typically, you will not use quite such a spare format, but will include
+mode setting and start-of-header and end-of-header lines at the
+beginning of a Texinfo file, like this:
+
+<pre class="example">     \input texinfo   @c -*-texinfo-*-
+     @c %**start of header
+     @setfilename <var>info-file-name</var>
+     @settitle <var>name-of-manual</var>
+     @c %**end of header
+</pre>
+  <p class="noindent">In the first line, `<samp><span class="samp">-*-texinfo-*-</span></samp>' causes Emacs to switch into
+Texinfo mode when you edit the file.
+
+  <p>The <code>@c</code> lines which surround the <code>@setfilename</code> and
+<code>@settitle</code> lines are optional, but you need them in order to
+run TeX or Info on just part of the file.  (See <a href="Start-of-Header.html#Start-of-Header">Start of Header</a>.)
+
+  <p>Furthermore, you will usually provide a Texinfo file with a title page,
+indices, and the like, all of which are explained in this manual.  But
+the minimum, which can be useful for short documents, is just the three
+lines at the beginning and the one line at the end.
+
+  </body></html>
+

@@ -1,0 +1,152 @@
+<html lang="en">
+<head>
+<title>Miscellaneous Commands - GNU Info 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Info 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Printing-Nodes.html#Printing-Nodes" title="Printing Nodes">
+<link rel="next" href="Variables.html#Variables" title="Variables">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Info (version 4.8, 14 December 2004),
+a program for viewing documents in Info format (usually created from
+Texinfo source files).
+
+Copyright (C) 1992, 1993, 1996, 1997, 1998, 1999, 2001, 2002,
+2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Miscellaneous-Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Variables.html#Variables">Variables</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Printing-Nodes.html#Printing-Nodes">Printing Nodes</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">10 Miscellaneous Commands</h2>
+
+<p>GNU Info contains several commands which self-document GNU Info:
+
+     <dl>
+<dt><kbd>M-x describe-command</kbd><dd><a name="index-functions_002c-describing-320"></a><a name="index-commands_002c-describing-321"></a><a name="index-describe_002dcommand-322"></a>Read the name of an Info command in the echo area and then display a
+brief description of what that command does.
+
+     <br><dt><kbd>M-x describe-key</kbd><dd><a name="index-keys_002c-describing-323"></a><a name="index-describe_002dkey-324"></a>Read a key sequence in the echo area, and then display the name and
+documentation of the Info command that the key sequence invokes.
+
+     <br><dt><kbd>M-x describe-variable</kbd><dd>Read the name of a variable in the echo area and then display a brief
+description of what the variable affects.
+
+     <br><dt><kbd>M-x where-is</kbd><dd><a name="index-where_002dis-325"></a>Read the name of an Info command in the echo area, and then display
+a key sequence which can be typed in order to invoke that command.
+
+     <br><dt>&lt;C-h&gt; (<code>get-help-window</code>)<dt>&lt;?&gt;<dt>&lt;F1&gt; (on DOS/Windows only)<dt>h, vi-like operation<dd><a name="index-C_002dh-326"></a><a name="index-g_t_003f_002c-in-Info-windows-327"></a><a name="index-F1-328"></a><a name="index-h_002c-vi_002dlike-operation-329"></a><a name="index-get_002dhelp_002dwindow-330"></a>Create (or Move into) the window displaying <code>*Help*</code>, and place
+a node containing a quick reference card into it.  This window displays
+the most concise information about GNU Info available.
+
+     <br><dt>&lt;h&gt; (<code>get-info-help-node</code>)<dt>&lt;M-h&gt;, vi-like operation<dd><a name="index-h-331"></a><a name="index-M_002dh_002c-vi_002dlike-operation-332"></a><a name="index-get_002dinfo_002dhelp_002dnode-333"></a>Try hard to visit the node <code>(info)Help</code>.  The Info file
+<samp><span class="file">info.texi</span></samp> distributed with GNU Info contains this node.  Of
+course, the file must first be processed with <code>makeinfo</code>, and then
+placed into the location of your Info directory. 
+</dl>
+
+   <p>Here are the commands for creating a numeric argument:
+
+     <dl>
+<dt>&lt;C-u&gt; (<code>universal-argument</code>)<dd><a name="index-numeric-arguments-334"></a><a name="index-C_002du-335"></a><a name="index-universal_002dargument-336"></a>Start (or multiply by 4) the current numeric argument.  `<samp><span class="samp">C-u</span></samp>' is
+a good way to give a small numeric argument to cursor movement or
+scrolling commands; `<samp><span class="samp">C-u C-v</span></samp>' scrolls the screen 4 lines, while
+`<samp><span class="samp">C-u C-u C-n</span></samp>' moves the cursor down 16 lines.  `<samp><span class="samp">C-u</span></samp>' followed
+by digit keys sets the numeric argument to the number thus typed:
+<kbd>C-u 1 2 0</kbd> sets the argument to 120.
+
+     <br><dt>&lt;M-1&gt; (<code>add-digit-to-numeric-arg</code>)<dt>&lt;1&gt;, vi-like operation<dt>&lt;M-2&gt; <small class="dots">...</small> &lt;M-9&gt;<dt>&lt;2&gt; <small class="dots">...</small> &lt;9&gt;, vi-like operation<dt>&lt;M-0&gt;<dt>&lt;0&gt;, vi-like operation<dd><a name="index-M_002d0-_0040dots_007b_007d-M_002d9-337"></a><a name="index-g_t0-_0040dots_007b_007d-9_002c-vi_002dlike-operation-338"></a><a name="index-add_002ddigit_002dto_002dnumeric_002darg-339"></a>Add the digit value of the invoking key to the current numeric
+argument.  Once Info is reading a numeric argument, you may just type
+the digits of the argument, without the Meta prefix.  For example, you
+might give `<samp><span class="samp">C-l</span></samp>' a numeric argument of 32 by typing:
+
+     <pre class="example">          <kbd>C-u 3 2 C-l</kbd>
+     </pre>
+     <p class="noindent">or
+
+     <pre class="example">          <kbd>M-3 2 C-l</kbd>
+     </pre>
+     <br><dt>&lt;M&ndash;&gt; (<code>add-digit-to-numeric-arg</code><dt>&lt;-&gt;<dd><a name="index-M_002d_002d-340"></a><a name="index-g_t_002d-341"></a><a name="index-negative-arguments-342"></a><a name="index-arguments_002c-negative-343"></a><a name="index-numeric-arguments_002c-negative-344"></a>To make a negative argument, type <kbd>-</kbd>.  Typing <kbd>-</kbd> alone makes a
+negative argument with a value of -1.  If you continue to type digit or
+Meta-digit keys after <kbd>-</kbd>, the result is a negative number produced
+by those digits.
+
+     <p><kbd>-</kbd> doesn't work when you type in the echo area, because you need to
+be able to insert the `<samp><span class="samp">-</span></samp>' character itself; use <kbd>M--</kbd> instead,
+if you need to specify negative arguments in the echo area. 
+</dl>
+
+   <p>`<samp><span class="samp">C-g</span></samp>' is used to abort the reading of a multi-character key
+sequence, to cancel lengthy operations (such as multi-file searches) and
+to cancel reading input in the echo area.
+
+     <dl>
+<dt>&lt;C-g&gt; (<code>abort-key</code>)<dt>&lt;C-u&gt;, vi-like operation<dd><a name="index-cancelling-typeahead-345"></a><a name="index-cancelling-the-current-operation-346"></a><a name="index-C_002dg_002c-in-Info-windows-347"></a><a name="index-C_002du-cancels-typeahead_002c-vi_002dlike-operation-348"></a><a name="index-abort_002dkey-349"></a>Cancel current operation. 
+</dl>
+
+   <p>The `<samp><span class="samp">q</span></samp>' command of Info simply quits running Info.  Under
+`<samp><span class="samp">--vi-keys</span></samp>' (see <a href="_002d_002dvi_002dkeys.html#g_t_002d_002dvi_002dkeys">&ndash;vi-keys</a>), you can also exit with `<samp><span class="samp">:q</span></samp>'
+or `<samp><span class="samp">ZZ</span></samp>'.
+
+     <dl>
+<dt>&lt;q&gt; (<code>quit</code>)<dt><kbd>C-x C-c</kbd><dt><kbd>:q</kbd>, vi-like operation<dt><kbd>ZZ</kbd>, vi-like operation<dd><a name="index-quitting-350"></a><a name="index-q-351"></a><a name="index-C_002dx-C_002dc-352"></a><a name="index-ZZ_002c-vi_002dlike-operation-353"></a><a name="index-quit-354"></a>Exit GNU Info. 
+</dl>
+
+   <p>If the operating system tells GNU Info that the screen is 60 lines tall,
+and it is actually only 40 lines tall, here is a way to tell Info that
+the operating system is correct.
+
+     <dl>
+<dt><kbd>M-x set-screen-height</kbd><dd><a name="index-set_002dscreen_002dheight-355"></a><a name="index-screen_002c-changing-the-height-of-356"></a>Read a height value in the echo area and set the height of the
+displayed screen to that value. 
+</dl>
+
+   <p>On MS-DOS/MS-Windows, this command actually tries to change the
+dimensions of the visible screen to the value you type in the echo
+area.
+
+   <p>Finally, Info provides a convenient way to display footnotes which might
+be associated with the current node that you are viewing:
+
+     <dl>
+<dt>&lt;ESC C-f&gt; (<code>show-footnotes</code>)<dd><a name="index-ESC-C_002df-357"></a><a name="index-show_002dfootnotes-358"></a><a name="index-footnotes_002c-displaying-359"></a>Show the footnotes (if any) associated with the current node in another
+window.  You can have Info automatically display the footnotes
+associated with a node when the node is selected by setting the variable
+<code>automatic-footnotes</code>.  See <a href="Variables.html#Variables"><code>automatic-footnotes</code></a>. 
+</dl>
+
+   </body></html>
+

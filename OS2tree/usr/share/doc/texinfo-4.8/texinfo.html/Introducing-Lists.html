@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+<title>Introducing Lists - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Lists-and-Tables.html#Lists-and-Tables" title="Lists and Tables">
+<link rel="next" href="itemize.html#itemize" title="itemize">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Introducing-Lists"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="itemize.html#itemize">itemize</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Lists-and-Tables.html#Lists-and-Tables">Lists and Tables</a>
+<hr>
+</div>
+
+<h3 class="section">11.1 Introducing Lists</h3>
+
+<p>Texinfo automatically indents the text in lists or tables, and numbers
+an enumerated list.  This last feature is useful if you modify the
+list, since you do not need to renumber it yourself.
+
+  <p>Numbered lists and tables begin with the appropriate @-command at the
+beginning of a line, and end with the corresponding <code>@end</code>
+command on a line by itself.  The table and itemized-list commands
+also require that you write formatting information on the same line as
+the beginning @-command.
+
+  <p>Begin an enumerated list, for example, with an <code>@enumerate</code>
+command and end the list with an <code>@end enumerate</code> command. 
+Begin an itemized list with an <code>@itemize</code> command, followed on
+the same line by a formatting command such as <code>@bullet</code>, and end
+the list with an <code>@end itemize</code> command. 
+<a name="index-end-514"></a>
+Precede each element of a list with an <code>@item</code> or <code>@itemx</code>
+command.
+
+  <pre class="sp">
+
+</pre>
+Here is an itemized list of the different kinds of table and lists:
+
+     <ul>
+<li>Itemized lists with and without bullets.
+
+     <li>Enumerated lists, using numbers or letters.
+
+     <li>Two-column tables with highlighting. 
+</ul>
+
+  <pre class="sp">
+
+</pre>
+Here is an enumerated list with the same items:
+
+     <ol type=1 start=1>
+<li>Itemized lists with and without bullets.
+
+     <li>Enumerated lists, using numbers or letters.
+
+     <li>Two-column tables with highlighting.
+       </ol>
+
+  <pre class="sp">
+
+</pre>
+And here is a two-column table with the same items and their
+@-commands<!-- /@w -->:
+
+     <dl>
+<dt><code>@itemize</code><dd>Itemized lists with and without bullets.
+
+     <br><dt><code>@enumerate</code><dd>Enumerated lists, using numbers or letters.
+
+     <br><dt><code>@table</code><dt><code>@ftable</code><dt><code>@vtable</code><dd>Two-column tables, optionally with indexing. 
+</dl>
+
+  </body></html>
+

@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+<title>Catching Mistakes - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Headings.html#Headings" title="Headings">
+<link rel="next" href="Copying-This-Manual.html#Copying-This-Manual" title="Copying This Manual">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Catching-Mistakes"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Copying-This-Manual.html#Copying-This-Manual">Copying This Manual</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Headings.html#Headings">Headings</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="appendix">Appendix F Formatting Mistakes</h2>
+
+<p><a name="index-Structure_002c-catching-mistakes-in-1299"></a><a name="index-Nodes_002c-catching-mistakes-1300"></a><a name="index-Catching-mistakes-1301"></a><a name="index-Correcting-mistakes-1302"></a><a name="index-Mistakes_002c-catching-1303"></a><a name="index-Problems_002c-catching-1304"></a><a name="index-Debugging-the-Texinfo-structure-1305"></a>
+Besides mistakes in the content of your documentation, there are two
+kinds of mistake you can make with Texinfo: you can make mistakes with
+@-commands, and you can make mistakes with the structure of the nodes
+and chapters.
+
+  <p>Emacs has two tools for catching the @-command mistakes and two for
+catching structuring mistakes.
+
+  <p>For finding problems with @-commands, you can run TeX or a region
+formatting command on the region that has a problem; indeed, you can
+run these commands on each region as you write it.
+
+  <p>For finding problems with the structure of nodes and chapters, you can use
+<kbd>C-c C-s</kbd> (<code>texinfo-show-structure</code>) and the related <code>occur</code>
+command and you can use the <kbd>M-x Info-validate</kbd> command.
+
+<ul class="menu">
+<li><a accesskey="1" href="makeinfo-Preferred.html#makeinfo-Preferred">makeinfo Preferred</a>:           <code>makeinfo</code> finds errors. 
+<li><a accesskey="2" href="Debugging-with-Info.html#Debugging-with-Info">Debugging with Info</a>:          How to catch errors with Info formatting. 
+<li><a accesskey="3" href="Debugging-with-TeX.html#Debugging-with-TeX">Debugging with TeX</a>:           How to catch errors with TeX formatting. 
+<li><a accesskey="4" href="Using-texinfo_002dshow_002dstructure.html#Using-texinfo_002dshow_002dstructure">Using texinfo-show-structure</a>:   How to use <code>texinfo-show-structure</code>. 
+<li><a accesskey="5" href="Using-occur.html#Using-occur">Using occur</a>:                  How to list all lines containing a pattern. 
+<li><a accesskey="6" href="Running-Info_002dValidate.html#Running-Info_002dValidate">Running Info-Validate</a>:        How to find badly referenced nodes. 
+</ul>
+
+  </body></html>
+

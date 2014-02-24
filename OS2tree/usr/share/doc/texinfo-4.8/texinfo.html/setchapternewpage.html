@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+<title>setchapternewpage - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Global-Document-Commands.html#Global-Document-Commands" title="Global Document Commands">
+<link rel="prev" href="documentdescription.html#documentdescription" title="documentdescription">
+<link rel="next" href="paragraphindent.html#paragraphindent" title="paragraphindent">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="setchapternewpage"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="paragraphindent.html#paragraphindent">paragraphindent</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="documentdescription.html#documentdescription">documentdescription</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Global-Document-Commands.html#Global-Document-Commands">Global Document Commands</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.7.2 <code>@setchapternewpage</code>:</h4>
+
+<p><a name="index-Starting-chapters-240"></a><a name="index-Pages_002c-starting-odd-241"></a><a name="index-setchapternewpage-242"></a>
+In an officially bound book, text is usually printed on both sides of
+the paper, chapters start on right-hand pages, and right-hand pages have
+odd numbers.  But in short reports, text often is printed only on one
+side of the paper.  Also in short reports, chapters sometimes do not
+start on new pages, but are printed on the same page as the end of the
+preceding chapter, after a small amount of vertical whitespace.
+
+  <p>You can use the <code>@setchapternewpage</code> command with various
+arguments to specify how TeX should start chapters and whether it
+should format headers for printing on one or both sides of the paper
+(single-sided or double-sided printing).
+
+  <p>Write the <code>@setchapternewpage</code> command at the beginning of a
+line followed by its argument.
+
+  <p>For example, you would write the following to cause each chapter to
+start on a fresh odd-numbered page:
+
+<pre class="example">     @setchapternewpage odd
+</pre>
+  <p>You can specify one of three alternatives with the
+<code>@setchapternewpage</code> command:
+
+     <dl>
+<dt><code>@setchapternewpage off</code><dd>Cause TeX to typeset a new chapter on the same page as the last
+chapter, after skipping some vertical whitespace.  Also, cause TeX to
+format page headers for single-sided printing.
+
+     <br><dt><code>@setchapternewpage on</code><dd>Cause TeX to start new chapters on new pages and to format page
+headers for single-sided printing.  This is the form most often used for
+short reports or personal printing. This is the default.
+
+     <br><dt><code>@setchapternewpage odd</code><dd>Cause TeX to start new chapters on new, odd-numbered pages
+(right-handed pages) and to typeset for double-sided printing.  This is
+the form most often used for books and manuals. 
+</dl>
+
+  <p>Texinfo does not have an <code>@setchapternewpage even</code> command,
+because there is no printing tradition of starting chapters or books on
+an even-numbered page.
+
+  <p>If you don't like the default headers that <code>@setchapternewpage</code>
+sets, you can explicit control them with the <code>@headings</code> command. 
+See <a href="headings-on-off.html#headings-on-off">The <code>@headings</code> Command</a>.
+
+  <p>At the beginning of a manual or book, pages are not numbered&mdash;for
+example, the title and copyright pages of a book are not numbered.  By
+convention, table of contents and frontmatter pages are numbered with
+roman numerals and not in sequence with the rest of the document.
+
+  <p>Since an Info file does not have pages, the <code>@setchapternewpage</code>
+command has no effect on it.
+
+  <p>We recommend not including any <code>@setchapternewpage</code> command in
+your manual sources at all, since the desired output is not intrinsic to
+the document.  For a particular hard copy run, if you don't want the
+default option (no blank pages, same headers on all pages) use the
+<samp><span class="option">--texinfo</span></samp> option to <samp><span class="command">texi2dvi</span></samp> to specify the output
+you want.
+
+  </body></html>
+

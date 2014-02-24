@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+<title>Defining Macros - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Defining-New-Texinfo-Commands.html#Defining-New-Texinfo-Commands" title="Defining New Texinfo Commands">
+<link rel="next" href="Invoking-Macros.html#Invoking-Macros" title="Invoking Macros">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Defining-Macros"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Invoking-Macros.html#Invoking-Macros">Invoking Macros</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Defining-New-Texinfo-Commands.html#Defining-New-Texinfo-Commands">Defining New Texinfo Commands</a>
+<hr>
+</div>
+
+<h3 class="section">19.1 Defining Macros</h3>
+
+<p><a name="index-Defining-macros-946"></a><a name="index-Macro-definitions-947"></a>
+<a name="index-macro-948"></a>You use the Texinfo <code>@macro</code> command to define a macro, like this:
+
+<pre class="example">     @macro <var>macroname</var>{<var>param1</var>, <var>param2</var>, ...}
+     <var>text</var> ... \<var>param1</var>\ ...
+     @end macro
+</pre>
+  <p>The <dfn>parameters</dfn> <var>param1</var>, <var>param2</var>, <small class="dots">...</small> correspond to
+arguments supplied when the macro is subsequently used in the document
+(described in the next section).
+
+  <p><a name="index-Macro-names_002c-valid-characters-in-949"></a><a name="index-Names-of-macros_002c-valid-characters-of-950"></a>For a macro to work consistently with TeX, <var>macroname</var> must
+consist entirely of letters: no digits, hyphens, underscores, or other
+special characters.  So, we recommend using only letters.  However,
+<samp><span class="command">makeinfo</span></samp> will accept anything except `<samp><span class="samp">{}_^=</span></samp>';
+`<samp><span class="samp">_</span></samp>' and `<samp><span class="samp">^</span></samp>' are excluded so that macros can be called in
+<code>@math</code> mode without a following space
+(see <a href="math.html#math"><code>@math</code></a>).
+
+  <p>If a macro needs no parameters, you can define it either with an empty
+list (`<samp><span class="samp">@macro foo {}</span></samp>') or with no braces at all (`<samp><span class="samp">@macro
+foo</span></samp>').
+
+  <p><a name="index-Body-of-a-macro-951"></a><a name="index-Mutually-recursive-macros-952"></a><a name="index-Recursion_002c-mutual-953"></a>The definition or <dfn>body</dfn> of the macro can contain most Texinfo
+commands, including previously-defined macros.  Not-yet-defined macro
+invocations are not allowed; thus, it is not possible to have mutually
+recursive Texinfo macros.  Also, a macro definition that defines another
+macro does not work in TeX due to limitations in the design of
+<code>@macro</code>.
+
+  <p><a name="index-Parameters-to-macros-954"></a>In the macro body, instances of a parameter name surrounded by
+backslashes, as in `<samp><span class="samp">\</span><var>param1</var><span class="samp">\</span></samp>' in the example above, are
+replaced by the corresponding argument from the macro invocation.  You
+can use parameter names any number of times in the body, including zero.
+
+  <p><a name="index-Backslash-in-macros-955"></a>To get a single `<samp><span class="samp">\</span></samp>' in the macro expansion, use `<samp><span class="samp">\\</span></samp>'.  Any
+other use of `<samp><span class="samp">\</span></samp>' in the body yields a warning.
+
+  <p><a name="index-Spaces-in-macros-956"></a><a name="index-Whitespace-in-macros-957"></a>The newlines after the <code>@macro</code> line and before the <code>@end
+macro</code> line are ignored, that is, not included in the macro body.  All
+other whitespace is treated according to the usual Texinfo rules.
+
+  <p><a name="index-Recursive-macro-invocations-958"></a><a name="index-rmacro-959"></a>To allow a macro to be used recursively, that is, in an argument to a
+call to itself, you must define it with `<samp><span class="samp">@rmacro</span></samp>', like this:
+
+<pre class="example">     @rmacro rmac {arg}
+     a\arg\b
+     @end rmacro
+     ...
+     @rmac{1@rmac{text}2}
+</pre>
+  <p>This produces the output `a1atextb2b'.  With `<samp><span class="samp">@macro</span></samp>' instead of
+`<samp><span class="samp">@rmacro</span></samp>', an error message is given.
+
+  <p><a name="index-unmacro-960"></a><a name="index-Macros_002c-undefining-961"></a><a name="index-Undefining-macros-962"></a>You can undefine a macro <var>foo</var> with <code>@unmacro </code><var>foo</var>. 
+It is not an error to undefine a macro that is already undefined. 
+For example:
+
+<pre class="example">     @unmacro foo
+</pre>
+  </body></html>
+

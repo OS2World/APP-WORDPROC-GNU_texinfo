@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+<title>Six Parts - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Overview.html#Overview" title="Overview">
+<link rel="prev" href="Minimum.html#Minimum" title="Minimum">
+<link rel="next" href="Short-Sample.html#Short-Sample" title="Short Sample">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Six-Parts"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Short-Sample.html#Short-Sample">Short Sample</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Minimum.html#Minimum">Minimum</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Overview.html#Overview">Overview</a>
+<hr>
+</div>
+
+<h3 class="section">1.10 Six Parts of a Texinfo File</h3>
+
+<p>Generally, a Texinfo file contains more than the minimal beginning and
+end described in the previous section&mdash;it usually contains the six
+parts listed below.  These are described fully in the following sections.
+
+     <dl>
+<dt><span class="roman">1. Header</span><dd>The <dfn>Header</dfn> names the file, tells TeX which definitions file to
+use, and other such housekeeping tasks.
+
+     <br><dt><span class="roman">2. Summary and Copyright</span><dd>The <dfn>Summary and Copyright</dfn> segment describes the document and
+contains the copyright notice and copying permissions.  This is done
+with the <code>@copying</code> command.
+
+     <br><dt><span class="roman">3. Title and Copyright</span><dd>The <dfn>Title and Copyright</dfn> segment contains the title and copyright
+pages for the printed manual.  The segment must be enclosed between
+<code>@titlepage</code> and <code>@end titlepage</code> commands.  The title and
+copyright page appear only in the printed manual.
+
+     <br><dt><span class="roman">4. `Top' Node and Master Menu</span><dd>The `Top' node starts off the online output; it does not appear in the
+printed manual.  We recommend including the copying permissions here as
+well as the segments above.  And it contains at least a top-level menu
+listing the chapters, and possibly a <dfn>Master Menu</dfn> listing all the
+nodes in the entire document.
+
+     <br><dt><span class="roman">5. Body</span><dd>The <dfn>Body</dfn> of the document is typically structured like a
+traditional book or encyclopedia, but it may be free form.
+
+     <br><dt><span class="roman">6. End</span><dd>The <dfn>End</dfn> segment contains commands for printing indices and
+generating the table of contents, and the <code>@bye</code> command on a line
+of its own. 
+</dl>
+
+  </body></html>
+

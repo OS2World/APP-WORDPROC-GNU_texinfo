@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+<title>Invoking Macros - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Defining-New-Texinfo-Commands.html#Defining-New-Texinfo-Commands" title="Defining New Texinfo Commands">
+<link rel="prev" href="Defining-Macros.html#Defining-Macros" title="Defining Macros">
+<link rel="next" href="Macro-Details.html#Macro-Details" title="Macro Details">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Invoking-Macros"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Macro-Details.html#Macro-Details">Macro Details</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Defining-Macros.html#Defining-Macros">Defining Macros</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Defining-New-Texinfo-Commands.html#Defining-New-Texinfo-Commands">Defining New Texinfo Commands</a>
+<hr>
+</div>
+
+<h3 class="section">19.2 Invoking Macros</h3>
+
+<p><a name="index-Invoking-macros-963"></a><a name="index-Expanding-macros-964"></a><a name="index-Running-macros-965"></a><a name="index-Macro-invocation-966"></a>
+After a macro is defined (see the previous section), you can use
+(<dfn>invoke</dfn>) it in your document like this:
+
+<pre class="example">     @<var>macroname</var> {<var>arg1</var>, <var>arg2</var>, ...}
+</pre>
+  <p class="noindent">and the result will be just as if you typed the body of
+<var>macroname</var> at that spot.  For example:
+
+<pre class="example">     @macro foo {p, q}
+     Together: \p\ &amp; \q\.
+     @end macro
+     @foo{a, b}
+</pre>
+  <p class="noindent">produces:
+
+<pre class="display">     Together: a &amp; b.
+</pre>
+  <p><a name="index-Backslash_002c-and-macros-967"></a>Thus, the arguments and parameters are separated by commas and delimited
+by braces; any whitespace after (but not before) a comma is ignored. 
+The braces are required in the invocation (but not the definition), even
+when the macro takes no arguments, consistent with all other Texinfo
+commands.  For example:
+
+<pre class="example">     @macro argless {}
+     No arguments here.
+     @end macro
+     @argless{}
+</pre>
+  <p class="noindent">produces:
+
+<pre class="display">     No arguments here.
+</pre>
+  <p><a name="index-Comma_002c-in-macro-arguments-968"></a><a name="index-Braces_002c-in-macro-arguments-969"></a>To insert a comma, brace, or backslash in an argument, prepend a
+backslash, as in
+
+<pre class="example">     @<var>macname</var> {\\\{\}\,}
+</pre>
+  <p class="noindent">which will pass the (almost certainly error-producing) argument
+`<samp><span class="samp">\{},</span></samp>' to <var>macname</var>.  However, commas in parameters, even
+if escaped by a backslash, might cause trouble in TeX.
+
+  <p>If the macro is defined to take a single argument, and is invoked
+without any braces, the entire rest of the line after the macro name is
+supplied as the argument.  For example:
+
+<pre class="example">     @macro bar {p}
+     Twice: \p\ &amp; \p\.
+     @end macro
+     @bar aah
+</pre>
+  <p class="noindent">produces:
+
+<!-- Sorry for cheating, but let's not require macros to process the manual. -->
+<pre class="display">     Twice: aah &amp; aah.
+</pre>
+  <p>If the macro is defined to take a single argument, and is invoked with
+braces, the braced text is passed as the argument, regardless of
+commas.  For example:
+
+<pre class="example">     @macro bar {p}
+     Twice: \p\ &amp; \p\.
+     @end macro
+     @bar{a,b}
+</pre>
+  <p class="noindent">produces:
+
+<pre class="display">     Twice: a,b &amp; a,b.
+</pre>
+  </body></html>
+

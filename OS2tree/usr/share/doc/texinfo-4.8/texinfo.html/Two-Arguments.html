@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+<title>Two Arguments - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="xref.html#xref" title="xref">
+<link rel="prev" href="One-Argument.html#One-Argument" title="One Argument">
+<link rel="next" href="Three-Arguments.html#Three-Arguments" title="Three Arguments">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Two-Arguments"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Three-Arguments.html#Three-Arguments">Three Arguments</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="One-Argument.html#One-Argument">One Argument</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="xref.html#xref">xref</a>
+<hr>
+</div>
+
+<h4 class="subsection">8.4.3 <code>@xref</code> with Two Arguments</h4>
+
+<p>With two arguments, the second is used as the name of the Info cross
+reference, while the first is still the name of the node to which the
+cross reference points.
+
+<p class="noindent">The template is like this:
+
+<pre class="example">     @xref{<var>node-name</var>, <var>cross-reference-name</var>}.
+</pre>
+  <p class="noindent">For example,
+
+<pre class="example">     @xref{Electrical Effects, Lightning}.
+</pre>
+  <p class="noindent">produces:
+
+<pre class="example">     *Note Lightning: Electrical Effects.
+</pre>
+  <p class="noindent">and
+
+  <blockquote>
+See Section 5.2 [Electrical Effects], page 57. 
+</blockquote>
+
+<p class="noindent">(Note that in the preceding example the closing brace is followed by a
+period; and that the node name is printed, not the cross reference name.)
+
+  <p>You can write a clause after the cross reference, like this:
+
+<pre class="example">     @xref{Electrical Effects, Lightning}, for more info.
+</pre>
+  <p class="noindent">which produces
+<pre class="example">     *Note Lightning: Electrical Effects, for more info.
+</pre>
+  <p class="noindent">and
+
+  <blockquote>
+See Section 5.2 [Electrical Effects], page 57, for more info. 
+</blockquote>
+
+<p class="noindent">(Note that in the preceding example the closing brace is followed by a
+comma, and then by the clause, which is followed by a period.)
+
+  </body></html>
+

@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+<title>Point Glyph - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Glyphs.html#Glyphs" title="Glyphs">
+<link rel="prev" href="Equivalence.html#Equivalence" title="Equivalence">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Point-Glyph"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Equivalence.html#Equivalence">Equivalence</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Glyphs.html#Glyphs">Glyphs</a>
+<hr>
+</div>
+
+<h4 class="subsection">14.10.7 <code>@point{}</code> (-!-): Indicating Point in a Buffer</h4>
+
+<p><a name="index-Point_002c-indicating-in-a-buffer-783"></a><a name="index-point-784"></a>
+Sometimes you need to show an example of text in an Emacs buffer.  In
+such examples, the convention is to include the entire contents of the
+buffer in question between two lines of dashes containing the buffer
+name.
+
+  <p>You can use the `<samp><span class="samp">@point{}</span></samp>' command to show the location of point
+in the text in the buffer.  (The symbol for point, of course, is not
+part of the text in the buffer; it indicates the place <em>between</em>
+two characters where point is located.)
+
+  <p>The <code>@point{}</code> command is displayed as `<samp><span class="samp">-!-</span></samp>' in Info
+and HTML and as a small five pointed star in the printed
+output.
+
+  <p>The following example shows the contents of buffer <samp><span class="file">foo</span></samp> before
+and after evaluating a Lisp command to insert the word <code>changed</code>.
+
+<pre class="example">     ---------- Buffer: foo ----------
+     This is the -!-contents of foo.
+     ---------- Buffer: foo ----------
+</pre>
+  <pre class="example">     (insert "changed ")
+         =&gt; nil
+     ---------- Buffer: foo ----------
+     This is the changed -!-contents of foo.
+     ---------- Buffer: foo ----------
+</pre>
+  <p>In a Texinfo source file, the example is written like this:
+
+<pre class="example">     @example
+     ---------- Buffer: foo ----------
+     This is the @point{}contents of foo.
+     ---------- Buffer: foo ----------
+     
+     (insert "changed ")
+         @result{} nil
+     ---------- Buffer: foo ----------
+     This is the changed @point{}contents of foo.
+     ---------- Buffer: foo ----------
+     @end example
+</pre>
+  </body></html>
+

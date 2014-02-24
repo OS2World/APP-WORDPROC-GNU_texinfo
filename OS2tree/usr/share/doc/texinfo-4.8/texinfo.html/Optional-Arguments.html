@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+<title>Optional Arguments - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Definition-Commands.html#Definition-Commands" title="Definition Commands">
+<link rel="prev" href="Def-Cmd-Continuation-Lines.html#Def-Cmd-Continuation-Lines" title="Def Cmd Continuation Lines">
+<link rel="next" href="deffnx.html#deffnx" title="deffnx">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Optional-Arguments"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="deffnx.html#deffnx">deffnx</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Def-Cmd-Continuation-Lines.html#Def-Cmd-Continuation-Lines">Def Cmd Continuation Lines</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Definition-Commands.html#Definition-Commands">Definition Commands</a>
+<hr>
+</div>
+
+<h3 class="section">16.3 Optional and Repeated Arguments</h3>
+
+<p><a name="index-Optional-and-repeated-arguments-836"></a><a name="index-Repeated-and-optional-arguments-837"></a><a name="index-Arguments_002c-repeated-and-optional-838"></a><a name="index-Syntax_002c-optional-_0026-repeated-arguments-839"></a><a name="index-Meta_002dsyntactic-chars-for-arguments-840"></a>
+Some entities take optional or repeated arguments, which may be
+specified by a distinctive glyph that uses square brackets and
+ellipses.  For example<!-- /@w -->, a special form often breaks its argument list
+into separate arguments in more complicated ways than a
+straightforward function.
+
+<!-- This is consistent with Emacs Lisp Reference manual -->
+<p>An argument enclosed within square brackets is optional. 
+Thus, [<var>optional-arg</var>] means that <var>optional-arg</var> is optional. 
+An argument followed by an ellipsis is optional
+and may be repeated more than once. 
+<!-- This is consistent with Emacs Lisp Reference manual -->
+Thus, <var>repeated-args</var>`<samp><span class="samp">...</span></samp>' stands for zero or more
+arguments.  Parentheses are used when several arguments are grouped
+into additional levels of list structure in Lisp.
+
+  <p>Here is the <code>@defspec</code> line of an example of an imaginary
+special form:
+
+  <blockquote>
+
+     <div class="defun">
+&mdash; Special Form: <b>foobar</b> (<var>var </var>[<var>from to </var>[<var>inc</var>]])<var> body<small class="dots">...</small><a name="index-foobar-841"></a></var><br>
+</div>
+  </blockquote>
+
+<p class="noindent">In this example, the arguments <var>from</var> and <var>to</var> are optional,
+but must both be present or both absent.  If they are present,
+<var>inc</var> may optionally be specified as well.  These arguments are
+grouped with the argument <var>var</var> into a list, to distinguish them
+from <var>body</var>, which includes all remaining elements of the
+form.
+
+  <p>In a Texinfo source file, this <code>@defspec</code> line is written like
+this (except it would not be split over two lines, as it is in this
+example).
+
+<pre class="example">     @defspec foobar (@var{var} [@var{from} @var{to}
+         [@var{inc}]]) @var{body}@dots{}
+</pre>
+  <p class="noindent">The function is listed in the Command and Variable Index under
+`<samp><span class="samp">foobar</span></samp>'.
+
+  </body></html>
+

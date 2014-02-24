@@ -1,0 +1,133 @@
+<html lang="en">
+<head>
+<title>Info Search - Info</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Info">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Expert-Info.html#Expert-Info" title="Expert Info">
+<link rel="prev" href="Advanced.html#Advanced" title="Advanced">
+<link rel="next" href="Add.html#Add" title="Add">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This file describes how to use Info, the on-line, menu-driven GNU
+documentation system.
+
+Copyright (C) 1989, 1992, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004
+Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in the Emacs manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Info-Search"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Add.html#Add">Add</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Advanced.html#Advanced">Advanced</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Expert-Info.html#Expert-Info">Expert Info</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">2.2 How to search Info documents for specific subjects</h3>
+
+<p><a name="index-searching-Info-documents-59"></a><a name="index-Info-document-as-a-reference-60"></a>  The commands which move between and inside nodes allow you to read
+the entire manual or its large portions.  But what if you need to find
+some information in the manual as fast as you can, and you don't know
+or don't remember in what node to look for it?  This need arises when
+you use a manual as a <dfn>reference</dfn>, or when it is impractical to
+read the entire manual before you start using the programs it
+describes.
+
+   <p>Info has powerful searching facilities that let you find things
+quickly.  You can search either the manual indices or its text.
+
+   <p><a name="index-i-_0040r_007b_0028Info-mode_0029_007d-61"></a><a name="index-Info_002dindex-62"></a>  Since most subjects related to what the manual describes should be
+indexed, you should try the index search first.  The <kbd>i</kbd> command
+prompts you for a subject and then looks up that subject in the
+indices.  If it finds an index entry with the subject you typed, it
+goes to the node to which that index entry points.  You should browse
+through that node to see whether the issue you are looking for is
+described there.  If it isn't, type <kbd>,</kbd> one or more times to go
+through additional index entries which match your subject.
+
+   <p>The <kbd>i</kbd> command finds all index entries which include the string
+you typed <em>as a substring</em>.  For each match, Info shows in the
+echo area the full index entry it found.  Often, the text of the full
+index entry already gives you enough information to decide whether it
+is relevant to what you are looking for, so we recommend that you read
+what Info shows in the echo area before looking at the node it
+displays.
+
+   <p>Since <kbd>i</kbd> looks for a substring, you can search for subjects even
+if you are not sure how they are spelled in the index.  For example,
+suppose you want to find something that is pertinent to commands which
+complete partial input (e.g., when you type &lt;TAB&gt;).  If you want
+to catch index entries that refer to &ldquo;complete&rdquo;, &ldquo;completion&rdquo;, and
+&ldquo;completing&rdquo;, you could type <kbd>icomplet&lt;RET&gt;</kbd>.
+
+   <p>Info documents which describe programs should index the commands,
+options, and key sequences that the program provides.  If you are
+looking for a description of a command, an option, or a key, just type
+their names when <kbd>i</kbd> prompts you for a topic.  For example, if you
+want to read the description of what the <kbd>C-f</kbd> key does, type
+<kbd>i C - f &lt;RET&gt;</kbd>.  Here <kbd>C-f</kbd> are 3 literal characters
+`<samp><span class="samp">C</span></samp>', `<samp><span class="samp">-</span></samp>', and `<samp><span class="samp">f</span></samp>', not the &ldquo;Control-f&rdquo; command key
+you type inside Emacs to run the command bound to <kbd>C-f</kbd>.
+
+   <p>In Emacs, <kbd>i</kbd> runs the command <code>Info-index</code>.
+
+   <p><a name="index-info_002dapropos-63"></a>If you don't know what manual documents something, try the <kbd>M-x
+info-apropos</kbd> command.  It prompts for a string and then looks up that
+string in all the indices of all the Info documents installed on your
+system.
+
+   <p><a name="index-s-_0040r_007b_0028Info-mode_0029_007d-64"></a><a name="index-Info_002dsearch-65"></a>  The <kbd>s</kbd> command allows you to search a whole file for a string. 
+It switches to the next node if and when that is necessary.  You
+type <kbd>s</kbd> followed by the string to search for, terminated by
+&lt;RET&gt;.  To search for the same string again, just <kbd>s</kbd> followed
+by &lt;RET&gt; will do.  The file's nodes are scanned in the order
+they are in in the file, which has no necessary relationship to the
+order that they may be in the tree structure of menus and `<samp><span class="samp">next</span></samp>'
+pointers.  But normally the two orders are not very different.  In any
+case, you can always do a <kbd>b</kbd> to find out what node you have
+reached, if the header is not visible (this can happen, because <kbd>s</kbd>
+puts your cursor at the occurrence of the string, not at the beginning
+of the node).
+
+   <p><a name="index-M_002ds-_0040r_007b_0028Info-mode_0029_007d-66"></a>  In Emacs, <kbd>Meta-s</kbd> is equivalent to <kbd>s</kbd>.  That is for
+compatibility with other GNU packages that use <kbd>M-s</kbd> for a similar
+kind of search command.  Both <kbd>s</kbd> and <kbd>M-s</kbd> run in Emacs the
+command <code>Info-search</code>.
+
+   </body></html>
+

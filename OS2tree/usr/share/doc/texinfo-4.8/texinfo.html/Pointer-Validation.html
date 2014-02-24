@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+<title>Pointer Validation - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Creating-an-Info-File.html#Creating-an-Info-File" title="Creating an Info File">
+<link rel="prev" href="makeinfo-options.html#makeinfo-options" title="makeinfo options">
+<link rel="next" href="makeinfo-in-Emacs.html#makeinfo-in-Emacs" title="makeinfo in Emacs">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Pointer-Validation"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="makeinfo-in-Emacs.html#makeinfo-in-Emacs">makeinfo in Emacs</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="makeinfo-options.html#makeinfo-options">makeinfo options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Creating-an-Info-File.html#Creating-an-Info-File">Creating an Info File</a>
+<hr>
+</div>
+
+<h4 class="subsection">21.1.4 Pointer Validation</h4>
+
+<p><a name="index-Pointer-validation-with-_0040code_007bmakeinfo_007d-1150"></a><a name="index-Validation-of-pointers-1151"></a>
+If you do not suppress pointer validation with the `<samp><span class="samp">--no-validate</span></samp>'
+option or the <code>@novalidate</code> command in the source file (see <a href="Use-TeX.html#Use-TeX">Use TeX</a>), <code>makeinfo</code> will check the validity of the final
+Info file.  Mostly, this means ensuring that nodes you have referenced
+really exist.  Here is a complete list of what is checked:
+
+     <ol type=1 start=1>
+<li>If a `Next', `Previous', or `Up' node reference is a reference to a
+node in the current file and is not an external reference such as to
+<samp><span class="file">(dir)</span></samp>, then the referenced node must exist.
+
+     <li>In every node, if the `Previous' node is different from the `Up' node,
+then the node pointed to by the `Previous' field must have a `Next'
+field which points back to this node.
+
+     <li>Every node except the `Top' node must have an `Up' pointer.
+
+     <li>The node referenced by an `Up' pointer must itself reference the current
+node through a menu item, unless the node referenced by `Up'
+has the form `(<var>file</var>)'.
+
+     <li>If the `Next' reference of a node is not the same as the `Next' reference
+of the `Up' reference, then the node referenced by the `Next' pointer
+must have a `Previous' pointer that points back to the current node. 
+This rule allows the last node in a section to point to the first node
+of the next chapter.
+
+     <li>Every node except `Top' should be referenced by at least one other node,
+either via the `Previous' or `Next' links, or via a menu or a
+cross-reference.
+       </ol>
+
+  <p><a name="index-g_t_0040_0040_002dcommands-in-_0040_0040node_002c-limited-support-1152"></a>Some Texinfo documents might fail during the validation phase because
+they use commands like <code>@value</code> and <code>@definfoenclose</code> in
+node definitions and cross-references inconsistently.  (Your best bet
+is to avoid using @-commands in node names.)  Consider the
+following example:
+
+<pre class="example">     @set nodename Node 1
+     
+     @node @value{nodename}, Node 2, Top, Top
+     
+     This is node 1.
+     
+     @node Node 2, , Node 1, Top
+     
+     This is node 2.
+</pre>
+  <p class="noindent">Here, the node &ldquo;Node 1&rdquo; was referenced both verbatim and through
+<code>@value</code>.
+
+  <p>By default, <code>makeinfo</code> fails such cases, because node names are not
+fully expanded until they are written to the output file.  You should
+always try to reference nodes consistently; e.g., in the above example,
+the second <code>@node</code> line should have also used <code>@value</code>. 
+However, if, for some reason, you <em>must</em> reference node names
+inconsistently, and <code>makeinfo</code> fails to validate the file, you can
+use the `<samp><span class="samp">--commands-in-node-names</span></samp>' option to force <code>makeinfo</code>
+to perform the expensive expansion of all node names it finds in the
+document.  This might considerably slow down the program, though;
+twofold increase in conversion time was measured for large documents
+such as the Jargon file.
+
+  <p><a name="index-g_t_0040_0040value-in-_0040_0040node-lines-1153"></a>The support for <code>@</code>-commands in <code>@node</code> directives is not
+general enough to be freely used.  For example, if the example above
+redefined <code>nodename</code> somewhere in the document, <code>makeinfo</code>
+will fail to convert it, even if invoked with the
+`<samp><span class="samp">--commands-in-node-names</span></samp>' option.
+
+  <p>`<samp><span class="samp">--commands-in-node-names</span></samp>' has no effect if the `<samp><span class="samp">--no-validate</span></samp>'
+option is given.
+
+  </body></html>
+

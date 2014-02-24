@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+<title>Macro Details - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Defining-New-Texinfo-Commands.html#Defining-New-Texinfo-Commands" title="Defining New Texinfo Commands">
+<link rel="prev" href="Invoking-Macros.html#Invoking-Macros" title="Invoking Macros">
+<link rel="next" href="alias.html#alias" title="alias">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Macro-Details"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="alias.html#alias">alias</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Invoking-Macros.html#Invoking-Macros">Invoking Macros</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Defining-New-Texinfo-Commands.html#Defining-New-Texinfo-Commands">Defining New Texinfo Commands</a>
+<hr>
+</div>
+
+<h3 class="section">19.3 Macro Details and Caveats</h3>
+
+<p><a name="index-Macro-details-970"></a><a name="index-Details-of-macro-usage-971"></a><a name="index-Caveats-for-macro-usage-972"></a>
+Due to unavoidable limitations, certain macro-related constructs cause
+problems with TeX.  If you get macro-related errors when producing
+the printed version of a manual, try expanding the macros with
+<samp><span class="command">makeinfo</span></samp> by invoking <samp><span class="command">texi2dvi</span></samp> with the `<samp><span class="samp">-E</span></samp>'
+option (see <a href="Format-with-texi2dvi.html#Format-with-texi2dvi">Format with texi2dvi</a>).
+
+     <ul>
+<li>As mentioned earlier, macro names must consist entirely of letters.
+
+     <li>It is not advisable to redefine any TeX primitive, plain, or
+Texinfo command name as a macro. Unfortunately this is a very large
+set of names, and the possible resulting errors are unpredictable.
+
+     <li>All macros are expanded inside at least one TeX group.  This means
+that <code>@set</code> and other such commands have no effect inside a
+macro.
+
+     <li>Commas in macro arguments, even if escaped by a backslash, don't
+always work.
+
+     <li>Macro arguments cannot cross lines.
+
+     <li>It is (usually) best to avoid comments inside macro definitions, but
+see the next item.
+
+     <li>Macros containing a command which must be on a line by itself, such as
+a conditional, cannot be invoked in the middle of a line.  In general,
+the interaction of newlines in the macro definitions and invocations
+depends on the precise commands and context.  You may be able to work
+around some problems with judicious use of <code>@c</code>.  Suppose you
+define a macro that is always intended to be used on a line by itself:
+
+     <pre class="example">          @macro linemac
+          @cindex whatever
+          @c
+          @end macro
+          ...
+          foo
+          @linemac
+          bar
+     </pre>
+     <p>Without the <code>@c</code>, there will be an unwanted blank line between
+the `<samp><span class="samp">@cindex whatever</span></samp>' and the `<samp><span class="samp">bar</span></samp>' (one newline comes
+from the macro definition, one from after the invocation), causing a
+paragraph break.
+
+     <p>On the other hand, you wouldn't want the <code>@c</code> if the macro was
+sometimes invoked in the middle of a line (the text after the
+invocation would be treated as a comment).
+
+     <li>In general, you can't arbitrarily substitute a macro call for Texinfo
+command arguments, even when the text is the same.  It might work with
+some commands, it fails with others.  Best not to do it at all.  For
+instance, this fails:
+
+     <pre class="example">          @macro offmacro
+          off
+          @end macro
+          @headings @offmacro
+     </pre>
+     <p class="noindent">You would expect this to be equivalent to <code>@headings off</code>, but
+for TeXnical reasons, it fails with a mysterious error message
+(<code>Paragraph ended before @headings was complete</code>).
+
+     <li>Macros cannot define macros in the natural way.  To do this, you must
+use conditionals and raw TeX.  For example:
+
+     <pre class="example">          @ifnottex
+          @macro ctor {name, arg}
+          @macro \name\
+          something involving \arg\ somehow
+          @end macro
+          @end macro
+          @end ifnottex
+          @tex
+          \gdef\ctor#1{\ctorx#1,}
+          \gdef\ctorx#1,#2,{\def#1{something involving #2 somehow}}
+          @end tex
+     </pre>
+     </ul>
+
+  <p>The <samp><span class="command">makeinfo</span></samp> implementation also has limitations:
+
+     <ul>
+<li><code>@verbatim</code> and macros do not mix; for instance, you can't start
+a verbatim block inside a macro and end it outside. 
+(See <a href="verbatim.html#verbatim">verbatim</a>.)  Starting any environment inside a macro and ending
+it outside may or may not work, for that matter.
+
+     <li>Macros that completely define macros are ok, but it's not possible to
+have incorrectly nested macro definitions.  That is, <code>@macro</code>
+and <code>@end macro</code> (likewise for <code>@rmacro</code>) must be
+correctly paired.  For example, you cannot start a macro definition
+within a macro, and then end the nested definition outside the macro.
+
+     <li><code>@rmacro</code> is a kludge.
+
+  </ul>
+
+  <p>One more limitation is common to both implementations: white space is
+ignored at the beginnings of lines.
+
+  <p>Future major revisions of Texinfo may ease some of these limitations
+(by introducing a new macro syntax).
+
+  </body></html>
+

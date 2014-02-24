@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+<title>Tag and Split Files - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Creating-an-Info-File.html#Creating-an-Info-File" title="Creating an Info File">
+<link rel="prev" href="Batch-Formatting.html#Batch-Formatting" title="Batch Formatting">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Tag-and-Split-Files"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Batch-Formatting.html#Batch-Formatting">Batch Formatting</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Creating-an-Info-File.html#Creating-an-Info-File">Creating an Info File</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h4 class="subsection">21.1.8 Tag Files and Split Files</h4>
+
+<p><a name="index-Making-a-tag-table-automatically-1168"></a><a name="index-Tag-table_002c-making-automatically-1169"></a>
+If a Texinfo file has more than 30,000 bytes,
+<code>texinfo-format-buffer</code> automatically creates a tag table
+for its Info file;  <code>makeinfo</code> always creates a tag table.  With
+a <dfn>tag table</dfn>, Info can jump to new nodes more quickly than it can
+otherwise.
+
+  <p><a name="index-Indirect-subfiles-1170"></a>In addition, if the Texinfo file contains more than about 300,000
+bytes, <code>texinfo-format-buffer</code> and <code>makeinfo</code> split the
+large Info file into shorter <dfn>indirect</dfn> subfiles of about 300,000
+bytes each.  Big files are split into smaller files so that Emacs does
+not need to make a large buffer to hold the whole of a large Info
+file; instead, Emacs allocates just enough memory for the small, split-off
+file that is needed at the time.  This way, Emacs avoids wasting
+memory when you run Info.  (Before splitting was implemented, Info
+files were always kept short and <dfn>include files</dfn> were designed as
+a way to create a single, large printed manual out of the smaller Info
+files.  See <a href="Include-Files.html#Include-Files">Include Files</a>, for more information.  Include files are
+still used for very large documents, such as <cite>The Emacs Lisp
+Reference Manual</cite>, in which each chapter is a separate file.)
+
+  <p>When a file is split, Info itself makes use of a shortened version of
+the original file that contains just the tag table and references to
+the files that were split off.  The split-off files are called
+<dfn>indirect</dfn> files.
+
+  <p>The split-off files have names that are created by appending `<samp><span class="samp">-1</span></samp>'<!-- /@w -->,
+`<samp><span class="samp">-2</span></samp>'<!-- /@w -->, `<samp><span class="samp">-3</span></samp>'<!-- /@w --> and so on to the file name specified by the
+<code>@setfilename</code> command.  The shortened version of the original file
+continues to have the name specified by <code>@setfilename</code>.
+
+  <p>At one stage in writing this document, for example, the Info file was saved
+as the file <samp><span class="file">test-texinfo</span></samp> and that file looked like this:
+
+<pre class="example">     Info file: test-texinfo,    -*-Text-*-
+     produced by texinfo-format-buffer
+     from file: new-texinfo-manual.texinfo
+     
+     ^_
+     Indirect:
+     test-texinfo-1: 102
+     test-texinfo-2: 50422
+     test-texinfo-3: 101300
+     ^_^L
+     Tag table:
+     (Indirect)
+     Node: overview^?104
+     Node: info file^?1271
+     Node: printed manual^?4853
+     Node: conventions^?6855
+     ...
+</pre>
+  <p class="noindent">(But <samp><span class="file">test-texinfo</span></samp> had far more nodes than are shown here.)  Each of
+the split-off, indirect files, <samp><span class="file">test-texinfo-1</span></samp>,
+<samp><span class="file">test-texinfo-2</span></samp>, and <samp><span class="file">test-texinfo-3</span></samp>, is listed in this file
+after the line that says `<samp><span class="samp">Indirect:</span></samp>'.  The tag table is listed after
+the line that says `<samp><span class="samp">Tag table:</span></samp>'.
+
+  <p>In the list of indirect files, the number following the file name
+records the cumulative number of bytes in the preceding indirect files,
+not counting the file list itself, the tag table, or the permissions
+text in each file.  In the tag table, the number following the node name
+records the location of the beginning of the node, in bytes from the
+beginning of the (unsplit) output.
+
+  <p>If you are using <code>texinfo-format-buffer</code> to create Info files,
+you may want to run the <code>Info-validate</code> command.  (The
+<code>makeinfo</code> command does such a good job on its own, you do not
+need <code>Info-validate</code>.)  However, you cannot run the <kbd>M-x
+Info-validate</kbd> node-checking command on indirect files.  For
+information on how to prevent files from being split and how to
+validate the structure of the nodes, see <a href="Using-Info_002dvalidate.html#Using-Info_002dvalidate">Using Info-validate</a>.
+
+  </body></html>
+

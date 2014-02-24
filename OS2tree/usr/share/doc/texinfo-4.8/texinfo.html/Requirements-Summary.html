@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+<title>Requirements Summary - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Hardcopy.html#Hardcopy" title="Hardcopy">
+<link rel="prev" href="Compile_002dCommand.html#Compile_002dCommand" title="Compile-Command">
+<link rel="next" href="Preparing-for-TeX.html#Preparing-for-TeX" title="Preparing for TeX">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Requirements-Summary"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Preparing-for-TeX.html#Preparing-for-TeX">Preparing for TeX</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Compile_002dCommand.html#Compile_002dCommand">Compile-Command</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Hardcopy.html#Hardcopy">Hardcopy</a>
+<hr>
+</div>
+
+<h3 class="section">20.8 TeX Formatting Requirements Summary</h3>
+
+<p><a name="index-Requirements-for-formatting-1020"></a><a name="index-Minimal-requirements-for-formatting-1021"></a><a name="index-Formatting-requirements-1022"></a>
+Every Texinfo file that is to be input to TeX must begin with a
+<code>\input</code> command and must contain an <code>@setfilename</code> command:
+
+<pre class="example">     \input texinfo
+     @setfilename <var>arg-not-used-by-TeX</var>
+</pre>
+  <p class="noindent">The first command instructs TeX to load the macros it needs to
+process a Texinfo file and the second command opens auxiliary files.
+
+  <p>Every Texinfo file must end with a line that terminates TeX's
+processing and forces out unfinished pages:
+
+<pre class="example">     @bye
+</pre>
+  <p>Strictly speaking, these lines are all a Texinfo file needs to be
+processed successfully by TeX.
+
+  <p>Usually, however, the beginning includes an <code>@settitle</code> command to
+define the title of the printed manual, an <code>@setchapternewpage</code>
+command, a title page, a copyright page, and permissions.  Besides an
+<code>@bye</code>, the end of a file usually includes indices and a table of
+contents.  (And of course most manuals contain a body of text as well.)
+
+  <p>For more information, see:
+
+     <ul>
+<li><a href="settitle.html#settitle"><code>@settitle</code></a>. 
+<li><a href="setchapternewpage.html#setchapternewpage"><code>@setchapternewpage</code></a>. 
+<li><a href="Headings.html#Headings">Page Headings</a>. 
+<li><a href="Titlepage-_0026-Copyright-Page.html#Titlepage-_0026-Copyright-Page">Titlepage &amp; Copyright Page</a>. 
+<li><a href="Printing-Indices-_0026-Menus.html#Printing-Indices-_0026-Menus">Printing Indices &amp; Menus</a>. 
+<li><a href="Contents.html#Contents">Contents</a>. 
+</ul>
+
+  </body></html>
+

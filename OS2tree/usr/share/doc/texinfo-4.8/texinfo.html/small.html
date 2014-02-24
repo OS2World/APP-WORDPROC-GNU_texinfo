@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+<title>small - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Quotations-and-Examples.html#Quotations-and-Examples" title="Quotations and Examples">
+<link rel="prev" href="lisp.html#lisp" title="lisp">
+<link rel="next" href="display.html#display" title="display">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="small"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="display.html#display">display</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="lisp.html#lisp">lisp</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Quotations-and-Examples.html#Quotations-and-Examples">Quotations and Examples</a>
+<hr>
+</div>
+
+<h3 class="section">10.7 <code>@small...</code> Block Commands</h3>
+
+<p><a name="index-Small-examples-482"></a><a name="index-Examples-in-smaller-fonts-483"></a><a name="index-Lisp-examples-in-smaller-fonts-484"></a><a name="index-smalldisplay-485"></a><a name="index-smallexample-486"></a><a name="index-smallformat-487"></a><a name="index-smalllisp-488"></a>
+In addition to the regular <code>@example</code> and <code>@lisp</code> commands,
+Texinfo has &ldquo;small&rdquo; example-style commands.  These are
+<code>@smalldisplay</code>, <code>@smallexample</code>, <code>@smallformat</code>, and
+<code>@smalllisp</code>.
+
+  <p>In Info, the <code>@small...</code> commands are equivalent to their
+non-small companion commands.
+
+  <p>In TeX, however, the <code>@small...</code> commands typeset text in
+a smaller font than the non-small example commands.  Consequently,
+many examples containing long lines fit on a page without needing to
+be shortened.
+
+  <p>Mark the end of an <code>@small...</code> block with a corresponding
+<code>@end small...</code>.  For example, pair <code>@smallexample</code> with
+<code>@end smallexample</code>.
+
+  <p>Here is an example of the font used by the <code>@small...</code>
+commands (in Info, the output will be the same as usual):
+
+<pre class="smallexample">     ... to make sure that you have the freedom to
+     distribute copies of free software (and charge for
+     this service if you wish), that you receive source
+     code or can get it if you want it, that you can
+     change the software or use pieces of it in new free
+     programs; and that you know you can do these things.
+</pre>
+  <p>The <code>@small...</code> commands make it easier to prepare manuals
+without forcing you to edit examples by hand to fit them onto narrower
+pages.
+
+  <p>As a general rule, a printed document looks much better if you use
+only one of (for instance) <code>@example</code> or <code>@smallexample</code>
+consistently within a chapter.
+
+  </body></html>
+

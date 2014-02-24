@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+<title>Tree Structuring - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Structuring.html#Structuring" title="Structuring">
+<link rel="next" href="Structuring-Command-Types.html#Structuring-Command-Types" title="Structuring Command Types">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Tree-Structuring"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Structuring-Command-Types.html#Structuring-Command-Types">Structuring Command Types</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Structuring.html#Structuring">Structuring</a>
+<hr>
+</div>
+
+<h3 class="section">5.1 Tree Structure of Sections</h3>
+
+<p><a name="index-Tree-structuring-273"></a>
+A Texinfo file is usually structured like a book with chapters,
+sections, subsections, and the like.  This structure can be visualized
+as a tree (or rather as an upside-down tree) with the root at the top
+and the levels corresponding to chapters, sections, subsection, and
+subsubsections.
+
+  <p>Here is a diagram that shows a Texinfo file with three chapters,
+each of which has two sections.
+
+<pre class="example">                              Top
+                               |
+             -------------------------------------
+            |                  |                  |
+         Chapter 1          Chapter 2          Chapter 3
+            |                  |                  |
+         --------           --------           --------
+        |        |         |        |         |        |
+     Section  Section   Section  Section   Section  Section
+       1.1      1.2       2.1      2.2       3.1      3.2
+</pre>
+  <p>In a Texinfo file that has this structure, the beginning of Chapter 2
+looks like this:
+
+<pre class="example">     @node    Chapter 2,  Chapter 3, Chapter 1, top
+     @chapter Chapter 2
+</pre>
+  <p>The chapter structuring commands are described in the sections that
+follow; the <code>@node</code> and <code>@menu</code> commands are described in
+following chapters. (See <a href="Nodes.html#Nodes">Nodes</a>, and see <a href="Menus.html#Menus">Menus</a>.)
+
+  </body></html>
+

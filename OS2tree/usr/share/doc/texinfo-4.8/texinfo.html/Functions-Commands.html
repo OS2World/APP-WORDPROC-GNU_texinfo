@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+<title>Functions Commands - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Def-Cmds-in-Detail.html#Def-Cmds-in-Detail" title="Def Cmds in Detail">
+<link rel="next" href="Variables-Commands.html#Variables-Commands" title="Variables Commands">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Functions-Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Variables-Commands.html#Variables-Commands">Variables Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Def-Cmds-in-Detail.html#Def-Cmds-in-Detail">Def Cmds in Detail</a>
+<hr>
+</div>
+
+<h4 class="subsection">16.5.1 Functions and Similar Entities</h4>
+
+<p>This section describes the commands for describing functions and similar
+entities:
+
+     
+<a name="index-deffn-848"></a>
+<dl><dt><code>@deffn </code><var>category</var> <var>name</var> <var>arguments</var><code>...</code><dd>The <code>@deffn</code> command is the general definition command for
+functions, interactive commands, and similar entities that may take
+arguments.  You must choose a term to describe the category of entity
+being defined; for example, &ldquo;Function&rdquo; could be used if the entity is
+a function.  The <code>@deffn</code> command is written at the beginning of a
+line and is followed on the same line by the category of entity being
+described, the name of this particular entity, and its arguments, if
+any.  Terminate the definition with <code>@end deffn</code> on a line of its
+own.
+
+     <p>For example, here is a definition:
+
+     <pre class="example">          @deffn Command forward-char nchars
+          Move point forward @var{nchars} characters.
+          @end deffn
+     </pre>
+     <p class="noindent">This shows a rather terse definition for a &ldquo;command&rdquo; named
+<code>forward-char</code> with one argument, <var>nchars</var>.
+
+     <p><code>@deffn</code> and prints argument names such as <var>nchars</var> in slanted
+type in the printed output, because we think of these names as
+metasyntactic variables&mdash;they stand for the actual argument values. 
+Within the text of the description, however, write an argument name
+explicitly with <code>@var</code> to refer to the value of the argument. 
+In the example above, we used `<samp><span class="samp">@var{nchars}</span></samp>' in this way.
+
+     <p>In the unusual case when an argument name contains `<samp><span class="samp">--</span></samp>', or
+another character sequence which is treated specially
+(see <a href="Conventions.html#Conventions">Conventions</a>), use <code>@var</code> around the argument.  This
+causes the name to be printed in slanted typewriter, instead of the
+regular slanted font, exactly as input. 
+<!-- except for ?` and !`, but we won't explain that. -->
+
+     <p>The template for <code>@deffn</code> is:
+
+     <pre class="example">          @deffn <var>category</var> <var>name</var> <var>arguments</var>...
+          <var>body-of-definition</var>
+          @end deffn
+     </pre>
+     <p><a name="index-defun-849"></a><br><dt><code>@defun </code><var>name</var> <var>arguments</var><code>...</code><dd>The <code>@defun</code> command is the definition command for functions. 
+<code>@defun</code> is equivalent to `<samp><span class="samp">@deffn Function ...</span></samp>'. 
+Terminate the definition with <code>@end defun</code> on a line of its own. 
+Thus, the template is:
+
+     <pre class="example">          @defun <var>function-name</var> <var>arguments</var>...
+          <var>body-of-definition</var>
+          @end defun
+     </pre>
+     <p><a name="index-defmac-850"></a><br><dt><code>@defmac </code><var>name</var> <var>arguments</var><code>...</code><dd>The <code>@defmac</code> command is the definition command for macros. 
+<code>@defmac</code> is equivalent to `<samp><span class="samp">@deffn Macro ...</span></samp>' and
+works like <code>@defun</code>.
+
+     <p><a name="index-defspec-851"></a><br><dt><code>@defspec </code><var>name</var> <var>arguments</var><code>...</code><dd>The <code>@defspec</code> command is the definition command for special
+forms.  (In Lisp, a special form is an entity much like a function,
+see <a href="../elisp/Special-Forms.html#Special-Forms">Special Forms</a>.) 
+<code>@defspec</code> is equivalent to `<samp><span class="samp">@deffn {Special Form}
+...</span></samp>' and works like <code>@defun</code>. 
+</dl>
+
+  <p>All these commands create entries in the index of functions.
+
+  </body></html>
+

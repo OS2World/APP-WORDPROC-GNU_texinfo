@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+<title>Directory File - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Installing-an-Info-File.html#Installing-an-Info-File" title="Installing an Info File">
+<link rel="next" href="New-Info-File.html#New-Info-File" title="New Info File">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Directory-File"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="New-Info-File.html#New-Info-File">New Info File</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Installing-an-Info-File.html#Installing-an-Info-File">Installing an Info File</a>
+<hr>
+</div>
+
+<h4 class="subsection">21.2.1 The Directory File <samp><span class="file">dir</span></samp></h4>
+
+<p>For Info to work, the <samp><span class="file">info</span></samp> directory must contain a file that
+serves as a top level directory for the Info system.  By convention,
+this file is called <samp><span class="file">dir</span></samp>.  (You can find the location of this file
+within Emacs by typing <kbd>C-h i</kbd> to enter Info and then typing
+<kbd>C-x C-f</kbd> to see the pathname to the <samp><span class="file">info</span></samp> directory.)
+
+  <p>The <samp><span class="file">dir</span></samp> file is itself an Info file.  It contains the top level
+menu for all the Info files in the system.  The menu looks like
+this:
+
+<pre class="example">     * Menu:
+     * Info:    (info).     Documentation browsing system.
+     * Emacs:   (emacs).    The extensible, self-documenting
+                           text editor.
+     * Texinfo: (texinfo).  With one source file, make
+                           either a printed manual using
+                           @TeX{} or an Info file.
+     ...
+</pre>
+  <p>Each of these menu entries points to the `Top' node of the Info file
+that is named in parentheses.  (The menu entry does not need to
+specify the `Top' node, since Info goes to the `Top' node if no node
+name is mentioned.  See <a href="Other-Info-Files.html#Other-Info-Files">Nodes in Other Info Files</a>.)
+
+  <p>Thus, the `<samp><span class="samp">Info</span></samp>' entry points to the `Top' node of the
+<samp><span class="file">info</span></samp> file and the `<samp><span class="samp">Emacs</span></samp>' entry points to the `Top' node
+of the <samp><span class="file">emacs</span></samp> file.
+
+  <p>In each of the Info files, the `Up' pointer of the `Top' node refers
+back to the <code>dir</code> file.  For example, the line for the `Top'
+node of the Emacs manual looks like this in Info:
+
+<pre class="example">     File: emacs  Node: Top, Up: (DIR), Next: Distrib
+</pre>
+  <p class="noindent">In this case, the <samp><span class="file">dir</span></samp> file name is written in upper case
+letters&mdash;it can be written in either upper or lower case.  This is not
+true in general, it is a special case for <samp><span class="file">dir</span></samp>.
+
+  </body></html>
+

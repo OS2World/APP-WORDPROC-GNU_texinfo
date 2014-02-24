@@ -1,0 +1,124 @@
+<html lang="en">
+<head>
+<title>Footnote Styles - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Footnotes.html#Footnotes" title="Footnotes">
+<link rel="prev" href="Footnote-Commands.html#Footnote-Commands" title="Footnote Commands">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Footnote-Styles"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Footnote-Commands.html#Footnote-Commands">Footnote Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Footnotes.html#Footnotes">Footnotes</a>
+<hr>
+</div>
+
+<h4 class="subsection">12.3.2 Footnote Styles</h4>
+
+<p>Info has two footnote styles, which determine where the text of the
+footnote is located:
+
+     
+<a name="index-g_t_0040samp_007b_0040r_007bEnd_007d_007d-node-footnote-style-596"></a>
+<ul><li>In the `End' node style, all the footnotes for a single node
+are placed at the end of that node.  The footnotes are separated from
+the rest of the node by a line of dashes with the word
+`<samp><span class="samp">Footnotes</span></samp>' within it.  Each footnote begins with an
+`<samp><span class="samp">(</span><var>n</var><span class="samp">)</span></samp>' reference mark.
+
+     <p class="noindent">Here is an example of a single footnote in the end of node style:
+
+     <pre class="example">          --------- Footnotes ---------
+          
+          (1)  Here is a sample footnote.
+     </pre>
+     <p><a name="index-g_t_0040samp_007b_0040r_007bSeparate_007d_007d-footnote-style-597"></a><li>In the `Separate' node style, all the footnotes for a single
+node are placed in an automatically constructed node of
+their own.  In this style, a &ldquo;footnote reference&rdquo; follows
+each `<samp><span class="samp">(</span><var>n</var><span class="samp">)</span></samp>' reference mark in the body of the
+node.  The footnote reference is actually a cross reference
+which you use to reach the footnote node.
+
+     <p>The name of the node with the footnotes is constructed
+by appending `<samp><span class="samp">-Footnotes</span></samp>'<!-- /@w --> to the name of the node
+that contains the footnotes. (Consequently, the footnotes'
+node for the <samp><span class="file">Footnotes</span></samp> node is
+<samp><span class="file">Footnotes-Footnotes</span></samp><!-- /@w -->!)  The footnotes' node has an
+`Up' node pointer that leads back to its parent node.
+
+     <p class="noindent">Here is how the first footnote in this manual looks after being
+formatted for Info in the separate node style:
+
+     <pre class="smallexample">          File: texinfo.info  Node: Overview-Footnotes, Up: Overview
+          
+          (1) The first syllable of "Texinfo" is pronounced like "speck", not
+          "hex". ...
+     </pre>
+     </ul>
+
+  <p>Unless your document has long and important footnotes (as in, say,
+Gibbon's <cite>Decline and Fall <small class="dots">...</small></cite>), we recommend the `<samp><span class="samp">end</span></samp>'
+style, as it is simpler for readers to follow.
+
+  <p><a name="index-footnotestyle-598"></a>Use the <code>@footnotestyle</code> command to specify an Info file's
+footnote style.  Write this command at the beginning of a line followed
+by an argument, either `<samp><span class="samp">end</span></samp>' for the end node style or
+`<samp><span class="samp">separate</span></samp>' for the separate node style.
+
+  <p>For example,
+
+<pre class="example">     @footnotestyle end
+</pre>
+  <p class="noindent">or
+<pre class="example">     @footnotestyle separate
+</pre>
+  <p>Write an <code>@footnotestyle</code> command before or shortly after the
+end-of-header line at the beginning of a Texinfo file.  (If you
+include the <code>@footnotestyle</code> command between the start-of-header
+and end-of-header lines, the region formatting commands will format
+footnotes as specified.)
+
+  <p>If you do not specify a footnote style, the formatting commands use
+their default style.  Currently, <code>texinfo-format-buffer</code> and
+<code>texinfo-format-region</code> use the `separate' style and
+<code>makeinfo</code> uses the `end' style.
+
+  </body></html>
+

@@ -1,0 +1,173 @@
+<html lang="en">
+<head>
+<title>infokey source format - GNU Info 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Info 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Custom-Key-Bindings.html#Custom-Key-Bindings" title="Custom Key Bindings">
+<link rel="prev" href="Invoking-infokey.html#Invoking-infokey" title="Invoking infokey">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Info (version 4.8, 14 December 2004),
+a program for viewing documents in Info format (usually created from
+Texinfo source files).
+
+Copyright (C) 1992, 1993, 1996, 1997, 1998, 1999, 2001, 2002,
+2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="infokey-source-format"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Invoking-infokey.html#Invoking-infokey">Invoking infokey</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Custom-Key-Bindings.html#Custom-Key-Bindings">Custom Key Bindings</a>
+<hr>
+</div>
+
+<h3 class="section">12.2 <samp><span class="command">infokey</span></samp> source format</h3>
+
+<p><a name="index-infokey-source-format-385"></a><a name="index-g_t_002einfokey-source-format-386"></a><a name="index-format-of-_002einfokey-source-387"></a>
+The format of the source file read by <samp><span class="command">infokey</span></samp> is most easily
+illustrated by example.  For instance, here is a sample <samp><span class="file">.infokey</span></samp>
+source file suitable for aficionados of <samp><span class="command">vi</span></samp> or <samp><span class="command">less</span></samp>:
+
+<pre class="example">     #info
+     j       next-line
+     k       prev-line
+     l       forward-char
+     h       backward-char
+     \kd     next-line
+     \ku     prev-line
+     \kr     forward-char
+     \kl     backward-char
+     \       scroll-forward
+     \kD     scroll-forward-page-only
+     b       scroll-backward
+     \kU     scroll-backward-page-only
+     g       beginning-of-node
+     \kh     beginning-of-node
+     G       end-of-node
+     \ke     end-of-node
+     \t      select-reference-this-line
+     -       history-node
+     n       next-node
+     p       prev-node
+     u       up-node
+     t       top-node
+     d       dir-node
+     #var
+     scroll-step=1
+</pre>
+   <p>The source file consists of one or more <dfn>sections</dfn>. 
+Each section starts with a line that identifies the type of section. 
+Possible sections are:
+
+     <dl>
+<dt><code>#info</code><dd>Key bindings for Info windows. 
+The start of this section is indicated by a line containing just
+<code>#info</code> by itself.  If this is the first section in the source
+file, the <code>#info</code> line can be omitted.  The rest of this section
+consists of lines of the form:
+
+     <pre class="example">          <var>string</var> whitespace <var>action</var> [ whitespace [ # comment ] ] newline
+     </pre>
+     <p>Whitespace is any sequence of one or more spaces and/or tabs.  Comment
+is any sequence of any characters, excluding newline.  <var>string</var> is
+the key sequence which invokes the action.  <var>action</var> is the name of
+an Info command.  The characters in <var>string</var> are interpreted
+literally or prefixed by a caret (<code>^</code>) to indicate a control
+character.  A backslash followed by certain characters specifies input
+keystrokes as follows:
+
+          <dl>
+<dt><code>\b</code><dd>Backspace
+<br><dt><code>\e</code><dd>Escape (ESC)
+<br><dt><code>\n</code><dd>Newline
+<br><dt><code>\r</code><dd>Return
+<br><dt><code>\t</code><dd>Tab
+<br><dt><code>\ku</code><dd>Up arrow
+<br><dt><code>\kd</code><dd>Down arrow
+<br><dt><code>\kl</code><dd>Left arrow
+<br><dt><code>\kr</code><dd>Right arrow
+<br><dt><code>\kU</code><dd>Page Up
+<br><dt><code>\kD</code><dd>Page Down
+<br><dt><code>\kh</code><dd>HOME
+<br><dt><code>\ke</code><dd>END
+<br><dt><code>\kx</code><dd>Delete (DEL)
+<br><dt><code>\m</code><var>x</var><dd>Meta-<var>x</var> where <var>x</var> is any character as described above. 
+</dl>
+
+     <p>Backslash followed by any other character indicates that character is to
+be taken literally.  Characters which must be preceded by a backslash
+include caret, space, tab, and backslash itself.
+
+     <br><dt><code>#echo-area</code><dd>Key bindings for the echo area. 
+The start of this section is indicated by a line containing just
+<code>#echo-area</code> by itself.  The rest of this section has a syntax
+identical to that for the key definitions for the Info area, described
+above.
+
+     <br><dt><code>#var</code><dd>Variable initializations. 
+The start of this section is indicated by a line containing just
+<code>#var</code> by itself.  Following this line is a list of variable
+assignments, one per line.  Each line consists of a variable name
+(See <a href="Variables.html#Variables">Variables</a>,) followed by <code>=</code> followed by a value. 
+There may be no white space between the variable name and the <code>=</code>,
+and all characters following the <code>=</code>, including white space,
+are included in the value. 
+</dl>
+
+   <p>Blank lines and lines starting with <code>#</code> are ignored, except for
+the special section header lines.
+
+   <p>Key bindings defined in the <samp><span class="file">.info</span></samp> file take precedence over GNU
+Info's default key bindings, whether or not `<samp><span class="samp">--vi-keys</span></samp>' is used.  A
+default key binding may be disabled by overriding it in the <samp><span class="file">.info</span></samp>
+file with the action <code>invalid</code>.  In addition, <em>all</em> default
+key bindings can be disabled by adding this line <em>anywhere</em> in the
+relevant section:
+
+<pre class="example">     #stop
+</pre>
+   <p>This will cause GNU Info to ignore all the default key commands for that
+section.
+
+   <p>Beware: <code>#stop</code> can be dangerous.  Since it disables all default
+key bindings, you must supply enough new key bindings to enable all
+necessary actions.  Failure to bind any key to the <code>quit</code> command,
+for example, can lead to frustration.
+
+   <p>The order in which key bindings are defined in the <samp><span class="file">.info</span></samp> file is
+not important, except that the command summary produced by the
+<code>get-help-window</code> command only displays the <em>first</em> key that
+is bound to each command.
+
+<!-- the following is incomplete -->
+</body></html>
+

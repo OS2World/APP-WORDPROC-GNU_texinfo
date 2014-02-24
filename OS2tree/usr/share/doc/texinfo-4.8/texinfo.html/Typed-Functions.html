@@ -1,0 +1,144 @@
+<html lang="en">
+<head>
+<title>Typed Functions - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Def-Cmds-in-Detail.html#Def-Cmds-in-Detail" title="Def Cmds in Detail">
+<link rel="prev" href="Variables-Commands.html#Variables-Commands" title="Variables Commands">
+<link rel="next" href="Typed-Variables.html#Typed-Variables" title="Typed Variables">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Typed-Functions"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Typed-Variables.html#Typed-Variables">Typed Variables</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Variables-Commands.html#Variables-Commands">Variables Commands</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Def-Cmds-in-Detail.html#Def-Cmds-in-Detail">Def Cmds in Detail</a>
+<hr>
+</div>
+
+<h4 class="subsection">16.5.3 Functions in Typed Languages</h4>
+
+<p>The <code>@deftypefn</code> command and its variations are for describing
+functions in languages in which you must declare types of variables and
+functions, such as C and C++.
+
+     
+<a name="index-deftypefn-856"></a>
+<dl><dt><code>@deftypefn </code><var>category</var> <var>data-type</var> <var>name</var> <var>arguments</var><code>...</code><dd>The <code>@deftypefn</code> command is the general definition command for
+functions and similar entities that may take arguments and that are
+typed.  The <code>@deftypefn</code> command is written at the beginning of
+a line and is followed on the same line by the category of entity
+being described, the type of the returned value, the name of this
+particular entity, and its arguments, if any.
+
+     <p class="noindent">For example,
+
+     <pre class="example">          @deftypefn {Library Function} int foobar
+            (int @var{foo}, float @var{bar})
+          ...
+          @end deftypefn
+     </pre>
+     <p class="noindent">(where the text before the &ldquo;<small class="dots">...</small>&rdquo;, shown above as two lines, would
+actually be a single line in a real Texinfo file) produces the following
+in Info:
+
+     <pre class="smallexample">          -- Library Function: int foobar (int FOO, float BAR)
+          ...
+     </pre>
+     <p>This means that <code>foobar</code> is a &ldquo;library function&rdquo; that returns an
+<code>int</code>, and its arguments are <var>foo</var> (an <code>int</code>) and
+<var>bar</var> (a <code>float</code>).
+
+     <p>Since in typed languages, the actual names of the arguments are
+typically scattered among data type names and keywords, Texinfo cannot
+find them without help.  You can either (a)&nbsp;<!-- /@w -->write everything
+as straight text, and it will be printed in slanted type; (b)&nbsp;<!-- /@w -->use
+<code>@var</code> for the variable names, which will uppercase the
+variable names in Info and use the slanted typewriter font in printed
+output; (c)&nbsp;<!-- /@w -->use <code>@var</code> for the variable names and
+<code>@code</code> for the type names and keywords, which will be dutifully
+obeyed.
+
+     <p>The template for <code>@deftypefn</code> is:
+
+     <pre class="example">          @deftypefn <var>category</var> <var>data-type</var> <var>name</var> <var>arguments</var> ...
+          <var>body-of-description</var>
+          @end deftypefn
+     </pre>
+     <p class="noindent">Note that if the <var>category</var> or <var>data type</var> is more than one
+word then it must be enclosed in braces to make it a single argument.
+
+     <p>If you are describing a procedure in a language that has packages,
+such as Ada, you might consider using <code>@deftypefn</code> in a manner
+somewhat contrary to the convention described in the preceding
+paragraphs.  For example:
+
+     <pre class="example">          @deftypefn stacks private push @
+                 (@var{s}:in out stack; @
+                 @var{n}:in integer)
+          ...
+          @end deftypefn
+     </pre>
+     <p class="noindent">(The <code>@deftypefn</code> arguments are shown using continuations
+(see <a href="Def-Cmd-Continuation-Lines.html#Def-Cmd-Continuation-Lines">Def Cmd Continuation Lines</a>), but could be on a single line in
+a real Texinfo file.)
+
+     <p>In this instance, the procedure is classified as belonging to the
+package <code>stacks</code> rather than classified as a `procedure' and its
+data type is described as <code>private</code>.  (The name of the procedure
+is <code>push</code>, and its arguments are <var>s</var> and <var>n</var>.)
+
+     <p><code>@deftypefn</code> creates an entry in the index of functions for
+<var>name</var>.
+
+     <br><dt><code>@deftypefun </code><var>data-type</var> <var>name</var> <var>arguments</var><code>...</code><dd><a name="index-deftypefun-857"></a>The <code>@deftypefun</code> command is the specialized definition command
+for functions in typed languages.  The command is equivalent to
+`<samp><span class="samp">@deftypefn Function ...</span></samp>'.  The template is:
+
+     <pre class="example">          @deftypefun <var>type</var> <var>name</var> <var>arguments</var>...
+          <var>body-of-description</var>
+          @end deftypefun
+     </pre>
+     <p><code>@deftypefun</code> creates an entry in the index of functions for
+<var>name</var>.
+
+  </dl>
+
+  </body></html>
+

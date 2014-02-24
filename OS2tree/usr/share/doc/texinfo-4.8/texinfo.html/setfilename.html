@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+<title>setfilename - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Texinfo-File-Header.html#Texinfo-File-Header" title="Texinfo File Header">
+<link rel="prev" href="Start-of-Header.html#Start-of-Header" title="Start of Header">
+<link rel="next" href="settitle.html#settitle" title="settitle">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="setfilename"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="settitle.html#settitle">settitle</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Start-of-Header.html#Start-of-Header">Start of Header</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Texinfo-File-Header.html#Texinfo-File-Header">Texinfo File Header</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.2.3 <code>@setfilename</code>: Set the output file name</h4>
+
+<p><a name="index-setfilename-168"></a><a name="index-Texinfo-requires-_0040code_007b_0040_0040setfilename_007d-169"></a>
+In order to serve as the primary input file for either <code>makeinfo</code>
+or TeX, a Texinfo file must contain a line that looks like this:
+
+<pre class="example">     @setfilename <var>info-file-name</var>
+</pre>
+  <p>Write the <code>@setfilename</code> command at the beginning of a line and
+follow it on the same line by the Info file name.  Do not write anything
+else on the line; anything on the line after the command is considered
+part of the file name, including what would otherwise be a
+comment.
+
+  <p><a name="index-Ignored-before-_0040code_007b_0040_0040setfilename_007d-170"></a><a name="index-g_t_0040samp_007b_005cinput_007d-source-line-ignored-171"></a>The Info formatting commands ignore everything written before the
+<code>@setfilename</code> line, which is why the very first line of
+the file (the <code>\input</code> line) does not show up in the output.
+
+  <p>The <code>@setfilename</code> line specifies the name of the output file to
+be generated.  This name must be different from the name of the Texinfo
+file.  There are two conventions for choosing the name: you can either
+remove the extension (such as `<samp><span class="samp">.texi</span></samp>') entirely from the input file
+name, or, preferably, replace it with the `<samp><span class="samp">.info</span></samp>' extension.
+
+  <p><a name="index-Length-of-file-names-172"></a><a name="index-File-name-collision-173"></a><a name="index-Info-file-name_002c-choosing-174"></a>Although an explicit `<samp><span class="samp">.info</span></samp>' extension is preferable, some
+operating systems cannot handle long file names.  You can run into a
+problem even when the file name you specify is itself short enough. 
+This occurs because the Info formatters split a long Info file into
+short indirect subfiles, and name them by appending `<samp><span class="samp">-1</span></samp>',
+`<samp><span class="samp">-2</span></samp>', <small class="dots">...</small>, `<samp><span class="samp">-10</span></samp>', `<samp><span class="samp">-11</span></samp>', and so on, to the original
+file name.  (See <a href="Tag-and-Split-Files.html#Tag-and-Split-Files">Tag and Split Files</a>.)  The subfile name
+<samp><span class="file">texinfo.info-10</span></samp>, for example, is too long for old systems with a
+14-character limit on filenames; so the Info file name for this document
+is <samp><span class="file">texinfo</span></samp> rather than <samp><span class="file">texinfo.info</span></samp>.  When <code>makeinfo</code>
+is running on operating systems such as MS-DOS which impose severe
+limits on file names, it may remove some characters from the original
+file name to leave enough space for the subfile suffix, thus producing
+files named <samp><span class="file">texin-10</span></samp>, <samp><span class="file">gcc.i12</span></samp>, etc.
+
+  <p>When producing HTML output, <code>makeinfo</code> will replace any extension
+with `<samp><span class="samp">html</span></samp>', or add `<samp><span class="samp">.html</span></samp>' if the given name has no
+extension.
+
+  <p><a name="index-texinfo_002ecnf-175"></a>The <code>@setfilename</code> line produces no output when you typeset a
+manual with TeX, but it is nevertheless essential: it opens the
+index, cross-reference, and other auxiliary files used by Texinfo, and
+also reads <samp><span class="file">texinfo.cnf</span></samp> if that file is present on your system
+(see <a href="Preparing-for-TeX.html#Preparing-for-TeX">Preparing for TeX</a>).
+
+  </body></html>
+

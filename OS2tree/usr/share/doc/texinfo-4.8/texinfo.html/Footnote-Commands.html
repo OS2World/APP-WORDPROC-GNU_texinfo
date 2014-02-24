@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+<title>Footnote Commands - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Footnotes.html#Footnotes" title="Footnotes">
+<link rel="next" href="Footnote-Styles.html#Footnote-Styles" title="Footnote Styles">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Footnote-Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Footnote-Styles.html#Footnote-Styles">Footnote Styles</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Footnotes.html#Footnotes">Footnotes</a>
+<hr>
+</div>
+
+<h4 class="subsection">12.3.1 Footnote Commands</h4>
+
+<p>In Texinfo, footnotes are created with the <code>@footnote</code> command. 
+This command is followed immediately by a left brace, then by the text
+of the footnote, and then by a terminating right brace.  Footnotes may
+be of any length (they will be broken across pages if necessary), but
+are usually short.  The template is:
+
+<pre class="example">     ordinary text@footnote{<var>text of footnote</var>}
+</pre>
+  <p>As shown here, the <code>@footnote</code> command should come right after the
+text being footnoted, with no intervening space; otherwise, the footnote
+marker might end up starting a line.
+
+  <p>For example, this clause is followed by a sample footnote<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>; in the Texinfo source, it looks like
+this:
+
+<pre class="example">     ...a sample footnote@footnote{Here is the sample
+     footnote.}; in the Texinfo source...
+</pre>
+  <p>As you can see, the source includes two punctuation marks next to each
+other; in this case, `<samp><span class="samp">.};</span></samp>' is the sequence.  This is normal (the
+first ends the footnote and the second belongs to the sentence being
+footnoted), so don't worry that it looks odd.
+
+  <p>In a printed manual or book, the reference mark for a footnote is a
+small, superscripted number; the text of the footnote appears at the
+bottom of the page, below a horizontal line.
+
+  <p>In Info, the reference mark for a footnote is a pair of parentheses
+with the footnote number between them, like this: `<samp><span class="samp">(1)</span></samp>'.  The
+reference mark is followed by a cross-reference link to the footnote's
+text.
+
+  <p>In the HTML output, footnote references are marked with a small,
+superscripted number which is rendered as a hypertext link to the
+footnote text.
+
+  <p>By the way, footnotes in the argument of an <code>@item</code> command for a
+<code>@table</code> must be on the same line as the <code>@item</code>
+(as usual).  See <a href="Two_002dcolumn-Tables.html#Two_002dcolumn-Tables">Two-column Tables</a>.
+
+  <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> Here
+is the sample footnote.</p>
+
+  <p><hr></div>
+
+  </body></html>
+

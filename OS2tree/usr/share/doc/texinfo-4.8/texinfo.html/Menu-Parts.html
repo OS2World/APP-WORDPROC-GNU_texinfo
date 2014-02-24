@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+<title>Menu Parts - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Menus.html#Menus" title="Menus">
+<link rel="prev" href="Writing-a-Menu.html#Writing-a-Menu" title="Writing a Menu">
+<link rel="next" href="Less-Cluttered-Menu-Entry.html#Less-Cluttered-Menu-Entry" title="Less Cluttered Menu Entry">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Menu-Parts"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Less-Cluttered-Menu-Entry.html#Less-Cluttered-Menu-Entry">Less Cluttered Menu Entry</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Writing-a-Menu.html#Writing-a-Menu">Writing a Menu</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Menus.html#Menus">Menus</a>
+<hr>
+</div>
+
+<h3 class="section">7.3 The Parts of a Menu</h3>
+
+<p><a name="index-Parts-of-a-menu-346"></a><a name="index-Menu-parts-347"></a><a name="index-g_t_0040code_007b_0040_0040menu_007d-parts-348"></a>
+A menu entry has three parts, only the second of which is required:
+
+     <ol type=1 start=1>
+<li>The menu entry name (optional).
+
+     <li>The name of the node (required).
+
+     <li>A description of the item (optional).
+       </ol>
+
+  <p>The template for a menu entry looks like this:
+
+<pre class="example">     * <var>menu-entry-name</var>: <var>node-name</var>.   <var>description</var>
+</pre>
+  <p>Follow the menu entry name with a single colon and follow the node name
+with tab, comma, period, or newline.
+
+  <p>In Info, a user selects a node with the <kbd>m</kbd> (<code>Info-menu</code>)
+command.  The menu entry name is what the user types after the <kbd>m</kbd>
+command.
+
+  <p>The third part of a menu entry is a descriptive phrase or sentence. 
+Menu entry names and node names are often short; the description
+explains to the reader what the node is about.  A useful description
+complements the node name rather than repeats it.  The description,
+which is optional, can spread over two or more lines; if it does, some
+authors prefer to indent the second line while others prefer to align it
+with the first (and all others).  It's up to you.
+
+  </body></html>
+

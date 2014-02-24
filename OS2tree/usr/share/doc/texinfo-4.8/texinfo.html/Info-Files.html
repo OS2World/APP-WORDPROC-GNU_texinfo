@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+<title>Info Files - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Overview.html#Overview" title="Overview">
+<link rel="prev" href="Output-Formats.html#Output-Formats" title="Output Formats">
+<link rel="next" href="Printed-Books.html#Printed-Books" title="Printed Books">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Info-Files"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Printed-Books.html#Printed-Books">Printed Books</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Output-Formats.html#Output-Formats">Output Formats</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Overview.html#Overview">Overview</a>
+<hr>
+</div>
+
+<h3 class="section">1.4 Info Files</h3>
+
+<p><a name="index-Info-files-38"></a>
+An Info file is a Texinfo file formatted so that the Info documentation
+reading program can operate on it.  (<code>makeinfo</code>
+and <code>texinfo-format-buffer</code> are two commands that convert a Texinfo file
+into an Info file.)
+
+  <p>Info files are divided into pieces called <dfn>nodes</dfn>, each of which
+contains the discussion of one topic.  Each node has a name, and
+contains both text for the user to read and pointers to other nodes,
+which are identified by their names.  The Info program displays one node
+at a time, and provides commands with which the user can move to other
+related nodes.
+
+  <p>See <a href="../info/index.html#Top">Top</a>, for more information about using Info.
+
+  <p>Each node of an Info file may have any number of child nodes that
+describe subtopics of the node's topic.  The names of child
+nodes are listed in a <dfn>menu</dfn> within the parent node; this
+allows you to use certain Info commands to move to one of the child
+nodes.  Generally, an Info file is organized like a book.  If a node
+is at the logical level of a chapter, its child nodes are at the level
+of sections; likewise, the child nodes of sections are at the level
+of subsections.
+
+  <p>All the children of any one parent are linked together in a
+bidirectional chain of `Next' and `Previous' pointers.  The `Next'
+pointer provides a link to the next section, and the `Previous' pointer
+provides a link to the previous section.  This means that all the nodes
+that are at the level of sections within a chapter are linked together. 
+Normally the order in this chain is the same as the order of the
+children in the parent's menu.  Each child node records the parent node
+name as its `Up' pointer.  The last child has no `Next' pointer, and the
+first child has the parent both as its `Previous' and as its `Up'
+pointer.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
+
+  <p>The book-like structuring of an Info file into nodes that correspond
+to chapters, sections, and the like is a matter of convention, not a
+requirement.  The `Up', `Previous', and `Next' pointers of a node can
+point to any other nodes, and a menu can contain any other nodes. 
+Thus, the node structure can be any directed graph.  But it is usually
+more comprehensible to follow a structure that corresponds to the
+structure of chapters and sections in a printed book or report.
+
+  <p>In addition to menus and to `Next', `Previous', and `Up' pointers, Info
+provides pointers of another kind, called references, that can be
+sprinkled throughout the text.  This is usually the best way to
+represent links that do not fit a hierarchical structure.
+
+  <p>Usually, you will design a document so that its nodes match the
+structure of chapters and sections in the printed output.  But
+occasionally there are times when this is not right for the material
+being discussed.  Therefore, Texinfo uses separate commands to specify
+the node structure for the Info file and the section structure for the
+printed output.
+
+  <p>Generally, you enter an Info file through a node that by convention is
+named `Top'.  This node normally contains just a brief summary of the
+file's purpose, and a large menu through which the rest of the file is
+reached.  From this node, you can either traverse the file
+systematically by going from node to node, or you can go to a specific
+node listed in the main menu, or you can search the index menus and then
+go directly to the node that has the information you want.  Alternatively,
+with the standalone Info program, you can specify specific menu items on
+the command line (see <a href="../info/index.html#Top">Top</a>).
+
+  <p>If you want to read through an Info file in sequence, as if it were a
+printed manual, you can hit &lt;SPC&gt; repeatedly, or you get the whole
+file with the advanced Info command <kbd>g *</kbd>.  (see <a href="../info/Advanced.html#Advanced">Advanced Info commands</a>.)
+
+<!-- !!! dir file may be located in one of many places: -->
+<!-- /usr/local/emacs/info            mentioned in info.c DEFAULT_INFOPATH -->
+<!-- /usr/local/lib/emacs/info        mentioned in info.c DEFAULT_INFOPATH -->
+<!-- /usr/gnu/info                    mentioned in info.c DEFAULT_INFOPATH -->
+<!-- /usr/local/info -->
+<!-- /usr/local/lib/info -->
+<p>The <samp><span class="file">dir</span></samp> file in the <samp><span class="file">info</span></samp> directory serves as the
+departure point for the whole Info system.  From it, you can reach the
+`Top' nodes of each of the documents in a complete Info system.
+
+  <p><a name="index-URI-syntax-for-Info-39"></a>If you wish to refer to an Info file in a URI, you can use the
+(unofficial) syntax exemplified in the following.  This works with
+Emacs/W3, for example:
+<pre class="example">     info:///usr/info/emacs#Dissociated%20Press
+     info:emacs#Dissociated%20Press
+     info://localhost/usr/info/emacs#Dissociated%20Press
+</pre>
+  <p>The <samp><span class="command">info</span></samp> program itself does not follow URI's of any kind.
+
+  <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> In some documents, the first child has no `Previous'
+pointer.  Occasionally, the last child has the node name of the next
+following higher level node as its `Next' pointer.</p>
+
+  <p><hr></div>
+
+  </body></html>
+

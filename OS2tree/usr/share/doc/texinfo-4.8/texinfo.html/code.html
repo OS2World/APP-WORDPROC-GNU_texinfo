@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+<title>code - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Indicating.html#Indicating" title="Indicating">
+<link rel="prev" href="Useful-Highlighting.html#Useful-Highlighting" title="Useful Highlighting">
+<link rel="next" href="kbd.html#kbd" title="kbd">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="code"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="kbd.html#kbd">kbd</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Useful-Highlighting.html#Useful-Highlighting">Useful Highlighting</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Indicating.html#Indicating">Indicating</a>
+<hr>
+</div>
+
+<h4 class="subsection">9.1.2 <code>@code</code>{<var>sample-code</var>}</h4>
+
+<p><a name="index-code-397"></a>
+<a name="index-Syntactic-tokens_002c-indicating-398"></a>Use the <code>@code</code> command to indicate text that is a piece of a
+program and which consists of entire syntactic tokens.  Enclose the
+text in braces.
+
+  <p><a name="index-Expressions-in-a-program_002c-indicating-399"></a><a name="index-Keywords_002c-indicating-400"></a><a name="index-Reserved-words_002c-indicating-401"></a>Thus, you should use <code>@code</code> for an expression in a program, for
+the name of a variable or function used in a program, or for a
+keyword in a programming language.
+
+  <p>Use <code>@code</code> for command names in languages that resemble
+programming languages, such as Texinfo.  For example, <code>@code</code> and
+<code>@samp</code> are produced by writing `<samp><span class="samp">@code{@@code}</span></samp>' and
+`<samp><span class="samp">@code{@@samp}</span></samp>' in the Texinfo source, respectively.
+
+  <p><a name="index-Case_002c-not-altering-in-_0040code_007b_0040_0040code_007d-402"></a>It is incorrect to alter the case of a word inside an <code>@code</code>
+command when it appears at the beginning of a sentence.  Most computer
+languages are case sensitive.  In C, for example, <code>Printf</code> is
+different from the identifier <code>printf</code>, and most likely is a
+misspelling of it.  Even in languages which are not case sensitive, it
+is confusing to a human reader to see identifiers spelled in different
+ways.  Pick one spelling and always use that.  If you do not want to
+start a sentence with a command name written all in lower case, you
+should rearrange the sentence.
+
+  <p>In the printed manual, <code>@code</code> causes TeX to typeset the
+argument in a typewriter face.  In the Info file, it causes the Info
+formatting commands to use single quotation marks around the text.
+
+  <p>For example,
+
+<pre class="example">     The function returns @code{nil}.
+</pre>
+  <p class="noindent">produces this in the printed manual:
+
+  <blockquote>
+The function returns <code>nil</code>. 
+</blockquote>
+
+  <p>Here are some cases for which it is preferable not to use <code>@code</code>:
+
+     <ul>
+<li>For shell command names such as <samp><span class="command">ls</span></samp> (use <code>@command</code>).
+
+     <li>For shell options such as `<samp><span class="samp">-c</span></samp>' when such options stand alone (use
+<code>@option</code>).
+
+     <li>Also, an entire shell command often looks better if written using
+<code>@samp</code> rather than <code>@code</code>.  In this case, the rule is to
+choose the more pleasing format.
+
+     <li>For environment variable such as <samp><span class="env">TEXINPUTS</span></samp> (use <code>@env</code>).
+
+     <li>For a string of characters shorter than a syntactic token.  For example,
+if you are writing about `<samp><span class="samp">goto-ch</span></samp>', which is just a part of the
+name for the <code>goto-char</code> Emacs Lisp function, you should use
+<code>@samp</code>.
+
+     <li>In general, when writing about the characters used in a token; for
+example, do not use <code>@code</code> when you are explaining what letters
+or printable symbols can be used in the names of functions.  (Use
+<code>@samp</code>.)  Also, you should not use <code>@code</code> to mark text
+that is considered input to programs unless the input is written in a
+language that is like a programming language.  For example, you should
+not use <code>@code</code> for the keystroke commands of GNU Emacs (use
+<code>@kbd</code> instead) although you may use <code>@code</code> for the names
+of the Emacs Lisp functions that the keystroke commands invoke.
+
+  </ul>
+
+  <p>Since <code>@command</code>, <code>@option</code>, and <code>@env</code> were
+introduced relatively recently, it is acceptable to use <code>@code</code> or
+<code>@samp</code> for command names, options, and environment variables. 
+The new commands allow you to express the markup more precisely, but
+there is no real harm in using the older commands, and of course the
+long-standing manuals do so.
+
+  </body></html>
+

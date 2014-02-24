@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+<title>Conditional Nesting - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Conditionals.html#Conditionals" title="Conditionals">
+<link rel="prev" href="set-clear-value.html#set-clear-value" title="set clear value">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Conditional-Nesting"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="set-clear-value.html#set-clear-value">set clear value</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Conditionals.html#Conditionals">Conditionals</a>
+<hr>
+</div>
+
+<h3 class="section">17.5 Conditional Nesting</h3>
+
+<p><a name="index-Conditionals_002c-nested-920"></a><a name="index-Nesting-conditionals-921"></a>
+Conditionals can be nested; however, the details are a little tricky. 
+The difficulty comes with failing conditionals, such as
+<code>@ifhtml</code> when HTML is not being produced, where the included
+text is to be ignored.  However, it is not to be <em>completely</em>
+ignored, since it is useful to have one <code>@ifset</code> inside another,
+for example&mdash;that is a way to include text only if two conditions are
+met.  Here's an example:
+
+<pre class="example">     @ifset somevar
+     @ifset anothervar
+     Both somevar and anothervar are set.
+     @end ifset
+     @ifclear anothervar
+     Somevar is set, anothervar is not.
+     @end ifclear
+     @end ifset
+</pre>
+  <p>Technically, Texinfo requires that for a failing conditional, the
+ignored text must be properly nested with respect to that failing
+conditional.  Unfortunately, it's not always feasible to check that
+<em>all</em> conditionals are properly nested, because then the
+processors could have to fully interpret the ignored text, which
+defeats the purpose of the command.  Here's an example illustrating
+these rules:
+
+<pre class="example">     @ifset a
+     @ifset b
+     @ifclear ok  - ok, ignored
+     @end junky   - ok, ignored
+     @end ifset
+     @c WRONG - missing @end ifset.
+</pre>
+  <p>Finally, as mentioned above, all conditional commands must be on lines
+by themselves, with no text (even spaces) before or after.  Otherwise,
+the processors cannot reliably determine which commands to consider
+for nesting purposes.
+
+  </body></html>
+

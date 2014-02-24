@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+<title>New Info File - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Installing-an-Info-File.html#Installing-an-Info-File" title="Installing an Info File">
+<link rel="prev" href="Directory-File.html#Directory-File" title="Directory File">
+<link rel="next" href="Other-Info-Directories.html#Other-Info-Directories" title="Other Info Directories">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="New-Info-File"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Other-Info-Directories.html#Other-Info-Directories">Other Info Directories</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Directory-File.html#Directory-File">Directory File</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Installing-an-Info-File.html#Installing-an-Info-File">Installing an Info File</a>
+<hr>
+</div>
+
+<h4 class="subsection">21.2.2 Listing a New Info File</h4>
+
+<p><a name="index-Adding-a-new-Info-file-1174"></a><a name="index-Listing-a-new-Info-file-1175"></a><a name="index-New-Info-file_002c-listing-it-in-_0040file_007bdir_007d-file-1176"></a><a name="index-Info-file_002c-listing-a-new-1177"></a><a name="index-g_t_0040file_007bdir_007d-file-listing-1178"></a>
+To add a new Info file to your system, you must write a menu entry to
+add to the menu in the <samp><span class="file">dir</span></samp> file in the <samp><span class="file">info</span></samp> directory. 
+For example, if you were adding documentation for GDB, you would write
+the following new entry:
+
+<pre class="example">     * GDB: (gdb).           The source-level C debugger.
+</pre>
+  <p class="noindent">The first part of the menu entry is the menu entry name, followed by a
+colon.  The second part is the name of the Info file, in parentheses,
+followed by a period.  The third part is the description.
+
+  <p>The name of an Info file often has a <samp><span class="file">.info</span></samp> extension.  Thus, the
+Info file for GDB might be called either <samp><span class="file">gdb</span></samp> or <samp><span class="file">gdb.info</span></samp>. 
+The Info reader programs automatically try the file name both with and
+without <samp><span class="file">.info</span></samp><a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>; so it is better to avoid
+clutter and not to write `<samp><span class="samp">.info</span></samp>' explicitly in the menu entry.  For
+example, the GDB menu entry should use just `<samp><span class="samp">gdb</span></samp>' for the file
+name, not `<samp><span class="samp">gdb.info</span></samp>'.
+
+  <div class="footnote">
+<hr>
+<h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> On MS-DOS/MS-Windows systems, Info will
+try the <samp><span class="file">.inf</span></samp> extension as well.</p>
+
+  <p><hr></div>
+
+  </body></html>
+

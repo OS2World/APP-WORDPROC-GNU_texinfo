@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+<title>Useful Highlighting - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Indicating.html#Indicating" title="Indicating">
+<link rel="next" href="code.html#code" title="code">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Useful-Highlighting"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="code.html#code">code</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Indicating.html#Indicating">Indicating</a>
+<hr>
+</div>
+
+<h4 class="subsection">9.1.1 Highlighting Commands are Useful</h4>
+
+<p>The highlighting commands can be used to extract useful information
+from the file, such as lists of functions or file names.  It is
+possible, for example, to write a program in Emacs Lisp (or a keyboard
+macro) to insert an index entry after every paragraph that contains
+words or phrases marked by a specified command.  You could do this to
+construct an index of functions if you had not already made the
+entries.
+
+  <p>The commands serve a variety of purposes:
+
+     <dl>
+<dt><code>@code{</code><var>sample-code</var><code>}</code><dd>Indicate text that is a literal example of a piece of a program. 
+See <a href="code.html#code"><code>@code</code></a>.
+
+     <br><dt><code>@kbd{</code><var>keyboard-characters</var><code>}</code><dd>Indicate keyboard input. 
+See <a href="kbd.html#kbd"><code>@kbd</code></a>.
+
+     <br><dt><code>@key{</code><var>key-name</var><code>}</code><dd>Indicate the conventional name for a key on a keyboard. 
+See <a href="key.html#key"><code>@key</code></a>.
+
+     <br><dt><code>@samp{</code><var>text</var><code>}</code><dd>Indicate text that is a literal example of a sequence of characters. 
+See <a href="samp.html#samp"><code>@samp</code></a>.
+
+     <br><dt><code>@verb{</code><var>text</var><code>}</code><dd>Write a verbatim sequence of characters. 
+See <a href="verb.html#verb"><code>@verb</code></a>.
+
+     <br><dt><code>@var{</code><var>metasyntactic-variable</var><code>}</code><dd>Indicate a metasyntactic variable. 
+See <a href="var.html#var"><code>@var</code></a>.
+
+     <br><dt><code>@env{</code><var>environment-variable</var><code>}</code><dd>Indicate an environment variable. 
+See <a href="env.html#env"><code>@kenv</code></a>.
+
+     <br><dt><code>@file{</code><var>file-name</var><code>}</code><dd>Indicate the name of a file. 
+See <a href="file.html#file"><code>@file</code></a>.
+
+     <br><dt><code>@command{</code><var>command-name</var><code>}</code><dd>Indicate the name of a command. 
+See <a href="command.html#command"><code>@command</code></a>.
+
+     <br><dt><code>@option{</code><var>option</var><code>}</code><dd>Indicate a command-line option. 
+See <a href="option.html#option"><code>@option</code></a>.
+
+     <br><dt><code>@dfn{</code><var>term</var><code>}</code><dd>Indicate the introductory or defining use of a term. 
+See <a href="dfn.html#dfn"><code>@dfn</code></a>.
+
+     <br><dt><code>@cite{</code><var>reference</var><code>}</code><dd>Indicate the name of a book. 
+See <a href="cite.html#cite"><code>@cite</code></a>.
+
+     <br><dt><code>@abbr{</code><var>abbreviation</var><code>}</code><dd>Indicate an abbreviation.
+
+     <br><dt><code>@acronym{</code><var>acronym</var><code>}</code><dd>Indicate an acronym. 
+See <a href="acronym.html#acronym"><code>@acronym</code></a>.
+
+     <br><dt><code>@indicateurl{</code><var>uniform-resource-locator</var><code>}</code><dd>Indicate an example (that is, nonfunctional) uniform resource locator. 
+See <a href="indicateurl.html#indicateurl"><code>@indicateurl</code></a>.  (Use <code>@url</code>
+(see <a href="uref.html#uref"><code>@url</code></a>) for live url's.)
+
+     <br><dt><code>@email{</code><var>email-address</var><code>[, </code><var>displayed-text</var><code>]}</code><dd>Indicate an electronic mail address. 
+See <a href="email.html#email"><code>@email</code></a>.
+
+  </dl>
+
+  </body></html>
+

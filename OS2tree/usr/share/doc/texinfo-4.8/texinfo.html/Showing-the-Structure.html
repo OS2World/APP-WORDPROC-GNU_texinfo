@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+<title>Showing the Structure - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Texinfo-Mode.html#Texinfo-Mode" title="Texinfo Mode">
+<link rel="prev" href="Inserting.html#Inserting" title="Inserting">
+<link rel="next" href="Updating-Nodes-and-Menus.html#Updating-Nodes-and-Menus" title="Updating Nodes and Menus">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Showing-the-Structure"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Updating-Nodes-and-Menus.html#Updating-Nodes-and-Menus">Updating Nodes and Menus</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Inserting.html#Inserting">Inserting</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Texinfo-Mode.html#Texinfo-Mode">Texinfo Mode</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">2.4 Showing the Section Structure of a File</h3>
+
+<p><a name="index-Showing-the-section-structure-of-a-file-118"></a><a name="index-Section-structure-of-a-file_002c-showing-it-119"></a><a name="index-Structure-of-a-file_002c-showing-it-120"></a><a name="index-Outline-of-file-structure_002c-showing-it-121"></a><a name="index-Contents_002dlike-outline-of-file-structure-122"></a><a name="index-File-section-structure_002c-showing-it-123"></a><a name="index-Texinfo-file-section-structure_002c-showing-it-124"></a>
+You can show the section structure of a Texinfo file by using the
+<kbd>C-c C-s</kbd> command (<code>texinfo-show-structure</code>).  This command
+shows the section structure of a Texinfo file by listing the lines
+that begin with the @-commands for <code>@chapter</code>,
+<code>@section</code>, and the like.  It constructs what amounts
+to a table of contents.  These lines are displayed in another buffer
+called the `<samp><span class="samp">*Occur*</span></samp>' buffer.  In that buffer, you can position
+the cursor over one of the lines and use the <kbd>C-c C-c</kbd> command
+(<code>occur-mode-goto-occurrence</code>), to jump to the corresponding spot
+in the Texinfo file.
+
+     <dl>
+<dt><kbd>C-c C-s</kbd><dt><kbd>M-x texinfo-show-structure</kbd><dd><a name="index-texinfo_002dshow_002dstructure-125"></a>Show the <code>@chapter</code>, <code>@section</code>, and such lines of a
+Texinfo file.
+
+     <br><dt><kbd>C-c C-c</kbd><dt><kbd>M-x occur-mode-goto-occurrence</kbd><dd><a name="index-occur_002dmode_002dgoto_002doccurrence-126"></a>Go to the line in the Texinfo file corresponding to the line under the
+cursor in the <samp><span class="file">*Occur*</span></samp> buffer. 
+</dl>
+
+  <p>If you call <code>texinfo-show-structure</code> with a prefix argument by
+typing <kbd>C-u&nbsp;C-c&nbsp;C-s</kbd><!-- /@w -->, it will list not only those lines with the
+@-commands for <code>@chapter</code>, <code>@section</code>, and the like, but
+also the <code>@node</code> lines.  You can use <code>texinfo-show-structure</code>
+with a prefix argument to check whether the `Next', `Previous', and `Up'
+pointers of an <code>@node</code> line are correct.
+
+  <p>Often, when you are working on a manual, you will be interested only
+in the structure of the current chapter.  In this case, you can mark
+off the region of the buffer that you are interested in by using the
+<kbd>C-x n n</kbd> (<code>narrow-to-region</code>) command and
+<code>texinfo-show-structure</code> will work on only that region.  To see
+the whole buffer again, use <kbd>C-x&nbsp;n&nbsp;w</kbd><!-- /@w --> (<code>widen</code>). 
+(See <a href="../emacs/Narrowing.html#Narrowing">Narrowing</a>, for more
+information about the narrowing commands.)
+
+  <p><a name="index-page_002ddelimiter-127"></a><a name="index-Page-delimiter-in-Texinfo-mode-128"></a>In addition to providing the <code>texinfo-show-structure</code> command,
+Texinfo mode sets the value of the page delimiter variable to match
+the chapter-level @-commands.  This enables you to use the <kbd>C-x
+]</kbd> (<code>forward-page</code>) and <kbd>C-x [</kbd> (<code>backward-page</code>)
+commands to move forward and backward by chapter, and to use the
+<kbd>C-x p</kbd> (<code>narrow-to-page</code>) command to narrow to a chapter. 
+See <a href="../emacs/Pages.html#Pages">Pages</a>, for more information
+about the page commands.
+
+  </body></html>
+

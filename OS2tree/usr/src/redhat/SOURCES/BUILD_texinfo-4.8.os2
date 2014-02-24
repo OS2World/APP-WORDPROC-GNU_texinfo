@@ -1,0 +1,189 @@
+/*------- texinfo-4.8  for OS/2   Thu, 20 Jan 2005 21:41:27 +0900  -------*/
+
+ Jun Sawataishi, YOKOHAMA, JAPAN <jsawa@attglobal.net>
+
+
+  
+
+
+                           http://www2s.biglobe.ne.jp/~vtgf3mpr/index-e.htm
+
+
+
+
+General Instruction
+===================
+
+  A lot of Linux distributions follow the Filesystem Hierarchy Standard (FHS),
+a collaborative document that defines the names and locations of many files 
+and  directories. 
+  I have decided to make zip archive for which end users can install files 
+in FHS like way. 
+
+
+Files in the patch kit
+~~~~~~~~~~~~~~~~~~~~~~
+  
+ = texinfo-4.8-OS2-patch.zip
+       BUILD_texinfo-4.8.os2      -- instruction
+       OS2patch.zip                   -- diff files and scripts to build
+
+
+  - OS2patch.zip  
+       os2config.cmd                  -- modify source using `os2unix' 
+                                         and apply diff files 
+                                         followed by running configure 
+                                         
+       os2/C_Source.diff              -- patch for C soure
+       os2/In-make.diff                        for Makefile.in's and scripts
+       os2/Other.diff                          for other files
+       
+    +--- os2unix utility -------------------------------+
+    |  os2/os2_convert_configure.sed                    |
+    |  os2/os2_convert_ltmain.sed                       |
+    |  os2/os2_convert_Makefile_in.sed                  |
+    |  os2/os2_convert_Makefile_in_in.sed               |
+    |  os2/os2_convert_Makefile_in_lib_prog.sed         |
+    |  os2/os2_convert_mk.sed                           |
+    |  os2/os2_convert_Makefile_in.grep                 |
+    |  os2/os2_mkinstalldirs                            |
+    |  os2/os2_missing                                  |
+    |  os2unix.cmd                                      |
+    +---------------------------------------------------+
+
+
+How to Build
+============
+
+ Get source   ftp://ftp.gnu.org/gnu/texinfo/texinfo-4.8.tar.gz
+           or
+              ftp://alpha.gnu.org/gnu/texinfo/texinfo-4.8.tar.gz
+
+
+Case 1: Using rpm package (texinfo-4.8-OS2-*.rpm)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+     After put `texinfo-4.8.tar.gz' in source directory of rpm
+
+
+  Method (a)
+
+        x:/foo> rpm -bb RPM_SPEC_DIR/texinfo-4.8-os2.spec
+        x:/foo> cd RPM_BUILD_DIR
+        RPM_BUILD_DIR> cd texinfo-4.8
+
+    Now compilation is completed.
+
+    When UNIXROOT is "x:"
+  
+        RPM_BUILD_DIR/texinfo-4.8> make install prefix=x:/usr 
+                mandir=x:/usr/share/man infodir=x:/usr/share/info
+
+     Finaly, copy DLLs in intl/ and in lib/ in your LIBPATH directory. 
+
+  Method (b)
+
+        x:/foo> rpm -bp  RPM_SPEC_DIR/texinfo-4.8-os2.spec
+        x:/foo> cd RPM_BUILD_DIR
+        RPM_BUILD_DIR> cd texinfo-4.8
+        RPM_BUILD_DIR/texinfo-4.8> 
+
+    In this directory, do the same procedure described in case 2. 
+   
+
+
+Case 2: Without rpm package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     x:/src>tar zxvf SOMEWHER/texinfo-4.8.tar.gz
+     x:/src> cd texinfo-4.8
+     x:/src/texinfo-4.8> unzip SOMEWHERE/OS2patch.zip
+
+
+   Read instruction in both `os2config.cmd' and `os2unix.cmd'. 
+   If your environment lacks required executables, install them. 
+   `os2unix.cmd' will stop running when essential utilities cannot be run. 
+
+
+     x:/src/texinfo-4.8> os2config
+
+
+   You will see an instruction ; choose your way of configure. 
+     
+     x:/src/texinfo-4.8> os2config x:/usr intl
+
+
+   Now configure script is running ........
+
+     x:/src/texinfo-4.8> make
+
+
+  If you'd like to make aout format executables
+     
+     x:/src/texinfo-4.8/src> make omf=no
+
+
+  Installation is simple.
+    To install in `/usr'
+         x:/src/texinfo-4.8> make install
+
+    To install in $UNIXROOT
+       x:/src/texinfo-4.8> os2install unixroot do
+
+    To install in drive y:
+       x:/src/texinfo-4.8> os2install y: do
+     
+     x:/src/texinfo-4.8> copy intl\*.dll IN_YOUR_LIBPATH
+     x:/src/texinfo-4.8> copy lib\*.dll IN_YOUR_LIBPATH  ( if DLL exist in lib)
+
+
+  Files except DLLs will be installed in drive `x:' this way
+
+       /usr/bin/                           -- executables
+       /usr/lib/                           -- C library files
+       /usr/include/                       -- C include files
+       /usr/share/doc/texinfo-4.8  -- documents
+       /usr/share/man/                     -- manpages
+       /usr/share/info/                    -- Info manuals
+       /usr/share/locale/                  -- message files for gettext 
+                                              compliant programs and other 
+                                              locale related files
+       /usr/share/emacs/site-lisp/         -- emacs lisp files
+
+
+
+  Confirm your `config.sys'
+  
+        set UNIXROOT=x:
+  
+        LIBPATH=x:\usr\dll;............
+
+        PATH=x:\usr\bin;.........
+
+        MANPATH=x:/usr/share/man;.....
+        
+        INFOPATH=x:/usr/share/info;.....
+        
+
+Important Notice
+~~~~~~~~~~~~~~~~
+
+  At the time I am writing this document, programs linked with 
+gettext (libintl.{a,lib}) and id-utils depend on UNIXROOT environment 
+variable. 
+
+  If UNIXROOT env. var. is not set or empty and HOME env. var. is 
+set, drive name part of HOME is assumed as UNIXROOT. 
+
+         e.g.  HOME=g:\emx
+               programs treat `g:/usr/share/locale'  as locale directory
+
+
+  GNULOCALEDIR env. var. is not refered to. 
+
+
+
+                                             SAWATAISHI JUN, YOKOHAMA JAPAN
+                                                      <jsawa@attglobal.net>
+                           http://www2s.biglobe.ne.jp/~vtgf3mpr/indxos2.htm
+
+
+/*----- end of document -----------------------------------------------------*/

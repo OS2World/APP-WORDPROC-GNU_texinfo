@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+<title>Installing Dir Entries - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Installing-an-Info-File.html#Installing-an-Info-File" title="Installing an Info File">
+<link rel="prev" href="Other-Info-Directories.html#Other-Info-Directories" title="Other Info Directories">
+<link rel="next" href="Invoking-install_002dinfo.html#Invoking-install_002dinfo" title="Invoking install-info">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Installing-Dir-Entries"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Invoking-install_002dinfo.html#Invoking-install_002dinfo">Invoking install-info</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Other-Info-Directories.html#Other-Info-Directories">Other Info Directories</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Installing-an-Info-File.html#Installing-an-Info-File">Installing an Info File</a>
+<hr>
+</div>
+
+<h4 class="subsection">21.2.4 Installing Info Directory Files</h4>
+
+<p>When you install an Info file onto your system, you can use the program
+<code>install-info</code> to update the Info directory file <samp><span class="file">dir</span></samp>. 
+Normally the makefile for the package runs <code>install-info</code>, just
+after copying the Info file into its proper installed location.
+
+  <p><a name="index-dircategory-1189"></a><a name="index-direntry-1190"></a>In order for the Info file to work with <code>install-info</code>, you include
+the commands <code>@dircategory</code> and
+<code>@direntry</code><small class="dots">...</small><code>@end direntry</code> in the Texinfo source
+file.  Use <code>@direntry</code> to specify the menu entries to add to the
+Info directory file, and use <code>@dircategory</code> to specify which part
+of the Info directory to put it in.  Here is how these commands are used
+in this manual:
+
+<pre class="smallexample">     @dircategory Texinfo documentation system
+     @direntry
+     * Texinfo: (texinfo).           The GNU documentation format.
+     * install-info: (texinfo)Invoking install-info. ...
+     ...
+     @end direntry
+</pre>
+  <p>Here's what this produces in the Info file:
+
+<pre class="smallexample">     INFO-DIR-SECTION Texinfo documentation system
+     START-INFO-DIR-ENTRY
+     * Texinfo: (texinfo).           The GNU documentation format.
+     * install-info: (texinfo)Invoking install-info. ...
+     ...
+     END-INFO-DIR-ENTRY
+</pre>
+  <p class="noindent">The <code>install-info</code> program sees these lines in the Info file, and
+that is how it knows what to do.
+
+  <p>Always use the <code>@direntry</code> and <code>@dircategory</code> commands near
+the beginning of the Texinfo input, before the first <code>@node</code>
+command.  If you use them later on in the input, <code>install-info</code>
+will not notice them.
+
+  <p>If you use <code>@dircategory</code> more than once in the Texinfo source,
+each usage specifies the `current' category; any subsequent
+<code>@direntry</code> commands will add to that category.
+
+  <p><a name="index-Free-Software-Directory-1191"></a><a name="index-Dir-categories_002c-choosing-1192"></a><a name="index-Categories_002c-choosing-1193"></a>When choosing a category name for the <code>@dircategory</code> command, we
+recommend consulting the <a href="http://www.gnu.org/directory">Free Software Directory</a>.  If your program is not listed there,
+or listed incorrectly or incompletely, please report the situation to
+the directory maintainers (<a href="mailto:bug-directory@gnu.org">bug-directory@gnu.org</a>) so that the
+category names can be kept in sync.
+
+  <p>Here are a few examples (see the <samp><span class="file">util/dir-example</span></samp> file in the
+Texinfo distribution for large sample <code>dir</code> file):
+
+<pre class="display">     Emacs
+     Localization
+     Printing
+     Software development
+     Software libraries
+     Text creation and manipulation
+</pre>
+  <p><a name="index-Invoking-nodes_002c-including-in-dir-file-1194"></a>Each `Invoking' node for every program installed should have a
+corresponding <code>@direntry</code>.  This lets users easily find the
+documentation for the different programs they can run, as with the
+traditional <samp><span class="command">man</span></samp> system.
+
+  </body></html>
+

@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+<title>First Line - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Texinfo-File-Header.html#Texinfo-File-Header" title="Texinfo File Header">
+<link rel="next" href="Start-of-Header.html#Start-of-Header" title="Start of Header">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="First-Line"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Start-of-Header.html#Start-of-Header">Start of Header</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Texinfo-File-Header.html#Texinfo-File-Header">Texinfo File Header</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.2.1 The First Line of a Texinfo File</h4>
+
+<p><a name="index-First-line-of-a-Texinfo-file-164"></a><a name="index-Beginning-line-of-a-Texinfo-file-165"></a><a name="index-Header-of-a-Texinfo-file-166"></a>
+Every Texinfo file that is to be the top-level input to TeX must begin
+with a line that looks like this:
+
+<pre class="example">     \input texinfo   @c -*-texinfo-*-
+</pre>
+  <p class="noindent">This line serves two functions:
+
+     <ol type=1 start=1>
+<li>When the file is processed by TeX, the `<samp><span class="samp">\input texinfo</span></samp>' command
+tells TeX to load the macros needed for processing a Texinfo file. 
+These are in a file called <samp><span class="file">texinfo.tex</span></samp>, which should have been
+installed on your system along with either the TeX or Texinfo
+software.  TeX uses the backslash, `<samp><span class="samp">\</span></samp>', to mark the beginning of
+a command, exactly as Texinfo uses `<samp><span class="samp">@</span></samp>'.  The <samp><span class="file">texinfo.tex</span></samp>
+file causes the switch from `<samp><span class="samp">\</span></samp>' to `<samp><span class="samp">@</span></samp>'; before the switch
+occurs, TeX requires `<samp><span class="samp">\</span></samp>', which is why it appears at the
+beginning of the file.
+
+     <li>When the file is edited in GNU Emacs, the `<samp><span class="samp">-*-texinfo-*-</span></samp>' mode
+specification tells Emacs to use Texinfo mode.
+       </ol>
+
+  </body></html>
+

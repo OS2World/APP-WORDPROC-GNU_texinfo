@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+<title>Data Types - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Def-Cmds-in-Detail.html#Def-Cmds-in-Detail" title="Def Cmds in Detail">
+<link rel="prev" href="Typed-Variables.html#Typed-Variables" title="Typed Variables">
+<link rel="next" href="Abstract-Objects.html#Abstract-Objects" title="Abstract Objects">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Data-Types"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Abstract-Objects.html#Abstract-Objects">Abstract Objects</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Typed-Variables.html#Typed-Variables">Typed Variables</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Def-Cmds-in-Detail.html#Def-Cmds-in-Detail">Def Cmds in Detail</a>
+<hr>
+</div>
+
+<h4 class="subsection">16.5.5 Data Types</h4>
+
+<p>Here is the command for data types:
+
+     
+<a name="index-deftp-860"></a>
+<dl><dt><code>@deftp </code><var>category</var> <var>name</var> <var>attributes</var><code>...</code><dd>The <code>@deftp</code> command is the generic definition command for data
+types.  The command is written at the beginning of a line and is
+followed on the same line by the category, by the name of the type
+(which is a word like <code>int</code> or <code>float</code>), and then by names of
+attributes of objects of that type.  Thus, you could use this command
+for describing <code>int</code> or <code>float</code>, in which case you could use
+<code>data type</code> as the category.  (A data type is a category of
+certain objects for purposes of deciding which operations can be
+performed on them.)
+
+     <p>In Lisp, for example,  <dfn>pair</dfn> names a particular data
+type, and an object of that type has two slots called the
+<span class="sc">car</span> and the <span class="sc">cdr</span>.  Here is how you would write the first line
+of a definition of <code>pair</code>.
+
+     <pre class="example">          @deftp {Data type} pair car cdr
+          ...
+          @end deftp
+     </pre>
+     <p>The template is:
+
+     <pre class="example">          @deftp <var>category</var> <var>name-of-type</var> <var>attributes</var>...
+          <var>body-of-definition</var>
+          @end deftp
+     </pre>
+     <p><code>@deftp</code> creates an entry in the index of data types. 
+</dl>
+
+  </body></html>
+

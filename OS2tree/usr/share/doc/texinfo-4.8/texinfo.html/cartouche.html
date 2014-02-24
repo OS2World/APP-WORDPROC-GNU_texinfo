@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+<title>cartouche - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Quotations-and-Examples.html#Quotations-and-Examples" title="Quotations and Examples">
+<link rel="prev" href="indent.html#indent" title="indent">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="cartouche"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="indent.html#indent">indent</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Quotations-and-Examples.html#Quotations-and-Examples">Quotations and Examples</a>
+<hr>
+</div>
+
+<h3 class="section">10.14 <code>@cartouche</code>: Rounded Rectangles Around Examples</h3>
+
+<p><a name="index-cartouche-508"></a><a name="index-Box-with-rounded-corners-509"></a><a name="index-Rounded-rectangles_002c-around-examples-510"></a>
+In a printed manual, the <code>@cartouche</code> command draws a box with
+rounded corners around its contents.  In HTML, a normal rectangle is
+drawn (that's the best HTML can do).  <code>@cartouche</code> has no effect
+in Info output.
+
+  <p>You can use this command to further highlight an example or quotation. 
+For instance, you could write a manual in which one type of example is
+surrounded by a cartouche for emphasis.
+
+  <p>For example,
+
+<pre class="example">     @cartouche
+     @example
+     % pwd
+     /usr/local/share/emacs
+     @end example
+     @end cartouche
+</pre>
+  <p class="noindent">surrounds the two-line example with a box with rounded corners, in the
+printed manual.
+
+  <p>The output from the example looks like this (if you're reading this in
+Info, you'll see the <code>@cartouche</code> had no effect):
+
+  <p><table class="cartouche" summary="cartouche" border="1"><tr><td>
+<pre class="example">     % pwd
+     /usr/local/info
+</pre>
+  </td></tr></table>
+
+  <p>For proper output in HTML, it's necessary to put the
+<code>@cartouche</code> around the <code>@example</code>, and not the other way
+around.  This limitation of <samp><span class="command">makeinfo</span></samp> may be removed one day.
+
+  <p><code>@cartouche</code> also implies <code>@group</code> (see <a href="group.html#group">group</a>).
+
+  </body></html>
+

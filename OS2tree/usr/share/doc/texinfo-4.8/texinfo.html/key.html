@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+<title>key - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Indicating.html#Indicating" title="Indicating">
+<link rel="prev" href="kbd.html#kbd" title="kbd">
+<link rel="next" href="samp.html#samp" title="samp">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="key"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="samp.html#samp">samp</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="kbd.html#kbd">kbd</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Indicating.html#Indicating">Indicating</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h4 class="subsection">9.1.4 <code>@key</code>{<var>key-name</var>}</h4>
+
+<p><a name="index-key-411"></a>
+Use the <code>@key</code> command for the conventional name for a key on a
+keyboard, as in:
+
+<pre class="example">     @key{RET}
+</pre>
+  <p>You can use the <code>@key</code> command within the argument of an
+<code>@kbd</code> command when the sequence of characters to be typed
+includes one or more keys that are described by name.
+
+  <p>For example, to produce <kbd>C-x &lt;ESC&gt;</kbd> you would type:
+
+<pre class="example">     @kbd{C-x @key{ESC}}
+</pre>
+  <p>Here is a list of the recommended names for keys:
+<a name="index-Recommended-names-for-keys-412"></a><a name="index-Keys_002c-recommended-names-413"></a><a name="index-Names-recommended-for-keys-414"></a><a name="index-Abbreviations-for-keys-415"></a>
+<blockquote>
+          <dl>
+<dt><tt>SPC</tt><dd>Space
+<br><dt><tt>RET</tt><dd>Return
+<br><dt><tt>LFD</tt><dd>Linefeed (however, since most keyboards nowadays do not have a Linefeed key,
+it might be better to call this character <kbd>C-j</kbd>. 
+<br><dt><tt>TAB</tt><dd>Tab
+<br><dt><tt>BS</tt><dd>Backspace
+<br><dt><tt>ESC</tt><dd>Escape
+<br><dt><tt>DEL</tt><dd>Delete
+<br><dt><tt>SHIFT</tt><dd>Shift
+<br><dt><tt>CTRL</tt><dd>Control
+<br><dt><tt>META</tt><dd>Meta
+</dl>
+  </blockquote>
+
+  <p><a name="index-META-key-416"></a>There are subtleties to handling words like `meta' or `ctrl' that are
+names of modifier keys.  When mentioning a character in which the
+modifier key is used, such as <kbd>Meta-a</kbd>, use the <code>@kbd</code> command
+alone; do not use the <code>@key</code> command; but when you are referring
+to the modifier key in isolation, use the <code>@key</code> command.  For
+example, write `<samp><span class="samp">@kbd{Meta-a}</span></samp>' to produce <kbd>Meta-a</kbd> and
+`<samp><span class="samp">@key{META}</span></samp>' to produce &lt;META&gt;.
+
+<!-- I don't think this is a good explanation. -->
+<!-- I think it will puzzle readers more than it clarifies matters.  - rms. -->
+<!-- In other words, use @code{@@kbd} for what you do, and use @code{@@key} -->
+<!-- for what you talk about: ``Press @code{@@kbd@{M-a@}} to move point to -->
+<!-- the beginning of the sentence.  The @code{@@key@{META@}} key is often in -->
+<!-- the lower left of the keyboard.''@refill -->
+</body></html>
+

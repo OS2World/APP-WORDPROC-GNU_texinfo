@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+<title>Image Scaling - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Images.html#Images" title="Images">
+<link rel="prev" href="Image-Syntax.html#Image-Syntax" title="Image Syntax">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Image-Scaling"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Image-Syntax.html#Image-Syntax">Image Syntax</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Images.html#Images">Images</a>
+<hr>
+</div>
+
+<h4 class="subsection">12.2.2 Image Scaling</h4>
+
+<p><a name="index-Images_002c-scaling-576"></a><a name="index-Scaling-images-577"></a><a name="index-Width-of-images-578"></a><a name="index-Height-of-images-579"></a><a name="index-Aspect-ratio-of-images-580"></a><a name="index-Distorting-images-581"></a>The optional <var>width</var> and <var>height</var> arguments to the
+<code>@image</code> command (see the previous section) specify the size to
+scale the image to.  They are ignored for Info output.  If neither is
+specified, the image is presented in its natural size (given in the
+file); if only one is specified, the other is scaled proportionately;
+and if both are specified, both are respected, thus possibly distorting
+the original image by changing its aspect ratio.
+
+  <p><a name="index-Dimensions-and-image-sizes-582"></a>The <var>width</var> and <var>height</var> may be specified using any valid TeX
+dimension, namely:
+
+     <dl>
+<dt>pt<dd><a name="index-Points-_0028dimension_0029-583"></a>point (72.27pt = 1in)
+<br><dt>pc<dd><a name="index-Picas-584"></a>pica (1pc = 12pt)
+<br><dt>bp<dd><a name="index-Big-points-585"></a>big point (72bp = 1in)
+<br><dt>in<dd><a name="index-Inches-586"></a>inch
+<br><dt>cm<dd><a name="index-Centimeters-587"></a>centimeter (2.54cm = 1in)
+<br><dt>mm<dd><a name="index-Millimeters-588"></a>millimeter (10mm = 1cm)
+<br><dt>dd<dd><a name="index-Did_0040_005eot-points-589"></a>did&ocirc;t point (1157dd = 1238pt)
+<br><dt>cc<dd><a name="index-Ciceros-590"></a>cicero (1cc = 12dd)
+<br><dt>sp<dd><a name="index-Scaled-points-591"></a>scaled point (65536sp = 1pt)
+</dl>
+
+  <p><a name="index-ridt_002eeps-592"></a>For example, the following will scale a file <samp><span class="file">ridt.eps</span></samp> to one
+inch vertically, with the width scaled proportionately:
+
+<pre class="example">     @image{ridt,,1in}
+</pre>
+  <p><a name="index-epsf_002etex-593"></a>For <code>@image</code> to work with TeX, the file <samp><span class="file">epsf.tex</span></samp> must be
+installed somewhere that TeX can find it.  (The standard location is
+<samp><var>texmf</var><span class="file">/tex/generic/dvips/epsf.tex</span></samp>, where <var>texmf</var> is a
+root of your TeX directory tree.)  This file is included in the
+Texinfo distribution and is also available from
+<a href="ftp://tug.org/tex/epsf.tex">ftp://tug.org/tex/epsf.tex</a>, among other places.
+
+  <p><code>@image</code> can be used within a line as well as for displayed
+figures.  Therefore, if you intend it to be displayed, be sure to leave
+a blank line before the command, or the output will run into the
+preceding text.
+
+  <p>Image scaling is presently implemented only in TeX, not in HTML or
+any other sort of output.
+
+  </body></html>
+

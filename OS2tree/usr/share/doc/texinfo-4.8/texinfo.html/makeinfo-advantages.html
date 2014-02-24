@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+<title>makeinfo advantages - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Creating-an-Info-File.html#Creating-an-Info-File" title="Creating an Info File">
+<link rel="next" href="Invoking-makeinfo.html#Invoking-makeinfo" title="Invoking makeinfo">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="makeinfo-advantages"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Invoking-makeinfo.html#Invoking-makeinfo">Invoking makeinfo</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Creating-an-Info-File.html#Creating-an-Info-File">Creating an Info File</a>
+<hr>
+</div>
+
+<h4 class="subsection">21.1.1 <code>makeinfo</code> Preferred</h4>
+
+<p>The <code>makeinfo</code> utility creates an Info file from a Texinfo source
+file more quickly than either of the Emacs formatting commands and
+provides better error messages.  We recommend it.  <code>makeinfo</code> is a
+C program that is independent of Emacs.  You do not need to run Emacs to
+use <code>makeinfo</code>, which means you can use <code>makeinfo</code> on machines
+that are too small to run Emacs.  You can run <code>makeinfo</code> in any one
+of three ways: from an operating system shell, from a shell inside
+Emacs, or by typing the <kbd>C-c C-m C-r</kbd> or the <kbd>C-c C-m C-b</kbd>
+command in Texinfo mode in Emacs.
+
+  <p>The <code>texinfo-format-region</code> and the <code>texinfo-format-buffer</code>
+commands are useful if you cannot run <code>makeinfo</code>.  Also, in some
+circumstances, they format short regions or buffers more quickly than
+<code>makeinfo</code>.
+
+  </body></html>
+

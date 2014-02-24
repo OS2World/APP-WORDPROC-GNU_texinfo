@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+<title>Smallcaps - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Emphasis.html#Emphasis" title="Emphasis">
+<link rel="prev" href="emph-_0026-strong.html#emph-_0026-strong" title="emph & strong">
+<link rel="next" href="Fonts.html#Fonts" title="Fonts">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Smallcaps"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Fonts.html#Fonts">Fonts</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="emph-_0026-strong.html#emph-_0026-strong">emph &amp; strong</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Emphasis.html#Emphasis">Emphasis</a>
+<hr>
+</div>
+
+<h4 class="subsection">9.2.2 <code>@sc</code>{<var>text</var>}: The Small Caps Font</h4>
+
+<p><a name="index-Small-caps-font-446"></a><a name="index-sc-_0040r_007b_0028small-caps-font_0029_007d-447"></a>
+Use the `<samp><span class="samp">@sc</span></samp>' command to set text in <span class="sc">a small caps font</span>
+(where possible).  Write the text you want to be in small caps between
+braces in lower case, like this:
+
+<pre class="example">     Richard @sc{Stallman} founded @acronym{GNU}.
+</pre>
+  <p class="noindent">This produces:
+
+<pre class="display">     Richard <span class="sc">Stallman</span> founded <acronym title="GNU's Not Unix">GNU</acronym>.
+</pre>
+  <p>As shown here, we recommend using <code>@acronym</code> for actual
+acronyms (see <a href="acronym.html#acronym">acronym</a>), and reserving <code>@sc</code> for special
+cases where you want small caps.  The output is not the same
+(<code>@acronym</code> prints in a smaller text font, not the small caps
+font), but more importantly it describes the actual text more
+accurately.
+
+  <p>Family names are one case where small capitals are sometimes desirable,
+also as shown here.
+
+  <p><a name="index-g_t_003csmall_003e-tag-448"></a>TeX typesets any uppercase letters between the braces of an
+<code>@sc</code> command in full-size capitals; only lowercase letters are
+printed in the small caps font.  In the Info output, the argument to
+<code>@sc</code> is printed in all upper case.  In HTML, the argument is
+uppercased and the output marked with the <code>&lt;small&gt;</code> tag to reduce
+the font size.
+
+  <p>Since it's redundant to mark all-uppercase text with <code>@sc</code>,
+<samp><span class="command">makeinfo</span></samp> warns about such usage.
+
+  <p>We recommend using regular mixed case wherever possible.
+
+  </body></html>
+

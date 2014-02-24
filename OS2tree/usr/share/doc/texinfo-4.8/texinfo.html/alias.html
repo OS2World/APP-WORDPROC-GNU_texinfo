@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+<title>alias - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Defining-New-Texinfo-Commands.html#Defining-New-Texinfo-Commands" title="Defining New Texinfo Commands">
+<link rel="prev" href="Macro-Details.html#Macro-Details" title="Macro Details">
+<link rel="next" href="definfoenclose.html#definfoenclose" title="definfoenclose">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="alias"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="definfoenclose.html#definfoenclose">definfoenclose</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Macro-Details.html#Macro-Details">Macro Details</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Defining-New-Texinfo-Commands.html#Defining-New-Texinfo-Commands">Defining New Texinfo Commands</a>
+<hr>
+</div>
+
+<h3 class="section">19.4 `<samp><span class="samp">@alias </span><var>new</var><span class="samp">=</span><var>existing</var></samp>'</h3>
+
+<p><a name="index-Aliases_002c-command-973"></a><a name="index-Command-aliases-974"></a><a name="index-alias-975"></a>
+The `<samp><span class="samp">@alias</span></samp>' command defines a new command to be just like an
+existing one.  This is useful for defining additional markup names, thus
+preserving semantic information in the input even though the output
+result may be the same.
+
+  <p>Write the `<samp><span class="samp">@alias</span></samp>' command on a line by itself, followed by the
+new command name, an equals sign, and the existing command name. 
+Whitespace around the equals sign is ignored.  Thus:
+<pre class="example">     @alias <var>new</var> = <var>existing</var>
+</pre>
+  <p>For example, if your document contains citations for both books and
+some other media (movies, for example), you might like to define a
+macro <code>@moviecite{}</code> that does the same thing as an ordinary
+<code>@cite{}</code> but conveys the extra semantic information as well. 
+You'd do this as follows:
+
+<pre class="example">     @alias moviecite = cite
+</pre>
+  <p>Macros do not always have the same effect as aliases, due to vagaries
+of argument parsing.  Also, aliases are much simpler to define than
+macros.  So the command is not redundant.  (It was also heavily used
+in the Jargon File!)
+
+  <p>Aliases must not be recursive, directly or indirectly.
+
+  <p>It is not advisable to redefine any TeX primitive, plain, or
+Texinfo command name as an alias.  Unfortunately this is a very large
+set of names, and the possible resulting errors are completely random.
+
+  </body></html>
+

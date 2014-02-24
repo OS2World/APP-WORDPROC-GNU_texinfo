@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+<title>Multitable Column Widths - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Multi_002dcolumn-Tables.html#Multi_002dcolumn-Tables" title="Multi-column Tables">
+<link rel="next" href="Multitable-Rows.html#Multitable-Rows" title="Multitable Rows">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Multitable-Column-Widths"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Multitable-Rows.html#Multitable-Rows">Multitable Rows</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Multi_002dcolumn-Tables.html#Multi_002dcolumn-Tables">Multi-column Tables</a>
+<hr>
+</div>
+
+<h4 class="subsection">11.5.1 Multitable Column Widths</h4>
+
+<p><a name="index-Multitable-column-widths-534"></a><a name="index-Column-widths_002c-defining-for-multitables-535"></a><a name="index-Widths_002c-defining-multitable-column-536"></a>
+You can define the column widths for a multitable in two ways: as
+fractions of the line length; or with a prototype row.  Mixing the two
+methods is not supported.  In either case, the widths are defined
+entirely on the same line as the <code>@multitable</code> command.
+
+     <ol type=1 start=1>
+<li><a name="index-columnfractions-537"></a><a name="index-Line-length_002c-column-widths-as-fraction-of-538"></a>To specify column widths as fractions of the line length, write
+<code>@columnfractions</code> and the decimal numbers (presumably less than
+1; a leading zero is allowed and ignored) after the
+<code>@multitable</code> command, as in:
+
+     <pre class="example">          @multitable @columnfractions .33 .33 .33
+     </pre>
+     <p>The fractions need not add up exactly to 1.0, as these do not.  This
+allows you to produce tables that do not need the full line length.
+
+     <li><a name="index-Prototype-row_002c-column-widths-defined-by-539"></a>To specify a prototype row, write the longest entry for each column
+enclosed in braces after the <code>@multitable</code> command.  For example:
+
+     <pre class="example">          @multitable {some text for column one} {for column two}
+     </pre>
+     <p class="noindent">The first column will then have the width of the typeset `some text for
+column one', and the second column the width of `for column two'.
+
+     <p>The prototype entries need not appear in the table itself.
+
+     <p>Although we used simple text in this example, the prototype entries can
+contain Texinfo commands; markup commands such as <code>@code</code> are
+particularly likely to be useful.
+
+       </ol>
+
+  </body></html>
+

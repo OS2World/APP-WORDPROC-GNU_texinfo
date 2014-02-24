@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+<title>smallbook - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Hardcopy.html#Hardcopy" title="Hardcopy">
+<link rel="prev" href="Overfull-hboxes.html#Overfull-hboxes" title="Overfull hboxes">
+<link rel="next" href="A4-Paper.html#A4-Paper" title="A4 Paper">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="smallbook"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="A4-Paper.html#A4-Paper">A4 Paper</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Overfull-hboxes.html#Overfull-hboxes">Overfull hboxes</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Hardcopy.html#Hardcopy">Hardcopy</a>
+<hr>
+</div>
+
+<h3 class="section">20.11 Printing &ldquo;Small&rdquo; Books</h3>
+
+<p><a name="index-smallbook-1048"></a><a name="index-Small-book-size-1049"></a><a name="index-Book_002c-printing-small-1050"></a><a name="index-Page-sizes-for-books-1051"></a><a name="index-Size-of-printed-book-1052"></a>
+By default, TeX typesets pages for printing in an 8.5 by 11 inch
+format.  However, you can direct TeX to typeset a document in a 7 by
+9.25 inch format that is suitable for bound books by inserting the
+following command on a line by itself at the beginning of the Texinfo
+file, before the title page:
+
+<pre class="example">     @smallbook
+</pre>
+  <p class="noindent">(Since many books are about 7 by 9.25 inches, this command might better
+have been called the <code>@regularbooksize</code> command, but it came to be
+called the <code>@smallbook</code> command by comparison to the 8.5 by 11
+inch format.)
+
+  <p>If you write the <code>@smallbook</code> command between the
+start-of-header and end-of-header lines, the Texinfo mode TeX
+region formatting command, <code>texinfo-tex-region</code>, will format the
+region in &ldquo;small&rdquo; book size (see <a href="Start-of-Header.html#Start-of-Header">Start of Header</a>).
+
+  <p>See <a href="small.html#small">small</a>, for information about
+commands that make it easier to produce examples for a smaller manual.
+
+  <p>See <a href="Format-with-texi2dvi.html#Format-with-texi2dvi">Format with texi2dvi</a>, and <a href="Preparing-for-TeX.html#Preparing-for-TeX">Preparing for TeX</a>, for other ways to format with <code>@smallbook</code> that do not
+require changing the source file.
+
+  </body></html>
+

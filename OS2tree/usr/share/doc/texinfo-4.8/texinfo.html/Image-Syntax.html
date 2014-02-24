@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+<title>Image Syntax - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Images.html#Images" title="Images">
+<link rel="next" href="Image-Scaling.html#Image-Scaling" title="Image Scaling">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Image-Syntax"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Image-Scaling.html#Image-Scaling">Image Scaling</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Images.html#Images">Images</a>
+<hr>
+</div>
+
+<h4 class="subsection">12.2.1 Image Syntax</h4>
+
+<p>Here is the basic synopsis of the <code>@image</code> command:
+
+<pre class="example">     @image{<var>filename</var><span class="roman">[,</span> <var>width</var><span class="roman">[,</span> <var>height</var><span class="roman">[,</span> <var>alttext</var><span class="roman">[, </span><var>extension</var><span class="roman">]]]]</span>}
+</pre>
+  <p><a name="index-Formats-for-images-567"></a><a name="index-Image-formats-568"></a>The <var>filename</var> argument is mandatory, and must not have an
+extension, because the different processors support different formats:
+
+     <ul>
+<li>TeX reads the file <samp><var>filename</var><span class="file">.eps</span></samp> (Encapsulated PostScript
+format). 
+<li><a name="index-pdftex_0040r_007b_002c-and-images_007d-569"></a>PDFTeX reads <samp><var>filename</var><span class="file">.pdf</span></samp> (Adobe's Portable Document Format). 
+<li><code>makeinfo</code> includes <samp><var>filename</var><span class="file">.txt</span></samp> verbatim for
+Info output (more or less as if it was an <code>@example</code>). 
+<li><code>makeinfo</code> uses the optional fifth argument <var>extension</var> to
+<code>@image</code> for the filename extension, if it is specified.  For example:
+
+     <p><a name="index-XPM-image-format-570"></a>
+     <pre class="example">          @image{foo,,,,.xpm}
+     </pre>
+     <p class="noindent">will cause <code>makeinfo</code> to look for <samp><span class="file">foo.xpm</span></samp> before any others.
+
+  </ul>
+
+  <p>The <var>width</var> and <var>height</var> arguments are described in the next
+section.
+
+  <p>For TeX output, if an image is the first thing in a paragraph, for
+example if you want two images side-by-side, you must precede it with
+<code>@noindent</code> (see <a href="noindent.html#noindent"><code>@noindent</code></a>).  Otherwise it
+will be displayed on a line by itself.  If you want it centered,
+use <code>@center</code> (see <a href="titlefont-center-sp.html#titlefont-center-sp"><code>@titlefont @center @sp</code></a>).
+
+  <p><a name="index-Alt-attribute-for-images-571"></a><a name="index-Images_002c-alternate-text-for-572"></a>When producing html, <code>makeinfo</code> sets the <dfn>alt attribute</dfn> for
+inline images to the optional <var>alttext</var> (fourth) argument to
+<code>@image</code>, if supplied.  If not supplied, <code>makeinfo</code> uses
+the full file name of the image being displayed.  If you want an empty
+<code>alt</code> string, use <code>@-</code>.  The <var>alttext</var> is taken as
+Texinfo text, so special characters such as `<samp><span class="samp">"</span></samp>' and `<samp><span class="samp">&lt;</span></samp>' and
+`<samp><span class="samp">&amp;</span></samp>' are escaped in the HTML and XML output.
+
+  <p><a name="index-GIF-images_002c-unsupported-due-to-patents-573"></a><a name="index-PNG-image-format-574"></a><a name="index-JPG-image-format-575"></a>If you do not supply the optional <var>extension</var> (fifth) argument,
+<code>makeinfo</code> first tries <samp><var>filename</var><span class="file">.png</span></samp>; if that does
+not exist, it tries <samp><var>filename</var><span class="file">.jpg</span></samp>.  If that does not exist
+either, it complains.  (We cannot support GIF format directly due to
+software patents.)
+
+  <p>In Info output, <code>makeinfo</code> writes a reference to the binary image
+file (trying <var>filename</var> suffixed with <samp><var>extension</var></samp>,
+<samp><var>.extension</var></samp>, <samp><span class="file">.png</span></samp>, or <samp><span class="file">.jpg</span></samp>, in that order)
+if one exists.  It also literally includes the <samp><span class="file">.txt</span></samp> file if one
+exists.  This way, Info readers which can display images (such as the
+Emacs Info browser, running under X) can do so, whereas Info readers
+which can only use text (such as the standalone Info reader) can
+display the textual version.
+
+  <p>The implementation of this is to put the following construct into the
+Info output:
+
+<pre class="example">     ^@^H[image src="<var>binaryfile</var>" text="<var>txtfile</var>"
+                alt="<var>alttext</var> ... ^@^H]
+</pre>
+  <p class="noindent">where `<samp><span class="samp">^@</span></samp>' and `<samp><span class="samp">^H</span></samp>' stand for the actual null and
+backspace control characters.  If one of the files is not present, the
+corresponding argument is omitted.
+
+  <p>The reason for mentioning this here is that older Info browsers (this
+feature was introduced in Texinfo version 4.6) will display the above
+literally, which, although not pretty, should not be harmful.
+
+  </body></html>
+

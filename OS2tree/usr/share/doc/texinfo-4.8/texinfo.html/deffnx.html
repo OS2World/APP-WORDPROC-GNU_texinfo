@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+<title>deffnx - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Definition-Commands.html#Definition-Commands" title="Definition Commands">
+<link rel="prev" href="Optional-Arguments.html#Optional-Arguments" title="Optional Arguments">
+<link rel="next" href="Def-Cmds-in-Detail.html#Def-Cmds-in-Detail" title="Def Cmds in Detail">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="deffnx"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Def-Cmds-in-Detail.html#Def-Cmds-in-Detail">Def Cmds in Detail</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Optional-Arguments.html#Optional-Arguments">Optional Arguments</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Definition-Commands.html#Definition-Commands">Definition Commands</a>
+<hr>
+</div>
+
+<h3 class="section">16.4 Two or More `First' Lines</h3>
+
+<p><a name="index-Two-_0060First_0027-Lines-for-_0040code_007b_0040_0040deffn_007d-842"></a><a name="index-Grouping-two-definitions-together-843"></a><a name="index-Definitions-grouped-together-844"></a><a name="index-deffnx-845"></a>
+To create two or more `first' or header lines for a definition, follow
+the first <code>@deffn</code> line by a line beginning with <code>@deffnx</code>. 
+The <code>@deffnx</code> command works exactly like <code>@deffn</code>
+except that it does not generate extra vertical white space between it
+and the preceding line.
+
+  <p>For example,
+
+<pre class="example">     @deffn {Interactive Command} isearch-forward
+     @deffnx {Interactive Command} isearch-backward
+     These two search commands are similar except ...
+     @end deffn
+</pre>
+  <p class="noindent">produces
+
+<div class="defun">
+&mdash; Interactive Command: <b>isearch-forward</b><var><a name="index-isearch_002dforward-846"></a></var><br>
+&mdash; Interactive Command: <b>isearch-backward</b><var><a name="index-isearch_002dbackward-847"></a></var><br>
+<blockquote><p>These two search commands are similar except <small class="dots">...</small>
+</p></blockquote></div>
+
+  <p>Each definition command has an `x' form: <code>@defunx</code>,
+<code>@defvrx</code>, <code>@deftypefunx</code>, etc.
+
+  <p>The `x' forms work similarly to <code>@itemx</code> (see <a href="itemx.html#itemx">itemx</a>).
+
+  </body></html>
+

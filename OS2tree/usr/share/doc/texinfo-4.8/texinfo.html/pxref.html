@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+<title>pxref - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Cross-References.html#Cross-References" title="Cross References">
+<link rel="prev" href="ref.html#ref" title="ref">
+<link rel="next" href="inforef.html#inforef" title="inforef">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="pxref"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="inforef.html#inforef">inforef</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="ref.html#ref">ref</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Cross-References.html#Cross-References">Cross References</a>
+<hr>
+</div>
+
+<h3 class="section">8.7 <code>@pxref</code></h3>
+
+<p><a name="index-Cross-references-using-_0040code_007b_0040_0040pxref_007d-377"></a><a name="index-References-using-_0040code_007b_0040_0040pxref_007d-378"></a><a name="index-pxref-379"></a>
+The parenthetical reference command, <code>@pxref</code>, is nearly the
+same as <code>@xref</code>, but you use it <em>only</em> inside parentheses
+and you do <em>not</em> type a comma or period (or anything else) after
+the command's closing brace.  The command differs from <code>@xref</code>
+in two ways:
+
+     <ol type=1 start=1>
+<li>TeX typesets the reference for the printed manual with a lower case
+`see' rather than an upper case `See'.
+
+     <li>The Info formatting commands automatically end the reference with a
+closing colon or period.
+       </ol>
+
+  <p>Because one type of formatting automatically inserts closing
+punctuation and the other does not, you should use <code>@pxref</code>
+<em>only</em> inside parentheses as part of another sentence.  Also, you
+yourself should not insert punctuation after the reference (or any
+other text), as you do with <code>@xref</code>.  In the Info
+output, such text would follow a period, which is grammatically wrong.
+
+  <p><code>@pxref</code> is designed so that the output looks right and works
+right between parentheses both in printed output and in an Info file. 
+In a printed manual, a closing comma or period should not follow a
+cross reference within parentheses; such punctuation is wrong.  But in
+an Info file, suitable closing punctuation must follow the cross
+reference so Info can recognize its end.  <code>@pxref</code> spares you
+the need to use complicated methods to put a terminator into one form
+of the output and not the other.
+
+<p class="noindent">With one argument, a parenthetical cross reference looks like
+this:
+
+  <p><a name="index-Flooding-380"></a>
+<pre class="example">     ... storms cause flooding (@pxref{Hurricanes}) ...
+</pre>
+  <p class="noindent">which produces
+
+<pre class="example">     ... storms cause flooding (*Note Hurricanes::) ...
+</pre>
+  <p class="noindent">and
+
+  <blockquote>
+<small class="dots">...</small> storms cause flooding (see Section 6.7 [Hurricanes], page 72) <small class="dots">...</small>
+</blockquote>
+
+  <p>With two arguments, a parenthetical cross reference has this
+template:
+
+<pre class="example">     ... (@pxref{<var>node-name</var>, <var>cross-reference-name</var>}) ...
+</pre>
+  <p class="noindent">which produces
+
+<pre class="example">     ... (*Note <var>cross-reference-name</var>: <var>node-name</var>.) ...
+</pre>
+  <p class="noindent">and
+
+  <blockquote>
+<small class="dots">...</small> (see Section <var>nnn</var> [<var>node-name</var>], page <var>ppp</var>) <small class="dots">...</small>
+</blockquote>
+
+  <p><code>@pxref</code> can be used with up to five arguments just like
+<code>@xref</code> (see <a href="xref.html#xref"><code>@xref</code></a>).
+
+  <blockquote>
+<b>Caution:</b> Use <code>@pxref</code> only as a parenthetical
+reference.  Do not try to use <code>@pxref</code> as a clause in a sentence. 
+It will look bad in either the Info file, the printed output, or
+both. 
+</blockquote>
+
+  <p>Parenthetical cross references look best at the ends of sentences. 
+Although they technically work in the middle of a sentence, that
+location breaks up the flow of reading.
+
+  </body></html>
+

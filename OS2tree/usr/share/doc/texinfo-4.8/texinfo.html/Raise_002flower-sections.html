@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+<title>Raise/lower sections - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Structuring.html#Structuring" title="Structuring">
+<link rel="prev" href="subsubsection.html#subsubsection" title="subsubsection">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Raise%2flower-sections"></a>
+<a name="Raise_002flower-sections"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="subsubsection.html#subsubsection">subsubsection</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Structuring.html#Structuring">Structuring</a>
+<hr>
+</div>
+
+<h3 class="section">5.12 <code>@raisesections</code> and <code>@lowersections</code></h3>
+
+<p><a name="index-raisesections-295"></a><a name="index-lowersections-296"></a><a name="index-Raising-and-lowering-sections-297"></a><a name="index-Lowering-and-raising-sections-298"></a><a name="index-Sections_002c-raising-and-lowering-299"></a>
+The <code>@raisesections</code> and <code>@lowersections</code> commands
+implicitly raise and lower the hierarchical level of following
+chapters, sections and the other sectioning commands.
+
+  <p>That is, the <code>@raisesections</code> command changes sections to
+chapters, subsections to sections, and so on.  Conversely, the
+<code>@lowersections</code> command changes chapters to sections, sections
+to subsections, and so on.  Thus, an <code>@lowersections</code> command
+cancels an <code>@raisesections</code> command, and vice versa.
+
+  <p><a name="index-Include-files_002c-and-section-levels-300"></a>You can use <code>@lowersections</code> to include text written as an outer
+or standalone Texinfo file in another Texinfo file as an inner,
+included file.  Typical usage looks like this:
+
+<pre class="example">     @lowersections
+     @include somefile.texi
+     @raisesections
+</pre>
+  <p class="noindent">(Without the <code>@raisesections</code>, all the subsequent
+sections in the document would be lowered.)
+
+  <p>If the included file being lowered has a <code>@top</code> node, you'll
+need to conditionalize its inclusion with a flag (see <a href="set-value.html#set-value">set value</a>).
+
+  <p>Another difficulty can arise with documents that use the (recommended)
+feature of <samp><span class="command">makeinfo</span></samp> for implicitly determining node
+pointers.  Since <samp><span class="command">makeinfo</span></samp> must assume a hierarchically
+organized document to determine the pointers, you cannot just
+arbitrarily sprinkle <code>@raisesections</code> and <code>@lowersections</code>
+commands in the document.  The final result has to have menus that
+take the raising and lowering into account.  Therefore, as a practical
+matter, you generally only want to raise or lower large chunks,
+usually in external files as shown above.
+
+  <p>Repeated use of the commands continue to raise or lower the
+hierarchical level a step at a time.  An attempt to raise above
+`chapter' reproduces chapter commands; an attempt to lower below
+`subsubsection' reproduces subsubsection commands.  Also, lowered
+subsubsections and raised chapters will not work with
+<samp><span class="command">makeinfo</span></samp>'s feature of implicitly determining node pointers,
+since the menu structure won't be correct.
+
+  <p>Write each <code>@raisesections</code> and <code>@lowersections</code> command
+on a line of its own.
+
+  </body></html>
+

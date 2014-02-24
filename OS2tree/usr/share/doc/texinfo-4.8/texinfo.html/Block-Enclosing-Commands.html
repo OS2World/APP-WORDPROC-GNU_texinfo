@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+<title>Block Enclosing Commands - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Quotations-and-Examples.html#Quotations-and-Examples" title="Quotations and Examples">
+<link rel="next" href="quotation.html#quotation" title="quotation">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Block-Enclosing-Commands"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="quotation.html#quotation">quotation</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Quotations-and-Examples.html#Quotations-and-Examples">Quotations and Examples</a>
+<hr>
+</div>
+
+<h3 class="section">10.1 Block Enclosing Commands</h3>
+
+<p>Here are commands for quotations and examples, explained further in the
+following sections:
+
+     <dl>
+<dt><code>@quotation</code><dd>Indicate text that is quoted. The text is filled, indented (from both
+margins), and printed in a roman font by default.
+
+     <br><dt><code>@example</code><dd>Illustrate code, commands, and the like. The text is printed
+in a fixed-width font, and indented but not filled.
+
+     <br><dt><code>@verbatim</code><dd>Mark a piece of text that is to be printed verbatim; no character
+substitutions are made and all commands are ignored, until the next
+<code>@end verbatim</code>.  The text is printed in a fixed-width font,
+and not indented or filled.  Extra spaces and blank lines are
+significant, and tabs are expanded.
+
+     <br><dt><code>@smallexample</code><dd>Same as <code>@example</code>, except that in TeX this command typesets
+text in a smaller font.
+
+     <br><dt><code>@lisp</code><dd>Like <code>@example</code>, but specifically for illustrating Lisp code. The
+text is printed in a fixed-width font, and indented but not filled.
+
+     <br><dt><code>@smalllisp</code><dd>Is to <code>@lisp</code> as <code>@smallexample</code> is to <code>@example</code>.
+
+     <br><dt><code>@display</code><dd>Display illustrative text.  The text is indented but not filled, and
+no font is selected (so, by default, the font is roman).
+
+     <br><dt><code>@smalldisplay</code><dd>Is to <code>@display</code> as <code>@smallexample</code> is to <code>@example</code>.
+
+     <br><dt><code>@format</code><dd>Like <code>@display</code> (the text is not filled and no font is selected),
+but the text is not indented.
+
+     <br><dt><code>@smallformat</code><dd>Is to <code>@format</code> as <code>@smallexample</code> is to <code>@example</code>. 
+</dl>
+
+  <p>The <code>@exdent</code> command is used within the above constructs to
+undo the indentation of a line.
+
+  <p>The <code>@flushleft</code> and <code>@flushright</code> commands are used to line
+up the left or right margins of unfilled text.
+
+  <p>The <code>@noindent</code> command may be used after one of the above
+constructs to prevent the following text from being indented as a new
+paragraph.
+
+  <p>You can use the <code>@cartouche</code> environment around one of the above
+constructs to highlight the example or quotation by drawing a box with
+rounded corners around it.  See <a href="cartouche.html#cartouche">Drawing Cartouches Around Examples</a>.
+
+  </body></html>
+

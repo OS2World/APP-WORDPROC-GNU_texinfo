@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+<title>Inserting Accents - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Insertions.html#Insertions" title="Insertions">
+<link rel="prev" href="Inserting-Space.html#Inserting-Space" title="Inserting Space">
+<link rel="next" href="Dots-Bullets.html#Dots-Bullets" title="Dots Bullets">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Inserting-Accents"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Dots-Bullets.html#Dots-Bullets">Dots Bullets</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Inserting-Space.html#Inserting-Space">Inserting Space</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Insertions.html#Insertions">Insertions</a>
+<hr>
+</div>
+
+<h3 class="section">14.3 Inserting Accents</h3>
+
+<p><a name="index-Inserting-accents-662"></a><a name="index-Accents_002c-inserting-663"></a><a name="index-Floating-accents_002c-inserting-664"></a>
+Here is a table with the commands Texinfo provides for inserting
+floating accents.  The commands with non-alphabetic names do not take
+braces around their argument (which is taken to be the next character). 
+(Exception: <code>@,</code> <em>does</em> take braces around its argument.) 
+This is so as to make the source as convenient to type and read as
+possible, since accented characters are very common in some languages.
+
+  <p>To get the true accented characters output in Info, and not just the
+ASCII transliterations, you can use the <samp><span class="option">--enable-encoding</span></samp>
+option to <samp><span class="command">makeinfo</span></samp> (see <a href="makeinfo-options.html#makeinfo-options">makeinfo options</a>).
+
+  <p><a name="index-g_t_0022-_0040r_007b_0028umlaut-accent_0029_007d-665"></a><a name="index-Umlaut-accent-666"></a><a name="index-g_t_0027-_0040r_007b_0028umlaut-accent_0029_007d-667"></a><a name="index-Acute-accent-668"></a><a name="index-g_t_003d-_0040r_007b_0028macron-accent_0029_007d-669"></a><a name="index-Macron-accent-670"></a><a name="index-g_t_005e-_0040r_007b_0028circumflex-accent_0029_007d-671"></a><a name="index-Circumflex-accent-672"></a><a name="index-g_t_0060-_0040r_007b_0028grave-accent_0029_007d-673"></a><a name="index-Grave-accent-674"></a><a name="index-g_t_007e-_0040r_007b_0028tilde-accent_0029_007d-675"></a><a name="index-Tilde-accent-676"></a><a name="index-g_t_002c-_0040r_007b_0028cedilla-accent_0029_007d-677"></a><a name="index-Cedilla-accent-678"></a><a name="index-dotaccent-679"></a><a name="index-Dot-accent-680"></a><a name="index-H-_0040r_007b_0028Hungarian-umlaut-accent_0029_007d-681"></a><a name="index-Hungarian-umlaut-accent-682"></a><a name="index-ringaccent-683"></a><a name="index-Ring-accent-684"></a><a name="index-tieaccent-685"></a><a name="index-Tie_002dafter-accent-686"></a><a name="index-u-_0040r_007b_0028breve-accent_0029_007d-687"></a><a name="index-Breve-accent-688"></a><a name="index-ubaraccent-689"></a><a name="index-Underbar-accent-690"></a><a name="index-udotaccent-691"></a><a name="index-Underdot-accent-692"></a><a name="index-v-_0040r_007b_0028check-accent_0029_007d-693"></a><a name="index-Hacek-accent-694"></a><a name="index-Check-accent-695"></a><a name="index-Caron-accent-696"></a>
+  <p><table summary=""><tr align="left"><td valign="top">Command               </td><td valign="top">Output         </td><td valign="top">What
+<br></td></tr><tr align="left"><td valign="top"><tt>@"o</tt>              </td><td valign="top">&ouml;            </td><td valign="top">umlaut accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@'o</tt>              </td><td valign="top">&oacute;            </td><td valign="top">acute accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@,{c}</tt>          </td><td valign="top">&ccedil;          </td><td valign="top">cedilla accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@=o</tt>              </td><td valign="top">o&macr;            </td><td valign="top">macron/overbar accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@^o</tt>              </td><td valign="top">&ocirc;            </td><td valign="top">circumflex accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@`o</tt>              </td><td valign="top">&ograve;            </td><td valign="top">grave accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@~o</tt>              </td><td valign="top">&otilde;            </td><td valign="top">tilde accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@dotaccent{o}</tt>  </td><td valign="top">o.  </td><td valign="top">overdot accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@H{o}</tt>          </td><td valign="top">o''          </td><td valign="top">long Hungarian umlaut
+<br></td></tr><tr align="left"><td valign="top"><tt>@ringaccent{o}</tt> </td><td valign="top">o* </td><td valign="top">ring accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@tieaccent{oo}</tt> </td><td valign="top">oo[ </td><td valign="top">tie-after accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@u{o}</tt>          </td><td valign="top">o(          </td><td valign="top">breve accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@ubaraccent{o}</tt> </td><td valign="top">o_ </td><td valign="top">underbar accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@udotaccent{o}</tt> </td><td valign="top">.o </td><td valign="top">underdot accent
+<br></td></tr><tr align="left"><td valign="top"><tt>@v{o}</tt>          </td><td valign="top">o&lt;          </td><td valign="top">hacek/check/caron accent
+  <br></td></tr></table>
+
+  <p>This table lists the Texinfo commands for inserting other characters
+commonly used in languages other than English.
+
+  <p><a name="index-questiondown-697"></a><a name="index-g_t_0040questiondown_007b_007d-698"></a><a name="index-exclamdown-699"></a><a name="index-g_t_0040exclamdown_007b_007d-700"></a><a name="index-aa-701"></a><a name="index-g_t_0040aa_007b_007d-702"></a><a name="index-AA-703"></a><a name="index-g_t_0040AA_007b_007d-704"></a><a name="index-ae-705"></a><a name="index-g_t_0040ae_007b_007d-706"></a><a name="index-AE-707"></a><a name="index-g_t_0040AE_007b_007d-708"></a><a name="index-dotless-709"></a><a name="index-g_t_0040dotless_007bi_007d-_0028dotless-i_0029-710"></a><a name="index-g_t_0040dotless_007bj_007d-_0028dotless-j_0029-711"></a><a name="index-Dotless-i_002c-j-712"></a><a name="index-l-713"></a><a name="index-g_t_0040l_007b_007d-714"></a><a name="index-L-715"></a><a name="index-g_t_0040L_007b_007d-716"></a><a name="index-o-717"></a><a name="index-g_t_0040o_007b_007d-718"></a><a name="index-O-719"></a><a name="index-g_t_0040O_007b_007d-720"></a><a name="index-oe-721"></a><a name="index-g_t_0040oe_007b_007d-722"></a><a name="index-OE-723"></a><a name="index-g_t_0040OE_007b_007d-724"></a><a name="index-Romance-ordinals-725"></a><a name="index-Ordinals_002c-Romance-726"></a><a name="index-Feminine-ordinal-727"></a><a name="index-ordf-728"></a><a name="index-g_t_0040ordf_007b_007d-729"></a><a name="index-Masculine-ordinal-730"></a><a name="index-ordm-731"></a><a name="index-g_t_0040ordm_007b_007d-732"></a><a name="index-ss-733"></a><a name="index-g_t_0040ss_007b_007d-734"></a><a name="index-Es_002dzet-735"></a><a name="index-Sharp-S-736"></a><a name="index-German-S-737"></a>
+  <p><table summary=""><tr align="left"><td valign="top"><tt>@exclamdown{}</tt>   </td><td valign="top">&iexcl;   </td><td valign="top">upside-down ! 
+<br></td></tr><tr align="left"><td valign="top"><tt>@questiondown{}</tt> </td><td valign="top">&iquest; </td><td valign="top">upside-down ? 
+<br></td></tr><tr align="left"><td valign="top"><tt>@aa{} @AA{}</tt>  </td><td valign="top">&aring; &Aring;     </td><td valign="top">a,A with circle
+<br></td></tr><tr align="left"><td valign="top"><tt>@ae{} @AE{}</tt>  </td><td valign="top">&aelig; &AElig;     </td><td valign="top">ae,AE ligatures
+<br></td></tr><tr align="left"><td valign="top"><tt>@dotless{i}</tt>     </td><td valign="top">i     </td><td valign="top">dotless i
+<br></td></tr><tr align="left"><td valign="top"><tt>@dotless{j}</tt>     </td><td valign="top">j     </td><td valign="top">dotless j
+<br></td></tr><tr align="left"><td valign="top"><tt>@l{} @L{}</tt>    </td><td valign="top">/l /L       </td><td valign="top">suppressed-L,l
+<br></td></tr><tr align="left"><td valign="top"><tt>@o{} @O{}</tt>    </td><td valign="top">&oslash; &Oslash;       </td><td valign="top">O,o with slash
+<br></td></tr><tr align="left"><td valign="top"><tt>@oe{} @OE{}</tt>  </td><td valign="top">&oelig; &OElig;     </td><td valign="top">oe,OE ligatures
+<br></td></tr><tr align="left"><td valign="top"><tt>@ordf{} @ordm{}</tt>  </td><td valign="top">&ordf; &ordm;     </td><td valign="top">Spanish ordinals
+<br></td></tr><tr align="left"><td valign="top"><tt>@ss{}</tt>           </td><td valign="top">&szlig;           </td><td valign="top">es-zet or sharp S
+  <br></td></tr></table>
+
+  </body></html>
+

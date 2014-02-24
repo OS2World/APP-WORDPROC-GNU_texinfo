@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+<title>Tagifying - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Running-Info_002dValidate.html#Running-Info_002dValidate" title="Running Info-Validate">
+<link rel="prev" href="Unsplit.html#Unsplit" title="Unsplit">
+<link rel="next" href="Splitting.html#Splitting" title="Splitting">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Tagifying"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Splitting.html#Splitting">Splitting</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Unsplit.html#Unsplit">Unsplit</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Running-Info_002dValidate.html#Running-Info_002dValidate">Running Info-Validate</a>
+<hr>
+</div>
+
+<h4 class="subsection">F.6.3 Tagifying a File</h4>
+
+<p>After creating an unsplit Info file, you must create a tag table for
+it.  Visit the Info file you wish to tagify and type:
+
+<pre class="example">     M-x Info-tagify
+</pre>
+  <p class="noindent">(Note the upper case `<samp><span class="samp">I</span></samp>' in <code>Info-tagify</code>.)  This creates an
+Info file with a tag table that you can validate.
+
+  <p>The third step is to validate the Info file:
+
+<pre class="example">     M-x Info-validate
+</pre>
+  <p class="noindent">(Note the upper case `<samp><span class="samp">I</span></samp>' in <code>Info-validate</code>.) 
+In brief, the steps are:
+
+<pre class="example">     C-u M-x texinfo-format-buffer
+     M-x Info-tagify
+     M-x Info-validate
+</pre>
+  <p>After you have validated the node structure, you can rerun
+<code>texinfo-format-buffer</code> in the normal way so it will construct a
+tag table and split the file automatically, or you can make the tag
+table and split the file manually.
+
+  </body></html>
+

@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+<title>pagesizes - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Hardcopy.html#Hardcopy" title="Hardcopy">
+<link rel="prev" href="A4-Paper.html#A4-Paper" title="A4 Paper">
+<link rel="next" href="Cropmarks-and-Magnification.html#Cropmarks-and-Magnification" title="Cropmarks and Magnification">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="pagesizes"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Cropmarks-and-Magnification.html#Cropmarks-and-Magnification">Cropmarks and Magnification</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="A4-Paper.html#A4-Paper">A4 Paper</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Hardcopy.html#Hardcopy">Hardcopy</a>
+<hr>
+</div>
+
+<h3 class="section">20.13 <code>@pagesizes</code> [<var>width</var>][, <var>height</var>]: Custom Page Sizes</h3>
+
+<p><a name="index-pagesizes-1060"></a><a name="index-Custom-page-sizes-1061"></a><a name="index-Page-sizes_002c-customized-1062"></a><a name="index-Text-width-and-height-1063"></a><a name="index-Width-of-text-area-1064"></a><a name="index-Height-of-text-area-1065"></a><a name="index-Depth-of-text-area-1066"></a>
+You can explicitly specify the height and (optionally) width of the main
+text area on the page with the <code>@pagesizes</code> command.  Write this
+on a line by itself near the beginning of the Texinfo file, before the
+title page.  The height comes first, then the width if desired,
+separated by a comma.  Examples:
+
+<pre class="example">     @pagesizes 200mm,150mm  <!-- for b5 paper -->
+</pre>
+  <p class="noindent">and
+<pre class="example">     @pagesizes 11.5in      <!-- for legal paper -->
+</pre>
+  <p><a name="index-B5-paper_002c-printing-on-1067"></a><a name="index-Legal-paper_002c-printing-on-1068"></a>This would be reasonable for printing on B5-size paper.  To emphasize,
+this command specifies the size of the <em>text area</em>, not the size of
+the paper (which is 250<span class="dmn">mm</span> by 177<span class="dmn">mm</span> for B5, 14<span class="dmn">in</span> by
+8.5<span class="dmn">in</span> for legal).
+
+  <p><a name="index-Margins-on-page_002c-not-controllable-1069"></a>To make more elaborate changes, such as changing any of the page
+margins, you must define a new command in <samp><span class="file">texinfo.tex</span></samp> (or
+<samp><span class="file">texinfo.cnf</span></samp>, see <a href="Preparing-for-TeX.html#Preparing-for-TeX">Preparing for TeX</a>).
+
+  <p>See <a href="Format-with-texi2dvi.html#Format-with-texi2dvi">Format with texi2dvi</a>, and <a href="Preparing-for-TeX.html#Preparing-for-TeX">Preparing for TeX</a>, for other ways to specify <code>@pagesizes</code> that do not
+require changing the source file.
+
+  <p><code>@pagesizes</code> is ignored by <code>makeinfo</code>.
+
+  </body></html>
+

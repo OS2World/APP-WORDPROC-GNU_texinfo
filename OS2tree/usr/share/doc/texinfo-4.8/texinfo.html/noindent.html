@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+<title>noindent - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Quotations-and-Examples.html#Quotations-and-Examples" title="Quotations and Examples">
+<link rel="prev" href="flushleft-_0026-flushright.html#flushleft-_0026-flushright" title="flushleft & flushright">
+<link rel="next" href="indent.html#indent" title="indent">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="noindent"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="indent.html#indent">indent</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="flushleft-_0026-flushright.html#flushleft-_0026-flushright">flushleft &amp; flushright</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Quotations-and-Examples.html#Quotations-and-Examples">Quotations and Examples</a>
+<hr>
+</div>
+
+<h3 class="section">10.12 <code>@noindent</code>: Omitting Indentation</h3>
+
+<p><a name="index-Omitting-indentation-500"></a><a name="index-Suppressing-indentation-501"></a><a name="index-Indentation_002c-omitting-502"></a><a name="index-noindent-503"></a>
+An example or other inclusion can break a paragraph into segments. 
+Ordinarily, the formatters indent text that follows an example as a new
+paragraph.  You can prevent this on a case-by-case basis by writing
+<code>@noindent</code> at the beginning of a line, preceding the continuation
+text.  You can also disable indentation for all paragraphs globally with
+<code>@paragraphindent</code> (see <a href="paragraphindent.html#paragraphindent">Paragraph Indenting</a>).
+
+  <p>It is best to write <code>@noindent</code> on a line by itself, since in most
+environments, spaces following the command will not be ignored.  It's ok
+to use it at the beginning of a line, with text following, outside of
+any environment.
+
+  <p>For example:
+
+<pre class="example">     @example
+     This is an example
+     @end example
+     
+     @noindent
+     This line is not indented.  As you can see, the
+     beginning of the line is fully flush left with the line
+     that follows after it.  (This whole example is between
+     @code{@@display} and @code{@@end display}.)
+</pre>
+  <p class="noindent">produces:
+
+<pre class="display">
+     <pre class="example">          This is an example
+     </pre>
+     
+     <p class="noindent">This line is not indented.  As you can see, the
+     beginning of the line is fully flush left with the line
+     that follows after it.  (This whole example is between
+     <code>@display</code> and <code>@end display</code>.)
+     
+</pre>
+  <p>To adjust the number of blank lines properly in the Info file output,
+remember that the line containing <code>@noindent</code> does not generate a
+blank line, and neither does the <code>@end example</code> line.
+
+  <p>In the Texinfo source file for this manual, each line that says
+`produces' is preceded by <code>@noindent</code>.
+
+  <p>Do not put braces after an <code>@noindent</code> command; they are not
+necessary, since <code>@noindent</code> is a command used outside of
+paragraphs (see <a href="Command-Syntax.html#Command-Syntax">Command Syntax</a>).
+
+  </body></html>
+

@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+<title>titlefont center sp - GNU Texinfo 4.8</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="GNU Texinfo 4.8">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Titlepage-_0026-Copyright-Page.html#Titlepage-_0026-Copyright-Page" title="Titlepage & Copyright Page">
+<link rel="prev" href="titlepage.html#titlepage" title="titlepage">
+<link rel="next" href="title-subtitle-author.html#title-subtitle-author" title="title subtitle author">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for GNU Texinfo (version 4.8, 29 December 2004),
+a documentation system that can produce both online information and a
+printed manual from a single source.
+
+Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.1 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+  -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="titlefont-center-sp"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="title-subtitle-author.html#title-subtitle-author">title subtitle author</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="titlepage.html#titlepage">titlepage</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Titlepage-_0026-Copyright-Page.html#Titlepage-_0026-Copyright-Page">Titlepage &amp; Copyright Page</a>
+<hr>
+</div>
+
+<h4 class="subsection">3.4.2 <code>@titlefont</code>, <code>@center</code>, and <code>@sp</code></h4>
+
+<p><a name="index-titlefont-200"></a><a name="index-center-201"></a><a name="index-sp-_0040r_007b_0028titlepage-line-spacing_0029_007d-202"></a>
+You can use the <code>@titlefont</code>, <code>@sp</code>, and <code>@center</code>
+commands to create a title page for a printed document.  (This is the
+first of the two methods for creating a title page in Texinfo.)
+
+  <p>Use the <code>@titlefont</code> command to select a large font suitable for
+the title itself.  You can use <code>@titlefont</code> more than once if you
+have an especially long title.
+
+  <p>For HTML output, each <code>@titlefont</code> command produces an
+<code>&lt;h1&gt;</code> heading, but the HTML document <code>&lt;title&gt;</code> is not
+affected.  For that, you must put an <code>@settitle</code> command before
+the <code>@titlefont</code> command (see <a href="settitle.html#settitle">settitle</a>).
+
+  <p>For example:
+
+<pre class="example">     @titlefont{Texinfo}
+</pre>
+  <p>Use the <code>@center</code> command at the beginning of a line to center
+the remaining text on that line.  Thus,
+
+<pre class="example">     @center @titlefont{Texinfo}
+</pre>
+  <p class="noindent">centers the title, which in this example is &ldquo;Texinfo&rdquo; printed
+in the title font.
+
+  <p>Use the <code>@sp</code> command to insert vertical space.  For example:
+
+<pre class="example">     @sp 2
+</pre>
+  <p class="noindent">This inserts two blank lines on the printed page.  (See <a href="sp.html#sp"><code>@sp</code></a>, for more information about the <code>@sp</code>
+command.)
+
+  <p>A template for this method looks like this:
+
+<pre class="example">     @titlepage
+     @sp 10
+     @center @titlefont{<var>name-of-manual-when-printed</var>}
+     @sp 2
+     @center <var>subtitle-if-any</var>
+     @sp 2
+     @center <var>author</var>
+     ...
+     @end titlepage
+</pre>
+  <p>The spacing of the example fits an 8.5 by 11 inch manual.
+
+  <p>You can in fact use these commands anywhere, not just on a title page,
+but since they are not logical markup commands, we don't recommend
+them.
+
+  </body></html>
+
